@@ -20,7 +20,7 @@ protocol ImageDelegate {
     
 }
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, DAORequester {
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, DAORequester {
   
     @IBOutlet weak var overview: UILabel!
     @IBOutlet weak var movieTitle: UILabel!
@@ -43,7 +43,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionView.reloadData()
         
     }
-    
+  
     func updated() {
         
         collectionView.reloadData()
@@ -56,6 +56,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as! MoviesCollectionViewCell
+        
         
         if let data = dao.movieList[indexPath.row].imageData {
         
@@ -70,16 +71,36 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         
         dao.loadMovie(movie: dao.movieList[indexPath.row], to: self)
+        
         overview.text = dao.movie?.overview
         movieTitle.text = dao.movie?.title
      
-        cell.movieTitle.text = dao.movieList[indexPath.row].title
+        //cell.movieTitle.text = dao.movieList[indexPath.row].title
      
         return cell
     }
+ 
     
+    //Centralized Collection View Cell
     
-    
+    var itemCellSize : CGSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+    var itemCellsGap: CGFloat = 0
 
+     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let pageWidth = (itemCellSize.width + itemCellsGap)
+        let itemIndex = (targetContentOffset.pointee.x) / pageWidth
+        targetContentOffset.pointee.x = round(itemIndex) * pageWidth - (itemCellsGap / 2)
+    }
+
+    // CollectionViewFlowLayoutDelegate
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return itemCellSize
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return itemCellsGap
+    }
+ 
 }
 

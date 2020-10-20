@@ -51,7 +51,7 @@ class MovieListState {
             
                 for movie in movies {
                 
-                guard let url = movie.posterURL else { return }
+                    guard let url = movie.posterURL else { return }
                 
                  movie.imageData = try? Data(contentsOf: url)
            

@@ -61,7 +61,7 @@ class Movie: Decodable, Identifiable, Hashable {
         return formatter
     }()
     
-    var backdropURL: URL {
+    var backdropURL: URL? {
         return URL(string: "https://image.tmdb.org/t/p/w500\(backdropPath ?? "")")!
     }
     

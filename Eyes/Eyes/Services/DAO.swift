@@ -58,9 +58,13 @@ class DAO: MovieDelegate {
       
         movieDetailState.loadMovie(id: movie.id) { movie in
   
+            //self.movie = nil
+            
             self.movie = movie
             
             caller?.updated()
+            
+           
    
         }
             
