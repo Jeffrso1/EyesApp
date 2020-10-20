@@ -17,7 +17,7 @@ struct MovieResponse: Decodable {
     Handles all the data originated from the JSON's API response. This Swift file has all data needed for "Movies". Use another file to add TV Shows.
 */
 
-struct Movie: Decodable, Identifiable, Hashable {
+class Movie: Decodable, Identifiable, Hashable {
     
     static func == (lhs: Movie, rhs: Movie) -> Bool {
         lhs.id == rhs.id
@@ -36,6 +36,9 @@ struct Movie: Decodable, Identifiable, Hashable {
     let voteCount: Int
     let runtime: Int?
     let releaseDate: String?
+    
+    var imageData: Data?
+    
     
     let genres: [MovieGenre]?
     let credits: MovieCredit?
@@ -62,7 +65,7 @@ struct Movie: Decodable, Identifiable, Hashable {
         return URL(string: "https://image.tmdb.org/t/p/w500\(backdropPath ?? "")")!
     }
     
-    var posterURL: URL {
+    var posterURL: URL? {
         return URL(string: "https://image.tmdb.org/t/p/w500\(posterPath ?? "")")!
     }
     

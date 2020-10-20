@@ -11,10 +11,14 @@ import UIKit
 
 private let _imageCache = NSCache<AnyObject, AnyObject>()
 
-class ImageLoader: ObservableObject {
+public class ImageLoader {
     
-    @Published var image: UIImage?
-    @Published var isLoading = false
+    
+    
+    //@Published
+    var image: UIImage?
+    //@Published
+    var isLoading = false
     
     var imageCache = _imageCache
 
@@ -42,6 +46,7 @@ class ImageLoader: ObservableObject {
                 self.imageCache.setObject(image, forKey: urlString as AnyObject)
                 DispatchQueue.main.async { [weak self] in
                     self?.image = image
+                    //self?.delegate?.imageLoader(image: image)
                 }
             } catch {
                 print(error.localizedDescription)

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF907E1D253F1F0800124BB5 /* MoviesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF907E1C253F1F0800124BB5 /* MoviesCollectionViewCell.swift */; };
+		CF907E22253F308100124BB5 /* DAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF907E21253F308100124BB5 /* DAO.swift */; };
 		CFFE896D253E27F6002BD1BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE896C253E27F6002BD1BA /* AppDelegate.swift */; };
 		CFFE896F253E27F6002BD1BA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE896E253E27F6002BD1BA /* SceneDelegate.swift */; };
 		CFFE8971253E27F6002BD1BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFFE8970253E27F6002BD1BA /* ViewController.swift */; };
@@ -47,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CF907E1C253F1F0800124BB5 /* MoviesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesCollectionViewCell.swift; sourceTree = "<group>"; };
+		CF907E21253F308100124BB5 /* DAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAO.swift; sourceTree = "<group>"; };
 		CFFE8969253E27F6002BD1BA /* Eyes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eyes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFFE896C253E27F6002BD1BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CFFE896E253E27F6002BD1BA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +136,7 @@
 				CFFE89C4253E2846002BD1BA /* Services */,
 				CFFE8972253E27F6002BD1BA /* Main.storyboard */,
 				CFFE8970253E27F6002BD1BA /* ViewController.swift */,
+				CF907E1C253F1F0800124BB5 /* MoviesCollectionViewCell.swift */,
 				CFFE8975253E27F9002BD1BA /* Assets.xcassets */,
 				CFFE8977253E27F9002BD1BA /* LaunchScreen.storyboard */,
 				CFFE897A253E27F9002BD1BA /* Info.plist */,
@@ -173,6 +178,7 @@
 			children = (
 				CFFE89B9253E2829002BD1BA /* MovieService.swift */,
 				CFFE89BB253E2829002BD1BA /* MovieStore.swift */,
+				CF907E21253F308100124BB5 /* DAO.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -329,7 +335,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF907E22253F308100124BB5 /* DAO.swift in Sources */,
 				CFFE89A6253E2815002BD1BA /* ImageLoader.swift in Sources */,
+				CF907E1D253F1F0800124BB5 /* MoviesCollectionViewCell.swift in Sources */,
 				CFFE89A5253E2815002BD1BA /* MovieSearchState.swift in Sources */,
 				CFFE89BC253E2829002BD1BA /* Movie.swift in Sources */,
 				CFFE8971253E27F6002BD1BA /* ViewController.swift in Sources */,

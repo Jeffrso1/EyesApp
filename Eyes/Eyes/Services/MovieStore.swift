@@ -18,6 +18,8 @@ class MovieStore: MovieService {
     private let urlSession = URLSession.shared
     private let jsonDecoder = Utils.jsonDecoder
     
+    var delegate : MovieService?
+    
     /*
     Use this function to get a list of movies based on an endpoint. Using the wrong endpoint will end up on an error! Make sure to handle it properly.
     */

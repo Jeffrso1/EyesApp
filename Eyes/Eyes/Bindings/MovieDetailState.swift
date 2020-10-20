@@ -11,6 +11,8 @@ import Foundation
 
 public class MovieDetailState {
     
+    
+    
     private let movieService: MovieService
     //@Published
     var movie: Movie?
@@ -27,7 +29,7 @@ public class MovieDetailState {
      Load a single movie using its unique identifier
     */
  
-    func loadMovie(id: Int) {
+    func loadMovie(id: Int, completion: @escaping (Movie?) -> ()) {
         self.movie = nil
         self.isLoading = false
         self.movieService.fetchMovie(id: id) {[weak self] (result) in
@@ -37,8 +39,11 @@ public class MovieDetailState {
             switch result {
             case .success(let movie):
                 self.movie = movie
+                completion(movie)
+                //self.delegate?.passMovie(movie: movie, to:)
             case .failure(let error):
                 self.error = error as NSError
+                completion(nil)
             }
         }
     }

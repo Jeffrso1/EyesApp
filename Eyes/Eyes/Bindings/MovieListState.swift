@@ -6,13 +6,20 @@
 //  Copyright © 2020 Alfian Losari. All rights reserved.
 //
 
-import SwiftUI
+//import SwiftUI
 
-class MovieListState: ObservableObject {
+import Foundation
+
+class MovieListState {
     
-    @Published var movies: [Movie]?
-    @Published var isLoading: Bool = false
-    @Published var error: NSError?
+    var delegate: MovieDelegate?
+    
+    //@Published
+    var movies: [Movie]?
+    //@Published
+    var isLoading: Bool = false
+    //@Published
+    var error: NSError?
 
     private let movieService: MovieService
     
@@ -20,7 +27,7 @@ class MovieListState: ObservableObject {
         self.movieService = movieService
     }
     
-    func loadMovies(with endpoint: MovieListEndpoint) {
+    func loadMovies(with endpoint: MovieListEndpoint, completion: @escaping ([Movie]) -> ()) {
         self.movies = nil
         self.isLoading = true
         self.movieService.fetchTrendingMovies(from: endpoint) { [weak self] (result) in
@@ -29,11 +36,33 @@ class MovieListState: ObservableObject {
             switch result {
             case .success(let response):
                 self.movies = response.results
-                
+                self.loadImages(to: response.results)
+                completion(response.results)
+                //self.delegate?.fetchMovies(movies: response.results)
             case .failure(let error):
                 self.error = error as NSError
             }
         }
+    }
+    
+    func loadImages(to movies: [Movie]) {
+       
+            DispatchQueue.global().async {
+            
+                for movie in movies {
+                
+                guard let url = movie.posterURL else { return }
+                
+                 movie.imageData = try? Data(contentsOf: url)
+           
+                }
+                
+                DispatchQueue.main.async {
+                    self.delegate?.imageUpdated()
+                }
+               
+        }
+        
     }
     
 }
