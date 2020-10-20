@@ -18,10 +18,14 @@ protocol DAORequester {
 
 class DAO: MovieDelegate {
  
-    
     let movieListState = MovieListState()
-    let movieDetail = MovieDetailState()
+    let movieDetailState = MovieDetailState()
     
+    var movie: Movie?
+    
+    var movieDetails : Movie? {
+        return movieDetailState.movie
+    }
     var movies : [Int : Movie] = [:]
     var movieList : [Movie] {
         return movieListState.movies ?? []
@@ -38,28 +42,58 @@ class DAO: MovieDelegate {
             for movie in movies {
                 
                 self.movies[movie.id] = movie
-             
+            
             }
+            
             
             caller?.updated()
         }
       
+        
+        
     }
+    
+    
+    func loadMovie(movie: Movie, to caller: DAORequester?) {
+      
+        movieDetailState.loadMovie(id: movie.id) { movie in
+  
+            self.movie = movie
+            
+            caller?.updated()
+   
+        }
+            
+            
+    }
+
+    func passMovie(movie: Movie) {
+        
+    }
+    
+    /*
     
     func passMovie(movie: Movie) {
         
         movieDetail.loadMovie(id: movie.id) { movie in
             
-            if let movie = movie {
-                
-            }
+//            if let self.movie = movie {
+//
+//            } else {
+//
+//            }
+            
+            self.movie = movie
             
         }
+        
         
        //movieDetail.loadMovie(id: , to: self)
         
     }
     
+     */
+ 
     func fetchMovies(movies: [Movie]) {
         
     }

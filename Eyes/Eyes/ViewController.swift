@@ -22,6 +22,8 @@ protocol ImageDelegate {
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, DAORequester {
   
+    @IBOutlet weak var overview: UILabel!
+    @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
 
     override func viewDidLoad() {
@@ -32,15 +34,18 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionView.dataSource = self
     
         dao.loadMovies(to: self)
+       
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        
+     
         collectionView.reloadData()
+        
     }
     
     func updated() {
+        
         collectionView.reloadData()
     }
     
@@ -60,10 +65,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         } else {
          
             cell.imageView.image = UIImage(named: "wait")
-            
-            
+      
         }
         
+        
+        dao.loadMovie(movie: dao.movieList[indexPath.row], to: self)
+        overview.text = dao.movie?.overview
+        movieTitle.text = dao.movie?.title
+     
         cell.movieTitle.text = dao.movieList[indexPath.row].title
      
         return cell

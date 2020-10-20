@@ -11,8 +11,6 @@ import Foundation
 
 public class MovieDetailState {
     
-    
-    
     private let movieService: MovieService
     //@Published
     var movie: Movie?
