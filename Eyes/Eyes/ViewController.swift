@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CloudKitMagicCRUD
 
 protocol MovieDelegate {
     
@@ -29,27 +30,21 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
     
     @IBAction func moreDetailsButton(_ sender: Any) {
-        
         self.performSegue(withIdentifier: "movieDetail", sender: self)
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-     
         collectionView.delegate = self
         collectionView.dataSource = self
-    
         dao.loadMovies(to: self)
        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-     
         //collectionView.reloadData()
-        
     }
   
     func updated() {
@@ -95,10 +90,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             let vc = segue.destination as! MovieDetailsViewController
             if let cell = sender as? MoviesCollectionViewCell {
             let indexPath = self.collectionView.indexPath(for: cell)
-            //let cell = sender as! UICollectionViewCell
-            //sourceCell = cell
-           // vc.picture = cell.imageView.image
             vc.movieID = dao.movieList[indexPath!.row]
+           // vc.imageID = cell.imageView.image
                 
             print("button pressed")
                 
@@ -106,9 +99,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     }
  
-    
     //Centralized Collection View Cell
-    
     var itemCellSize : CGSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
     var itemCellsGap: CGFloat = 0
 
@@ -127,6 +118,4 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return itemCellsGap
     }
- 
 }
-

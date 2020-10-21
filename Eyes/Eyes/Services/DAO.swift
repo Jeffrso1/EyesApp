@@ -15,10 +15,14 @@ protocol DAORequester {
     
 }
 
-class DAO: MovieDelegate {
+
+
+class DAO: MovieDelegate {    
     
     let movieListState = MovieListState()
     let movieDetailState = MovieDetailState()
+    
+    var tags: [Tag] = []
     
     var movie: Movie?
     
@@ -35,6 +39,17 @@ class DAO: MovieDelegate {
     }
     
     fileprivate init() {
+        
+        Tag.ckLoadAll(then: {result in
+            
+            switch result {
+            case .success(let result):
+                self.tags = result as! [Tag]
+            case .failure(let error):
+                print(error)
+            }
+            
+        })
         
     }
     

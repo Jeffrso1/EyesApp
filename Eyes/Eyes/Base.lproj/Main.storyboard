@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EjN-Q6-XVA">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="413"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="416"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UN6-3z-4dt">
                                     <size key="itemSize" width="414" height="355"/>
@@ -30,7 +30,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="ZQg-Pa-omx" customClass="MoviesCollectionViewCell" customModule="Eyes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="29" width="414" height="355"/>
+                                        <rect key="frame" x="0.0" y="30.666666666666668" width="414" height="355"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Yf4-51-sSo">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="355"/>
@@ -89,7 +89,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="NpN-XW-E8N" firstAttribute="top" secondItem="EjN-Q6-XVA" secondAttribute="bottom" constant="3" id="0aZ-HU-rNR"/>
+                            <constraint firstItem="NpN-XW-E8N" firstAttribute="top" secondItem="EjN-Q6-XVA" secondAttribute="bottom" id="0aZ-HU-rNR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Er5-7g-uPg" secondAttribute="trailing" constant="29" id="6HE-oB-Ym8"/>
                             <constraint firstItem="EjN-Q6-XVA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LOp-Qu-wPQ"/>
                             <constraint firstItem="nfl-Cg-JnE" firstAttribute="top" secondItem="Er5-7g-uPg" secondAttribute="bottom" constant="182" id="Ljr-zC-tiG"/>
@@ -122,8 +122,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="teN-IW-HSk">
-                                <rect key="frame" x="40" y="65" width="335" height="41"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="teN-IW-HSk">
+                                <rect key="frame" x="40" y="65" width="169" height="115"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <nil key="textColor"/>
