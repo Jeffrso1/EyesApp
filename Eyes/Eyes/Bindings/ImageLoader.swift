@@ -46,7 +46,6 @@ public class ImageLoader {
                 self.imageCache.setObject(image, forKey: urlString as AnyObject)
                 DispatchQueue.main.async { [weak self] in
                     self?.image = image
-                    //self?.delegate?.imageLoader(image: image)
                 }
             } catch {
                 print(error.localizedDescription)

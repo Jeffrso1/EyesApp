@@ -11,6 +11,8 @@ import Foundation
 
 public class MovieDetailState {
     
+    var delegate: MovieDelegate?
+    
     private let movieService: MovieService
     //@Published
     var movie: Movie?
@@ -32,11 +34,11 @@ public class MovieDetailState {
         self.isLoading = false
         self.movieService.fetchMovie(id: id) {[weak self] (result) in
             guard let self = self else { return }
-            
             self.isLoading = false
             switch result {
             case .success(let movie):
                 self.movie = movie
+                self.loadImage(to: movie)
                 completion(movie)
                 //self.delegate?.passMovie(movie: movie, to:)
             case .failure(let error):
@@ -45,4 +47,23 @@ public class MovieDetailState {
             }
         }
     }
+    
+    func loadImage(to movie: Movie) {
+       
+            DispatchQueue.global().async {
+            
+                guard let url = movie.posterURL else { return }
+                
+                 movie.imageData = try? Data(contentsOf: url)
+           
+                DispatchQueue.main.async {
+                    self.delegate?.imageUpdated()
+                }
+               
+        }
+        
+    }
+    
+    
+    
 }

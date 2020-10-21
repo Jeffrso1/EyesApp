@@ -13,7 +13,6 @@ import Foundation
 class MovieListState {
     
     var delegate: MovieDelegate?
-    
     //@Published
     var movies: [Movie]?
     //@Published

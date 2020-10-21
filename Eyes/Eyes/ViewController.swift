@@ -22,10 +22,18 @@ protocol ImageDelegate {
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, DAORequester {
   
+    
     @IBOutlet weak var overview: UILabel!
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
 
+    
+    @IBAction func moreDetailsButton(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "movieDetail", sender: self)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -40,7 +48,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
      
-        collectionView.reloadData()
+        //collectionView.reloadData()
         
     }
   
@@ -78,6 +86,24 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         //cell.movieTitle.text = dao.movieList[indexPath.row].title
      
         return cell
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       
+        if segue.identifier == "movieDetail" {
+            let vc = segue.destination as! MovieDetailsViewController
+            if let cell = sender as? MoviesCollectionViewCell {
+            let indexPath = self.collectionView.indexPath(for: cell)
+            //let cell = sender as! UICollectionViewCell
+            //sourceCell = cell
+           // vc.picture = cell.imageView.image
+            vc.movieID = dao.movieList[indexPath!.row]
+                
+            print("button pressed")
+                
+            }
+        }
     }
  
     
