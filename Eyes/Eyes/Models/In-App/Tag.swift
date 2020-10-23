@@ -21,22 +21,4 @@ class Tag: CKMRecord {
     
 }
 
-class MyMovie: CKMRecord {
-    
-    var recordName: String?
-    var movieID: Int? {
-        get {
-            return Int(recordName ?? "")
-        } set {
-            recordName = String(newValue ?? 0)
-        }
-    }
-   
-    var tags: [Tag]?
-    
-    init(movieID: Int, tags: Tag...) {
-        self.movieID = movieID
-        self.tags = tags
-    }
-    
-}
+

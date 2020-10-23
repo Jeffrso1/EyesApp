@@ -39,7 +39,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionView.delegate = self
         collectionView.dataSource = self
         dao.loadMovies(to: self)
-       
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -48,7 +48,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
   
     func updated() {
-        
         collectionView.reloadData()
     }
     
@@ -91,7 +90,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             if let cell = sender as? MoviesCollectionViewCell {
             let indexPath = self.collectionView.indexPath(for: cell)
             vc.movieID = dao.movieList[indexPath!.row]
-           // vc.imageID = cell.imageView.image
                 
             print("button pressed")
                 

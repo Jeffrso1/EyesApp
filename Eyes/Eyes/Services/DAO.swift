@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CloudKitMagicCRUD
 
 let dao = DAO()
 
@@ -15,15 +16,11 @@ protocol DAORequester {
     
 }
 
-
-
 class DAO: MovieDelegate {    
     
     let movieListState = MovieListState()
     let movieDetailState = MovieDetailState()
-    
-    var tags: [Tag] = []
-    
+ 
     var movie: Movie?
     
     var moviesLocalized : [Int : Movie] = [:]
@@ -39,18 +36,7 @@ class DAO: MovieDelegate {
     }
     
     fileprivate init() {
-        
-        Tag.ckLoadAll(then: {result in
-            
-            switch result {
-            case .success(let result):
-                self.tags = result as! [Tag]
-            case .failure(let error):
-                print(error)
-            }
-            
-        })
-        
+
     }
     
     func loadMovies(to caller: DAORequester?) {
@@ -80,6 +66,95 @@ class DAO: MovieDelegate {
         }
         
     }
+    
+    func loadTag(with string: String) -> Tag? {
+        
+        var tag: Tag?
+        
+        Tag.ckLoad(with: string, then: {result in
+            switch result {
+            case .success(let result):
+                tag = result as? Tag
+                CKMDefault.semaphore.signal()
+            case .failure(let error):
+                print(error)
+                CKMDefault.semaphore.signal()
+            }
+            
+        })
+
+        CKMDefault.semaphore.wait()
+        return tag
+    }
+    
+    func loadTags() -> [Tag] {
+        
+        var tags: [Tag] = []
+      
+        
+        Tag.ckLoadAll(then: {result in
+            
+            switch result {
+            case .success(let result):
+                tags = result as! [Tag]
+                CKMDefault.semaphore.signal()
+            case .failure(let error):
+                print(error)
+                CKMDefault.semaphore.signal()
+            }
+    
+        })
+
+       CKMDefault.semaphore.wait()
+       print("Final Tags: \(tags)")
+       return tags
+
+    }
+    
+    func loadMovieCK(with movieID: String) -> MyMovie? {
+        
+        var movie : MyMovie?
+        
+        MyMovie.ckLoad(with: movieID, then: {result in
+            
+            switch result {
+            case .success(let result):
+                movie = result as? MyMovie
+                CKMDefault.semaphore.signal()
+            case .failure(let error):
+                print(error)
+                CKMDefault.semaphore.signal()
+            }
+            
+        })
+        
+        CKMDefault.semaphore.wait()
+        return movie
+        
+    }
+    
+    func loadMoviesCK() -> [MyMovie] {
+        
+        var movies : [MyMovie] = []
+        
+        MyMovie.ckLoadAll(then: {result in
+            
+            switch result {
+            case .success(let result):
+                movies = result as! [MyMovie]
+                CKMDefault.semaphore.signal()
+            case .failure(let error):
+                print(error)
+                CKMDefault.semaphore.signal()
+            }
+            
+        })
+        
+        CKMDefault.semaphore.wait()
+        return movies
+    }
+    
+    
     
     func passMovie(movie: Movie) {
         

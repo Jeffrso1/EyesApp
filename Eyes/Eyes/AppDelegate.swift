@@ -20,7 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         //If needed you can also start the notification Manager here
 
-        CKMDefault.notificationManager.start()
+        //CKMDefault.notificationManager
+        
+        CKMDefault.notificationManager.resgisterInNotificationCenter()
         
         return true
     }
