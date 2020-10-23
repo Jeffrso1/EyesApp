@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yZm-ha-IAp">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -113,6 +113,84 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-155.07246376811597" y="67.633928571428569"/>
+        </scene>
+        <!--Catalogue View Controller-->
+        <scene sceneID="qUm-gr-pwA">
+            <objects>
+                <viewController id="yZm-ha-IAp" customClass="CatalogueViewController" customModule="Eyes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="249-WE-Kur">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ek-X2-iQa">
+                                <rect key="frame" x="0.0" y="44" width="414" height="680"/>
+                                <connections>
+                                    <segue destination="h9f-WY-qQ8" kind="embed" id="W7d-4J-eme"/>
+                                </connections>
+                            </containerView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="Rtt-Qx-dGh">
+                                <rect key="frame" x="20" y="744" width="374" height="118"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pFo-6r-Cp9">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="8Eg-Ke-GbR"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <state key="normal" title="Review Movie">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="moreDetailsButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="18t-Y1-5cO"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qgc-Xe-NGA">
+                                        <rect key="frame" x="0.0" y="68" width="374" height="50"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="z5g-2X-2iB"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <state key="normal" title="More Details">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="moreDetailsButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KFQ-Yc-gCY"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="m1S-eB-GjA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Rtt-Qx-dGh" firstAttribute="top" secondItem="3ek-X2-iQa" secondAttribute="bottom" constant="20" id="6g2-vA-ReP"/>
+                            <constraint firstItem="m1S-eB-GjA" firstAttribute="trailing" secondItem="Rtt-Qx-dGh" secondAttribute="trailing" constant="20" id="IGI-Nl-KdW"/>
+                            <constraint firstItem="3ek-X2-iQa" firstAttribute="trailing" secondItem="m1S-eB-GjA" secondAttribute="trailing" id="JJC-El-BdX"/>
+                            <constraint firstItem="3ek-X2-iQa" firstAttribute="leading" secondItem="m1S-eB-GjA" secondAttribute="leading" id="TrZ-nZ-bKl"/>
+                            <constraint firstItem="Rtt-Qx-dGh" firstAttribute="leading" secondItem="m1S-eB-GjA" secondAttribute="leading" constant="20" id="Vac-7D-AvI"/>
+                            <constraint firstItem="3ek-X2-iQa" firstAttribute="top" secondItem="m1S-eB-GjA" secondAttribute="top" id="dB8-vb-M0Q"/>
+                            <constraint firstItem="Rtt-Qx-dGh" firstAttribute="bottom" secondItem="m1S-eB-GjA" secondAttribute="bottom" id="wW5-Mv-fwO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="detailsButton" destination="Qgc-Xe-NGA" id="zlJ-1Q-0lm"/>
+                        <outlet property="reviewButton" destination="pFo-6r-Cp9" id="4br-ED-5KZ"/>
+                        <outlet property="viewBox" destination="3ek-X2-iQa" id="hwU-iG-ich"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="URB-dy-gQI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-155.07246376811597" y="795.53571428571422"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="GnR-Sd-jPq">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="h9f-WY-qQ8" customClass="PageViewController" customModule="Eyes" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h9B-Tb-Qvb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="722" y="796"/>
         </scene>
         <!--Movie Details View Controller-->
         <scene sceneID="VZo-Qm-jSX">
