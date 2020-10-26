@@ -177,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				CFAE47DE2541FE3700244D74 /* BechdelTestViewController.swift */,
+				CF424FA72546352000C85A37 /* ChooseTagsCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -231,7 +232,6 @@
 				7133678625420A52005919E8 /* PageViewController.swift */,
 				713367712541F2A5005919E8 /* CatalogueViewController.swift */,
 				CF846DAE2543955E00BBC7D3 /* MovieDetailsViewController.swift */,
-				CF424FA72546352000C85A37 /* ChooseTagsCollectionViewCell.swift */,
 				CF846DAD2543955E00BBC7D3 /* MoviesCollectionViewCell.swift */,
 				CFFE8975253E27F9002BD1BA /* Assets.xcassets */,
 				CFFE8977253E27F9002BD1BA /* LaunchScreen.storyboard */,

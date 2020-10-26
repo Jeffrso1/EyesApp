@@ -8,8 +8,10 @@
 import UIKit
 import CloudKitMagicCRUD
 
-class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-
+class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, DAORequester {
+    
+    var imageLoader = ImageLoader()
+    
     let button = TagButton()
     
     let responses = TestResponse()
@@ -28,6 +30,10 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
     
     //let circularLayoutObject = CustomCircularCollectionViewLayout()
     
+    @IBOutlet weak var posterImage: UIImageView!
+    @IBOutlet weak var posterBlurImage: Blur!
+    
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet var confirmButton:UIButton!
@@ -38,13 +44,46 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view
+        setupFlowLayout()
         dao.loadTags()
+        
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        
+            
+        let blurEffect = UIBlurEffect(style: .light)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.frame = posterBlurImage.bounds
+        posterBlurImage.addSubview(blurView)
+                
+            
         
        // collectionView.collectionViewLayout = circularLayoutObject
         
     }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSize(width: 50, height: 50) // The size of one cell
+    }
+
+    func updated() {
+ 
+    }
+    
+
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: self.view.frame.width, height: 0)  // Header size
+    }
+
+
+
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        let frame : CGRect = self.view.frame
+        let margin: CGFloat  = 0
+        return UIEdgeInsets(top: 0, left: margin, bottom: 0, right: margin) // margin between cells
+    }
+    
 
     @IBAction func unwind( _ segue: UIStoryboardSegue) {
         
@@ -59,13 +98,8 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ChooseTagsCollectionViewCell
         
         cell.tagButton.setTitle(loadTags[indexPath.row].displayName_enUS, for: .normal)
-        cell.tagButton.sizeToFit()
         
-        cell.tagButton.contentEdgeInsets = UIEdgeInsets(top: 5.0, left: 30.0, bottom: 5.0, right: 30.0)
-        
-        cell.tagButton.layer.cornerRadius = 7
-        
-        print(cell.tagButton.titleLabel?.text)
+       
         
         return cell
     }
@@ -89,8 +123,6 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     @IBAction func nextButton(_ sender: Any) {
-        
-       // self.performSegue(withIdentifier: "bechdelSegue", sender: self)
     }
     
     @IBAction func selectResponse(_ sender: UIButton) {
@@ -100,10 +132,7 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
         print("button working")
     
     }
-    
-    
-    
-    
+
     func response(sender: UIButton) {
         
         switch sender.tag {
@@ -140,11 +169,19 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     func buttonSetup(senderResponse: UIButton, senderNonResponse: UIButton) {
-        
         senderResponse.backgroundColor = UIColor(named: "AccentColor")
         
         senderNonResponse.backgroundColor = UIColor(named: "Button")
+    }
+    
+    func setupFlowLayout() {
         
+        var flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        flowLayout.estimatedItemSize = CGSize(width: view.frame.width - 80, height: 40)
+        flowLayout.minimumLineSpacing = 2
+        flowLayout.minimumInteritemSpacing = 2
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 5, right: 0)
+   
     }
     
     /*
@@ -160,7 +197,6 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
     
 
 }
-
 
 class TestResponse {
     var response1: Bool?

@@ -37,8 +37,7 @@ class TagButton: UIButton {
     
     func styleButton() {
         setTitleColor(.white, for: .normal)
-        
-        backgroundColor = UIColor(named: "AccentColor")
+        backgroundColor = UIColor(named: "Button")
         layer.cornerRadius = 10
     }
     
