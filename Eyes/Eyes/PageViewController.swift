@@ -90,17 +90,19 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
             
             let t = movie?.title
             let d = movie?.overview
-         
-            let c = createCarouselItemControler(with: t, with: d, with: image)
+            let g = movie?.genreText
+            let dt = movie?.runtime
+            
+            let c = createCarouselItemControler(title: t, overview: d, time: String(dt!), genre: g, image: image)
             if dao.moviesLocalized.count == dao.movieList.count {
                 items.append(c)
             }
         }
     }
     
-    fileprivate func createCarouselItemControler(with titleText: String?, with movieDesc: String?, with image: UIImage?) -> UIViewController {
+    fileprivate func createCarouselItemControler(title titleText: String?, overview movieDesc: String?, time movieTime: String?, genre movieGenre: String?, image movieBanner: UIImage?) -> UIViewController {
             let c = UIViewController()
-            c.view = CarouselItem(titleText: titleText, movieDesc: movieDesc, image: image)
+        c.view = CarouselItem(titleText: titleText, movieDesc: movieDesc, movieTime: movieTime!, movieGenre: movieGenre!, image: movieBanner)
             
             return c
         }

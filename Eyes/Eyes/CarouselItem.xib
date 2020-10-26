@@ -4,8 +4,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,6 +15,7 @@
                 <outlet property="movieBlurBanner" destination="EcN-I4-l5x" id="RuK-Zm-w1m"/>
                 <outlet property="movieDescription" destination="13n-Tv-9WG" id="wHa-Ra-q0z"/>
                 <outlet property="movieName" destination="xlm-NP-jKW" id="oVZ-fO-DIy"/>
+                <outlet property="timeAndGenre" destination="s92-wy-UDo" id="5jA-qm-uXW"/>
                 <outlet property="vwContent" destination="iN0-l3-epB" id="GzR-kK-QGV"/>
             </connections>
         </placeholder>
@@ -23,62 +24,61 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xlm-NP-jKW">
-                    <rect key="frame" x="20" y="385" width="374" height="38.5"/>
-                    <constraints>
-                        <constraint firstAttribute="height" priority="250" constant="65" id="SWu-Sf-030"/>
-                    </constraints>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="xlm-NP-jKW">
+                    <rect key="frame" x="20" y="383" width="374" height="38.5"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
-                    <nil key="textColor"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EcN-I4-l5x" customClass="Blur" customModule="Eyes" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="443" height="363"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="363" id="RDb-w9-lBB"/>
-                    </constraints>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="363"/>
                 </imageView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Movie Description..." translatesAutoresizingMaskIntoConstraints="NO" id="13n-Tv-9WG">
-                    <rect key="frame" x="20" y="432" width="374" height="430"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <color key="textColor" systemColor="labelColor"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Movie Description..." translatesAutoresizingMaskIntoConstraints="NO" id="13n-Tv-9WG">
+                    <rect key="frame" x="20" y="463.5" width="374" height="398.5"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="COs-PN-54z">
-                    <rect key="frame" x="114" y="56" width="186" height="271"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="186" id="FRl-4k-4DX"/>
-                        <constraint firstAttribute="height" constant="271" id="g4B-R0-5Ob"/>
-                    </constraints>
+                    <rect key="frame" x="120" y="54.5" width="174" height="254"/>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time and Genre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s92-wy-UDo">
+                    <rect key="frame" x="20" y="423" width="374" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" name="Button"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="EcN-I4-l5x" secondAttribute="trailing" constant="-29" id="2Rl-0b-JBU"/>
-                <constraint firstItem="COs-PN-54z" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="114" id="3it-Tp-cee"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="COs-PN-54z" secondAttribute="trailing" constant="114" id="Az9-Nr-Ig9"/>
-                <constraint firstItem="EcN-I4-l5x" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="C45-Zs-qH4"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="13n-Tv-9WG" secondAttribute="trailing" constant="20" id="CVl-8t-zkZ"/>
-                <constraint firstItem="13n-Tv-9WG" firstAttribute="top" secondItem="xlm-NP-jKW" secondAttribute="bottom" constant="8.5" id="DCp-rm-MiD"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="xlm-NP-jKW" secondAttribute="trailing" constant="20" id="DVW-up-LLU"/>
-                <constraint firstItem="xlm-NP-jKW" firstAttribute="top" secondItem="EcN-I4-l5x" secondAttribute="bottom" constant="22" id="REv-c2-Wr7"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="13n-Tv-9WG" secondAttribute="bottom" id="Yh3-8z-tqa"/>
-                <constraint firstItem="xlm-NP-jKW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="aF0-sz-o09"/>
-                <constraint firstItem="13n-Tv-9WG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="jA2-1k-PQx"/>
-                <constraint firstItem="EcN-I4-l5x" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="nLE-RQ-mX9"/>
-                <constraint firstItem="COs-PN-54z" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="12" id="yYD-y8-K5F"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="13n-Tv-9WG" secondAttribute="bottom" id="3A6-oA-uV2"/>
+                <constraint firstItem="COs-PN-54z" firstAttribute="top" secondItem="EcN-I4-l5x" secondAttribute="bottom" constant="-308.5" id="4c8-KG-loZ"/>
+                <constraint firstItem="COs-PN-54z" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="120" id="5cc-b8-paL"/>
+                <constraint firstItem="13n-Tv-9WG" firstAttribute="firstBaseline" secondItem="s92-wy-UDo" secondAttribute="baseline" constant="24" symbolType="layoutAnchor" id="CUx-SG-zkh"/>
+                <constraint firstItem="xlm-NP-jKW" firstAttribute="top" secondItem="EcN-I4-l5x" secondAttribute="bottom" constant="20" id="Ctm-XA-or3"/>
+                <constraint firstItem="EcN-I4-l5x" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="DFJ-yd-qW2"/>
+                <constraint firstItem="COs-PN-54z" firstAttribute="top" secondItem="EcN-I4-l5x" secondAttribute="top" priority="750" constant="54.5" id="FWZ-Yw-8cN"/>
+                <constraint firstItem="COs-PN-54z" firstAttribute="centerY" secondItem="EcN-I4-l5x" secondAttribute="centerY" id="GCn-l8-m0r"/>
+                <constraint firstItem="COs-PN-54z" firstAttribute="height" secondItem="EcN-I4-l5x" secondAttribute="height" multiplier="0.6" priority="250" id="Jqx-pi-WtI"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="COs-PN-54z" secondAttribute="trailing" constant="120" id="OXE-Pg-d99"/>
+                <constraint firstItem="EcN-I4-l5x" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ZDK-xG-35Z"/>
+                <constraint firstItem="s92-wy-UDo" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="cfV-Lq-agg"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="13n-Tv-9WG" secondAttribute="trailing" constant="20" id="dMq-nu-cVc"/>
+                <constraint firstItem="EcN-I4-l5x" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="gPt-iQ-krg"/>
+                <constraint firstItem="s92-wy-UDo" firstAttribute="top" secondItem="xlm-NP-jKW" secondAttribute="bottom" constant="1.5" id="jlY-zd-qLo"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="xlm-NP-jKW" secondAttribute="trailing" constant="20" id="sZN-0e-dqs"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="s92-wy-UDo" secondAttribute="trailing" constant="20" id="uzj-uJ-k4Z"/>
+                <constraint firstItem="xlm-NP-jKW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="yX2-nT-FBd"/>
+                <constraint firstItem="13n-Tv-9WG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="yzg-Nq-Hea"/>
+                <constraint firstItem="COs-PN-54z" firstAttribute="width" secondItem="EcN-I4-l5x" secondAttribute="height" multiplier="58:121" id="zoE-6O-w6e"/>
             </constraints>
-            <point key="canvasLocation" x="279.71014492753625" y="98.4375"/>
+            <point key="canvasLocation" x="-68.115942028985515" y="105.80357142857143"/>
         </view>
     </objects>
     <resources>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="Button">
+            <color red="0.17599999904632568" green="0.17599999904632568" blue="0.17599999904632568" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
     </resources>
 </document>

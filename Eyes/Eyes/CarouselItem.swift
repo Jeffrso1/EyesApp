@@ -15,6 +15,7 @@ class CarouselItem: UIView {
     @IBOutlet var vwContent: UIView!
     @IBOutlet weak var movieName: UILabel!
     @IBOutlet weak var movieDescription: UITextView!
+    @IBOutlet weak var timeAndGenre: UILabel!
     
     
     override init(frame: CGRect) {
@@ -27,10 +28,12 @@ class CarouselItem: UIView {
         initWithNib()
     }
     
-    convenience init(titleText: String? = "", movieDesc: String? = "", image: UIImage?) {
+    convenience init(titleText: String? = "", movieDesc: String? = "", movieTime: String = "", movieGenre: String = "", image: UIImage?) {
         self.init()
         movieName.text = titleText
         movieDescription.text = movieDesc
+        timeAndGenre.text = movieTime + " mins - " + movieGenre
+        
         movieBanner.image = image
         movieBlurBanner.image = image
         movieBlurBanner.contentMode = .scaleAspectFill
