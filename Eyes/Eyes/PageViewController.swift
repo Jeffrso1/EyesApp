@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CloudKitMagicCRUD
 
 class PageViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, DAORequester {
     
@@ -35,6 +36,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         }
 
     }
+    
     
     func pageViewController(_: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = items.firstIndex(of: viewController) else {

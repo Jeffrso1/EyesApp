@@ -50,7 +50,6 @@ class DAO: MovieDelegate {
                 self.movies[movie.id] = movie
                 
             }
-            
             caller?.updated()
         }
         
