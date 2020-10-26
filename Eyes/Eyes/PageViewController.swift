@@ -12,14 +12,16 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     func updated() {
         populateItems()
         if let firstViewController = items.first {
-                    setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
-                }
+            setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
+        }
         self.reloadInputViews()
     }
     
     fileprivate var items: [UIViewController] = []
     
     var itemIndex = 0
+    
+    var imageLoader = ImageLoader()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +31,8 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         
         // Do any additional setup after loading the view.
         if let firstViewController = items.first {
-                    setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
-                }
+            setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
+        }
 
     }
     
@@ -48,7 +50,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
             guard items.count > previousIndex else {
                 return nil
             }
-            
+        
             return items[previousIndex]
         }
         
@@ -70,31 +72,34 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         }
     
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return dao.movieList.count
+        return dao.moviesLocalized.count
     }
 
 //    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
 //        return itemIndex
 //    }
+
+    
     fileprivate func populateItems() {
-        dump(dao.movieList)
-        for movie in dao.movieList {
-            var image = UIImage(named: "wait")
-            if let data = movie.imageData {
-                image = UIImage(data: data) ?? image
-            }
+        dao.loadMovieLocalized(to: self)
+        for movie in dao.moviesLocalized {
+            imageLoader.loadImage(with: (movie?.posterURL)!)
+            var image = imageLoader.image
             
-            let t = movie.title
-            let d = movie.overview
-                
+            let t = movie?.title
+            let d = movie?.overview
+         
             let c = createCarouselItemControler(with: t, with: d, with: image)
-            items.append(c)
+            if dao.moviesLocalized.count == dao.movieList.count {
+                items.append(c)
+            }
         }
     }
+    
     fileprivate func createCarouselItemControler(with titleText: String?, with movieDesc: String?, with image: UIImage?) -> UIViewController {
             let c = UIViewController()
             c.view = CarouselItem(titleText: titleText, movieDesc: movieDesc, image: image)
-
+            
             return c
         }
 }

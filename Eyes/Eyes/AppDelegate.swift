@@ -24,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         CKMDefault.notificationManager.resgisterInNotificationCenter()
         
+        UIApplication.shared.statusBarStyle = .darkContent
+        
         return true
     }
 

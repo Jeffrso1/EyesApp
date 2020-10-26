@@ -20,10 +20,12 @@ class DAO: MovieDelegate {
     
     let movieListState = MovieListState()
     let movieDetailState = MovieDetailState()
- 
+    
     var movie: Movie?
     
-    var moviesLocalized : [Int : Movie] = [:]
+    var moviesLocalized: [Movie?] = []
+    
+    //var moviesLocalized : [Int : Movie] = [:]
     
     var movieDetails : Movie? {
         return movieDetailState.movie
@@ -36,7 +38,7 @@ class DAO: MovieDelegate {
     }
     
     fileprivate init() {
-
+        
     }
     
     func loadMovies(to caller: DAORequester?) {
@@ -55,14 +57,40 @@ class DAO: MovieDelegate {
     }
     
     
-    func loadMovie(movie: Movie, to caller: DAORequester?) {
+    func loadMovie(movie: Movie, to caller: DAORequester?) -> Movie? {
+        
+        var movieDetail: Movie?
         
         movieDetailState.loadMovie(id: movie.id) { movie in
- 
+            
             self.movie = movie
+            
+            movieDetail = movie
             
             caller?.updated()
             
+        }
+        
+        return movieDetail
+        
+    }
+    
+    func loadMovieLocalized(to caller: DAORequester?) {
+        
+        for movieDetails in movieList {
+            
+            movieDetailState.loadMovie(id: movieDetails.id) { movie in
+                    
+                if self.moviesLocalized.count == 20 {
+                    print(self.moviesLocalized)
+                } else {
+                    self.moviesLocalized.append(movie)
+                    caller?.updated()
+                }
+   
+                
+            }
+  
         }
         
     }
@@ -82,7 +110,7 @@ class DAO: MovieDelegate {
             }
             
         })
-
+        
         CKMDefault.semaphore.wait()
         return tag
     }
@@ -90,7 +118,7 @@ class DAO: MovieDelegate {
     func loadTags() -> [Tag] {
         
         var tags: [Tag] = []
-      
+        
         
         Tag.ckLoadAll(then: {result in
             
@@ -102,13 +130,13 @@ class DAO: MovieDelegate {
                 print(error)
                 CKMDefault.semaphore.signal()
             }
-    
+            
         })
-
-       CKMDefault.semaphore.wait()
-       print("Final Tags: \(tags)")
-       return tags
-
+        
+        CKMDefault.semaphore.wait()
+        print("Final Tags: \(tags)")
+        return tags
+        
     }
     
     func loadMovieCK(with movieID: String) -> MyMovie? {

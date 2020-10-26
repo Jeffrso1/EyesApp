@@ -11,7 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CarouselItem" customModule="Eyes" customModuleProvider="target">
             <connections>
-                <outlet property="movieBanner" destination="COs-PN-54z" id="Uqe-hX-Dx8"/>
+                <outlet property="movieBanner" destination="COs-PN-54z" id="Nss-jA-y77"/>
+                <outlet property="movieBlurBanner" destination="EcN-I4-l5x" id="RuK-Zm-w1m"/>
                 <outlet property="movieDescription" destination="13n-Tv-9WG" id="wHa-Ra-q0z"/>
                 <outlet property="movieName" destination="xlm-NP-jKW" id="oVZ-fO-DIy"/>
                 <outlet property="vwContent" destination="iN0-l3-epB" id="GzR-kK-QGV"/>
@@ -22,34 +23,52 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="COs-PN-54z">
-                    <rect key="frame" x="114" y="94" width="186" height="271"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xlm-NP-jKW">
+                    <rect key="frame" x="20" y="385" width="374" height="38.5"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="186" id="FRl-4k-4DX"/>
-                        <constraint firstAttribute="height" constant="271" id="g4B-R0-5Ob"/>
+                        <constraint firstAttribute="height" priority="250" constant="65" id="SWu-Sf-030"/>
                     </constraints>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Movie Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xlm-NP-jKW">
-                    <rect key="frame" x="20" y="385" width="374" height="27.5"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Movie Description..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="13n-Tv-9WG">
-                    <rect key="frame" x="20" y="421" width="374" height="441"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EcN-I4-l5x" customClass="Blur" customModule="Eyes" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="443" height="363"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="363" id="RDb-w9-lBB"/>
+                    </constraints>
+                </imageView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Movie Description..." translatesAutoresizingMaskIntoConstraints="NO" id="13n-Tv-9WG">
+                    <rect key="frame" x="20" y="432" width="374" height="430"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <color key="textColor" systemColor="labelColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="COs-PN-54z">
+                    <rect key="frame" x="114" y="56" width="186" height="271"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="186" id="FRl-4k-4DX"/>
+                        <constraint firstAttribute="height" constant="271" id="g4B-R0-5Ob"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="COs-PN-54z" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Ikr-gS-ZrK"/>
-                <constraint firstItem="COs-PN-54z" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="50" id="PbQ-jM-6wS"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="EcN-I4-l5x" secondAttribute="trailing" constant="-29" id="2Rl-0b-JBU"/>
+                <constraint firstItem="COs-PN-54z" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="114" id="3it-Tp-cee"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="COs-PN-54z" secondAttribute="trailing" constant="114" id="Az9-Nr-Ig9"/>
+                <constraint firstItem="EcN-I4-l5x" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="C45-Zs-qH4"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="13n-Tv-9WG" secondAttribute="trailing" constant="20" id="CVl-8t-zkZ"/>
+                <constraint firstItem="13n-Tv-9WG" firstAttribute="top" secondItem="xlm-NP-jKW" secondAttribute="bottom" constant="8.5" id="DCp-rm-MiD"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="xlm-NP-jKW" secondAttribute="trailing" constant="20" id="DVW-up-LLU"/>
+                <constraint firstItem="xlm-NP-jKW" firstAttribute="top" secondItem="EcN-I4-l5x" secondAttribute="bottom" constant="22" id="REv-c2-Wr7"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="13n-Tv-9WG" secondAttribute="bottom" id="Yh3-8z-tqa"/>
+                <constraint firstItem="xlm-NP-jKW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="aF0-sz-o09"/>
+                <constraint firstItem="13n-Tv-9WG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="jA2-1k-PQx"/>
+                <constraint firstItem="EcN-I4-l5x" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="nLE-RQ-mX9"/>
+                <constraint firstItem="COs-PN-54z" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="12" id="yYD-y8-K5F"/>
             </constraints>
             <point key="canvasLocation" x="279.71014492753625" y="98.4375"/>
         </view>

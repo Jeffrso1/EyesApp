@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "CloudKitMagicCRUD",
+        "repositoryURL": "https://github.com/rvenieris/CloudKitMagicCRUD",
+        "state": {
+          "branch": "master",
+          "revision": "d88f5b2aaa53933228850862a6f8c01b4c8b3861",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

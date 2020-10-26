@@ -8,8 +8,10 @@
 import UIKit
 import CloudKitMagicCRUD
 
-class BechdelTestViewController: UIViewController {
+class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
+    let button = TagButton()
+    
     let responses = TestResponse()
     
     var question = Question(question: "Does this movie passes in the Bechdel Test?", answers: ["Yes", "No"], checkAnswers: 0)
@@ -19,27 +21,55 @@ class BechdelTestViewController: UIViewController {
     var tags : [Tag] = []
     
     var tag: Tag?
+    
+    let loadTags = dao.loadTags()
 
     //weak var delegate: ProtagonistViewController!
     
-    @IBOutlet weak var yesButton: UIButton!
-    @IBOutlet weak var noButton: UIButton!
+    //let circularLayoutObject = CustomCircularCollectionViewLayout()
     
+    @IBOutlet weak var collectionView: UICollectionView!
     
-    @IBOutlet var bt1:UIButton!
-    @IBOutlet var bt2:UIButton!
-    @IBOutlet var bt3:UIButton!
-    @IBOutlet var bt4:UIButton!
+    @IBOutlet var confirmButton:UIButton!
+    @IBOutlet var denyButton:UIButton!
+    @IBOutlet var confirmButton2:UIButton!
+    @IBOutlet var denyButton2:UIButton!
 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    
-   
+        // Do any additional setup after loading the view
+        dao.loadTags()
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+       // collectionView.collectionViewLayout = circularLayoutObject
+        
+    }
+
+    @IBAction func unwind( _ segue: UIStoryboardSegue) {
+        
     }
     
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return loadTags.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ChooseTagsCollectionViewCell
+        
+        cell.tagButton.setTitle(loadTags[indexPath.row].displayName_enUS, for: .normal)
+        cell.tagButton.sizeToFit()
+        
+        cell.tagButton.contentEdgeInsets = UIEdgeInsets(top: 5.0, left: 30.0, bottom: 5.0, right: 30.0)
+        
+        cell.tagButton.layer.cornerRadius = 7
+        
+        print(cell.tagButton.titleLabel?.text)
+        
+        return cell
+    }
+ 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
         if segue.identifier == "bechdelSegue" {
@@ -63,22 +93,36 @@ class BechdelTestViewController: UIViewController {
        // self.performSegue(withIdentifier: "bechdelSegue", sender: self)
     }
     
+    @IBAction func selectResponse(_ sender: UIButton) {
+    
+        response(sender: sender)
+        
+        print("button working")
+    
+    }
+    
+    
+    
+    
     func response(sender: UIButton) {
         
-        switch sender.hashValue {
-            case bt1.hashValue:
+        switch sender.tag {
+            case 0:
+                buttonSetup(senderResponse: confirmButton, senderNonResponse: denyButton)
                 responses.response1 = true
-            case bt2.hashValue:
+            case 1:
+                buttonSetup(senderResponse: denyButton, senderNonResponse: confirmButton)
                 responses.response1 = false
-            case bt3.hashValue:
+            case 2:
+                buttonSetup(senderResponse: confirmButton2, senderNonResponse: denyButton2)
                 responses.response2 = true
-            case bt4.hashValue:
+            case 3:
+                buttonSetup(senderResponse: denyButton2, senderNonResponse: confirmButton2)
                 responses.response2 = false
             default:
                 break
 
         }
-        
         
     }
 
@@ -87,11 +131,19 @@ class BechdelTestViewController: UIViewController {
         if responses.allResponsesOk {
             
             
+            
         } else {
             
             
         }
+
+    }
+    
+    func buttonSetup(senderResponse: UIButton, senderNonResponse: UIButton) {
         
+        senderResponse.backgroundColor = UIColor(named: "AccentColor")
+        
+        senderNonResponse.backgroundColor = UIColor(named: "Button")
         
     }
     

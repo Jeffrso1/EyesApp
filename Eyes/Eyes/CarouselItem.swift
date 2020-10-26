@@ -11,6 +11,7 @@ class CarouselItem: UIView {
     static let CAROUSEL_ITEM_NIB = "CarouselItem"
     
     @IBOutlet weak var movieBanner: UIImageView!
+    @IBOutlet weak var movieBlurBanner: UIImageView!
     @IBOutlet var vwContent: UIView!
     @IBOutlet weak var movieName: UILabel!
     @IBOutlet weak var movieDescription: UITextView!
@@ -31,6 +32,13 @@ class CarouselItem: UIView {
         movieName.text = titleText
         movieDescription.text = movieDesc
         movieBanner.image = image
+        movieBlurBanner.image = image
+        movieBlurBanner.contentMode = .scaleAspectFill
+        
+        let blurEffect = UIBlurEffect(style: .light)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.frame = movieBlurBanner.bounds
+        movieBlurBanner.addSubview(blurView)
     }
     
     fileprivate func initWithNib() {
