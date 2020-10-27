@@ -27,7 +27,7 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
     let loadTags = dao.loadTags()
 
     @IBOutlet weak var posterImage: UIImageView!
-    @IBOutlet weak var posterBlurImage: Blur!
+    @IBOutlet weak var posterBlurImage: UIImageView!
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -39,10 +39,12 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view
-       // navigationController?.navigationBar.isHidden = false
         configNavBar()
         setupFlowLayout()
         dao.loadTags()
+        dao.loadMovie(movie: 475557, to: self)
+    
+        posterImage.layer.cornerRadius = 7
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -51,9 +53,6 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.frame = posterBlurImage.bounds
         posterBlurImage.addSubview(blurView)
-
-       // collectionView.collectionViewLayout = circularLayoutObject
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -66,7 +65,12 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
     }
 
     func updated() {
- 
+            loadAsyncImage(from: dao.movie ?? Movie.stubbedMovie) { image in
+            self.posterImage.image = image
+            self.posterBlurImage.image = image
+            }
+            self.navigationController?.navigationBar.topItem?.title = dao.movie?.title
+            print("running update")
     }
     
 
@@ -202,7 +206,25 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     */
     
-    
+    fileprivate func loadAsyncImage(from movie: Movie, then completion: @escaping (UIImage)->Void) {
+        if let data = movie.imageData {
+            if let currentImage = UIImage(data: data) {
+                completion(currentImage)
+            }
+        }
+        else if let url = movie.posterURL {
+            DispatchQueue.global().async {
+                if let data = try? Data(contentsOf: url) {
+                    movie.imageData = data
+                    DispatchQueue.main.async {
+                        if let currentImage = UIImage(data: data) {
+                            completion(currentImage)
+                        }
+                    }
+                }
+            }
+        }
+    }
 
 }
 

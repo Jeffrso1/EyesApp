@@ -22,6 +22,8 @@
 		CF846DAF2543955E00BBC7D3 /* MoviesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF846DAD2543955E00BBC7D3 /* MoviesCollectionViewCell.swift */; };
 		CF846DB02543955E00BBC7D3 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF846DAE2543955E00BBC7D3 /* MovieDetailsViewController.swift */; };
 		CF907E22253F308100124BB5 /* DAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF907E21253F308100124BB5 /* DAO.swift */; };
+		CF9ACCE12548923700AA4F33 /* MovieLoadingDetailState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9ACCE02548923700AA4F33 /* MovieLoadingDetailState.swift */; };
+		CF9ACCE92548AAD000AA4F33 /* AboutBechdelTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9ACCE82548AAD000AA4F33 /* AboutBechdelTestVC.swift */; };
 		CFAE47B52541CB8700244D74 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAE47B42541CB8700244D74 /* Buttons.swift */; };
 		CFAE47BE2541CE7900244D74 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAE47BD2541CE7900244D74 /* Images.swift */; };
 		CFAE47C32541D2B300244D74 /* Questions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFAE47C22541D2B300244D74 /* Questions.storyboard */; };
@@ -82,6 +84,8 @@
 		CF846DAD2543955E00BBC7D3 /* MoviesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesCollectionViewCell.swift; sourceTree = "<group>"; };
 		CF846DAE2543955E00BBC7D3 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 		CF907E21253F308100124BB5 /* DAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAO.swift; sourceTree = "<group>"; };
+		CF9ACCE02548923700AA4F33 /* MovieLoadingDetailState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieLoadingDetailState.swift; sourceTree = "<group>"; };
+		CF9ACCE82548AAD000AA4F33 /* AboutBechdelTestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutBechdelTestVC.swift; sourceTree = "<group>"; };
 		CFAE47B42541CB8700244D74 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		CFAE47BD2541CE7900244D74 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		CFAE47C22541D2B300244D74 /* Questions.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Questions.storyboard; sourceTree = "<group>"; };
@@ -177,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				CFAE47DE2541FE3700244D74 /* BechdelTestViewController.swift */,
+				CF9ACCE82548AAD000AA4F33 /* AboutBechdelTestVC.swift */,
 				CF424FA72546352000C85A37 /* ChooseTagsCollectionViewCell.swift */,
 			);
 			path = Views;
@@ -262,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				CFFE89A2253E2815002BD1BA /* ImageLoader.swift */,
+				CF9ACCE02548923700AA4F33 /* MovieLoadingDetailState.swift */,
 				CFFE899F253E2814002BD1BA /* MovieDetailState.swift */,
 				CFFE89A0253E2814002BD1BA /* MovieListState.swift */,
 				CFFE89A1253E2814002BD1BA /* MovieSearchState.swift */,
@@ -449,12 +455,14 @@
 				7133677C2541F4A9005919E8 /* CarouselItem.swift in Sources */,
 				CFFE89BC253E2829002BD1BA /* Movie.swift in Sources */,
 				CFAE47B52541CB8700244D74 /* Buttons.swift in Sources */,
+				CF9ACCE12548923700AA4F33 /* MovieLoadingDetailState.swift in Sources */,
 				CF846D90254350C700BBC7D3 /* MyMovies.swift in Sources */,
 				CFFE8971253E27F6002BD1BA /* ViewController.swift in Sources */,
 				CFFE89BF253E2829002BD1BA /* MovieStore.swift in Sources */,
 				CF424FA325462EFB00C85A37 /* TagButton.swift in Sources */,
 				CFFE89BD253E2829002BD1BA /* MovieService.swift in Sources */,
 				CFFE89BE253E2829002BD1BA /* Movie+Stub.swift in Sources */,
+				CF9ACCE92548AAD000AA4F33 /* AboutBechdelTestVC.swift in Sources */,
 				CFFE89A3253E2815002BD1BA /* MovieDetailState.swift in Sources */,
 				CFAE47BE2541CE7900244D74 /* Images.swift in Sources */,
 				CF846D7D25422E9000BBC7D3 /* Question.swift in Sources */,

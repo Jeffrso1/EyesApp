@@ -15,7 +15,7 @@ public class MovieDetailState {
     
     private let movieService: MovieService
     //@Published
-    //var movie: Movie?
+    var movie: Movie?
     //@Published
     public var isLoading = false
    // @Published
