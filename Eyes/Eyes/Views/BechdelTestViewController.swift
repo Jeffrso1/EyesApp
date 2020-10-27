@@ -26,13 +26,8 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
     
     let loadTags = dao.loadTags()
 
-    //weak var delegate: ProtagonistViewController!
-    
-    //let circularLayoutObject = CustomCircularCollectionViewLayout()
-    
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var posterBlurImage: Blur!
-    
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -44,14 +39,14 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view
+        navigationController?.navigationBar.isHidden = false
+        
         setupFlowLayout()
         dao.loadTags()
         
         collectionView.delegate = self
         collectionView.dataSource = self
-        
-        
-            
+ 
         let blurEffect = UIBlurEffect(style: .light)
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.frame = posterBlurImage.bounds
@@ -60,6 +55,12 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
             
         
        // collectionView.collectionViewLayout = circularLayoutObject
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        navigationController?.navigationBar.isHidden = true
         
     }
     
@@ -75,9 +76,7 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: self.view.frame.width, height: 0)  // Header size
     }
-
-
-
+    
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         let frame : CGRect = self.view.frame
         let margin: CGFloat  = 0
@@ -94,13 +93,11 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ChooseTagsCollectionViewCell
         
         cell.tagButton.setTitle(loadTags[indexPath.row].displayName_enUS, for: .normal)
-        
-       
-        
+   
         return cell
     }
  
@@ -123,6 +120,7 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     @IBAction func nextButton(_ sender: Any) {
+    
     }
     
     @IBAction func selectResponse(_ sender: UIButton) {
@@ -169,8 +167,8 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     func buttonSetup(senderResponse: UIButton, senderNonResponse: UIButton) {
-        senderResponse.backgroundColor = UIColor(named: "AccentColor")
         
+        senderResponse.backgroundColor = UIColor(named: "AccentColor")
         senderNonResponse.backgroundColor = UIColor(named: "Button")
     }
     

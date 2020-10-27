@@ -28,19 +28,36 @@ class CarouselItem: UIView {
         initWithNib()
     }
     
-    convenience init(titleText: String? = "", movieDesc: String? = "", movieTime: String = "", movieGenre: String = "", image: UIImage?) {
+    convenience init(movie: Movie) {
         self.init()
-        movieName.text = titleText
-        movieDescription.text = movieDesc
-        timeAndGenre.text = movieTime + " mins - " + movieGenre
+        movieName.text = movie.title
+        movieDescription.text = movie.overview
+        timeAndGenre.text = movie.durationText + " • " + movie.genreText
+       
+        movieBanner.image = UIImage(named: "wait")!
+        movieBlurBanner.image = UIImage(named: "wait")!
         
-        movieBanner.image = image
-        movieBlurBanner.image = image
-        movieBlurBanner.contentMode = .scaleAspectFill
+        loadAsyncImage(from: movie) { image in
+            self.movieBanner.image = image
+            self.movieBlurBanner.image = image
+        }
+  
+        //Config Movie Poster View
+        //let outerView = UIView(frame: CGRect(x: 0, y: 0, width: movieBanner.bounds.width, height: movieBanner.bounds.height))
+        //outerView.layer.cornerRadius = 10
+        movieBanner.layer.masksToBounds = false
+        movieBanner.clipsToBounds = true
+        movieBanner.layer.cornerRadius = 10
+//        movieBanner.layer.shadowOpacity = 0.4
+//        movieBanner.layer.shadowRadius = 5
+//        movieBanner.layer.shadowColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
+//        movieBanner.layer.shadowPath = UIBezierPath(roundedRect: outerView.bounds, cornerRadius: 7).cgPath
         
+        //Config Blur View Background
         let blurEffect = UIBlurEffect(style: .light)
         let blurView = UIVisualEffectView(effect: blurEffect)
-        blurView.frame = movieBlurBanner.bounds
+        blurView.frame = CGRect(x: 0, y: 0, width: movieBlurBanner.bounds.width + 30, height: movieBlurBanner.bounds.height + 30)
+        movieBlurBanner.contentMode = .scaleAspectFill
         movieBlurBanner.addSubview(blurView)
     }
     
@@ -49,6 +66,27 @@ class CarouselItem: UIView {
         vwContent.frame = bounds
         vwContent.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         addSubview(vwContent)
+    }
+    
+    
+    fileprivate func loadAsyncImage(from movie: Movie, then completion: @escaping (UIImage)->Void) {
+        if let data = movie.imageData {
+            if let currentImage = UIImage(data: data) {
+                completion(currentImage)
+            }
+        }
+        else if let url = movie.posterURL {
+            DispatchQueue.global().async {
+                if let data = try? Data(contentsOf: url) {
+                    movie.imageData = data
+                    DispatchQueue.main.async {
+                        if let currentImage = UIImage(data: data) {
+                            completion(currentImage)
+                        }
+                    }
+                }
+            }
+        }
     }
     
 }

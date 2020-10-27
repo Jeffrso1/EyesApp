@@ -11,6 +11,7 @@ import CloudKitMagicCRUD
 class PageViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, DAORequester {
     
     func updated() {
+        print("run function")
         populateItems()
         if let firstViewController = items.first {
             setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
@@ -26,11 +27,10 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view.
         dataSource = self
         dao.loadMovies(to: self)
-        
-        
-        // Do any additional setup after loading the view.
+    
         if let firstViewController = items.first {
             setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
         }
@@ -74,38 +74,24 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         }
     
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return dao.moviesLocalized.count
+        return dao.movies.count
     }
-
-//    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-//        return itemIndex
-//    }
-
     
     fileprivate func populateItems() {
-        dao.loadMovieLocalized(to: self)
-        for movie in dao.moviesLocalized {
-            imageLoader.loadImage(with: (movie?.posterURL)!)
-            var image = imageLoader.image
-            
-            let t = movie?.title
-            let d = movie?.overview
-            let g = movie?.genreText
-            let dt = movie?.runtime
-            
-            let c = createCarouselItemControler(title: t, overview: d, time: String(dt!), genre: g, image: image)
-            if dao.moviesLocalized.count == dao.movieList.count {
-                items.append(c)
-            }
+        for item in dao.movies {
+            let c = createCarouselItemControler(movie: item.value)
+            items.append(c)
         }
+        
     }
+
     
-    fileprivate func createCarouselItemControler(title titleText: String?, overview movieDesc: String?, time movieTime: String?, genre movieGenre: String?, image movieBanner: UIImage?) -> UIViewController {
+    fileprivate func createCarouselItemControler(movie: Movie) -> UIViewController {
             let c = UIViewController()
-        c.view = CarouselItem(titleText: titleText, movieDesc: movieDesc, movieTime: movieTime!, movieGenre: movieGenre!, image: movieBanner)
-            
+            c.view = CarouselItem(movie: movie)
             return c
         }
 }
+
 
 

@@ -20,7 +20,7 @@ class MovieDetailsViewController: UIViewController, DAORequester {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        dao.loadMovie(movie: movieID ?? Movie.stubbedMovie, to: self)
+        //dao.loadMovie(movie: movieID ?? Movie.stubbedMovie, to: self)
         
         //let imageURL = imageLoader.loadImage(with: (movieID?.posterURL ?? Movie.stubbedMovie.posterURL)!)
         

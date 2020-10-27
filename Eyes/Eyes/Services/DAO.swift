@@ -21,17 +21,14 @@ class DAO: MovieDelegate {
     let movieListState = MovieListState()
     let movieDetailState = MovieDetailState()
     
+    var movies : [Int : Movie] = [:]
+    
     var movie: Movie?
     
-    var moviesLocalized: [Movie?] = []
+   // var moviesLocalized: [Movie?] = []
     
-    //var moviesLocalized : [Int : Movie] = [:]
-    
-    var movieDetails : Movie? {
-        return movieDetailState.movie
-    }
-    
-    var movies : [Int : Movie] = [:]
+   // var movieDetails : Movie?
+       //return movieDetailState.movie
     
     var movieList : [Movie] {
         return movieListState.movies ?? []
@@ -45,54 +42,67 @@ class DAO: MovieDelegate {
         
         movieListState.loadMovies(with: .trendingWeek) { movies in
             
-            for movie in movies {
-                
-                self.movies[movie.id] = movie
-                
-            }
-            caller?.updated()
+            self.loadMovieLocalized(movies: movies, completion: { movies in
+               
+                for movie in movies {
+                    
+                    self.movies[movie.id] = movie
+                    
+                }
+               
+                caller?.updated()
+            })
+ 
         }
         
     }
     
     
-    func loadMovie(movie: Movie, to caller: DAORequester?) -> Movie? {
+    func loadMovie(movie: Movie, completion: ()->Void)  {
         
-        var movieDetail: Movie?
+        var result: Movie?
         
         movieDetailState.loadMovie(id: movie.id) { movie in
             
-            self.movie = movie
+            //self.movie = movie
             
-            movieDetail = movie
+            //movieDetail = movie
             
-            caller?.updated()
+           // caller?.updated()
             
         }
-        
-        return movieDetail
         
     }
     
-    func loadMovieLocalized(to caller: DAORequester?) {
+    func loadMovieLocalized(movies: [Movie], completion: @escaping ([Movie])-> Void) {
         
-        for movieDetails in movieList {
+        var results: [Result<Movie, MovieError>] = []
+        
+        for movie in movies {
             
-            movieDetailState.loadMovie(id: movieDetails.id) { movie in
-                    
-                if self.moviesLocalized.count == 20 {
-                    print(self.moviesLocalized)
-                } else {
-                    self.moviesLocalized.append(movie)
-                    caller?.updated()
-                }
-   
+            movieDetailState.loadMovie(id: movie.id) { result in
                 
+                results.append(result)
+                print(results.count)
+                
+                if results.count == movies.count {
+                    var movies : [Movie] = []
+                    for item in results {
+                        switch item {
+                        case .success(let movie):
+                            movies.append(movie)
+                        case .failure(let err):
+                            print(err)
+                        }
+                    }
+                    completion(movies)
+                }
             }
-  
+            
+            
         }
-        
     }
+
     
     func loadTag(with string: String) -> Tag? {
         
