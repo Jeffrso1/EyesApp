@@ -14,7 +14,6 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
     @IBOutlet weak var infoButton: UIBarButtonItem!
     
     @IBAction func showDetails(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "movieDetail", sender: self)
     }
     
     var currentPage : Int = 0
@@ -43,7 +42,7 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
-        if segue.identifier == "movieDetail" {
+        if segue.identifier == "movieReview" {
             let vc = segue.destination as! BechdelTestViewController
             selectedID = Array(dao.movies)[dao.currentMovie].key
             vc.movieID = selectedID

@@ -42,7 +42,7 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
         configNavBar()
         setupFlowLayout()
         dao.loadTags()
-        dao.loadMovie(movie: 475557, to: self)
+        dao.loadMovie(movie: movieID, to: self)
     
         posterImage.layer.cornerRadius = 7
         

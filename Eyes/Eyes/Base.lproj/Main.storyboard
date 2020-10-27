@@ -44,7 +44,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="48C-ZP-3bV" kind="show" identifier="movieDetail" id="Emj-pW-Y3e"/>
+                                            <segue destination="48C-ZP-3bV" kind="show" identifier="movieReview" id="Emj-pW-Y3e"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qgc-Xe-NGA">
