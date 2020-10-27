@@ -78,9 +78,17 @@
                             <constraint firstItem="Rtt-Qx-dGh" firstAttribute="bottom" secondItem="m1S-eB-GjA" secondAttribute="bottom" id="wW5-Mv-fwO"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="a4T-Sx-mbd"/>
+                    <navigationItem key="navigationItem" id="a4T-Sx-mbd">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="info.circle.fill" catalog="system" id="Gaa-w8-Ic0">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="magnifyingglass" catalog="system" id="ala-tS-ND0">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="detailsButton" destination="Qgc-Xe-NGA" id="zlJ-1Q-0lm"/>
+                        <outlet property="infoButton" destination="Gaa-w8-Ic0" id="XXA-iG-ghB"/>
                         <outlet property="reviewButton" destination="pFo-6r-Cp9" id="4br-ED-5KZ"/>
                         <outlet property="viewBox" destination="3ek-X2-iQa" id="hwU-iG-ich"/>
                     </connections>
@@ -622,6 +630,8 @@
         </designable>
     </designables>
     <resources>
+        <image name="info.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="movie" width="180" height="271"/>
         <namedColor name="AccentColor">
             <color red="0.38039215686274508" green="0.21176470588235294" blue="0.5490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
