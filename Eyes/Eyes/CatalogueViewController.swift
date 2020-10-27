@@ -14,11 +14,12 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
     @IBOutlet weak var infoButton: UIBarButtonItem!
     
     @IBAction func showDetails(_ sender: UIButton) {
-        
+        self.performSegue(withIdentifier: "movieDetail", sender: self)
     }
     
     var currentPage : Int = 0
-    let pageViewController = PageViewController()
+//    let pageViewController = PageViewController()
+    var selectedID : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,4 +41,15 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
 
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       
+        if segue.identifier == "movieDetail" {
+            let vc = segue.destination as! BechdelTestViewController
+            selectedID = Array(dao.movies)[dao.currentMovie].key
+            vc.movieID = selectedID
+                
+            print("button pressed")
+                
+        }
+    }
 }

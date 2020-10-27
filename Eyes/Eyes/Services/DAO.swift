@@ -22,6 +22,7 @@ class DAO: MovieDelegate {
     let movieDetailState = MovieDetailState()
     
     var movies : [Int : Movie] = [:]
+    var currentMovie : Int = 0
     
     var movie: Movie?
     

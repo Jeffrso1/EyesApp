@@ -25,7 +25,6 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     
     var imageLoader = ImageLoader()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -104,10 +103,9 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         if completed {
             if let currentViewController = pageViewController.viewControllers?.first,
                let index = self.items.firstIndex(of: currentViewController) {
-                itemIndex = index
+                dao.currentMovie = index
             }
         }
-        print(itemIndex)
     }
 }
 
