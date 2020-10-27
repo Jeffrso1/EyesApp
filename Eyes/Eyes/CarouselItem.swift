@@ -43,16 +43,7 @@ class CarouselItem: UIView {
         }
   
         //Config Movie Poster View
-        //let outerView = UIView(frame: CGRect(x: 0, y: 0, width: movieBanner.bounds.width, height: movieBanner.bounds.height))
-        //outerView.layer.cornerRadius = 10
-        movieBanner.layer.masksToBounds = false
-        movieBanner.clipsToBounds = true
-        movieBanner.layer.cornerRadius = 10
-//        movieBanner.layer.shadowOpacity = 0.4
-//        movieBanner.layer.shadowRadius = 5
-//        movieBanner.layer.shadowColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
-//        movieBanner.layer.shadowPath = UIBezierPath(roundedRect: outerView.bounds, cornerRadius: 7).cgPath
-        
+
         //Config Blur View Background
         let blurEffect = UIBlurEffect(style: .light)
         let blurView = UIVisualEffectView(effect: blurEffect)
