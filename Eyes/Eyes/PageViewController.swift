@@ -19,7 +19,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         self.reloadInputViews()
     }
     
-    fileprivate var items: [UIViewController] = []
+    var items: [UIViewController] = []
     
     var itemIndex = 0
     
@@ -30,6 +30,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         dataSource = self
+        delegate = self
         dao.loadMovies(to: self)
         if let firstViewController = items.first {
             setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
@@ -44,7 +45,9 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
             }
             
             let previousIndex = viewControllerIndex - 1
-            
+            itemIndex = viewControllerIndex - 1
+        
+//            print(String(itemIndex) + " ALEGRIAAAAAAAA")
             guard previousIndex >= 0 else {
                 return items.last
             }
@@ -52,9 +55,8 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
             guard items.count > previousIndex else {
                 return nil
             }
-        
-        
-        
+             
+            
             return items[previousIndex]
         }
         
@@ -64,6 +66,9 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
             }
             
             let nextIndex = viewControllerIndex + 1
+            itemIndex = viewControllerIndex + 1
+//            print(String(itemIndex) + " AIINNN BIGODEEEEI")
+            
             guard items.count != nextIndex else {
                 return items.first
             }
@@ -79,6 +84,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         return dao.movies.count
     }
     
+    
     fileprivate func populateItems() {
         for item in dao.movies {
             let c = createCarouselItemControler(movie: item.value)
@@ -93,6 +99,16 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
             c.view = CarouselItem(movie: movie)
             return c
         }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool){
+        if completed {
+            if let currentViewController = pageViewController.viewControllers?.first,
+               let index = self.items.firstIndex(of: currentViewController) {
+                itemIndex = index
+            }
+        }
+        print(itemIndex)
+    }
 }
 
 
