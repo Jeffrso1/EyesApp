@@ -41,8 +41,6 @@ class CarouselItem: UIView {
             self.movieBanner.image = image
             self.movieBlurBanner.image = image
         }
-  
-        //Config Movie Poster View
 
         //Config Blur View Background
         let blurEffect = UIBlurEffect(style: .light)

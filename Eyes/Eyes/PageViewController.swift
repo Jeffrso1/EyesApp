@@ -11,7 +11,7 @@ import CloudKitMagicCRUD
 class PageViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, DAORequester {
     
     func updated() {
-        print("run function")
+        //print("run function")
         populateItems()
         if let firstViewController = items.first {
             setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
@@ -25,12 +25,12 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     
     var imageLoader = ImageLoader()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         dataSource = self
         dao.loadMovies(to: self)
-    
         if let firstViewController = items.first {
             setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
         }
@@ -52,6 +52,8 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
             guard items.count > previousIndex else {
                 return nil
             }
+        
+        
         
             return items[previousIndex]
         }

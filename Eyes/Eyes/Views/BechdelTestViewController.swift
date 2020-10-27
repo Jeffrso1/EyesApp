@@ -39,8 +39,8 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view
-        navigationController?.navigationBar.isHidden = false
-        
+       // navigationController?.navigationBar.isHidden = false
+        configNavBar()
         setupFlowLayout()
         dao.loadTags()
         
@@ -51,16 +51,13 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.frame = posterBlurImage.bounds
         posterBlurImage.addSubview(blurView)
-                
-            
-        
+
        // collectionView.collectionViewLayout = circularLayoutObject
         
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-        navigationController?.navigationBar.isHidden = true
         
     }
     
@@ -180,6 +177,19 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
         flowLayout.minimumInteritemSpacing = 2
         flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 5, right: 0)
    
+    }
+    
+    func configNavBar() {
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = UIColor.clear
+        self.navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
+        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 1, height: 1)
+        self.navigationController?.navigationBar.layer.shadowRadius = 3
+        self.navigationController?.navigationBar.layer.shadowOpacity = 0.5
+
     }
     
     /*
