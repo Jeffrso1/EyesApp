@@ -7,14 +7,22 @@
 
 import UIKit
 
-class CatalogueViewController: UIViewController {
+class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
     @IBOutlet weak var viewBox: UIView!
     @IBOutlet weak var reviewButton: UIButton!
     @IBOutlet weak var detailsButton: UIButton!
     @IBOutlet weak var infoButton: UIBarButtonItem!
     
+    @IBAction func showDetails(_ sender: UIButton) {
+        
+    }
+    
+    var currentPage : Int = 0
+    let pageViewController = PageViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
         configNavBar()
     }
@@ -31,6 +39,5 @@ class CatalogueViewController: UIViewController {
         self.navigationController?.navigationBar.layer.shadowOpacity = 0.3
 
     }
-    
 
 }

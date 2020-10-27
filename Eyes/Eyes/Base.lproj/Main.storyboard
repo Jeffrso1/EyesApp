@@ -62,6 +62,9 @@
                                                 <real key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="showDetails:" destination="yZm-ha-IAp" eventType="touchUpInside" id="aTX-Qa-RAm"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
