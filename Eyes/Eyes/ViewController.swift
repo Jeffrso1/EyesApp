@@ -72,7 +72,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
         
         
-        dao.loadMovie(movie: dao.movieList[indexPath.row], to: self)
+        //dao.loadMovie(movie: dao.movieList[indexPath.row], to: self)
         
         overview.text = dao.movie?.overview
         movieTitle.text = dao.movie?.title

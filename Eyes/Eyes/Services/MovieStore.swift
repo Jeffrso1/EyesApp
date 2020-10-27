@@ -54,8 +54,8 @@ class MovieStore: MovieService {
             return
         }
         self.loadURLAndDecode(url: url, params: [
-            "language": "pt-BR",
-            "region": "BR",
+            "language": "en-US",
+            "region": "US",
             "append_to_response": "videos,credits"
         ], completion: completion)
     }
