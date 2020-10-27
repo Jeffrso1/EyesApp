@@ -20,7 +20,7 @@
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ek-X2-iQa">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="727"/>
-                                <color key="backgroundColor" red="0.098040185870000005" green="0.098037473860000002" blue="0.098039291799999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" name="BackgroundColor"/>
                                 <connections>
                                     <segue destination="h9f-WY-qQ8" kind="embed" id="W7d-4J-eme"/>
                                 </connections>
@@ -98,7 +98,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="URB-dy-gQI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="755.07246376811599" y="795.53571428571422"/>
+            <point key="canvasLocation" x="755" y="625"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="GnR-Sd-jPq">
@@ -106,9 +106,9 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="h9f-WY-qQ8" customClass="PageViewController" customModule="Eyes" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h9B-Tb-Qvb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1630" y="796"/>
+            <point key="canvasLocation" x="1628" y="626"/>
         </scene>
-        <!--Enola Holmes-->
+        <!--Bechdel Test View Controller-->
         <scene sceneID="PvB-Kx-sHA">
             <objects>
                 <viewController id="48C-ZP-3bV" customClass="BechdelTestViewController" customModule="Eyes" customModuleProvider="target" sceneMemberID="viewController">
@@ -125,7 +125,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yhz-tC-oVD">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="271.33333333333331"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movie" translatesAutoresizingMaskIntoConstraints="NO" id="gDm-px-yyG">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wait" translatesAutoresizingMaskIntoConstraints="NO" id="gDm-px-yyG">
                                                         <rect key="frame" x="0.0" y="-88" width="414" height="359"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="414" id="LTD-Ld-mO5"/>
@@ -135,7 +135,7 @@
                                                             <userDefinedRuntimeAttribute type="image" keyPath="blurImage" value="movie"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movie" translatesAutoresizingMaskIntoConstraints="NO" id="121-sy-p2i">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wait" translatesAutoresizingMaskIntoConstraints="NO" id="121-sy-p2i">
                                                         <rect key="frame" x="127.33333333333331" y="15.666666666666686" width="159" height="240"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="240" id="HxW-a7-pgD"/>
@@ -143,7 +143,6 @@
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.098040185870000005" green="0.098037473860000002" blue="0.098039291799999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstItem="121-sy-p2i" firstAttribute="centerX" secondItem="gDm-px-yyG" secondAttribute="centerX" id="KgX-Xi-wch"/>
                                                     <constraint firstItem="121-sy-p2i" firstAttribute="centerX" secondItem="yhz-tC-oVD" secondAttribute="centerX" id="Z15-xg-fxi"/>
@@ -225,7 +224,6 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.098040185870000005" green="0.098037473860000002" blue="0.098039291799999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstItem="7eA-tY-BEq" firstAttribute="leading" secondItem="fQS-bu-huR" secondAttribute="leading" constant="28" id="A4o-rU-Aur"/>
                                                     <constraint firstAttribute="height" constant="358.67000000000002" id="BGA-7M-g6m"/>
@@ -301,7 +299,6 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.098040185870000005" green="0.098037473860000002" blue="0.098039291799999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="HcB-El-GLn" secondAttribute="trailing" constant="28" id="7wk-w6-CW7"/>
                                                     <constraint firstAttribute="height" constant="339" id="U5Z-7B-dWo"/>
@@ -370,7 +367,7 @@
                                                                             </constraints>
                                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                                             <state key="normal" title="Button">
-                                                                                <color key="titleColor" red="0.99552541969999997" green="0.98953062300000005" blue="0.89410460000000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             </state>
                                                                             <connections>
                                                                                 <action selector="tagSelected:" destination="Vhp-c5-AWk" eventType="touchUpInside" id="RHL-AZ-5hn"/>
@@ -393,7 +390,6 @@
                                                         </cells>
                                                     </collectionView>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.098040185870000005" green="0.098037473860000002" blue="0.098039291799999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstItem="TVq-hl-fZi" firstAttribute="top" secondItem="Lx0-Xr-cTg" secondAttribute="bottom" constant="12" id="Dbo-uS-6PI"/>
                                                     <constraint firstItem="Lx0-Xr-cTg" firstAttribute="leading" secondItem="LHx-Iq-AUd" secondAttribute="leading" id="L8k-Uv-kwO"/>
@@ -427,7 +423,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.098040185870000005" green="0.098037473860000002" blue="0.098039291799999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" name="BackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="fQS-bu-huR" firstAttribute="leading" secondItem="tso-eZ-G92" secondAttribute="leading" id="084-DN-NcX"/>
                                             <constraint firstAttribute="trailing" secondItem="tS9-4H-bwi" secondAttribute="trailing" constant="27" id="3eA-aQ-ttj"/>
@@ -464,7 +460,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kzE-Vi-ThW"/>
-                        <color key="backgroundColor" red="0.098040185870000005" green="0.098037473860000002" blue="0.098039291799999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="a4z-bM-4sk" secondAttribute="trailing" id="J3H-O7-CIS"/>
                             <constraint firstItem="a4z-bM-4sk" firstAttribute="top" secondItem="kzE-Vi-ThW" secondAttribute="top" id="a7X-ub-Ap6"/>
@@ -473,7 +469,7 @@
                             <constraint firstItem="a4z-bM-4sk" firstAttribute="leading" secondItem="4aF-42-Ytm" secondAttribute="leading" id="xqI-Yh-WRr"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Enola Holmes" largeTitleDisplayMode="always" id="f1u-Vu-eVN"/>
+                    <navigationItem key="navigationItem" id="f1u-Vu-eVN"/>
                     <size key="freeformSize" width="414" height="1650"/>
                     <connections>
                         <outlet property="collectionView" destination="4Ol-aW-xp4" id="SAk-Lc-jAh"/>
@@ -487,12 +483,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cQT-pI-kBD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="753.62318840579712" y="1824.7767857142856"/>
+            <point key="canvasLocation" x="755" y="1652"/>
         </scene>
         <!--About Bechdel Test-->
         <scene sceneID="hlW-Gu-awn">
             <objects>
-                <viewController id="ktO-5i-lrB" sceneMemberID="viewController">
+                <viewController id="ktO-5i-lrB" customClass="AboutBechdelTestVC" customModule="Eyes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lau-0N-Ytn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -518,9 +514,9 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is the Bechdel Test?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXw-My-kgL">
-                                <rect key="frame" x="27" y="78" width="283" height="122"/>
+                                <rect key="frame" x="27" y="78" width="283" height="109"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="122" id="yWR-bX-Ith"/>
+                                    <constraint firstAttribute="height" constant="109" id="yWR-bX-Ith"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -537,7 +533,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How does it impact the films industry?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="94J-y1-bDG">
-                                <rect key="frame" x="27" y="340" width="360" height="122"/>
+                                <rect key="frame" x="27" y="330" width="360" height="122"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="122" id="X4B-1N-O6F"/>
                                 </constraints>
@@ -546,7 +542,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Kcy-hv-Z3m">
-                                <rect key="frame" x="20" y="470" width="374" height="137"/>
+                                <rect key="frame" x="20" y="460" width="374" height="137"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="137" id="ZLg-2v-YYp"/>
                                 </constraints>
@@ -557,11 +553,11 @@
                             </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ejm-bc-zav"/>
-                        <color key="backgroundColor" red="0.098040185870000005" green="0.098037473860000002" blue="0.098039291799999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ejm-bc-zav" firstAttribute="trailing" secondItem="Kcy-hv-Z3m" secondAttribute="trailing" constant="20" id="7oy-rL-7yN"/>
                             <constraint firstItem="Kcy-hv-Z3m" firstAttribute="top" secondItem="94J-y1-bDG" secondAttribute="bottom" constant="8" symbolic="YES" id="9hT-g0-4Oh"/>
-                            <constraint firstItem="zA5-RN-hq2" firstAttribute="top" secondItem="HXw-My-kgL" secondAttribute="bottom" constant="-5" id="BMh-eC-0jL"/>
+                            <constraint firstItem="zA5-RN-hq2" firstAttribute="top" secondItem="HXw-My-kgL" secondAttribute="bottom" constant="8" id="BMh-eC-0jL"/>
                             <constraint firstItem="ejm-bc-zav" firstAttribute="trailing" secondItem="HXw-My-kgL" secondAttribute="trailing" constant="104" id="CAA-yb-2kE"/>
                             <constraint firstAttribute="trailing" secondItem="94J-y1-bDG" secondAttribute="trailing" constant="27" id="E6R-pY-nON"/>
                             <constraint firstItem="zA5-RN-hq2" firstAttribute="leading" secondItem="ejm-bc-zav" secondAttribute="leading" constant="20" id="OOO-qd-lP5"/>
@@ -570,25 +566,18 @@
                             <constraint firstItem="ejm-bc-zav" firstAttribute="trailing" secondItem="zA5-RN-hq2" secondAttribute="trailing" constant="20" id="Ycd-aW-5gC"/>
                             <constraint firstItem="Kcy-hv-Z3m" firstAttribute="leading" secondItem="ejm-bc-zav" secondAttribute="leading" constant="20" id="aNV-MW-3Pe"/>
                             <constraint firstItem="ejm-bc-zav" firstAttribute="trailing" secondItem="vnV-YF-LfG" secondAttribute="trailing" constant="27" id="bMH-eZ-xX8"/>
-                            <constraint firstItem="94J-y1-bDG" firstAttribute="top" secondItem="zA5-RN-hq2" secondAttribute="bottom" constant="8" symbolic="YES" id="exg-yN-J1k"/>
+                            <constraint firstItem="94J-y1-bDG" firstAttribute="top" secondItem="zA5-RN-hq2" secondAttribute="bottom" constant="-2" id="exg-yN-J1k"/>
                             <constraint firstItem="ejm-bc-zav" firstAttribute="bottom" secondItem="vnV-YF-LfG" secondAttribute="bottom" constant="15" id="wJl-NS-6lQ"/>
                             <constraint firstItem="94J-y1-bDG" firstAttribute="leading" secondItem="ejm-bc-zav" secondAttribute="leading" constant="27" id="x2M-mO-xzX"/>
                             <constraint firstItem="HXw-My-kgL" firstAttribute="leading" secondItem="ejm-bc-zav" secondAttribute="leading" constant="27" id="y5X-HK-Hmc"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="About Bechdel Test" id="Mbp-mk-MBB">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="0lv-bg-LJY">
-                            <color key="tintColor" name="AccentColor"/>
-                            <connections>
-                                <segue destination="NIr-XS-C0j" kind="unwind" unwindAction="unwind:" id="A6d-il-pfA"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="About Bechdel Test" id="Mbp-mk-MBB"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8c2-N0-TED" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="NIr-XS-C0j" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2464" y="1574"/>
+            <point key="canvasLocation" x="2462.3188405797105" y="1399.5535714285713"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="UKz-xE-hP1">
@@ -606,7 +595,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VrO-vh-Huq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1630" y="1574"/>
+            <point key="canvasLocation" x="1626" y="1400"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TuZ-62-RKj">
@@ -624,7 +613,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6rt-3n-pad" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-155.07246376811597" y="795.53571428571422"/>
+            <point key="canvasLocation" x="-199" y="626"/>
         </scene>
     </scenes>
     <designables>
@@ -636,8 +625,12 @@
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="movie" width="180" height="271"/>
+        <image name="wait" width="205" height="307"/>
         <namedColor name="AccentColor">
             <color red="0.38039215686274508" green="0.21176470588235294" blue="0.5490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BackgroundColor">
+            <color red="0.097999997437000275" green="0.097999997437000275" blue="0.097999997437000275" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

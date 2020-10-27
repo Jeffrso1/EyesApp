@@ -20,6 +20,7 @@ class DAO: MovieDelegate {
     
     let movieListState = MovieListState()
     let movieDetailState = MovieDetailState()
+    let movieLoadingState = MovieLoadingDetailState()
     
     var movies : [Int : Movie] = [:]
     var currentMovie : Int = 0
@@ -28,8 +29,9 @@ class DAO: MovieDelegate {
     
    // var moviesLocalized: [Movie?] = []
     
-   // var movieDetails : Movie?
-       //return movieDetailState.movie
+    var movieDetails : Movie? {
+       return movieLoadingState.movie
+    }
     
     var movieList : [Movie] {
         return movieListState.movies ?? []
@@ -59,17 +61,31 @@ class DAO: MovieDelegate {
     }
     
     
-    func loadMovie(movie: Movie, completion: ()->Void)  {
+//    func loadMovie(movie: Movie, completion: ()->Void)  {
+//
+//        var result: Movie?
+//
+//        movieDetailState.loadMovie(id: movie.id) { movie in
+//
+//            //self.movie = movie
+//
+//            //movieDetail = movie
+//
+//           // caller?.updated()
+//
+//        }
+//
+//    }
+//
+    func loadMovie(movie: Int, to caller: DAORequester?)  {
         
-        var result: Movie?
+        //var result: Movie?
         
-        movieDetailState.loadMovie(id: movie.id) { movie in
+        movieLoadingState.loadMovie(id: movie) { movie in
             
-            //self.movie = movie
+            self.movie = movie
             
-            //movieDetail = movie
-            
-           // caller?.updated()
+            caller?.updated()
             
         }
         
@@ -197,29 +213,6 @@ class DAO: MovieDelegate {
     func passMovie(movie: Movie) {
         
     }
-    
-    /*
-     
-     func passMovie(movie: Movie) {
-     
-     movieDetail.loadMovie(id: movie.id) { movie in
-     
-     //            if let self.movie = movie {
-     //
-     //            } else {
-     //
-     //            }
-     
-     self.movie = movie
-     
-     }
-     
-     
-     //movieDetail.loadMovie(id: , to: self)
-     
-     }
-     
-     */
     
     func fetchMovies(movies: [Movie]) {
         

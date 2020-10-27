@@ -37,7 +37,7 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
         self.navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
         self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 1, height: 1)
         self.navigationController?.navigationBar.layer.shadowRadius = 3
-        self.navigationController?.navigationBar.layer.shadowOpacity = 0.5
+        self.navigationController?.navigationBar.layer.shadowOpacity = 0.3
 
     }
 
