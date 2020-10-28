@@ -21,4 +21,13 @@ class Tag: CKMRecord {
     
 }
 
-
+enum TagValue: String, CaseIterable, Identifiable {
+    
+    var id: String { rawValue }
+    
+    case passInBechdelTest = "BA4EA6EF-56A8-1809-F5C8-915B535EDF59"
+    case womanAsMainProtagonist = "DF39ECDB-B0B8-64E3-F26E-8089F682947D"
+    case doesntPassInBechdelTest =
+        "4C187AE7-DDF2-5F6A-9256-9A55B18BB5F9"
+    
+}

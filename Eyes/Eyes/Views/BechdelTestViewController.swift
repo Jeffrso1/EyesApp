@@ -24,6 +24,11 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
     
     var tag: Tag?
     
+    var firstTag : Tag?
+    var secondTag: Tag?
+    
+    var selectedTags: [Tag] = []
+    
     let loadTags = dao.loadTags()
 
     @IBOutlet weak var posterImage: UIImageView!
@@ -36,30 +41,31 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet var confirmButton2:UIButton!
     @IBOutlet var denyButton2:UIButton!
 
+    @IBOutlet weak var submitReview: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view
         configNavBar()
+        
         setupFlowLayout()
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
         dao.loadTags()
         dao.loadMovie(movie: movieID, to: self)
     
         posterImage.layer.cornerRadius = 7
-        
-        collectionView.delegate = self
-        collectionView.dataSource = self
- 
         let blurEffect = UIBlurEffect(style: .light)
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.frame = posterBlurImage.bounds
         posterBlurImage.addSubview(blurView)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
         
+        submitReview.isEnabled = false
+        submitReview.backgroundColor = UIColor(named: "Button")
     }
-    
+
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         return CGSize(width: 50, height: 50) // The size of one cell
     }
@@ -79,7 +85,7 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-        let frame : CGRect = self.view.frame
+        //let frame : CGRect = self.view.frame
         let margin: CGFloat  = 0
         return UIEdgeInsets(top: 0, left: margin, bottom: 0, right: margin) // margin between cells
     }
@@ -105,30 +111,35 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
         if segue.identifier == "bechdelSegue" {
-            //let vc = segue.destination as! ProtagonistViewController
-
-            print("Carregando Tag")
-            tag = dao.loadTag(with: "BA4EA6EF-56A8-1809-F5C8-915B535EDF59")
-            print(tag?.displayName_ptBR)
-            print("Finalizado Tag")
-
             self.tags.append(tag!)
-            
-           // vc.tags = self.tags
-           // vc.movieID = self.movieID
-
         }
     }
     
-    @IBAction func nextButton(_ sender: Any) {
+    @IBAction func submitReview(_ sender: Any) {
     
+        selectedTags.append(contentsOf: [firstTag!, secondTag!])
+        
+        let movie = MyMovie.init(movieID: movieID, tags: selectedTags)
+        
+        movie.ckSave { result in
+            
+            switch result {
+            case .success(let result):
+                print(result)
+            case .failure(let error):
+                print(error)
+            }
+            
+        }
+        
+        print("Submiting review!")
+        
     }
+    
     
     @IBAction func selectResponse(_ sender: UIButton) {
     
         response(sender: sender)
-        
-        print("button working")
     
     }
 
@@ -137,12 +148,15 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
         switch sender.tag {
             case 0:
                 buttonSetup(senderResponse: confirmButton, senderNonResponse: denyButton)
+                self.firstTag = fetchTags(from: .passInBechdelTest)
                 responses.response1 = true
             case 1:
                 buttonSetup(senderResponse: denyButton, senderNonResponse: confirmButton)
+                self.firstTag = fetchTags(from: .doesntPassInBechdelTest)
                 responses.response1 = false
             case 2:
                 buttonSetup(senderResponse: confirmButton2, senderNonResponse: denyButton2)
+                self.secondTag = fetchTags(from: .womanAsMainProtagonist)
                 responses.response2 = true
             case 3:
                 buttonSetup(senderResponse: denyButton2, senderNonResponse: confirmButton2)
@@ -152,30 +166,33 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
 
         }
         
+        saveResponse()
+        
     }
 
     func saveResponse() {
         
         if responses.allResponsesOk {
             
-            
+            submitReview.isEnabled = true
+            submitReview.backgroundColor = UIColor(named: "AccentColor")
             
         } else {
-            
-            
+  
         }
+        
+        print(responses.allResponsesOk)
 
     }
     
     func buttonSetup(senderResponse: UIButton, senderNonResponse: UIButton) {
-        
         senderResponse.backgroundColor = UIColor(named: "AccentColor")
         senderNonResponse.backgroundColor = UIColor(named: "Button")
     }
     
     func setupFlowLayout() {
         
-        var flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         flowLayout.estimatedItemSize = CGSize(width: view.frame.width - 80, height: 40)
         flowLayout.minimumLineSpacing = 2
         flowLayout.minimumInteritemSpacing = 2
@@ -194,6 +211,24 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
         self.navigationController?.navigationBar.layer.shadowRadius = 3
         self.navigationController?.navigationBar.layer.shadowOpacity = 0.5
 
+    }
+    
+    func fetchTags(from value: TagValue) -> Tag? {
+        
+        var tag : Tag?
+        
+        Tag.ckLoad(with: value.rawValue) { result in
+            switch result {
+            case .success(let result):
+                tag = result as? Tag
+            case .failure(let error):
+                print(error)
+            }
+            
+        }
+      
+        return tag
+        
     }
     
     /*

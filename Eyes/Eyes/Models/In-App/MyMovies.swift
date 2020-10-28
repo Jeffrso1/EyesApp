@@ -19,10 +19,10 @@ class MyMovie: CKMRecord {
         }
     }
    
-    var tagVotes: [TagVotes] 
+    var tags: [Tag]
     
-    init(movieID: Int, tagVotes: [TagVotes]) {
-        self.tagVotes = tagVotes
+    init(movieID: Int, tags: [Tag]) {
+        self.tags = tags
         self.movieID = movieID
     }
     

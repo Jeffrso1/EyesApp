@@ -34,7 +34,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="428" height="392.33333333333331"/>
                 </imageView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Movie Description..." translatesAutoresizingMaskIntoConstraints="NO" id="13n-Tv-9WG">
-                    <rect key="frame" x="20" y="489" width="388" height="403"/>
+                    <rect key="frame" x="15" y="489" width="393" height="403"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -69,7 +69,7 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="xlm-NP-jKW" secondAttribute="trailing" constant="20" id="sZN-0e-dqs"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="s92-wy-UDo" secondAttribute="trailing" constant="20" id="uzj-uJ-k4Z"/>
                 <constraint firstItem="xlm-NP-jKW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="yX2-nT-FBd"/>
-                <constraint firstItem="13n-Tv-9WG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="yzg-Nq-Hea"/>
+                <constraint firstItem="13n-Tv-9WG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="yzg-Nq-Hea"/>
                 <constraint firstItem="COs-PN-54z" firstAttribute="width" secondItem="EcN-I4-l5x" secondAttribute="height" multiplier="58:121" id="zoE-6O-w6e"/>
             </constraints>
             <point key="canvasLocation" x="-68.691588785046719" y="105.61555075593954"/>
@@ -77,7 +77,7 @@
     </objects>
     <resources>
         <namedColor name="BackgroundColor">
-            <color red="0.098040185870000005" green="0.098037473860000002" blue="0.098039291799999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.097999997437000275" green="0.097999997437000275" blue="0.097999997437000275" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

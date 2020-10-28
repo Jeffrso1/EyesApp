@@ -419,7 +419,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="nextButton:" destination="48C-ZP-3bV" eventType="touchUpInside" id="Qls-ak-J3h"/>
+                                                    <action selector="submitReview:" destination="48C-ZP-3bV" eventType="touchUpInside" id="5SH-fj-lv8"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -479,6 +479,7 @@
                         <outlet property="denyButton2" destination="HcB-El-GLn" id="GpH-X4-mEz"/>
                         <outlet property="posterBlurImage" destination="gDm-px-yyG" id="y7i-g4-0mX"/>
                         <outlet property="posterImage" destination="121-sy-p2i" id="fc6-Ic-qGD"/>
+                        <outlet property="submitReview" destination="tS9-4H-bwi" id="p81-9g-OQX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cQT-pI-kBD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
