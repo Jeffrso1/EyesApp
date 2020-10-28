@@ -64,6 +64,7 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="showDetails:" destination="yZm-ha-IAp" eventType="touchUpInside" id="aTX-Qa-RAm"/>
+                                            <segue destination="sAb-xw-rUj" kind="show" id="iIe-z4-Kce"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -106,7 +107,121 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="h9f-WY-qQ8" customClass="PageViewController" customModule="Eyes" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h9B-Tb-Qvb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1628" y="626"/>
+            <point key="canvasLocation" x="1623" y="105"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ei3-b9-Y3T">
+            <objects>
+                <viewController id="sAb-xw-rUj" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yRo-1d-0uH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tVW-DR-jff">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" name="BackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="10" id="AEF-OG-Cxo">
+                                    <size key="itemSize" width="414" height="370"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="NN2-X4-7OI">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="370"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="TkW-BA-ow2">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="370"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wait" translatesAutoresizingMaskIntoConstraints="NO" id="IKv-CR-REx">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="220"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wait" translatesAutoresizingMaskIntoConstraints="NO" id="o8R-rh-y7o">
+                                                    <rect key="frame" x="27" y="123" width="146" height="232"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Movie Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jrM-Ro-ktd">
+                                                    <rect key="frame" x="181" y="228" width="213" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time and Genre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ly6-nL-5We">
+                                                    <rect key="frame" x="181" y="272" width="213" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="414" height="370"/>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="TY1-H7-mTt">
+                                        <rect key="frame" x="0.0" y="370" width="414" height="174"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0VJ-CC-KvX">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="174"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ku-mb-Nkn">
+                                                    <rect key="frame" x="28" y="29" width="213" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PNn-Ix-G9H">
+                                                    <rect key="frame" x="28" y="58" width="346" height="90"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <string key="text">The story follows Carol Danvers as she becomes one of the universe’s most powerful heroes when Earth is caught in the middle of a galactic war between two alien races. Set in the 1990s, Captain Marvel is an all-new adventure from a previously unseen period in the history of the Marvel Cinematic Universe.</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="414" height="174"/>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="7aJ-N3-dON">
+                                        <rect key="frame" x="0.0" y="544" width="414" height="222"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="uR9-IJ-J0D">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="222"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Why should you watch it?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2k-Lw-Od6">
+                                                    <rect key="frame" x="33" y="30" width="213" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="414" height="222"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="EzK-S4-cPx"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tVW-DR-jff" firstAttribute="top" secondItem="yRo-1d-0uH" secondAttribute="top" id="OTI-Nk-jbM"/>
+                            <constraint firstAttribute="bottom" secondItem="tVW-DR-jff" secondAttribute="bottom" id="UV4-cw-zTu"/>
+                            <constraint firstItem="tVW-DR-jff" firstAttribute="leading" secondItem="EzK-S4-cPx" secondAttribute="leading" id="cEX-Lx-TUt"/>
+                            <constraint firstItem="tVW-DR-jff" firstAttribute="trailing" secondItem="EzK-S4-cPx" secondAttribute="trailing" id="nxu-9Z-u6V"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="CZT-do-Qf8"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RE9-vm-t7B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2462" y="625"/>
         </scene>
         <!--Bechdel Test View Controller-->
         <scene sceneID="PvB-Kx-sHA">
@@ -210,13 +325,14 @@
                                                             <action selector="selectResponse:" destination="48C-ZP-3bV" eventType="touchUpInside" id="Afq-ce-x4Z"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVh-kF-u36">
-                                                        <rect key="frame" x="28" y="183.00000000000006" width="324" height="30"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVh-kF-u36">
+                                                        <rect key="frame" x="28" y="183.00000000000006" width="359" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="gXK-rp-xWA"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                        <state key="normal" title="Want to know more about the Bechdel Test?">
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                        <color key="tintColor" name="AccentColor"/>
+                                                        <state key="normal" title=" Want to know more about the Bechdel Test?" image="info.circle.fill" catalog="system">
                                                             <color key="titleColor" name="AccentColor"/>
                                                         </state>
                                                         <connections>
@@ -233,7 +349,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="TCn-aT-NQv" secondAttribute="trailing" constant="62" id="GFd-fq-dey"/>
                                                     <constraint firstItem="dVh-kF-u36" firstAttribute="top" secondItem="aXu-vb-5ir" secondAttribute="bottom" constant="8" id="LWf-Ir-rfC"/>
                                                     <constraint firstItem="TCn-aT-NQv" firstAttribute="top" secondItem="fQS-bu-huR" secondAttribute="top" constant="24" id="MdT-NS-Ecz"/>
-                                                    <constraint firstAttribute="trailing" secondItem="dVh-kF-u36" secondAttribute="trailing" constant="62" id="N8V-vB-Ug9"/>
+                                                    <constraint firstAttribute="trailing" secondItem="dVh-kF-u36" secondAttribute="trailing" constant="27" id="N8V-vB-Ug9"/>
                                                     <constraint firstItem="aXu-vb-5ir" firstAttribute="leading" secondItem="TCn-aT-NQv" secondAttribute="leading" id="a0T-iH-8ki"/>
                                                     <constraint firstAttribute="trailing" secondItem="aXu-vb-5ir" secondAttribute="trailing" constant="62" id="epw-B3-ajf"/>
                                                     <constraint firstItem="zvX-CX-H9U" firstAttribute="width" secondItem="7eA-tY-BEq" secondAttribute="width" id="jY0-C6-L27"/>
@@ -404,7 +520,7 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tS9-4H-bwi">
-                                                <rect key="frame" x="27" y="1518" width="360" height="50"/>
+                                                <rect key="frame" x="27" y="1538" width="360" height="50"/>
                                                 <color key="backgroundColor" name="AccentColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="VA5-36-lyZ"/>
@@ -437,9 +553,9 @@
                                             <constraint firstAttribute="trailing" secondItem="fQS-bu-huR" secondAttribute="trailing" id="bQk-zx-MZB"/>
                                             <constraint firstItem="JDE-M6-avS" firstAttribute="top" secondItem="qTG-9U-CV9" secondAttribute="bottom" constant="8" symbolic="YES" id="eco-Z4-aI8"/>
                                             <constraint firstAttribute="trailing" secondItem="JDE-M6-avS" secondAttribute="trailing" id="gqz-v8-3ML"/>
-                                            <constraint firstAttribute="bottom" secondItem="tS9-4H-bwi" secondAttribute="bottom" constant="28" id="isd-NB-bxP"/>
+                                            <constraint firstAttribute="bottom" secondItem="tS9-4H-bwi" secondAttribute="bottom" constant="8" id="isd-NB-bxP"/>
                                             <constraint firstAttribute="trailing" secondItem="yhz-tC-oVD" secondAttribute="trailing" id="ly3-1C-Bru"/>
-                                            <constraint firstItem="tS9-4H-bwi" firstAttribute="top" secondItem="4Ol-aW-xp4" secondAttribute="bottom" constant="40" id="rCq-24-WyD"/>
+                                            <constraint firstItem="tS9-4H-bwi" firstAttribute="top" secondItem="4Ol-aW-xp4" secondAttribute="bottom" constant="60" id="rCq-24-WyD"/>
                                             <constraint firstItem="qTG-9U-CV9" firstAttribute="top" secondItem="fQS-bu-huR" secondAttribute="bottom" constant="8" symbolic="YES" id="rw2-DG-ZCk"/>
                                             <constraint firstItem="yhz-tC-oVD" firstAttribute="leading" secondItem="tso-eZ-G92" secondAttribute="leading" id="y5V-sQ-jXC"/>
                                             <constraint firstItem="fQS-bu-huR" firstAttribute="top" secondItem="yhz-tC-oVD" secondAttribute="bottom" constant="8" symbolic="YES" id="z4K-tl-7lF"/>
@@ -484,7 +600,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cQT-pI-kBD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="755" y="1652"/>
+            <point key="canvasLocation" x="753.62318840579712" y="1651.3392857142856"/>
         </scene>
         <!--About Bechdel Test-->
         <scene sceneID="hlW-Gu-awn">

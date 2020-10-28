@@ -145,7 +145,6 @@ class DAO: MovieDelegate {
         
         var tags: [Tag] = []
         
-        
         Tag.ckLoadAll(then: {result in
             
             switch result {

@@ -14,6 +14,8 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
     @IBOutlet weak var infoButton: UIBarButtonItem!
     
     @IBAction func showDetails(_ sender: UIButton) {
+   
+    
     }
     
     var currentPage : Int = 0
