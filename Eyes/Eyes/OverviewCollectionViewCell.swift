@@ -1,0 +1,15 @@
+//
+//  OverviewCollectionViewCell.swift
+//  Eyes
+//
+//  Created by Jefferson Silva on 28/10/20.
+//
+
+import UIKit
+
+class OverviewCollectionViewCell: UICollectionViewCell {
+    
+    @IBOutlet weak var overviewText: UILabel!
+    
+    
+}

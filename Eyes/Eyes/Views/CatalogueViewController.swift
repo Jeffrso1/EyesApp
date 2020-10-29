@@ -51,6 +51,14 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
             print("button pressed")
                 
         }
+        
+        if segue.identifier == "movieDetails" {
+            let vc = segue.destination as! MovieDetailsViewController
+            selectedID = Array(dao.movies)[dao.currentMovie].key
+            vc.movieID = selectedID
+                
+            print("button pressed")
+        }
     }
     
     
