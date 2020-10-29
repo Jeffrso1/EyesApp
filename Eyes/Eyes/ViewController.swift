@@ -83,19 +83,19 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       
-        if segue.identifier == "movieDetail" {
-            let vc = segue.destination as! MovieDetailsViewController
-            if let cell = sender as? MoviesCollectionViewCell {
-            let indexPath = self.collectionView.indexPath(for: cell)
-            vc.movieID = dao.movieList[indexPath!.row]
-                
-            print("button pressed")
-                
-            }
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//        if segue.identifier == "movieDetail" {
+//            let vc = segue.destination as! MovieDetailsViewController
+//            if let cell = sender as? MoviesCollectionViewCell {
+//            let indexPath = self.collectionView.indexPath(for: cell)
+//            vc.movieID = dao.movieList[indexPath!.row]
+//
+//            print("button pressed")
+//
+//            }
+//        }
+//    }
  
     //Centralized Collection View Cell
     var itemCellSize : CGSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
