@@ -42,6 +42,10 @@ class CarouselItem: UIView {
             self.movieBlurBanner.image = image
         }
 
+        movieBanner.layer.cornerRadius = 10
+        movieBanner.clipsToBounds = false
+        movieBanner.layer.masksToBounds = true
+        
         //Config Blur View Background
         let blurEffect = UIBlurEffect(style: .light)
         let blurView = UIVisualEffectView(effect: blurEffect)

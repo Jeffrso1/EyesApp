@@ -24,7 +24,6 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
         configNavBar()
     }
@@ -53,4 +52,11 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
                 
         }
     }
+    
+    
+    @IBAction func backToCatalogue( _ segue: UIStoryboardSegue) {
+        
+        
+    }
+    
 }

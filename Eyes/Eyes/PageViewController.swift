@@ -66,7 +66,6 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
             
             let nextIndex = viewControllerIndex + 1
             itemIndex = viewControllerIndex + 1
-//            print(String(itemIndex) + " AIINNN BIGODEEEEI")
             
             guard items.count != nextIndex else {
                 return items.first
@@ -85,6 +84,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     
     
     fileprivate func populateItems() {
+        print("populating")
         for item in dao.movies {
             let c = createCarouselItemControler(movie: item.value)
             items.append(c)
