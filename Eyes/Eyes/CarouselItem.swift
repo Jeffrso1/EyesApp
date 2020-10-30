@@ -42,8 +42,8 @@ class CarouselItem: UIView {
             self.movieBlurBanner.image = image
         }
 
-        movieBanner.layer.cornerRadius = 10
-        movieBanner.clipsToBounds = false
+        movieBanner.layer.cornerRadius = 7
+        movieBanner.clipsToBounds = true
         movieBanner.layer.masksToBounds = true
         
         //Config Blur View Background
