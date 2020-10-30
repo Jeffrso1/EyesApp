@@ -38,6 +38,7 @@ class Movie: Decodable, Identifiable, Hashable {
     let releaseDate: String?
     
     var imageData: Data?
+    var imageBackdropData: Data?
     
     
     let genres: [MovieGenre]?

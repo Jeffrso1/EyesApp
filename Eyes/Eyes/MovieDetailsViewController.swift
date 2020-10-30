@@ -27,6 +27,9 @@ class MovieDetailsViewController: UIViewController, UICollectionViewDelegate, UI
         
 //        movieTitle.text = dao.movie?.title
         //movieImage.image = imageID
+        
+        collectionView.contentInsetAdjustmentBehavior = .never
+        self.navigationController?.navigationBar.tintColor = .white
        
     }
     
@@ -35,19 +38,33 @@ class MovieDetailsViewController: UIViewController, UICollectionViewDelegate, UI
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var cell : UICollectionViewCell?
+       //var cell : UICollectionViewCell?
         
         switch indexPath.row {
         case 0:
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "header", for: indexPath) as! HeaderCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "header", for: indexPath) as! HeaderCollectionViewCell
+            
+            cell.setupHeaderCell()
+            
+            return cell
         case 1:
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "overview", for: indexPath) as! OverviewCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "overview", for: indexPath) as! OverviewCollectionViewCell
+            
+            cell.setupOverviewCell()
+            
+            return cell
             
         default:
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tags", for: indexPath) as! TagsCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tags", for: indexPath) as! TagsCollectionViewCell
+            
+            return cell
         }
+
+    }
     
-        return cell!
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.navigationController?.navigationBar.tintColor = UIColor(named: "AccentColor")
     }
     
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
