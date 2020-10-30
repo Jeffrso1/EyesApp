@@ -111,7 +111,7 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
         if segue.identifier == "bechdelSegue" {
-            self.tags.append(tag!)
+           
         }
     }
     
@@ -160,6 +160,7 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
                 responses.response2 = true
             case 3:
                 buttonSetup(senderResponse: denyButton2, senderNonResponse: confirmButton2)
+                self.secondTag = fetchTags(from: .womanIsNotAsMainProtagonist)
                 responses.response2 = false
             default:
                 break
@@ -179,6 +180,8 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
             
         } else {
   
+            
+            
         }
         
         print(responses.allResponsesOk)
