@@ -265,14 +265,15 @@
                                                         <constraint firstAttribute="width" constant="414" id="pj8-oU-1I7"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wait" translatesAutoresizingMaskIntoConstraints="NO" id="o8R-rh-y7o">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wait" translatesAutoresizingMaskIntoConstraints="NO" id="o8R-rh-y7o">
                                                     <rect key="frame" x="27" y="123" width="146" height="212"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="212" id="Max-mu-AsR"/>
-                                                        <constraint firstAttribute="width" constant="146" id="wBf-J9-7aA"/>
+                                                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="212" id="Max-mu-AsR"/>
+                                                        <constraint firstAttribute="width" secondItem="o8R-rh-y7o" secondAttribute="height" multiplier="73:106" id="paZ-Uh-Mz1"/>
+                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="146" id="wBf-J9-7aA"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jrM-Ro-ktd">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jrM-Ro-ktd">
                                                     <rect key="frame" x="181" y="228" width="213" height="32.333333333333314"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" priority="250" constant="65" id="PU8-NI-nmw"/>
@@ -281,11 +282,8 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time and Genre" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ly6-nL-5We">
-                                                    <rect key="frame" x="181" y="268" width="213" height="20.333333333333314"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" priority="250" constant="42" id="mH7-HZ-iwj"/>
-                                                    </constraints>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time and Genre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ly6-nL-5We">
+                                                    <rect key="frame" x="181" y="268" width="208" height="20.333333333333314"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -301,9 +299,9 @@
                                                 <constraint firstItem="jrM-Ro-ktd" firstAttribute="leading" secondItem="o8R-rh-y7o" secondAttribute="trailing" constant="8" symbolic="YES" id="JRC-Hd-uGC"/>
                                                 <constraint firstItem="o8R-rh-y7o" firstAttribute="top" secondItem="IKv-CR-REx" secondAttribute="bottom" constant="-97" id="KO6-rj-0V7"/>
                                                 <constraint firstItem="jrM-Ro-ktd" firstAttribute="top" secondItem="IKv-CR-REx" secondAttribute="bottom" constant="8" symbolic="YES" id="MZe-oP-OYz"/>
-                                                <constraint firstItem="Ly6-nL-5We" firstAttribute="trailing" secondItem="jrM-Ro-ktd" secondAttribute="trailing" id="mOQ-wM-jdQ"/>
                                                 <constraint firstItem="IKv-CR-REx" firstAttribute="top" secondItem="TkW-BA-ow2" secondAttribute="top" id="phk-cR-b7c"/>
                                                 <constraint firstAttribute="trailing" secondItem="IKv-CR-REx" secondAttribute="trailing" id="r3L-cE-r7n"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ly6-nL-5We" secondAttribute="trailing" constant="25" id="yaw-Sg-ltE"/>
                                                 <constraint firstItem="Ly6-nL-5We" firstAttribute="leading" secondItem="jrM-Ro-ktd" secondAttribute="leading" id="z4W-0F-3Pe"/>
                                             </constraints>
                                         </collectionViewCellContentView>
@@ -317,10 +315,10 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="overview" id="TY1-H7-mTt" customClass="OverviewCollectionViewCell" customModule="Eyes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="370" width="414" height="174"/>
+                                        <rect key="frame" x="0.0" y="370" width="414" height="118"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0VJ-CC-KvX">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="174"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="118"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ku-mb-Nkn">
@@ -340,16 +338,16 @@
                                             </subviews>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" name="BackgroundColor"/>
-                                        <size key="customSize" width="414" height="174"/>
+                                        <size key="customSize" width="414" height="118"/>
                                         <connections>
                                             <outlet property="overviewText" destination="eTx-LF-Vcx" id="dtb-xF-Zjn"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="tags" id="7aJ-N3-dON" customClass="TagsCollectionViewCell" customModule="Eyes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="544" width="414" height="222"/>
+                                        <rect key="frame" x="0.0" y="488" width="414" height="144"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="uR9-IJ-J0D">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="222"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="144"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Why should you watch it?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2k-Lw-Od6">
@@ -362,7 +360,7 @@
                                             </subviews>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" name="BackgroundColor"/>
-                                        <size key="customSize" width="414" height="222"/>
+                                        <size key="customSize" width="414" height="144"/>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>

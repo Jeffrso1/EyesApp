@@ -18,6 +18,9 @@ class HeaderCollectionViewCell: UICollectionViewCell {
     
     func setupHeaderCell() {
         movieBanner.image = UIImage(data: (currentMovie?.imageData)!)
+        movieBanner.layer.cornerRadius = 7
+        movieBanner.layer.borderColor = CGColor.init(red: 255, green: 255, blue: 255, alpha: 1)
+        movieBanner.layer.borderWidth = 2
         movieTitle.text = currentMovie?.title
         timeAndGenre.text = currentMovie!.durationText + " • " + currentMovie!.genreText
         
