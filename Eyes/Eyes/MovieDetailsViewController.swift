@@ -67,16 +67,16 @@ class MovieDetailsViewController: UIViewController, UICollectionViewDelegate, UI
         self.navigationController?.navigationBar.tintColor = UIColor(named: "AccentColor")
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        switch indexPath.row {
-//        case 0:
-//            return .init(width: view.frame.width, height: 400)
-//        case 1:
-//            return .init(width: view.frame.width, height: 200)
-//        default:
-//            return .init(width: view.frame.width, height: 200)
-//        }
-//    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        switch indexPath.row {
+        case 0:
+            return .init(width: view.frame.width, height: 400)
+        case 1:
+            return .init(width: view.frame.width, height: 220)
+        default:
+            return .init(width: view.frame.width, height: 220)
+        }
+    }
     
     func updated() {
        
