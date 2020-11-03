@@ -54,8 +54,8 @@ class MovieStore: MovieService {
             return
         }
         self.loadURLAndDecode(url: url, params: [
-            "language": "en-US",
-            "region": "US",
+            "language": NSLocalizedString("Language", comment: ""),
+            "region": NSLocalizedString("Country", comment: ""),
             "append_to_response": "videos,credits"
         ], completion: completion)
     }

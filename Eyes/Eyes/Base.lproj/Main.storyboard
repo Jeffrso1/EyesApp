@@ -542,7 +542,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Does this movie passes in the Bechdel Test?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="aXu-vb-5ir">
                                                         <rect key="frame" x="27" y="53" width="325" height="122"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="122" id="n8P-dH-FU2"/>
+                                                            <constraint firstAttribute="height" priority="250" constant="122" id="n8P-dH-FU2"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -614,6 +614,9 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M5k-Sb-Sd7">
                                                         <rect key="frame" x="28" y="345.00000000000006" width="359" height="2"/>
                                                         <color key="backgroundColor" name="Button"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="2" id="VuF-LZ-pfN"/>
+                                                        </constraints>
                                                     </view>
                                                 </subviews>
                                                 <constraints>
@@ -644,6 +647,9 @@
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Is the main protagonist of this movie a woman?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rWa-dc-pds">
                                                         <rect key="frame" x="27" y="46.333333333333371" width="359" height="122"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" priority="250" constant="122" id="6Nv-8T-VOb"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>

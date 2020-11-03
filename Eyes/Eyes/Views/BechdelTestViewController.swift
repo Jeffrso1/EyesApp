@@ -103,7 +103,13 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ChooseTagsCollectionViewCell
         
+        let langStr = Locale.current.languageCode
+        
+        if langStr == "en" {
         cell.tagButton.setTitle(loadTags[indexPath.row].displayName_enUS, for: .normal)
+        } else {
+        cell.tagButton.setTitle(loadTags[indexPath.row].displayName_ptBR, for: .normal)
+        }
    
         return cell
     }
