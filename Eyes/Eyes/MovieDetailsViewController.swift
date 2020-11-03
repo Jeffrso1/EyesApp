@@ -73,22 +73,17 @@ class MovieDetailsViewController: UIViewController, UICollectionViewDelegate, UI
         self.navigationController?.navigationBar.shadowImage = UIImage()
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        switch indexPath.row {
-//        case 0:
-//            return .init(width: view.frame.width, height: 400)
-//        case 1:
-//            return .init(width: view.frame.width, height: 220)
-//        case 2:
-//            return .init(width: view.frame.width, height: 100)
-//        default:
-//            return .init(width: view.frame.width, height: 700)
-//        }
-//    }
-    
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        
-        
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        switch indexPath.row {
+        case 0:
+            return .init(width: view.frame.width, height: 400)
+        case 1:
+            return .init(width: view.frame.width, height: 220)
+        case 2:
+            return .init(width: view.frame.width, height: 100)
+        default:
+            return .init(width: view.frame.width, height: 700)
+        }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

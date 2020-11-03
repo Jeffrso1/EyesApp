@@ -48,7 +48,7 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
             selectedID = Array(dao.movies)[dao.currentMovie].key
             vc.movieID = selectedID
                 
-            print("button pressed")
+            print("Review Movie pressed")
                 
         }
         
@@ -57,8 +57,17 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
             selectedID = Array(dao.movies)[dao.currentMovie].key
             vc.movieID = selectedID
                 
-            print("button pressed")
+            print("Details Button pressed")
         }
+        
+        if segue.identifier == "about" {
+            let vc = segue.destination as! AboutAppViewController
+            vc.navigationController?.navigationBar.prefersLargeTitles = true
+                
+            print("About Section pressed")
+        }
+        
+        
     }
     
     
