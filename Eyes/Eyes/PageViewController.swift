@@ -28,6 +28,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        decoratePageControl()
         dataSource = self
         delegate = self
         dao.loadMovies(to: self)
@@ -35,6 +36,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
             setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
         }
 
+        
     }
     
     
@@ -106,6 +108,22 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
                 dao.currentMovie = index
             }
         }
+    }
+    
+    
+    func presentationIndex(for _: UIPageViewController) -> Int {
+        guard let firstViewController = viewControllers?.first,
+            let firstViewControllerIndex = items.firstIndex(of: firstViewController) else {
+                return 0
+        }
+        return firstViewControllerIndex
+    }
+    
+    
+    fileprivate func decoratePageControl() {
+            let pc = UIPageControl.appearance(whenContainedInInstancesOf: [PageViewController.self])
+            pc.currentPageIndicatorTintColor = UIColor(named: "AccentColor")
+            pc.pageIndicatorTintColor = .gray
     }
 }
 
