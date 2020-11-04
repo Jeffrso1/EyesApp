@@ -1,51 +1,51 @@
 
 /* Class = "UILabel"; text = "Overview"; ObjectID = "5Ku-mb-Nkn"; */
-"5Ku-mb-Nkn.text" = "Mais Informações";
+"5Ku-mb-Nkn.text" = "Overview";
 
 /* Class = "UIButton"; normalTitle = "Yes"; ObjectID = "7eA-tY-BEq"; */
-"7eA-tY-BEq.normalTitle" = "Sim";
+"7eA-tY-BEq.normalTitle" = "Yes";
 
 /* Class = "UILabel"; text = "How does it impact the films industry?"; ObjectID = "94J-y1-bDG"; */
-"94J-y1-bDG.text" = "Como ele impacta a indústria dos filmes?";
+"94J-y1-bDG.text" = "How does it impact the films industry?";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Bs0-Au-Msn"; */
-"Bs0-Au-Msn.normalTitle" = "Botão";
+"Bs0-Au-Msn.normalTitle" = "Button";
 
 /* Class = "UILabel"; text = "This product uses the TMDb API but is not endorsed or certified by TMDb."; ObjectID = "C1a-eT-CRK"; */
 "C1a-eT-CRK.text" = "This product uses the TMDb API but is not endorsed or certified by TMDb.";
 
 /* Class = "UILabel"; text = "Cast"; ObjectID = "FGb-vb-AH9"; */
-"FGb-vb-AH9.text" = "Elenco";
+"FGb-vb-AH9.text" = "Cast";
 
 /* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "Gaa-w8-Ic0"; */
 "Gaa-w8-Ic0.title" = "Item";
 
 /* Class = "UILabel"; text = "What is the Bechdel Test?"; ObjectID = "HXw-My-kgL"; */
-"HXw-My-kgL.text" = "O que é o Teste de Bechdel";
+"HXw-My-kgL.text" = "What is the Bechdel Test?";
 
 /* Class = "UIButton"; normalTitle = "No"; ObjectID = "HcB-El-GLn"; */
-"HcB-El-GLn.normalTitle" = "Não";
+"HcB-El-GLn.normalTitle" = "No";
 
 /* Class = "UITextView"; text = "The Bechdel test also known as the Bechdel–Wallace test, is a measure of the representation of women in fiction. It asks whether a work features at least two women who talk to each other about something other than a man. The requirement that the two women must be named is sometimes added."; ObjectID = "Kcy-hv-Z3m"; */
 "Kcy-hv-Z3m.text" = "The Bechdel test also known as the Bechdel–Wallace test, is a measure of the representation of women in fiction. It asks whether a work features at least two women who talk to each other about something other than a man. The requirement that the two women must be named is sometimes added.";
 
 /* Class = "UILabel"; text = "Step 3 of 3"; ObjectID = "LHx-Iq-AUd"; */
-"LHx-Iq-AUd.text" = "Passo 3 de 3";
+"LHx-Iq-AUd.text" = "Step 3 of 3";
 
 /* Class = "UILabel"; text = "Choose some tags that represent the themes present on the movie"; ObjectID = "Lx0-Xr-cTg"; */
-"Lx0-Xr-cTg.text" = "Escolha algumas tags sobre temas presentes no filme";
+"Lx0-Xr-cTg.text" = "Choose some tags that represent the themes present on the movie";
 
 /* Class = "UILabel"; text = "Time and Genre"; ObjectID = "Ly6-nL-5We"; */
-"Ly6-nL-5We.text" = "Tempo e Gênero";
+"Ly6-nL-5We.text" = "Time and Genre";
 
 /* Class = "UINavigationItem"; title = "About Bechdel Test"; ObjectID = "Mbp-mk-MBB"; */
-"Mbp-mk-MBB.title" = "Sobre o Teste de Bechdel";
+"Mbp-mk-MBB.title" = "About Bechdel Test";
 
 /* Class = "UIButton"; normalTitle = "More Details"; ObjectID = "Qgc-Xe-NGA"; */
-"Qgc-Xe-NGA.normalTitle" = "Mais Detalhes";
+"Qgc-Xe-NGA.normalTitle" = "More Details";
 
 /* Class = "UILabel"; text = "Step 1 of 3"; ObjectID = "TCn-aT-NQv"; */
-"TCn-aT-NQv.text" = "Passo 1 de 3";
+"TCn-aT-NQv.text" = "Step 1 of 3";
 
 /* Class = "UILabel"; text = "Tags"; ObjectID = "TVq-hl-fZi"; */
 "TVq-hl-fZi.text" = "Tags";
@@ -57,52 +57,52 @@
 "XQR-ma-l1C.title" = "TMDb API";
 
 /* Class = "UILabel"; text = "Your review has been published"; ObjectID = "Ziy-Ud-eHX"; */
-"Ziy-Ud-eHX.text" = "Sua análise foi publicada!";
+"Ziy-Ud-eHX.text" = "Your review has been published";
 
 /* Class = "UILabel"; text = "Does this movie passes in the Bechdel Test?"; ObjectID = "aXu-vb-5ir"; */
-"aXu-vb-5ir.text" = "Esse filme passa no Teste de Bechdel?";
-
-/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "ala-tS-ND0"; */
-"ala-tS-ND0.title" = "Item";
+"aXu-vb-5ir.text" = "Does this movie passes in the Bechdel Test?";
 
 /* Class = "UIButton"; normalTitle = "Want to know more about the Bechdel Test?"; ObjectID = "dVh-kF-u36"; */
-"dVh-kF-u36.normalTitle" = "Quer saber mais sobre o Teste de Bechdel?";
+"dVh-kF-u36.normalTitle" = "Want to know more about the Bechdel Test?";
 
 /* Class = "UILabel"; text = "TMDb API"; ObjectID = "dc5-z9-CSy"; */
 "dc5-z9-CSy.text" = "TMDb API";
 
+/* Class = "UINavigationItem"; title = "Movie Title"; ObjectID = "f1u-Vu-eVN"; */
+"f1u-Vu-eVN.title" = "Movie Title";
+
 /* Class = "UILabel"; text = "Character"; ObjectID = "flo-NG-4gi"; */
-"flo-NG-4gi.text" = "Personagem";
+"flo-NG-4gi.text" = "Character";
 
 /* Class = "UIButton"; normalTitle = "Yes"; ObjectID = "jmn-hf-5ih"; */
-"jmn-hf-5ih.normalTitle" = "Sim";
+"jmn-hf-5ih.normalTitle" = "Yes";
 
 /* Class = "UILabel"; text = "Movie Title"; ObjectID = "jrM-Ro-ktd"; */
-"jrM-Ro-ktd.text" = "Título do Filme";
+"jrM-Ro-ktd.text" = "Movie Title";
 
 /* Class = "UINavigationItem"; title = "About"; ObjectID = "nGc-9q-HwI"; */
-"nGc-9q-HwI.title" = "Sobre";
+"nGc-9q-HwI.title" = "About";
 
 /* Class = "UIButton"; normalTitle = "Review Movie"; ObjectID = "pFo-6r-Cp9"; */
-"pFo-6r-Cp9.normalTitle" = "Analisar Filme";
+"pFo-6r-Cp9.normalTitle" = "Review Movie";
 
 /* Class = "UILabel"; text = "Is the main protagonist of this movie a woman?"; ObjectID = "rWa-dc-pds"; */
-"rWa-dc-pds.text" = "Uma das protagonistas desse filme é uma mulher?";
+"rWa-dc-pds.text" = "Is the main protagonist of this movie a woman?";
 
 /* Class = "UIButton"; normalTitle = "Go Back to Selection Screen"; ObjectID = "sOh-lc-koh"; */
-"sOh-lc-koh.normalTitle" = "Voltar para Tela Inicial";
+"sOh-lc-koh.normalTitle" = "Go Back to Selection Screen";
 
 /* Class = "UIButton"; normalTitle = "Submit Review"; ObjectID = "tS9-4H-bwi"; */
-"tS9-4H-bwi.normalTitle" = "Enviar Análise";
+"tS9-4H-bwi.normalTitle" = "Submit Review";
 
 /* Class = "UILabel"; text = "Thanks for reviewing!"; ObjectID = "tur-U6-VIy"; */
-"tur-U6-VIy.text" = "Obrigada por analisar!";
+"tur-U6-VIy.text" = "Thanks for reviewing!";
 
 /* Class = "UILabel"; text = "Why should you watch it?"; ObjectID = "v2k-Lw-Od6"; */
-"v2k-Lw-Od6.text" = "Por que você deveria assistir?";
+"v2k-Lw-Od6.text" = "Why should you watch it?";
 
 /* Class = "UIButton"; normalTitle = "Got it!"; ObjectID = "vnV-YF-LfG"; */
-"vnV-YF-LfG.normalTitle" = "Entendi!";
+"vnV-YF-LfG.normalTitle" = "Got it!";
 
 /* Class = "UITextView"; text = "The Bechdel test also known as the Bechdel–Wallace test, is a measure of the representation of women in fiction. It asks whether a work features at least two women who talk to each other about something other than a man. The requirement that the two women must be named is sometimes added."; ObjectID = "zA5-RN-hq2"; */
 "zA5-RN-hq2.text" = "The Bechdel test also known as the Bechdel–Wallace test, is a measure of the representation of women in fiction. It asks whether a work features at least two women who talk to each other about something other than a man. The requirement that the two women must be named is sometimes added.";
@@ -111,8 +111,7 @@
 "zPt-dG-hbk.text" = "Cast Name";
 
 /* Class = "UILabel"; text = "Step 2 of 3"; ObjectID = "zSB-mv-QSn"; */
-"zSB-mv-QSn.text" = "Passo 2 de 3";
+"zSB-mv-QSn.text" = "Step 2 of 3";
 
 /* Class = "UIButton"; normalTitle = "No"; ObjectID = "zvX-CX-H9U"; */
-"zvX-CX-H9U.normalTitle" = "Não";
-
+"zvX-CX-H9U.normalTitle" = "No";

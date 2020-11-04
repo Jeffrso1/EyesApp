@@ -8,6 +8,7 @@
 import UIKit
 
 class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
+   
     @IBOutlet weak var viewBox: UIView!
     @IBOutlet weak var reviewButton: UIButton!
     @IBOutlet weak var detailsButton: UIButton!

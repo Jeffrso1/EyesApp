@@ -37,7 +37,7 @@ class AboutAppViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Third-Party APIs"
+        return NSLocalizedString("Third-Party_APIs", comment: "")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

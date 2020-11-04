@@ -38,7 +38,8 @@ class DAO: MovieDelegate {
     }
     
     fileprivate init() {
-        
+        loadTags()
+        loadTagsSelected()
     }
     
     func loadMovies(to caller: DAORequester?) {
@@ -150,6 +151,29 @@ class DAO: MovieDelegate {
             switch result {
             case .success(let result):
                 tags = result as! [Tag]
+                CKMDefault.semaphore.signal()
+            case .failure(let error):
+                print(error)
+                CKMDefault.semaphore.signal()
+            }
+            
+        })
+        
+        CKMDefault.semaphore.wait()
+        print("Final Tags: \(tags)")
+        return tags
+        
+    }
+    
+    func loadTagsSelected() -> [TagSelected] {
+        
+        var tags: [TagSelected] = []
+        
+        TagSelected.ckLoadAll(then: {result in
+            
+            switch result {
+            case .success(let result):
+                tags = result as! [TagSelected]
                 CKMDefault.semaphore.signal()
             case .failure(let error):
                 print(error)

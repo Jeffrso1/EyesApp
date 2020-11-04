@@ -72,9 +72,9 @@ class MovieStore: MovieService {
         
         //Be sure to set the right region for each language!
         self.loadURLAndDecode(url: url, params: [
-            "language": "pt-BR",
+            "language": NSLocalizedString("Language", comment: ""),
             "include_adult": "false",
-            "region": "BR",
+            "region": NSLocalizedString("Country", comment: ""),
             "query": query
         ], completion: completion)
     }
