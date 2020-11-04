@@ -267,8 +267,6 @@
 				CFFE89C5253E2850002BD1BA /* Models */,
 				CFFE89C4253E2846002BD1BA /* Services */,
 				CFFE8972253E27F6002BD1BA /* Main.storyboard */,
-				CFAE47C22541D2B300244D74 /* Questions.storyboard */,
-				713367762541F33B005919E8 /* CarouselItem.xib */,
 				CFC47C5425519F44001CB77E /* CastTableViewCell.swift */,
 				CFC47C4F25519AAA001CB77E /* CastCollectionViewCell.swift */,
 				71823B77254A025300EDA85F /* OverviewCollectionViewCell.swift */,
