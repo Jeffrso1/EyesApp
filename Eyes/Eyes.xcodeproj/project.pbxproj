@@ -93,6 +93,7 @@
 		CF424FA225462EFB00C85A37 /* TagButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagButton.swift; sourceTree = "<group>"; };
 		CF424FA72546352000C85A37 /* ChooseTagsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTagsCollectionViewCell.swift; sourceTree = "<group>"; };
 		CF428AC0254B30DF00DD25A5 /* AboutDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDetailsVC.swift; sourceTree = "<group>"; };
+		CF7D036C25532D6E007AC801 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		CF846D7C25422E9000BBC7D3 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		CF846D8A2543504A00BBC7D3 /* TagVotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagVotes.swift; sourceTree = "<group>"; };
 		CF846D8F254350C700BBC7D3 /* MyMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMovies.swift; sourceTree = "<group>"; };
@@ -258,13 +259,13 @@
 				CFFE89C5253E2850002BD1BA /* Models */,
 				CFFE89C4253E2846002BD1BA /* Services */,
 				CFFE8972253E27F6002BD1BA /* Main.storyboard */,
+				CFAE47C22541D2B300244D74 /* Questions.storyboard */,
+				713367762541F33B005919E8 /* CarouselItem.xib */,
 				CFC47C5425519F44001CB77E /* CastTableViewCell.swift */,
 				CFC47C4F25519AAA001CB77E /* CastCollectionViewCell.swift */,
 				71823B77254A025300EDA85F /* OverviewCollectionViewCell.swift */,
 				71823B7C254A0A9E00EDA85F /* HeaderCollectionViewCell.swift */,
 				71823B84254A0C0200EDA85F /* TagsCollectionViewCell.swift */,
-				CFAE47C22541D2B300244D74 /* Questions.storyboard */,
-				713367762541F33B005919E8 /* CarouselItem.xib */,
 				CFFE8970253E27F6002BD1BA /* ViewController.swift */,
 				7133677B2541F4A9005919E8 /* CarouselItem.swift */,
 				7133678625420A52005919E8 /* PageViewController.swift */,
@@ -571,6 +572,7 @@
 			children = (
 				CFFE8973253E27F6002BD1BA /* Base */,
 				CFE476052551F8A60053B5BA /* pt-BR */,
+				CF7D036C25532D6E007AC801 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -712,7 +714,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Eyes/Eyes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 83KH3JF2CE;
 				INFOPLIST_FILE = Eyes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -735,7 +737,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Eyes/Eyes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 83KH3JF2CE;
 				INFOPLIST_FILE = Eyes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

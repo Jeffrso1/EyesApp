@@ -20,9 +20,11 @@ class MyMovie: CKMRecord {
     }
    
     var tags: [Tag]
+    var tagsSelected: [TagSelected]
     
-    init(movieID: Int, tags: [Tag]) {
+    init(movieID: Int, tags: [Tag], tagsSelected: [TagSelected]) {
         self.tags = tags
+        self.tagsSelected = tagsSelected
         self.movieID = movieID
     }
     
