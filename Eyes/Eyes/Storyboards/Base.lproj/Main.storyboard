@@ -1102,7 +1102,7 @@
         <!--Navigation Controller-->
         <scene sceneID="TuZ-62-RKj">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZC5-0D-aJr" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZC5-0D-aJr" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="9Gy-5z-NKN">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>

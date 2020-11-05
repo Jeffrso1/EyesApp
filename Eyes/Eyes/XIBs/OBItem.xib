@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OBItem" customModule="Eyes" customModuleProvider="target">
+            <connections>
+                <outlet property="pageImage" destination="4H9-OM-XBk" id="soQ-Iy-5w4"/>
+                <outlet property="pageSubtitle" destination="Cil-0b-a5b" id="v08-WO-vtC"/>
+                <outlet property="pageTitle" destination="Atz-H1-6eM" id="PkY-Jk-kwK"/>
+                <outlet property="vwContent" destination="iN0-l3-epB" id="5Pj-uW-2Uv"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BKw-86-fZr">
+                    <rect key="frame" x="31" y="87" width="352" height="141"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Avalie o filme por um processo de três perguntas. Fáceis e simples!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cil-0b-a5b">
+                            <rect key="frame" x="8" y="69" width="336" height="54"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="54" id="6Ww-kK-6D7"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Page Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Atz-H1-6eM">
+                            <rect key="frame" x="60" y="16" width="232" height="36"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                            <color key="textColor" name="AccentColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="Atz-H1-6eM" firstAttribute="leading" secondItem="BKw-86-fZr" secondAttribute="leading" constant="60" id="4VI-96-jQ9"/>
+                        <constraint firstAttribute="bottom" secondItem="Cil-0b-a5b" secondAttribute="bottom" constant="18" id="FBL-Ks-2gM"/>
+                        <constraint firstItem="Atz-H1-6eM" firstAttribute="top" secondItem="BKw-86-fZr" secondAttribute="top" constant="16" id="HLY-LA-Ux8"/>
+                        <constraint firstItem="Cil-0b-a5b" firstAttribute="leading" secondItem="BKw-86-fZr" secondAttribute="leading" constant="8" id="ojl-bl-WD9"/>
+                        <constraint firstItem="Cil-0b-a5b" firstAttribute="top" secondItem="Atz-H1-6eM" secondAttribute="bottom" constant="17" id="pHB-Xy-xQg"/>
+                        <constraint firstItem="Atz-H1-6eM" firstAttribute="centerX" secondItem="BKw-86-fZr" secondAttribute="centerX" id="uIe-XP-eQw"/>
+                        <constraint firstAttribute="trailing" secondItem="Cil-0b-a5b" secondAttribute="trailing" constant="8" id="veK-Xr-q6C"/>
+                    </constraints>
+                </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4H9-OM-XBk">
+                    <rect key="frame" x="31" y="236.00000000000006" width="352" height="806.33333333333348"/>
+                    <constraints>
+                        <constraint firstAttribute="height" priority="250" constant="806.33333333333348" id="BHs-PH-ImE"/>
+                        <constraint firstAttribute="width" secondItem="4H9-OM-XBk" secondAttribute="height" multiplier="313:717" id="OEG-ZP-pWP"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" name="BackgroundColor"/>
+            <constraints>
+                <constraint firstItem="BKw-86-fZr" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="43" id="0f0-lL-hFi"/>
+                <constraint firstItem="4H9-OM-XBk" firstAttribute="leading" secondItem="BKw-86-fZr" secondAttribute="leading" id="ffV-oc-mc1"/>
+                <constraint firstItem="4H9-OM-XBk" firstAttribute="top" secondItem="BKw-86-fZr" secondAttribute="bottom" constant="8" id="inc-6k-7hK"/>
+                <constraint firstItem="BKw-86-fZr" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="31" id="jch-oR-DV9"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="BKw-86-fZr" secondAttribute="trailing" constant="31" id="rnE-ba-N8B"/>
+                <constraint firstItem="4H9-OM-XBk" firstAttribute="trailing" secondItem="BKw-86-fZr" secondAttribute="trailing" id="y7a-rm-F16"/>
+            </constraints>
+            <point key="canvasLocation" x="136.80000000000001" y="108.39580209895054"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="AccentColor">
+            <color red="0.38039215686274508" green="0.21176470588235294" blue="0.5490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BackgroundColor">
+            <color red="0.097999997437000275" green="0.097999997437000275" blue="0.097999997437000275" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>

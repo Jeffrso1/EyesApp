@@ -31,6 +31,7 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
     
     func configNavBar() {
         
+        self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
