@@ -7,8 +7,23 @@
 import UIKit
 
 @IBDesignable
-class CarouselItem: UIView {
+class CarouselItem: UIView, UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 20
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCell", for: indexPath) as! TagCell
+        
+        cell.setupTagCell()
+        
+        return cell
+    }
+    
     static let CAROUSEL_ITEM_NIB = "CarouselItem"
+    
+    @IBOutlet weak var tagsCV: UICollectionView!
     
     @IBOutlet weak var movieBanner: UIImageView!
     @IBOutlet weak var movieBlurBanner: UIImageView!
@@ -17,6 +32,11 @@ class CarouselItem: UIView {
     @IBOutlet weak var movieDescription: UITextView!
     @IBOutlet weak var timeAndGenre: UILabel!
     
+    private func initCollectionView() {
+      let nib = UINib(nibName: "TagCell", bundle: nil)
+      tagsCV.register(nib, forCellWithReuseIdentifier: "TagCell")
+      tagsCV.dataSource = self
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -59,6 +79,7 @@ class CarouselItem: UIView {
         vwContent.frame = bounds
         vwContent.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         addSubview(vwContent)
+        initCollectionView()
     }
     
     
@@ -83,3 +104,4 @@ class CarouselItem: UIView {
     }
     
 }
+
