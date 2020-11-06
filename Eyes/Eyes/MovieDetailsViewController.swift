@@ -12,8 +12,6 @@ class MovieDetailsViewController: UIViewController, UICollectionViewDelegate, UI
     var movieID: Int?
     var imageID: UIImage?
     
-    //let navBarHeight: CGFloat = 66.0
-    
     @IBOutlet weak var collectionView: UICollectionView!
     
     var imageLoader = ImageLoader()
@@ -80,7 +78,7 @@ class MovieDetailsViewController: UIViewController, UICollectionViewDelegate, UI
         case 1:
             return .init(width: view.frame.width, height: 220)
         case 2:
-            return .init(width: view.frame.width, height: 100)
+            return .init(width: view.frame.width, height: 300)
         default:
             return .init(width: view.frame.width, height: 700)
         }
@@ -96,7 +94,7 @@ class MovieDetailsViewController: UIViewController, UICollectionViewDelegate, UI
         
         lastOffsetY = scrollView.contentOffset.y
         
-        print(lastOffsetY)
+        //print(lastOffsetY)
         
         if lastOffsetY > 60 {
         
