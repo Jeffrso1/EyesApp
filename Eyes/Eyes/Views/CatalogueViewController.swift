@@ -45,6 +45,8 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
+        if dao.currentMovie != 0 {
+        
         if segue.identifier == "movieReview" {
             let vc = segue.destination as! BechdelTestViewController
             selectedID = Array(dao.movies)[dao.currentMovie].key
@@ -69,6 +71,7 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
             print("About Section pressed")
         }
         
+        }
         
     }
     

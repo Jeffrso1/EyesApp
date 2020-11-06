@@ -9,17 +9,9 @@ import UIKit
 @IBDesignable
 class CarouselItem: UIView, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
-    }
+    var tags: [TagSelected] = []
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCell", for: indexPath) as! TagCell
-        
-        cell.setupTagCell()
-        
-        return cell
-    }
+    var currentMovie = dao.movies[Array(dao.movies)[dao.currentMovie].key]
     
     static let CAROUSEL_ITEM_NIB = "CarouselItem"
     
@@ -72,6 +64,18 @@ class CarouselItem: UIView, UICollectionViewDelegate, UICollectionViewDataSource
         blurView.frame = CGRect(x: 0, y: 0, width: movieBlurBanner.bounds.width + 30, height: movieBlurBanner.bounds.height + 30)
         movieBlurBanner.contentMode = .scaleAspectFill
         movieBlurBanner.addSubview(blurView)
+        
+        let loadMovie = dao.loadMovieCK(with: String(movie.id))
+
+        let loadedTags = loadMovie?.tagsSelected
+        
+        if loadedTags != nil {
+            tags.append(loadedTags![0])
+            tags.append(loadedTags![1])
+        } else {
+            tags.append(TagSelected(displayName_enUS: "No Reviews Available", displayName_ptBR: "Sem Análises Disponíveis"))
+        }
+        
     }
     
     fileprivate func initWithNib() {
@@ -81,6 +85,23 @@ class CarouselItem: UIView, UICollectionViewDelegate, UICollectionViewDataSource
         addSubview(vwContent)
         initCollectionView()
     }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return tags.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCell", for: indexPath) as! TagCell
+        
+        cell.tagsName.setTitle(tags[indexPath.row].displayName_enUS, for: .normal)
+        
+        cell.setupTagCell()
+        
+        return cell
+    }
+    
     
     
     fileprivate func loadAsyncImage(from movie: Movie, then completion: @escaping (UIImage)->Void) {

@@ -8,6 +8,7 @@
 import UIKit
 import CloudKitMagicCRUD
 
+
 class PageViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, DAORequester {
     
     func updated() {
@@ -79,6 +80,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
             
             return items[nextIndex]
         }
+    
     
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
         return dao.movies.count

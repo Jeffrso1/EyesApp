@@ -13,7 +13,6 @@ class TagsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSource, 
     
     var tags : [TagSelected] = []
     
-    var names = ["Tag1", ""]
     
     var currentMovie = dao.movies[Array(dao.movies)[dao.currentMovie].key]
     
@@ -37,6 +36,8 @@ class TagsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSource, 
         if loadedTags != nil {
             tags.append(loadedTags![0])
             tags.append(loadedTags![1])
+        } else {
+            tags.append(TagSelected(displayName_enUS: "No Reviews Available", displayName_ptBR: "Sem Análises Disponíveis"))
         }
         
         print(self.tags.count)

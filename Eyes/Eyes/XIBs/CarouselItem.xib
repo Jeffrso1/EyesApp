@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -36,36 +35,36 @@
                         <constraint firstAttribute="height" priority="750" constant="284" id="qXb-lF-pC3"/>
                     </constraints>
                 </imageView>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ifs-nE-ztv">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ifs-nE-ztv">
                     <rect key="frame" x="0.0" y="400" width="428" height="50"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="FYj-pf-gcP"/>
                     </constraints>
-                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UUx-h4-raQ">
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UUx-h4-raQ">
                         <size key="itemSize" width="128" height="128"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Movie Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xlm-NP-jKW">
-                    <rect key="frame" x="26" y="458" width="388" height="38.333333333333314"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xlm-NP-jKW">
+                    <rect key="frame" x="20" y="458" width="394" height="38.333333333333314"/>
                     <constraints>
-                        <constraint firstAttribute="height" priority="250" constant="40" id="6TE-Ah-Oay"/>
+                        <constraint firstAttribute="height" priority="250" constant="38.333333333333314" id="6TE-Ah-Oay"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Movie Description..." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="13n-Tv-9WG">
-                    <rect key="frame" x="15" y="541.33333333333337" width="393" height="350.66666666666663"/>
+                    <rect key="frame" x="15" y="542.33333333333337" width="393" height="349.66666666666663"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Time and Genre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="s92-wy-UDo">
-                    <rect key="frame" x="26" y="505" width="388" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time and Genre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="s92-wy-UDo">
+                    <rect key="frame" x="20" y="505.33333333333326" width="394" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -82,15 +81,16 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="COs-PN-54z" secondAttribute="trailing" constant="112" id="OXE-Pg-d99"/>
                 <constraint firstItem="COs-PN-54z" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" priority="750" constant="10" id="PcM-HP-5Ir"/>
                 <constraint firstItem="13n-Tv-9WG" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="QZ8-Ar-BB1"/>
+                <constraint firstItem="xlm-NP-jKW" firstAttribute="top" secondItem="EcN-I4-l5x" secondAttribute="bottom" priority="750" constant="66" id="SJK-tc-3QB"/>
                 <constraint firstItem="EcN-I4-l5x" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ZDK-xG-35Z"/>
                 <constraint firstItem="s92-wy-UDo" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="cfV-Lq-agg"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="13n-Tv-9WG" secondAttribute="trailing" constant="20" id="dMq-nu-cVc"/>
                 <constraint firstItem="EcN-I4-l5x" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="gPt-iQ-krg"/>
-                <constraint firstItem="s92-wy-UDo" firstAttribute="top" secondItem="xlm-NP-jKW" secondAttribute="bottom" constant="8" id="jlY-zd-qLo"/>
+                <constraint firstItem="s92-wy-UDo" firstAttribute="top" secondItem="xlm-NP-jKW" secondAttribute="bottom" constant="9" id="jlY-zd-qLo"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ifs-nE-ztv" secondAttribute="trailing" id="mfl-3n-cWH"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="xlm-NP-jKW" secondAttribute="trailing" constant="20" id="sZN-0e-dqs"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="xlm-NP-jKW" secondAttribute="trailing" constant="14" id="sZN-0e-dqs"/>
                 <constraint firstItem="ifs-nE-ztv" firstAttribute="top" secondItem="EcN-I4-l5x" secondAttribute="bottom" constant="8" symbolic="YES" id="uFI-MH-WQa"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="s92-wy-UDo" secondAttribute="trailing" constant="20" id="uzj-uJ-k4Z"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="s92-wy-UDo" secondAttribute="trailing" constant="14" id="uzj-uJ-k4Z"/>
                 <constraint firstItem="xlm-NP-jKW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="yX2-nT-FBd"/>
                 <constraint firstItem="13n-Tv-9WG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="yzg-Nq-Hea"/>
                 <constraint firstItem="xlm-NP-jKW" firstAttribute="top" secondItem="ifs-nE-ztv" secondAttribute="bottom" constant="8" symbolic="YES" id="z9f-1V-3CG"/>
@@ -103,8 +103,5 @@
         <namedColor name="BackgroundColor">
             <color red="0.097999997437000275" green="0.097999997437000275" blue="0.097999997437000275" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
