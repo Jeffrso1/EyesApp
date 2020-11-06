@@ -9,10 +9,14 @@ import UIKit
 
 class AboutBechdelTestVC: UIViewController {
 
+    @IBOutlet weak var whatBechdelTest: UITextView!
+    @IBOutlet weak var impactIndustry: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        whatBechdelTest.text = NSLocalizedString("BechdelTest", comment: "")
+        impactIndustry.text = NSLocalizedString("ImpactIndustry", comment: "")
     }
     
 

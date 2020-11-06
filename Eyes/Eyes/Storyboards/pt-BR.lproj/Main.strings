@@ -111,7 +111,7 @@
 "v2k-Lw-Od6.text" = "Por que você deveria assistir?";
 
 /* Class = "UIButton"; normalTitle = "Got it!"; ObjectID = "vnV-YF-LfG"; */
-"vnV-YF-LfG.normalTitle" = "Entendi!";
+"vnV-YF-LfG.normalTitle" = "Entendi";
 
 /* Class = "UITextView"; text = "The Bechdel test also known as the Bechdel–Wallace test, is a measure of the representation of women in fiction. It asks whether a work features at least two women who talk to each other about something other than a man. The requirement that the two women must be named is sometimes added."; ObjectID = "zA5-RN-hq2"; */
 "zA5-RN-hq2.text" =  "O Teste de Bechdel é um conjunto de parâmetros utilizados para mensurar a representação de mulheres em um filme. Para que um filme passe no Teste de Bechdel, duas mulheres devem conversar sobre algo além de um homem. No Estados Unidos, 40% dos filmes ainda falham nesse teste.";

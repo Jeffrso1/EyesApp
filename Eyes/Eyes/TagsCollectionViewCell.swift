@@ -56,16 +56,10 @@ class TagsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSource, 
         if langStr == "en" {
         
         cell.tagButton.setTitle(tags[indexPath.row].displayName_enUS, for: .normal)
-        
         } else {
             
         cell.tagButton.setTitle(tags[indexPath.row].displayName_ptBR, for: .normal)
-            
         }
-        
-        //cell.tagButton.setTitle("Tags Not Available", for: .normal)
-            
-        
         
         return cell
     

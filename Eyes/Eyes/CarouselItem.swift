@@ -95,7 +95,14 @@ class CarouselItem: UIView, UICollectionViewDelegate, UICollectionViewDataSource
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCell", for: indexPath) as! TagCell
         
+        
+        let langStr = Locale.current.languageCode
+        
+        if langStr == "en" {
         cell.tagsName.setTitle(tags[indexPath.row].displayName_enUS, for: .normal)
+        } else {
+        cell.tagsName.setTitle(tags[indexPath.row].displayName_ptBR, for: .normal)
+        }
         
         cell.setupTagCell()
         

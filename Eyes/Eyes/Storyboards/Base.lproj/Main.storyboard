@@ -370,24 +370,24 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="djF-DD-pMK">
-                                                    <rect key="frame" x="0.0" y="84" width="414" height="270"/>
+                                                    <rect key="frame" x="0.0" y="84" width="414" height="206"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RQP-RD-Hsz">
-                                                        <size key="itemSize" width="151" height="47"/>
+                                                        <size key="itemSize" width="219" height="47"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                         <inset key="sectionInset" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="tags" id="A4n-HX-yiy" customClass="InsideTagsCollectionViewCell" customModule="Eyes" customModuleProvider="target">
-                                                            <rect key="frame" x="30" y="0.0" width="151" height="47"/>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" reuseIdentifier="tags" id="A4n-HX-yiy" customClass="InsideTagsCollectionViewCell" customModule="Eyes" customModuleProvider="target">
+                                                            <rect key="frame" x="30" y="0.0" width="72" height="47"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="GIR-wD-quX">
-                                                                <rect key="frame" x="0.0" y="0.0" width="151" height="47"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="72" height="47"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RLf-Wy-njK">
-                                                                        <rect key="frame" x="10" y="5" width="130" height="37"/>
+                                                                        <rect key="frame" x="10" y="5" width="51" height="37"/>
                                                                         <color key="backgroundColor" name="AccentColor"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" priority="250" constant="37" id="Pe5-mB-aH1"/>
@@ -405,7 +405,6 @@
                                                                     <constraint firstItem="RLf-Wy-njK" firstAttribute="top" secondItem="GIR-wD-quX" secondAttribute="top" constant="5" id="nqZ-sM-38h"/>
                                                                 </constraints>
                                                             </collectionViewCellContentView>
-                                                            <size key="customSize" width="151" height="47"/>
                                                             <connections>
                                                                 <outlet property="tagButton" destination="RLf-Wy-njK" id="qY7-JD-kWh"/>
                                                             </connections>
@@ -420,7 +419,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="djF-DD-pMK" secondAttribute="trailing" id="WLI-YI-s8O"/>
                                                 <constraint firstItem="djF-DD-pMK" firstAttribute="leading" secondItem="uR9-IJ-J0D" secondAttribute="leading" id="d6A-Za-B7j"/>
                                                 <constraint firstItem="v2k-Lw-Od6" firstAttribute="top" secondItem="uR9-IJ-J0D" secondAttribute="top" constant="30" id="fqs-78-VBa"/>
-                                                <constraint firstAttribute="bottom" secondItem="djF-DD-pMK" secondAttribute="bottom" constant="29" id="yTi-pV-D6a"/>
+                                                <constraint firstAttribute="bottom" secondItem="djF-DD-pMK" secondAttribute="bottom" constant="93" id="yTi-pV-D6a"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" name="BackgroundColor"/>
@@ -545,7 +544,7 @@
             <objects>
                 <viewController id="48C-ZP-3bV" customClass="BechdelTestViewController" customModule="Eyes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4aF-42-Ytm">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1650"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4z-bM-4sk">
@@ -1094,9 +1093,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Kcy-hv-Z3m">
-                                <rect key="frame" x="20" y="460" width="374" height="137"/>
+                                <rect key="frame" x="20" y="460" width="374" height="262"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="137" id="ZLg-2v-YYp"/>
+                                    <constraint firstAttribute="height" priority="250" constant="262" id="ZLg-2v-YYp"/>
                                 </constraints>
                                 <string key="text">The Bechdel test also known as the Bechdel–Wallace test, is a measure of the representation of women in fiction. It asks whether a work features at least two women who talk to each other about something other than a man. The requirement that the two women must be named is sometimes added.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1112,6 +1111,7 @@
                             <constraint firstItem="zA5-RN-hq2" firstAttribute="top" secondItem="HXw-My-kgL" secondAttribute="bottom" constant="8" id="BMh-eC-0jL"/>
                             <constraint firstItem="ejm-bc-zav" firstAttribute="trailing" secondItem="HXw-My-kgL" secondAttribute="trailing" constant="104" id="CAA-yb-2kE"/>
                             <constraint firstAttribute="trailing" secondItem="94J-y1-bDG" secondAttribute="trailing" constant="27" id="E6R-pY-nON"/>
+                            <constraint firstItem="vnV-YF-LfG" firstAttribute="top" secondItem="Kcy-hv-Z3m" secondAttribute="bottom" constant="21" id="EQn-9w-N2m"/>
                             <constraint firstItem="zA5-RN-hq2" firstAttribute="leading" secondItem="ejm-bc-zav" secondAttribute="leading" constant="20" id="OOO-qd-lP5"/>
                             <constraint firstItem="HXw-My-kgL" firstAttribute="top" secondItem="ejm-bc-zav" secondAttribute="top" constant="22" id="QQI-df-cRh"/>
                             <constraint firstItem="vnV-YF-LfG" firstAttribute="leading" secondItem="ejm-bc-zav" secondAttribute="leading" constant="27" id="VmY-o5-43q"/>
@@ -1125,6 +1125,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="About Bechdel Test" id="Mbp-mk-MBB"/>
+                    <connections>
+                        <outlet property="impactIndustry" destination="Kcy-hv-Z3m" id="57U-n1-bkT"/>
+                        <outlet property="whatBechdelTest" destination="zA5-RN-hq2" id="SaN-2c-eN5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8c2-N0-TED" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="NIr-XS-C0j" userLabel="Exit" sceneMemberID="exit"/>
@@ -1137,6 +1141,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="w6j-gt-G7D" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="v3L-nz-Yud">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1154,6 +1159,7 @@
                 <navigationController storyboardIdentifier="navigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZC5-0D-aJr" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="9Gy-5z-NKN">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

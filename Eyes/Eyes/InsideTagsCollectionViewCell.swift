@@ -13,12 +13,18 @@ class InsideTagsCollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
         setupButton()
+        
     }
         
     fileprivate func setupButton() {
   
-       tagButton.sizeToFit()
+     //  tagButton.sizeToFit()
         
        tagButton.contentEdgeInsets = UIEdgeInsets(top: 10.0, left: 30.0, bottom: 10.0, right: 30.0)
         
