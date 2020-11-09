@@ -9,7 +9,7 @@ import UIKit
 import CloudKitMagicCRUD
 
 
-class PageViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, DAORequester {
+class CarouselPageVC: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, DAORequester {
     
     func updated() {
         //print("run function")
@@ -36,8 +36,6 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         if let firstViewController = items.first {
             setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
         }
-
-        
     }
     
     
@@ -93,15 +91,14 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
             let c = createCarouselItemControler(movie: item.value)
             items.append(c)
         }
-        
     }
 
     
     fileprivate func createCarouselItemControler(movie: Movie) -> UIViewController {
-            let c = UIViewController()
-            c.view = CarouselItem(movie: movie)
-            return c
-        }
+        let c = UIViewController()
+        c.view = CarouselItemView(movie: movie)
+        return c
+    }
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool){
         if completed {
@@ -123,7 +120,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
     
     
     fileprivate func decoratePageControl() {
-            let pc = UIPageControl.appearance(whenContainedInInstancesOf: [PageViewController.self])
+            let pc = UIPageControl.appearance(whenContainedInInstancesOf: [CarouselPageVC.self])
             pc.currentPageIndicatorTintColor = UIColor(named: "AccentColor")
             pc.pageIndicatorTintColor = .gray
     }

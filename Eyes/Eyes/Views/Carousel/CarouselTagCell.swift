@@ -7,9 +7,7 @@
 
 import UIKit
 
-class TagCell: UICollectionViewCell {
-    
-    
+class CarouselTagCell: UICollectionViewCell {
     
     @IBOutlet weak var tagsName: UIButton!
     

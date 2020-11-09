@@ -7,7 +7,12 @@
 
 import UIKit
 
-class TagsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
+class TagsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionViewDelegate, DAORequester {
+    
+    func updated() {
+        
+    }
+    
    
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -29,7 +34,7 @@ class TagsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSource, 
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        let loadMovie = dao.loadMovieCK(with: String(currentMovie!.id))
+        let loadMovie = dao.loadMovieCK(with: String(currentMovie!.id), to: self)
 
         let loadedTags = loadMovie?.tagsSelected
         

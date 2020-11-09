@@ -223,10 +223,10 @@
             </objects>
             <point key="canvasLocation" x="1508.6956521739132" y="-173.4375"/>
         </scene>
-        <!--Page View Controller-->
+        <!--Carousel PageVC-->
         <scene sceneID="GnR-Sd-jPq">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="h9f-WY-qQ8" customClass="PageViewController" customModule="Eyes" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="h9f-WY-qQ8" customClass="CarouselPageVC" customModule="Eyes" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h9B-Tb-Qvb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2343" y="19"/>
@@ -1044,6 +1044,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NCw-nC-ggK">
+                                <rect key="frame" x="0.0" y="56" width="414" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="aboutBechdel" id="z4v-u8-hUc" customClass="AboutBechdelTableViewCell" customModule="Eyes" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="179.66667175292969"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z4v-u8-hUc" id="Vdf-g5-mP3">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="179.66667175292969"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is the Bechdel Test?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="HXw-My-kgL">
+                                                    <rect key="frame" x="26" y="16" width="271" height="109"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="109" id="yWR-bX-Ith"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bwl-Kp-AQw">
+                                                    <rect key="frame" x="26" y="133" width="368" height="20.666666666666657"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" priority="250" constant="37" id="t2l-Dr-T2h"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="HXw-My-kgL" firstAttribute="top" secondItem="Vdf-g5-mP3" secondAttribute="topMargin" constant="5" id="9JJ-U5-JTK"/>
+                                                <constraint firstItem="Bwl-Kp-AQw" firstAttribute="leading" secondItem="Vdf-g5-mP3" secondAttribute="leadingMargin" constant="6" id="A1G-XV-0Uu"/>
+                                                <constraint firstItem="Bwl-Kp-AQw" firstAttribute="bottom" secondItem="Vdf-g5-mP3" secondAttribute="bottomMargin" constant="-15" id="Yx3-Fe-mvA"/>
+                                                <constraint firstAttribute="trailing" secondItem="HXw-My-kgL" secondAttribute="trailing" constant="117" id="glL-BJ-TjT"/>
+                                                <constraint firstItem="HXw-My-kgL" firstAttribute="leading" secondItem="Vdf-g5-mP3" secondAttribute="leadingMargin" constant="6" id="lUm-oW-bM4"/>
+                                                <constraint firstItem="Bwl-Kp-AQw" firstAttribute="trailing" secondItem="Vdf-g5-mP3" secondAttribute="trailingMargin" id="zNZ-bM-hmD"/>
+                                                <constraint firstItem="Bwl-Kp-AQw" firstAttribute="top" secondItem="HXw-My-kgL" secondAttribute="bottom" constant="8" symbolic="YES" id="zSR-P3-rdN"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="sectionDesc" destination="Bwl-Kp-AQw" id="meH-cA-cfY"/>
+                                            <outlet property="sectionTitle" destination="HXw-My-kgL" id="jN2-DQ-rtd"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ktO-5i-lrB" id="9jc-G2-PPI"/>
+                                    <outlet property="delegate" destination="ktO-5i-lrB" id="IkO-I1-4Hb"/>
+                                </connections>
+                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnV-YF-LfG">
                                 <rect key="frame" x="27" y="743" width="360" height="50"/>
                                 <color key="backgroundColor" name="AccentColor"/>
@@ -1064,70 +1117,22 @@
                                     <segue destination="NIr-XS-C0j" kind="unwind" unwindAction="unwind:" id="ZBX-Dj-SDW"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is the Bechdel Test?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXw-My-kgL">
-                                <rect key="frame" x="27" y="78" width="283" height="109"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="109" id="yWR-bX-Ith"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zA5-RN-hq2">
-                                <rect key="frame" x="20" y="195" width="374" height="137"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="137" id="XGV-oO-a6g"/>
-                                </constraints>
-                                <string key="text">The Bechdel test also known as the Bechdel–Wallace test, is a measure of the representation of women in fiction. It asks whether a work features at least two women who talk to each other about something other than a man. The requirement that the two women must be named is sometimes added.</string>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How does it impact the films industry?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="94J-y1-bDG">
-                                <rect key="frame" x="27" y="330" width="360" height="122"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="122" id="X4B-1N-O6F"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Kcy-hv-Z3m">
-                                <rect key="frame" x="20" y="460" width="374" height="262"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" priority="250" constant="262" id="ZLg-2v-YYp"/>
-                                </constraints>
-                                <string key="text">The Bechdel test also known as the Bechdel–Wallace test, is a measure of the representation of women in fiction. It asks whether a work features at least two women who talk to each other about something other than a man. The requirement that the two women must be named is sometimes added.</string>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ejm-bc-zav"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ejm-bc-zav" firstAttribute="trailing" secondItem="Kcy-hv-Z3m" secondAttribute="trailing" constant="20" id="7oy-rL-7yN"/>
-                            <constraint firstItem="Kcy-hv-Z3m" firstAttribute="top" secondItem="94J-y1-bDG" secondAttribute="bottom" constant="8" symbolic="YES" id="9hT-g0-4Oh"/>
-                            <constraint firstItem="zA5-RN-hq2" firstAttribute="top" secondItem="HXw-My-kgL" secondAttribute="bottom" constant="8" id="BMh-eC-0jL"/>
-                            <constraint firstItem="ejm-bc-zav" firstAttribute="trailing" secondItem="HXw-My-kgL" secondAttribute="trailing" constant="104" id="CAA-yb-2kE"/>
-                            <constraint firstAttribute="trailing" secondItem="94J-y1-bDG" secondAttribute="trailing" constant="27" id="E6R-pY-nON"/>
-                            <constraint firstItem="vnV-YF-LfG" firstAttribute="top" secondItem="Kcy-hv-Z3m" secondAttribute="bottom" constant="21" id="EQn-9w-N2m"/>
-                            <constraint firstItem="zA5-RN-hq2" firstAttribute="leading" secondItem="ejm-bc-zav" secondAttribute="leading" constant="20" id="OOO-qd-lP5"/>
-                            <constraint firstItem="HXw-My-kgL" firstAttribute="top" secondItem="ejm-bc-zav" secondAttribute="top" constant="22" id="QQI-df-cRh"/>
+                            <constraint firstItem="NCw-nC-ggK" firstAttribute="trailing" secondItem="ejm-bc-zav" secondAttribute="trailing" id="0EF-dN-k6M"/>
+                            <constraint firstItem="NCw-nC-ggK" firstAttribute="top" secondItem="ejm-bc-zav" secondAttribute="top" id="KIJ-4N-gD7"/>
                             <constraint firstItem="vnV-YF-LfG" firstAttribute="leading" secondItem="ejm-bc-zav" secondAttribute="leading" constant="27" id="VmY-o5-43q"/>
-                            <constraint firstItem="ejm-bc-zav" firstAttribute="trailing" secondItem="zA5-RN-hq2" secondAttribute="trailing" constant="20" id="Ycd-aW-5gC"/>
-                            <constraint firstItem="Kcy-hv-Z3m" firstAttribute="leading" secondItem="ejm-bc-zav" secondAttribute="leading" constant="20" id="aNV-MW-3Pe"/>
+                            <constraint firstItem="vnV-YF-LfG" firstAttribute="top" secondItem="NCw-nC-ggK" secondAttribute="bottom" constant="20" id="ZE2-CV-NMr"/>
                             <constraint firstItem="ejm-bc-zav" firstAttribute="trailing" secondItem="vnV-YF-LfG" secondAttribute="trailing" constant="27" id="bMH-eZ-xX8"/>
-                            <constraint firstItem="94J-y1-bDG" firstAttribute="top" secondItem="zA5-RN-hq2" secondAttribute="bottom" constant="-2" id="exg-yN-J1k"/>
+                            <constraint firstItem="NCw-nC-ggK" firstAttribute="leading" secondItem="ejm-bc-zav" secondAttribute="leading" id="sw7-ha-EcH"/>
                             <constraint firstItem="ejm-bc-zav" firstAttribute="bottom" secondItem="vnV-YF-LfG" secondAttribute="bottom" constant="15" id="wJl-NS-6lQ"/>
-                            <constraint firstItem="94J-y1-bDG" firstAttribute="leading" secondItem="ejm-bc-zav" secondAttribute="leading" constant="27" id="x2M-mO-xzX"/>
-                            <constraint firstItem="HXw-My-kgL" firstAttribute="leading" secondItem="ejm-bc-zav" secondAttribute="leading" constant="27" id="y5X-HK-Hmc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="About Bechdel Test" id="Mbp-mk-MBB"/>
                     <connections>
-                        <outlet property="impactIndustry" destination="Kcy-hv-Z3m" id="57U-n1-bkT"/>
-                        <outlet property="whatBechdelTest" destination="zA5-RN-hq2" id="SaN-2c-eN5"/>
+                        <outlet property="tableView" destination="NCw-nC-ggK" id="mc1-bl-fmF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8c2-N0-TED" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

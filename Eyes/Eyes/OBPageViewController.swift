@@ -116,7 +116,7 @@ class OBPageViewController: UIPageViewController, UIPageViewControllerDataSource
 
 
     fileprivate func decoratePageControl() {
-            let pc = UIPageControl.appearance(whenContainedInInstancesOf: [PageViewController.self])
+            let pc = UIPageControl.appearance(whenContainedInInstancesOf: [CarouselPageVC.self])
             pc.currentPageIndicatorTintColor = UIColor(named: "AccentColor")
             pc.pageIndicatorTintColor = .gray
     }

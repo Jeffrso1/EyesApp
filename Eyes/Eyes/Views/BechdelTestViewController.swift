@@ -27,7 +27,7 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
     var selectedTags: [Tag] = []
     var tagsSelected : [TagSelected] = []
     
-    let loadTags = dao.loadTags()
+    //let loadTags = dao.loadTags()
     
     var currentMovie = dao.movies[Array(dao.movies)[dao.currentMovie].key]
     
@@ -91,7 +91,7 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return loadTags.count
+        return dao.tags.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -105,19 +105,15 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
         self.navigationController?.navigationBar.topItem?.title = currentMovie?.title
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ChooseTagsCollectionViewCell
-        
-        let langStr = Locale.current.languageCode
-        
-        if langStr == "en" {
-            cell.tagButton.setTitle(loadTags[indexPath.row].displayName_enUS, for: .normal)
-        } else {
-            cell.tagButton.setTitle(loadTags[indexPath.row].displayName_ptBR, for: .normal)
-        }
+       
+        cell.setupTag(tag: dao.tags[indexPath.row])
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        
         
     }
     
@@ -127,27 +123,26 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
         if segue.identifier == "bechdelSegue" {
             
         }
+        
     }
     
     @IBAction func submitReview(_ sender: Any) {
         
-        selectedTags.append(contentsOf: tags)
+        selectedTags = dao.tags.filter { ($0.isSelected ?? false) }
         
         tagsSelected.append(contentsOf: [firstTag!, secondTag!])
         
         let movie = MyMovie.init(movieID: movieID, tags: selectedTags, tagsSelected: tagsSelected)
         
         movie.ckSave { result in
-            
             switch result {
             case .success(let result):
                 print(result)
             case .failure(let error):
                 print(error)
             }
-            
         }
-        print("Submiting review!")
+       //print("Submiting review!")
     }
     
     

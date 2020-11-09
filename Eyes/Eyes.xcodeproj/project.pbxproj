@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		713367722541F2A5005919E8 /* CatalogueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713367712541F2A5005919E8 /* CatalogueViewController.swift */; };
 		713367772541F33B005919E8 /* CarouselItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 713367762541F33B005919E8 /* CarouselItem.xib */; };
-		7133677C2541F4A9005919E8 /* CarouselItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7133677B2541F4A9005919E8 /* CarouselItem.swift */; };
-		7133678725420A52005919E8 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7133678625420A52005919E8 /* PageViewController.swift */; };
+		7133677C2541F4A9005919E8 /* CarouselItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7133677B2541F4A9005919E8 /* CarouselItemView.swift */; };
+		7133678725420A52005919E8 /* CarouselPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7133678625420A52005919E8 /* CarouselPageVC.swift */; };
 		71823B78254A025300EDA85F /* OverviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71823B77254A025300EDA85F /* OverviewCollectionViewCell.swift */; };
 		71823B7D254A0A9E00EDA85F /* HeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71823B7C254A0A9E00EDA85F /* HeaderCollectionViewCell.swift */; };
 		71823B85254A0C0200EDA85F /* TagsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71823B84254A0C0200EDA85F /* TagsCollectionViewCell.swift */; };
-		7195D5202555D3530072F7C5 /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7195D51E2555D3530072F7C5 /* TagCell.swift */; };
+		7195D5202555D3530072F7C5 /* CarouselTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7195D51E2555D3530072F7C5 /* CarouselTagCell.swift */; };
 		7195D5212555D3530072F7C5 /* TagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7195D51F2555D3530072F7C5 /* TagCell.xib */; };
 		71EA479F255320630072A74A /* OBItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71EA479E255320630072A74A /* OBItem.xib */; };
 		71EA47A4255321BA0072A74A /* OBItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EA47A3255321BA0072A74A /* OBItem.swift */; };
@@ -41,6 +41,7 @@
 		CFAE47BE2541CE7900244D74 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAE47BD2541CE7900244D74 /* Images.swift */; };
 		CFAE47DF2541FE3700244D74 /* BechdelTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAE47DE2541FE3700244D74 /* BechdelTestViewController.swift */; };
 		CFAE47E42541FFF700244D74 /* ConfirmationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAE47E32541FFF700244D74 /* ConfirmationButton.swift */; };
+		CFB73C352559AB9B00F7B7C9 /* AboutBechdelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB73C342559AB9B00F7B7C9 /* AboutBechdelTableViewCell.swift */; };
 		CFB76C0C254A0F9F00C3C6A1 /* EndReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB76C0B254A0F9F00C3C6A1 /* EndReviewViewController.swift */; };
 		CFC47C5025519AAA001CB77E /* CastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC47C4F25519AAA001CB77E /* CastCollectionViewCell.swift */; };
 		CFC47C5525519F44001CB77E /* CastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC47C5425519F44001CB77E /* CastTableViewCell.swift */; };
@@ -88,12 +89,12 @@
 /* Begin PBXFileReference section */
 		713367712541F2A5005919E8 /* CatalogueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueViewController.swift; sourceTree = "<group>"; };
 		713367762541F33B005919E8 /* CarouselItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarouselItem.xib; sourceTree = "<group>"; };
-		7133677B2541F4A9005919E8 /* CarouselItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselItem.swift; sourceTree = "<group>"; };
-		7133678625420A52005919E8 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		7133677B2541F4A9005919E8 /* CarouselItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselItemView.swift; sourceTree = "<group>"; };
+		7133678625420A52005919E8 /* CarouselPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselPageVC.swift; sourceTree = "<group>"; };
 		71823B77254A025300EDA85F /* OverviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		71823B7C254A0A9E00EDA85F /* HeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionViewCell.swift; sourceTree = "<group>"; };
 		71823B84254A0C0200EDA85F /* TagsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCollectionViewCell.swift; sourceTree = "<group>"; };
-		7195D51E2555D3530072F7C5 /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
+		7195D51E2555D3530072F7C5 /* CarouselTagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselTagCell.swift; sourceTree = "<group>"; };
 		7195D51F2555D3530072F7C5 /* TagCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagCell.xib; sourceTree = "<group>"; };
 		71EA479E255320630072A74A /* OBItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OBItem.xib; sourceTree = "<group>"; };
 		71EA47A3255321BA0072A74A /* OBItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBItem.swift; sourceTree = "<group>"; };
@@ -123,6 +124,7 @@
 		CFAE47BD2541CE7900244D74 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		CFAE47DE2541FE3700244D74 /* BechdelTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BechdelTestViewController.swift; sourceTree = "<group>"; };
 		CFAE47E32541FFF700244D74 /* ConfirmationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationButton.swift; sourceTree = "<group>"; };
+		CFB73C342559AB9B00F7B7C9 /* AboutBechdelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutBechdelTableViewCell.swift; sourceTree = "<group>"; };
 		CFB76C0B254A0F9F00C3C6A1 /* EndReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndReviewViewController.swift; sourceTree = "<group>"; };
 		CFC47C4F25519AAA001CB77E /* CastCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCollectionViewCell.swift; sourceTree = "<group>"; };
 		CFC47C5425519F44001CB77E /* CastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastTableViewCell.swift; sourceTree = "<group>"; };
@@ -244,9 +246,11 @@
 				CFAE47DE2541FE3700244D74 /* BechdelTestViewController.swift */,
 				CF424FA72546352000C85A37 /* ChooseTagsCollectionViewCell.swift */,
 				CF9ACCE82548AAD000AA4F33 /* AboutBechdelTestVC.swift */,
+				CFB73C342559AB9B00F7B7C9 /* AboutBechdelTableViewCell.swift */,
 				CFB76C0B254A0F9F00C3C6A1 /* EndReviewViewController.swift */,
 				CF1337EC254B297E00B377C6 /* AboutAppViewController.swift */,
 				CF428AC0254B30DF00DD25A5 /* AboutDetailsVC.swift */,
+				CFB73C482559B73D00F7B7C9 /* Carousel */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -258,6 +262,16 @@
 				CFFE89BA253E2829002BD1BA /* Movie+Stub.swift */,
 			);
 			path = "TMDB API";
+			sourceTree = "<group>";
+		};
+		CFB73C482559B73D00F7B7C9 /* Carousel */ = {
+			isa = PBXGroup;
+			children = (
+				7133678625420A52005919E8 /* CarouselPageVC.swift */,
+				7133677B2541F4A9005919E8 /* CarouselItemView.swift */,
+				7195D51E2555D3530072F7C5 /* CarouselTagCell.swift */,
+			);
+			path = Carousel;
 			sourceTree = "<group>";
 		};
 		CFFE8960253E27F6002BD1BA = {
@@ -305,9 +319,6 @@
 				71EA47A3255321BA0072A74A /* OBItem.swift */,
 				CFFE8970253E27F6002BD1BA /* ViewController.swift */,
 				71EA47A8255323AC0072A74A /* OBPageViewController.swift */,
-				7133677B2541F4A9005919E8 /* CarouselItem.swift */,
-				7195D51E2555D3530072F7C5 /* TagCell.swift */,
-				7133678625420A52005919E8 /* PageViewController.swift */,
 				CF846DAE2543955E00BBC7D3 /* MovieDetailsViewController.swift */,
 				CF846DAD2543955E00BBC7D3 /* MoviesCollectionViewCell.swift */,
 				CFE476192551FAE30053B5BA /* Localizable.strings */,
@@ -529,7 +540,7 @@
 				CFAE47E42541FFF700244D74 /* ConfirmationButton.swift in Sources */,
 				CFAE47DF2541FE3700244D74 /* BechdelTestViewController.swift in Sources */,
 				CF1BDE752540B0BD002FA236 /* Tag.swift in Sources */,
-				7133677C2541F4A9005919E8 /* CarouselItem.swift in Sources */,
+				7133677C2541F4A9005919E8 /* CarouselItemView.swift in Sources */,
 				71EA47A4255321BA0072A74A /* OBItem.swift in Sources */,
 				CFFE89BC253E2829002BD1BA /* Movie.swift in Sources */,
 				71EA47A9255323AC0072A74A /* OBPageViewController.swift in Sources */,
@@ -538,7 +549,7 @@
 				CF9ACCE12548923700AA4F33 /* MovieLoadingDetailState.swift in Sources */,
 				CF846D90254350C700BBC7D3 /* MyMovies.swift in Sources */,
 				CFFE8971253E27F6002BD1BA /* ViewController.swift in Sources */,
-				7195D5202555D3530072F7C5 /* TagCell.swift in Sources */,
+				7195D5202555D3530072F7C5 /* CarouselTagCell.swift in Sources */,
 				CFFE89BF253E2829002BD1BA /* MovieStore.swift in Sources */,
 				CF424FA325462EFB00C85A37 /* TagButton.swift in Sources */,
 				CFFE89BD253E2829002BD1BA /* MovieService.swift in Sources */,
@@ -553,12 +564,13 @@
 				CFB76C0C254A0F9F00C3C6A1 /* EndReviewViewController.swift in Sources */,
 				CF846D7D25422E9000BBC7D3 /* Question.swift in Sources */,
 				CFFE89A4253E2815002BD1BA /* MovieListState.swift in Sources */,
+				CFB73C352559AB9B00F7B7C9 /* AboutBechdelTableViewCell.swift in Sources */,
 				CF846DB02543955E00BBC7D3 /* MovieDetailsViewController.swift in Sources */,
 				CFFE896D253E27F6002BD1BA /* AppDelegate.swift in Sources */,
 				71823B85254A0C0200EDA85F /* TagsCollectionViewCell.swift in Sources */,
 				CFFE896F253E27F6002BD1BA /* SceneDelegate.swift in Sources */,
 				CF846D8B2543504A00BBC7D3 /* TagVotes.swift in Sources */,
-				7133678725420A52005919E8 /* PageViewController.swift in Sources */,
+				7133678725420A52005919E8 /* CarouselPageVC.swift in Sources */,
 				CF1337ED254B297E00B377C6 /* AboutAppViewController.swift in Sources */,
 				CFFE89A4253E2815002BD1BA /* MovieListState.swift in Sources */,
 				CFFE896D253E27F6002BD1BA /* AppDelegate.swift in Sources */,

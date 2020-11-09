@@ -27,6 +27,8 @@ class DAO: MovieDelegate {
     
     var movie: Movie?
     
+    var tags : [Tag] = []
+    
    // var moviesLocalized: [Movie?] = []
     
     var movieDetails : Movie? {
@@ -142,26 +144,25 @@ class DAO: MovieDelegate {
         return tag
     }
     
-    func loadTags() -> [Tag] {
-        
-        var tags: [Tag] = []
+    func loadTags(to caller: DAORequester? = nil) {
         
         Tag.ckLoadAll(then: {result in
             
             switch result {
             case .success(let result):
-                tags = result as! [Tag]
-                CKMDefault.semaphore.signal()
+                self.tags = result as! [Tag]
+                caller?.updated()
+                //CKMDefault.semaphore.signal()
             case .failure(let error):
                 print(error)
-                CKMDefault.semaphore.signal()
+               //CKMDefault.semaphore.signal()
             }
             
         })
         
-        CKMDefault.semaphore.wait()
+        //CKMDefault.semaphore.wait()
         print("Final Tags: \(tags)")
-        return tags
+        //return tags
         
     }
     
@@ -188,7 +189,7 @@ class DAO: MovieDelegate {
         
     }
     
-    func loadMovieCK(with movieID: String) -> MyMovie? {
+    func loadMovieCK(with movieID: String, to caller: DAORequester) -> MyMovie? {
         
         var movie : MyMovie?
         
@@ -197,17 +198,17 @@ class DAO: MovieDelegate {
             switch result {
             case .success(let result):
                 movie = result as? MyMovie
-                CKMDefault.semaphore.signal()
+                //CKMDefault.semaphore.signal()
+                caller.updated()
             case .failure(let error):
                 print(error)
-                CKMDefault.semaphore.signal()
+                //CKMDefault.semaphore.signal()
             }
             
         })
         
-        CKMDefault.semaphore.wait()
+        //CKMDefault.semaphore.wait()
         return movie
-        
     }
     
     func loadMoviesCK() -> [MyMovie] {

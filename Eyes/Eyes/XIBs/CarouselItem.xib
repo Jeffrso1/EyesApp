@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CarouselItem" customModule="Eyes" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CarouselItemView" customModule="Eyes" customModuleProvider="target">
             <connections>
                 <outlet property="movieBanner" destination="COs-PN-54z" id="Nss-jA-y77"/>
                 <outlet property="movieBlurBanner" destination="EcN-I4-l5x" id="RuK-Zm-w1m"/>
@@ -48,10 +48,10 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xlm-NP-jKW">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="xlm-NP-jKW">
                     <rect key="frame" x="20" y="458" width="394" height="38.333333333333314"/>
                     <constraints>
-                        <constraint firstAttribute="height" priority="250" constant="38.333333333333314" id="6TE-Ah-Oay"/>
+                        <constraint firstAttribute="height" priority="250" constant="38" id="6TE-Ah-Oay"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -75,22 +75,21 @@
             <constraints>
                 <constraint firstItem="ifs-nE-ztv" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="3Kw-hW-h3s"/>
                 <constraint firstItem="COs-PN-54z" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="112" id="5cc-b8-paL"/>
-                <constraint firstItem="13n-Tv-9WG" firstAttribute="firstBaseline" secondItem="s92-wy-UDo" secondAttribute="baseline" constant="20" id="CUx-SG-zkh"/>
                 <constraint firstItem="EcN-I4-l5x" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="DFJ-yd-qW2"/>
                 <constraint firstItem="COs-PN-54z" firstAttribute="centerY" secondItem="EcN-I4-l5x" secondAttribute="centerY" id="GCn-l8-m0r"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="COs-PN-54z" secondAttribute="trailing" constant="112" id="OXE-Pg-d99"/>
                 <constraint firstItem="COs-PN-54z" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" priority="750" constant="10" id="PcM-HP-5Ir"/>
-                <constraint firstItem="13n-Tv-9WG" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="QZ8-Ar-BB1"/>
-                <constraint firstItem="xlm-NP-jKW" firstAttribute="top" secondItem="EcN-I4-l5x" secondAttribute="bottom" priority="750" constant="66" id="SJK-tc-3QB"/>
                 <constraint firstItem="EcN-I4-l5x" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ZDK-xG-35Z"/>
                 <constraint firstItem="s92-wy-UDo" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="cfV-Lq-agg"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="13n-Tv-9WG" secondAttribute="trailing" constant="20" id="dMq-nu-cVc"/>
+                <constraint firstItem="13n-Tv-9WG" firstAttribute="top" secondItem="s92-wy-UDo" secondAttribute="bottom" constant="16" id="e0H-RX-DM0"/>
                 <constraint firstItem="EcN-I4-l5x" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="gPt-iQ-krg"/>
                 <constraint firstItem="s92-wy-UDo" firstAttribute="top" secondItem="xlm-NP-jKW" secondAttribute="bottom" constant="9" id="jlY-zd-qLo"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ifs-nE-ztv" secondAttribute="trailing" id="mfl-3n-cWH"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="xlm-NP-jKW" secondAttribute="trailing" constant="14" id="sZN-0e-dqs"/>
                 <constraint firstItem="ifs-nE-ztv" firstAttribute="top" secondItem="EcN-I4-l5x" secondAttribute="bottom" constant="8" symbolic="YES" id="uFI-MH-WQa"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="s92-wy-UDo" secondAttribute="trailing" constant="14" id="uzj-uJ-k4Z"/>
+                <constraint firstItem="13n-Tv-9WG" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="wtF-97-QRY"/>
                 <constraint firstItem="xlm-NP-jKW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="yX2-nT-FBd"/>
                 <constraint firstItem="13n-Tv-9WG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="yzg-Nq-Hea"/>
                 <constraint firstItem="xlm-NP-jKW" firstAttribute="top" secondItem="ifs-nE-ztv" secondAttribute="bottom" constant="8" symbolic="YES" id="z9f-1V-3CG"/>
