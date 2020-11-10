@@ -43,6 +43,13 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
     
     @IBOutlet weak var submitReview: UIButton!
     
+    @IBAction func confirmButton(_ sender: Any) {
+        let generator = UIImpactFeedbackGenerator(style: .light)
+        generator.prepare()
+        generator.impactOccurred()
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view

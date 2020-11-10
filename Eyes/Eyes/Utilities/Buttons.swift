@@ -8,7 +8,9 @@
 import UIKit
 import Foundation
 
-@IBDesignable extension UIButton {
+//@IBDesignable
+
+extension UIButton {
 
     @IBInspectable var borderWidth: CGFloat {
         set {

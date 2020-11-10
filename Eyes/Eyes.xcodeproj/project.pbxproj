@@ -197,6 +197,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CF7BA4A3255B02380015898C /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				CF846DAE2543955E00BBC7D3 /* MovieDetailsViewController.swift */,
+				CFC47C5425519F44001CB77E /* CastTableVC.swift */,
+				CFC47C4F25519AAA001CB77E /* CastListTableViewCell.swift */,
+				71823B77254A025300EDA85F /* OverviewTableViewCell.swift */,
+				71823B7C254A0A9E00EDA85F /* HeaderTableViewCell.swift */,
+				71823B84254A0C0200EDA85F /* TagsTableViewCell.swift */,
+				CF9A7D472555D38200D6748C /* InsideTagsCollectionViewCell.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		CF7BA4A7255B02630015898C /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				71EA47B325533F660072A74A /* OBViewController.swift */,
+				71EA47A3255321BA0072A74A /* OBItem.swift */,
+				71EA47A8255323AC0072A74A /* OBPageViewController.swift */,
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
 		CF846D7B25422E7600BBC7D3 /* In-App */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,9 +267,11 @@
 		CFAE47D22541FD0400244D74 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CF7BA4A7255B02630015898C /* OnBoarding */,
+				CFB73C482559B73D00F7B7C9 /* Carousel */,
+				CF7BA4A3255B02380015898C /* Details */,
 				CFD17EC8255ABC0F00AF61F6 /* Movie Review */,
 				CFD17EC4255ABC0500AF61F6 /* About */,
-				CFB73C482559B73D00F7B7C9 /* Carousel */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -327,17 +353,7 @@
 				CFFE89C4253E2846002BD1BA /* Services */,
 				CF8994C025545B8900693C26 /* Storyboards */,
 				CF8994C425545BA400693C26 /* XIBs */,
-				CFC47C5425519F44001CB77E /* CastTableVC.swift */,
-				CFC47C4F25519AAA001CB77E /* CastListTableViewCell.swift */,
-				71823B77254A025300EDA85F /* OverviewTableViewCell.swift */,
-				71823B7C254A0A9E00EDA85F /* HeaderTableViewCell.swift */,
-				71823B84254A0C0200EDA85F /* TagsTableViewCell.swift */,
-				CF9A7D472555D38200D6748C /* InsideTagsCollectionViewCell.swift */,
-				71EA47B325533F660072A74A /* OBViewController.swift */,
-				71EA47A3255321BA0072A74A /* OBItem.swift */,
 				CFFE8970253E27F6002BD1BA /* ViewController.swift */,
-				71EA47A8255323AC0072A74A /* OBPageViewController.swift */,
-				CF846DAE2543955E00BBC7D3 /* MovieDetailsViewController.swift */,
 				CF846DAD2543955E00BBC7D3 /* MoviesCollectionViewCell.swift */,
 				CFE476192551FAE30053B5BA /* Localizable.strings */,
 				CFFE8975253E27F9002BD1BA /* Assets.xcassets */,
@@ -800,7 +816,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Eyes/Eyes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 83KH3JF2CE;
 				INFOPLIST_FILE = Eyes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -823,7 +839,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Eyes/Eyes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 83KH3JF2CE;
 				INFOPLIST_FILE = Eyes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
