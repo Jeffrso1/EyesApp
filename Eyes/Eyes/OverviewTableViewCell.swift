@@ -7,9 +7,9 @@
 
 import UIKit
 
-class OverviewCollectionViewCell: UICollectionViewCell {
+class OverviewTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var overviewText: UITextView!
+    @IBOutlet weak var overviewText: UILabel!
     
     func setupOverviewCell() {
         overviewText.text = dao.movies[Array(dao.movies)[dao.currentMovie].key]?.overview

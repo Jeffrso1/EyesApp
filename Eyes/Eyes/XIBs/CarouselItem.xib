@@ -49,7 +49,7 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="xlm-NP-jKW">
-                    <rect key="frame" x="20" y="458" width="394" height="38.333333333333314"/>
+                    <rect key="frame" x="19" y="411" width="394" height="38.333333333333314"/>
                     <constraints>
                         <constraint firstAttribute="height" priority="250" constant="38" id="6TE-Ah-Oay"/>
                     </constraints>
@@ -58,13 +58,13 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Movie Description..." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="13n-Tv-9WG">
-                    <rect key="frame" x="15" y="542.33333333333337" width="393" height="349.66666666666663"/>
+                    <rect key="frame" x="15" y="495.33333333333326" width="393" height="396.66666666666674"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time and Genre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="s92-wy-UDo">
-                    <rect key="frame" x="20" y="505.33333333333326" width="394" height="21"/>
+                    <rect key="frame" x="19" y="458.33333333333331" width="394" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -77,24 +77,30 @@
                 <constraint firstItem="COs-PN-54z" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="112" id="5cc-b8-paL"/>
                 <constraint firstItem="EcN-I4-l5x" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="DFJ-yd-qW2"/>
                 <constraint firstItem="COs-PN-54z" firstAttribute="centerY" secondItem="EcN-I4-l5x" secondAttribute="centerY" id="GCn-l8-m0r"/>
+                <constraint firstItem="xlm-NP-jKW" firstAttribute="top" secondItem="EcN-I4-l5x" secondAttribute="bottom" constant="19" id="I8m-Df-ftQ"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="COs-PN-54z" secondAttribute="trailing" constant="112" id="OXE-Pg-d99"/>
                 <constraint firstItem="COs-PN-54z" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" priority="750" constant="10" id="PcM-HP-5Ir"/>
                 <constraint firstItem="EcN-I4-l5x" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ZDK-xG-35Z"/>
-                <constraint firstItem="s92-wy-UDo" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="cfV-Lq-agg"/>
+                <constraint firstItem="s92-wy-UDo" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="19" id="cfV-Lq-agg"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="13n-Tv-9WG" secondAttribute="trailing" constant="20" id="dMq-nu-cVc"/>
                 <constraint firstItem="13n-Tv-9WG" firstAttribute="top" secondItem="s92-wy-UDo" secondAttribute="bottom" constant="16" id="e0H-RX-DM0"/>
                 <constraint firstItem="EcN-I4-l5x" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="gPt-iQ-krg"/>
                 <constraint firstItem="s92-wy-UDo" firstAttribute="top" secondItem="xlm-NP-jKW" secondAttribute="bottom" constant="9" id="jlY-zd-qLo"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ifs-nE-ztv" secondAttribute="trailing" id="mfl-3n-cWH"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="xlm-NP-jKW" secondAttribute="trailing" constant="14" id="sZN-0e-dqs"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="xlm-NP-jKW" secondAttribute="trailing" constant="15" id="sZN-0e-dqs"/>
                 <constraint firstItem="ifs-nE-ztv" firstAttribute="top" secondItem="EcN-I4-l5x" secondAttribute="bottom" constant="8" symbolic="YES" id="uFI-MH-WQa"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="s92-wy-UDo" secondAttribute="trailing" constant="14" id="uzj-uJ-k4Z"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="s92-wy-UDo" secondAttribute="trailing" constant="15" id="uzj-uJ-k4Z"/>
                 <constraint firstItem="13n-Tv-9WG" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="wtF-97-QRY"/>
-                <constraint firstItem="xlm-NP-jKW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="yX2-nT-FBd"/>
+                <constraint firstItem="xlm-NP-jKW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="19" id="yX2-nT-FBd"/>
                 <constraint firstItem="13n-Tv-9WG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="yzg-Nq-Hea"/>
                 <constraint firstItem="xlm-NP-jKW" firstAttribute="top" secondItem="ifs-nE-ztv" secondAttribute="bottom" constant="8" symbolic="YES" id="z9f-1V-3CG"/>
                 <constraint firstItem="COs-PN-54z" firstAttribute="width" relation="greaterThanOrEqual" secondItem="EcN-I4-l5x" secondAttribute="height" multiplier="58:121" constant="15" id="zoE-6O-w6e"/>
             </constraints>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="ifs-nE-ztv"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="-68.691588785046719" y="105.61555075593954"/>
         </view>
     </objects>

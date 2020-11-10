@@ -1,6 +1,6 @@
 
-/* Class = "UILabel"; text = "Overview"; ObjectID = "5Ku-mb-Nkn"; */
-"5Ku-mb-Nkn.text" = "Mais Informações";
+/* Class = "UILabel"; text = "Overview"; ObjectID = "r1f-XF-KIP"; */
+"r1f-XF-KIP.text" = "Mais Informações";
 
 /* Class = "UIButton"; normalTitle = "Yes"; ObjectID = "7eA-tY-BEq"; */
 "7eA-tY-BEq.normalTitle" = "Sim";
@@ -15,7 +15,7 @@
 "C1a-eT-CRK.text" = "This product uses the TMDb API but is not endorsed or certified by TMDb.";
 
 /* Class = "UILabel"; text = "Cast"; ObjectID = "FGb-vb-AH9"; */
-"FGb-vb-AH9.text" = "Elenco";
+"dpV-oh-Tag.text" = "Elenco";
 
 /* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "Gaa-w8-Ic0"; */
 "Gaa-w8-Ic0.title" = "Item";
@@ -107,8 +107,8 @@
 /* Class = "UILabel"; text = "Thanks for reviewing!"; ObjectID = "tur-U6-VIy"; */
 "tur-U6-VIy.text" = "Obrigada por analisar!";
 
-/* Class = "UILabel"; text = "Why should you watch it?"; ObjectID = "v2k-Lw-Od6"; */
-"v2k-Lw-Od6.text" = "Por que você deveria assistir?";
+/* Class = "UILabel"; text = "Why should you watch it?"; ObjectID = "Lw7-FW-axb"; */
+"Lw7-FW-axb.text" = "Por que você deveria assistir?";
 
 /* Class = "UIButton"; normalTitle = "Got it!"; ObjectID = "vnV-YF-LfG"; */
 "vnV-YF-LfG.normalTitle" = "Entendi";
