@@ -129,10 +129,14 @@ class CarouselItemVC: UIViewController, DAORequester {
     
     private func setupMovieName() {
         movieName.font = UIFont.boldSystemFont(ofSize: 32)
+        
         // Constraints tiradas do Storyboard...
+        let height = movieName.heightAnchor.constraint(equalToConstant: 50)
         movieName.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor).isActive = true
         movieName.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor).isActive = true
-        movieName.heightAnchor.constraint(equalToConstant: 38).isActive = true
+        movieName.numberOfLines = 2
+        height.isActive = true
+        height.priority = UILayoutPriority(250)
         NSLayoutConstraint(item: movieName, attribute: .top, relatedBy: .equal, toItem: movieHeader, attribute: .bottom, multiplier: 1, constant: 10).isActive = true
         
     }
@@ -142,7 +146,7 @@ class CarouselItemVC: UIViewController, DAORequester {
         
         timeAndGenre.leadingAnchor.constraint(equalTo: movieName.leadingAnchor).isActive = true
         timeAndGenre.trailingAnchor.constraint(equalTo: movieName.trailingAnchor).isActive = true
-        NSLayoutConstraint(item: timeAndGenre, attribute: .top, relatedBy: .equal, toItem: movieName, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: timeAndGenre, attribute: .top, relatedBy: .equal, toItem: movieName, attribute: .bottom, multiplier: 1, constant: 3).isActive = true
     }
     
     private func setupMovieDescription() {
