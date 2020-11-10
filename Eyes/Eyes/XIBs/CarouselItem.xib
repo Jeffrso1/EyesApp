@@ -96,12 +96,7 @@
                 <constraint firstItem="xlm-NP-jKW" firstAttribute="top" secondItem="ifs-nE-ztv" secondAttribute="bottom" constant="8" symbolic="YES" id="z9f-1V-3CG"/>
                 <constraint firstItem="COs-PN-54z" firstAttribute="width" relation="greaterThanOrEqual" secondItem="EcN-I4-l5x" secondAttribute="height" multiplier="58:121" constant="15" id="zoE-6O-w6e"/>
             </constraints>
-            <variation key="default">
-                <mask key="subviews">
-                    <exclude reference="ifs-nE-ztv"/>
-                </mask>
-            </variation>
-            <point key="canvasLocation" x="-68.691588785046719" y="105.61555075593954"/>
+            <point key="canvasLocation" x="49" y="-86"/>
         </view>
     </objects>
     <resources>

@@ -20,7 +20,7 @@ class CarouselPageVC: UIPageViewController, UIPageViewControllerDataSource, UIPa
         self.reloadInputViews()
     }
     
-    var items: [UIViewController] = []
+    var items: [CarouselItemVC] = []
     
     var itemIndex = 0
     
@@ -36,11 +36,12 @@ class CarouselPageVC: UIPageViewController, UIPageViewControllerDataSource, UIPa
         if let firstViewController = items.first {
             setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
         }
+        
     }
     
     
     func pageViewController(_: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = items.firstIndex(of: viewController) else {
+        guard let viewControllerIndex = items.firstIndex(of: viewController as! CarouselItemVC) else {
                 return nil
             }
             
@@ -61,7 +62,7 @@ class CarouselPageVC: UIPageViewController, UIPageViewControllerDataSource, UIPa
         }
         
         func pageViewController(_: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-            guard let viewControllerIndex = items.firstIndex(of: viewController) else {
+            guard let viewControllerIndex = items.firstIndex(of: viewController as! CarouselItemVC) else {
                 return nil
             }
             
@@ -94,16 +95,16 @@ class CarouselPageVC: UIPageViewController, UIPageViewControllerDataSource, UIPa
     }
 
     
-    fileprivate func createCarouselItemControler(movie: Movie) -> UIViewController {
-        let c = UIViewController()
-        c.view = CarouselItemView(movie: movie)
+    fileprivate func createCarouselItemControler(movie: Movie) -> CarouselItemVC {
+        let c = CarouselItemVC(movie: movie)
+        
         return c
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool){
         if completed {
             if let currentViewController = pageViewController.viewControllers?.first,
-               let index = self.items.firstIndex(of: currentViewController) {
+               let index = self.items.firstIndex(of: currentViewController as! CarouselItemVC) {
                 dao.currentMovie = index
             }
         }
@@ -112,7 +113,7 @@ class CarouselPageVC: UIPageViewController, UIPageViewControllerDataSource, UIPa
     
     func presentationIndex(for _: UIPageViewController) -> Int {
         guard let firstViewController = viewControllers?.first,
-            let firstViewControllerIndex = items.firstIndex(of: firstViewController) else {
+              let firstViewControllerIndex = items.firstIndex(of: firstViewController as! CarouselItemVC) else {
                 return 0
         }
         return firstViewControllerIndex
