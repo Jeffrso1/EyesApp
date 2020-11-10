@@ -57,6 +57,9 @@ class CarouselItemView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
         movieBanner.layer.cornerRadius = 7
         movieBanner.clipsToBounds = true
         movieBanner.layer.masksToBounds = true
+        movieBanner.layer.shadowColor = CGColor(red: 0, green: 0, blue: 0, alpha: 0.8)
+        movieBanner.layer.shadowOffset = CGSize(width: 0, height: 0)
+        movieBanner.layer.shadowRadius = 10
         
         //Config Blur View Background
         let blurEffect = UIBlurEffect(style: .light)
@@ -65,16 +68,14 @@ class CarouselItemView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
         movieBlurBanner.contentMode = .scaleAspectFill
         movieBlurBanner.addSubview(blurView)
         
-        let loadMovie = dao.loadMovieCK(with: String(movie.id), to: self)
-
-        let loadedTags = loadMovie?.tagsSelected
+        //let loadMovie = dao.loadMovieCK(with: String(movie.id), to: self)
         
-        if loadedTags != nil {
-            tags.append(loadedTags![0])
-            tags.append(loadedTags![1])
-        } else {
-            tags.append(TagSelected(displayName_enUS: "No Reviews Available", displayName_ptBR: "Sem Análises Disponíveis"))
-        }
+//        if loadedTags != nil {
+//            tags.append(loadedTags![0])
+//            tags.append(loadedTags![1])
+//        } else {
+//            tags.append(TagSelected(displayName_enUS: "No Reviews Available", displayName_ptBR: "Sem Análises Disponíveis"))
+//        }
         
     }
     
@@ -103,13 +104,13 @@ class CarouselItemView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
         cell.tagsName.setTitle(tags[indexPath.row].displayName_ptBR, for: .normal)
         }
         
-        cell.setupTagCell()
+        //cell.setupTagCell()
         
         return cell
     }
     
     func updated() {
-        tagsCV.reloadData()
+        //tagsCV.reloadData()
     }
     
     

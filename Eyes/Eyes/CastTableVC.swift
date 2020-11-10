@@ -7,10 +7,12 @@
 
 import UIKit
 
-class CastTableViewCell: UITableViewCell {
+class CastTableVC: UITableViewCell {
 
+    
     @IBOutlet weak var castName: UILabel!
     @IBOutlet weak var characterName: UILabel!
+    //@IBOutlet weak var characterName: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -28,6 +28,7 @@ class DAO: MovieDelegate {
     var movie: Movie?
     
     var tags : [Tag] = []
+    var movieCK : MyMovie?
     
    // var moviesLocalized: [Movie?] = []
     
@@ -189,26 +190,24 @@ class DAO: MovieDelegate {
         
     }
     
-    func loadMovieCK(with movieID: String, to caller: DAORequester) -> MyMovie? {
+    func loadMovieCK(with movieID: String, to caller: DAORequester) {
         
-        var movie : MyMovie?
+        //var movie : MyMovie?
         
         MyMovie.ckLoad(with: movieID, then: {result in
             
             switch result {
             case .success(let result):
-                movie = result as? MyMovie
-                //CKMDefault.semaphore.signal()
+                self.movieCK = result as! MyMovie
                 caller.updated()
             case .failure(let error):
+                caller.updated()
                 print(error)
-                //CKMDefault.semaphore.signal()
+                
             }
             
         })
-        
-        //CKMDefault.semaphore.wait()
-        return movie
+
     }
     
     func loadMoviesCK() -> [MyMovie] {

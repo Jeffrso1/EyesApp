@@ -7,60 +7,84 @@
 
 import UIKit
 
-class MovieDetailsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, DAORequester {
+class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, DAORequester {
     
     var movieID: Int?
     var imageID: UIImage?
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    //@IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var tableView: UITableView!
     
     var imageLoader = ImageLoader()
     
     var lastOffsetY :CGFloat = 0
 
     var alpha : CGFloat = 0.0
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.contentInsetAdjustmentBehavior = .never
+        //collectionView.contentInsetAdjustmentBehavior = .never
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.estimatedRowHeight = 44
+        tableView.rowHeight = UITableView.automaticDimension
+        
         self.navigationController?.navigationBar.tintColor = .white
         
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func updateHeight() {
+        UIView.setAnimationsEnabled(false)
+        tableView.beginUpdates()
+        tableView.endUpdates()
+        UIView.setAnimationsEnabled(true)
+    }
+    
+ 
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 4
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //var cell : UICollectionViewCell?
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        switch indexPath.row {
+        switch indexPath.section {
         case 0:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "header", for: indexPath) as! HeaderCollectionViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "header", for: indexPath) as! HeaderTableViewCell
             
             cell.setupHeaderCell()
             
             return cell
         case 1:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "overview", for: indexPath) as! OverviewCollectionViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "overview", for: indexPath) as! OverviewTableViewCell
             
             cell.setupOverviewCell()
             
             return cell
             
         case 2:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tags", for: indexPath) as! TagsCollectionViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "tags", for: indexPath) as! TagsTableViewCell
+            
+            return cell
+            
+        case 3:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cast", for: indexPath) as! CastListTableViewCell
+            
+            cell.tableView.reloadData()
+            updateHeight()
             
             return cell
             
         default:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cast", for: indexPath) as! CastCollectionViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "")!
             
             return cell
-            
-            
         }
+
+        
         
     }
     
@@ -71,18 +95,18 @@ class MovieDetailsViewController: UIViewController, UICollectionViewDelegate, UI
         self.navigationController?.navigationBar.shadowImage = UIImage()
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        switch indexPath.row {
-        case 0:
-            return .init(width: view.frame.width, height: 400)
-        case 1:
-            return .init(width: view.frame.width, height: 220)
-        case 2:
-            return .init(width: view.frame.width, height: 300)
-        default:
-            return .init(width: view.frame.width, height: 700)
-        }
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        switch indexPath.row {
+//        case 0:
+//            return .init(width: view.frame.width, height: 400)
+//        case 1:
+//            return .init(width: view.frame.width, height: 220)
+//        case 2:
+//            return .init(width: view.frame.width, height: 300)
+//        default:
+//            return .init(width: view.frame.width, height: 700)
+//        }
+//    }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         

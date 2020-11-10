@@ -12,8 +12,8 @@ class OBPageViewController: UIPageViewController, UIPageViewControllerDataSource
     var items: [UIViewController] = []
     var obArray: [OnBoarding] = []
     
-    var titles: [String] = ["Filmes", "Avalie", "Tags"]
-    var subtitles: [String] = ["Escolha um filme das tendências semanais.", "Avalie o filme por um processo de três perguntas. Fáceis e simples!", "Escolha uma ou mais tag para representar o filme."]
+    var titles: [String] = [NSLocalizedString("Movies", comment: ""), NSLocalizedString("Review", comment: ""), "Tags"]
+    var subtitles: [String] = [NSLocalizedString("Pick Movies", comment: ""), "Avalie o filme por um processo de três perguntas. Fáceis e simples!", "Escolha uma ou mais tag para representar o filme."]
     var images: [String] = ["firstImage", "secondImage", "thirdImage"]
     
     var itemIndex = 0
