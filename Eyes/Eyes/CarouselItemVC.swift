@@ -107,7 +107,7 @@ class CarouselItemVC: UIViewController, DAORequester {
     
     private func setupMovieHeader() {
         
-        var height = movieHeader.heightAnchor.constraint(equalToConstant: 350)
+        let height = movieHeader.heightAnchor.constraint(equalToConstant: 350)
         height.priority = UILayoutPriority(250)
         height.isActive = true
         
@@ -176,3 +176,5 @@ class CarouselItemVC: UIViewController, DAORequester {
         }
     }
 }
+
+

@@ -8,7 +8,18 @@
 import UIKit
 
 class CarouselItemVC: UIViewController, DAORequester {
+    
+    let cellID = "tagCell"
+    var tags: [TagSelected] = []
+    
+    var movie : Movie
+    
     func updated() {
+        tags = (dao.myMovies[Int(movie.id)]?.tagsSelected) ?? []
+        
+        DispatchQueue.main.async {
+            self.tagsCV.reloadData()
+        }
     }
     
     var movieBanner: UIImageView = {
@@ -30,6 +41,16 @@ class CarouselItemVC: UIViewController, DAORequester {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
+    }()
+    
+    var tagsCV: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        
+        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return collectionView
     }()
     
     var movieName: UILabel = {
@@ -56,6 +77,7 @@ class CarouselItemVC: UIViewController, DAORequester {
     }()
     
     init(movie: Movie) {
+        self.movie = movie
         super.init(nibName: nil, bundle: nil)
         movieName.text = movie.title
         movieDescription.text = movie.overview
@@ -68,6 +90,8 @@ class CarouselItemVC: UIViewController, DAORequester {
             self.movieBanner.image = image
             self.movieHeader.image = image
         }
+        
+        dao.loadMovieCK(with: String(movie.id), to: self)
     }
     
     required init?(coder: NSCoder) {
@@ -77,14 +101,20 @@ class CarouselItemVC: UIViewController, DAORequester {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tagsCV.register(CarouselTagCell.self, forCellWithReuseIdentifier: cellID)
+        tagsCV.dataSource = self
+        tagsCV.delegate = self
+        
         view.addSubview(movieHeader)
         view.addSubview(movieBanner)
+        view.addSubview(tagsCV)
         view.addSubview(movieName)
         view.addSubview(timeAndGenre)
         view.addSubview(movieDescription)
         
         setupMovieBanner()
         setupMovieHeader()
+        setupTagsCV()
         setupMovieName()
         setupTimeAndGenre()
         setupMovieDescription()
@@ -107,7 +137,7 @@ class CarouselItemVC: UIViewController, DAORequester {
     
     private func setupMovieHeader() {
         
-        var height = movieHeader.heightAnchor.constraint(equalToConstant: 350)
+        let height = movieHeader.heightAnchor.constraint(equalToConstant: 350)
         height.priority = UILayoutPriority(250)
         height.isActive = true
         
@@ -127,6 +157,14 @@ class CarouselItemVC: UIViewController, DAORequester {
           ])
     }
     
+    private func setupTagsCV() {
+        tagsCV.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        tagsCV.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        tagsCV.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        NSLayoutConstraint(item: tagsCV, attribute: .top, relatedBy: .equal, toItem: movieHeader, attribute: .bottom, multiplier: 1, constant: 10).isActive = true
+    }
+    
     private func setupMovieName() {
         movieName.font = UIFont.boldSystemFont(ofSize: 32)
         
@@ -137,7 +175,7 @@ class CarouselItemVC: UIViewController, DAORequester {
         movieName.numberOfLines = 2
         height.isActive = true
         height.priority = UILayoutPriority(250)
-        NSLayoutConstraint(item: movieName, attribute: .top, relatedBy: .equal, toItem: movieHeader, attribute: .bottom, multiplier: 1, constant: 10).isActive = true
+        NSLayoutConstraint(item: movieName, attribute: .top, relatedBy: .equal, toItem: tagsCV, attribute: .bottom, multiplier: 1, constant: 10).isActive = true
         
     }
     
@@ -178,5 +216,37 @@ class CarouselItemVC: UIViewController, DAORequester {
                 }
             }
         }
+    }
+}
+
+extension CarouselItemVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return tags.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! CarouselTagCell
+        
+//        let langStr = Locale.current.languageCode
+//
+//        if langStr == "en" {
+//        cell.tagsName.setTitle(tags[indexPath.row].displayName_enUS, for: .normal)
+//        } else {
+//        cell.tagsName.setTitle(tags[indexPath.row].displayName_ptBR, for: .normal)
+//        }
+        
+        cell.backgroundColor = .white
+        cell.setupTagCell(title: tags[indexPath.row].displayName_enUS)
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let bounds = collectionView.bounds
+        let heightValue = self.view.frame.height
+        let widthValue = self.view.frame.width
+        let cellSize = (heightValue < widthValue) ? bounds.height/2 : bounds.width/2
+        return CGSize(width: cellSize, height: cellSize)
     }
 }

@@ -10,7 +10,7 @@
 		713367722541F2A5005919E8 /* CatalogueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713367712541F2A5005919E8 /* CatalogueViewController.swift */; };
 		713367772541F33B005919E8 /* CarouselItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 713367762541F33B005919E8 /* CarouselItem.xib */; };
 		7133677C2541F4A9005919E8 /* CarouselItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7133677B2541F4A9005919E8 /* CarouselItemView.swift */; };
-		7195D5202555D3530072F7C5 /* CarouselTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7195D51E2555D3530072F7C5 /* CarouselTagCell.swift */; };
+		7184A569255B4D180078CDBA /* CarouselTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184A568255B4D180078CDBA /* CarouselTagCell.swift */; };
 		7195D5212555D3530072F7C5 /* TagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7195D51F2555D3530072F7C5 /* TagCell.xib */; };
 		71EA479F255320630072A74A /* OBItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71EA479E255320630072A74A /* OBItem.xib */; };
 		71EA47A4255321BA0072A74A /* OBItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EA47A3255321BA0072A74A /* OBItem.swift */; };
@@ -92,7 +92,7 @@
 		713367712541F2A5005919E8 /* CatalogueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueViewController.swift; sourceTree = "<group>"; };
 		713367762541F33B005919E8 /* CarouselItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarouselItem.xib; sourceTree = "<group>"; };
 		7133677B2541F4A9005919E8 /* CarouselItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselItemView.swift; sourceTree = "<group>"; };
-		7195D51E2555D3530072F7C5 /* CarouselTagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselTagCell.swift; sourceTree = "<group>"; };
+		7184A568255B4D180078CDBA /* CarouselTagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselTagCell.swift; sourceTree = "<group>"; };
 		7195D51F2555D3530072F7C5 /* TagCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagCell.xib; sourceTree = "<group>"; };
 		71EA479E255320630072A74A /* OBItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OBItem.xib; sourceTree = "<group>"; };
 		71EA47A3255321BA0072A74A /* OBItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBItem.swift; sourceTree = "<group>"; };
@@ -291,7 +291,7 @@
 				CFB73C522559C4B000F7B7C9 /* CarouselPageVC.swift */,
 				CFE01210255B27B500F29B6C /* CarouselItemVC.swift */,
 				7133677B2541F4A9005919E8 /* CarouselItemView.swift */,
-				7195D51E2555D3530072F7C5 /* CarouselTagCell.swift */,
+				7184A568255B4D180078CDBA /* CarouselTagCell.swift */,
 			);
 			path = Carousel;
 			sourceTree = "<group>";
@@ -595,7 +595,6 @@
 				CF9ACCE12548923700AA4F33 /* MovieLoadingDetailState.swift in Sources */,
 				CF846D90254350C700BBC7D3 /* MyMovies.swift in Sources */,
 				CFFE8971253E27F6002BD1BA /* ViewController.swift in Sources */,
-				7195D5202555D3530072F7C5 /* CarouselTagCell.swift in Sources */,
 				CFE01209255B278500F29B6C /* HeaderTableViewCell.swift in Sources */,
 				CFFE89BF253E2829002BD1BA /* MovieStore.swift in Sources */,
 				CF424FA325462EFB00C85A37 /* TagButton.swift in Sources */,
@@ -621,6 +620,7 @@
 				CFFE89A4253E2815002BD1BA /* MovieListState.swift in Sources */,
 				CFE011FF255B277400F29B6C /* TagsTableViewCell.swift in Sources */,
 				CFE01208255B278500F29B6C /* OverviewTableViewCell.swift in Sources */,
+				7184A569255B4D180078CDBA /* CarouselTagCell.swift in Sources */,
 				CFFE896D253E27F6002BD1BA /* AppDelegate.swift in Sources */,
 				CF9A7D482555D38200D6748C /* InsideTagsCollectionViewCell.swift in Sources */,
 				CFFE896F253E27F6002BD1BA /* SceneDelegate.swift in Sources */,
