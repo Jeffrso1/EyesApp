@@ -10,12 +10,12 @@ import UIKit
 class CarouselItemVC: UIViewController, DAORequester {
     
     let cellID = "tagCell"
-    var tags: [TagSelected] = []
+    var tags: [Tag] = []
     
     var movie : Movie
     
     func updated() {
-        tags = (dao.myMovies[Int(movie.id)]?.tagsSelected) ?? []
+        tags = (dao.myMovies[Int(movie.id)]?.tags) ?? []
         
         DispatchQueue.main.async {
             self.tagsCV.reloadData()
@@ -104,6 +104,9 @@ class CarouselItemVC: UIViewController, DAORequester {
         tagsCV.register(CarouselTagCell.self, forCellWithReuseIdentifier: cellID)
         tagsCV.dataSource = self
         tagsCV.delegate = self
+        tagsCV.backgroundColor = .clear
+        tagsCV.contentInset.left = 15
+        tagsCV.showsHorizontalScrollIndicator = false
         
         view.addSubview(movieHeader)
         view.addSubview(tagsCV)
@@ -157,9 +160,6 @@ class CarouselItemVC: UIViewController, DAORequester {
         movieBanner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         movieBanner.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 112).isActive = true
         
-
-        
-        
     }
     
     private func setupMovieHeader() {
@@ -182,6 +182,7 @@ class CarouselItemVC: UIViewController, DAORequester {
           blurView.heightAnchor.constraint(equalTo: movieHeader.heightAnchor),
           blurView.widthAnchor.constraint(equalTo: movieHeader.widthAnchor),
         ])
+        
     }
     
     private func setupTagsCV() {
@@ -204,7 +205,7 @@ class CarouselItemVC: UIViewController, DAORequester {
         movieName.numberOfLines = 2
         movieName.adjustsFontSizeToFitWidth = true
         
-        NSLayoutConstraint(item: movieName, attribute: .top, relatedBy: .equal, toItem: movieHeader, attribute: .bottom, multiplier: 1, constant: 10).isActive = true
+        NSLayoutConstraint(item: movieName, attribute: .top, relatedBy: .equal, toItem: tagsCV, attribute: .bottom, multiplier: 1, constant: 10).isActive = true
         
     }
     
@@ -251,22 +252,37 @@ class CarouselItemVC: UIViewController, DAORequester {
 extension CarouselItemVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return tags.count
+        
+        if tags.count != 0 {
+            return tags.count
+        } else {
+            return 1
+        }
+  
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! CarouselTagCell
         
-//        let langStr = Locale.current.languageCode
-//
-//        if langStr == "en" {
-//        cell.tagsName.setTitle(tags[indexPath.row].displayName_enUS, for: .normal)
-//        } else {
-//        cell.tagsName.setTitle(tags[indexPath.row].displayName_ptBR, for: .normal)
-//        }
+        let langStr = Locale.current.languageCode
         
-        cell.backgroundColor = .white
+        if tags.count != 0 {
+        
+        if langStr == "en" {
         cell.setupTagCell(title: tags[indexPath.row].displayName_enUS)
+        } else {
+        cell.setupTagCell(title: tags[indexPath.row].displayName_ptBR)
+        }
+            
+        } else {
+            
+        if langStr == "en" {
+        cell.setupTagCell(title: "No Review Available")
+        } else {
+        cell.setupTagCell(title: "Sem Análises Disponíveis")
+        }
+        
+        }
         
         return cell
     }

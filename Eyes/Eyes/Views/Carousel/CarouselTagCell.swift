@@ -30,7 +30,7 @@ class CarouselTagCell: UICollectionViewCell {
         tagsName.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
         tagsName.sizeToFit()
          
-        tagsName.contentEdgeInsets = UIEdgeInsets(top: 10.0, left: 30.0, bottom: 10.0, right: 30.0)
+        tagsName.contentEdgeInsets = UIEdgeInsets(top: 14.0, left: 20.0, bottom: 14.0, right: 20.0)
         
         tagsName.layer.cornerRadius = 7
     }
@@ -48,6 +48,9 @@ class CarouselTagCell: UICollectionViewCell {
     
     func setupTagCell(title: String) {
         tagsName.setTitle(title, for: .normal)
-        
+        tagsName.titleLabel?.numberOfLines = 2
+        tagsName.titleLabel?.adjustsFontSizeToFitWidth = true
+        tagsName.titleLabel?.lineBreakMode = .byClipping
+        tagsName.titleLabel?.textAlignment = .center
     }
 }
