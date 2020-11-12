@@ -52,11 +52,11 @@
                         <constraint firstAttribute="trailing" secondItem="Cil-0b-a5b" secondAttribute="trailing" constant="8" id="veK-Xr-q6C"/>
                     </constraints>
                 </view>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4H9-OM-XBk">
-                    <rect key="frame" x="31" y="236.00000000000006" width="352" height="806.33333333333348"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4H9-OM-XBk">
+                    <rect key="frame" x="31" y="236" width="352" height="660"/>
                     <constraints>
-                        <constraint firstAttribute="height" priority="250" constant="806.33333333333348" id="BHs-PH-ImE"/>
-                        <constraint firstAttribute="width" secondItem="4H9-OM-XBk" secondAttribute="height" multiplier="313:717" id="OEG-ZP-pWP"/>
+                        <constraint firstAttribute="height" priority="250" constant="660" id="BHs-PH-ImE"/>
+                        <constraint firstAttribute="width" secondItem="4H9-OM-XBk" secondAttribute="height" multiplier="313:717" constant="63.882845188284534" id="OEG-ZP-pWP"/>
                     </constraints>
                 </imageView>
             </subviews>
@@ -70,7 +70,7 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="BKw-86-fZr" secondAttribute="trailing" constant="31" id="rnE-ba-N8B"/>
                 <constraint firstItem="4H9-OM-XBk" firstAttribute="trailing" secondItem="BKw-86-fZr" secondAttribute="trailing" id="y7a-rm-F16"/>
             </constraints>
-            <point key="canvasLocation" x="136.80000000000001" y="108.39580209895054"/>
+            <point key="canvasLocation" x="136.23188405797103" y="107.8125"/>
         </view>
     </objects>
     <resources>

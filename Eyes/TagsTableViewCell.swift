@@ -17,8 +17,6 @@ class TagsTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollecti
     
     var tags : [Tag] = []
     
-    
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         collectionView.reloadData()
@@ -60,5 +58,4 @@ class TagsTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollecti
         self.collectionView.reloadData()
         }
     }
-  
 }

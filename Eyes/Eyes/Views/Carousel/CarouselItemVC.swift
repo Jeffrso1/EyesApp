@@ -78,7 +78,7 @@ class CarouselItemVC: UIViewController, DAORequester {
         super.viewDidLoad()
         
         view.addSubview(movieHeader)
-        view.addSubview(movieBanner)
+       //view.addSubview(movieBanner)
         view.addSubview(movieName)
         view.addSubview(timeAndGenre)
         view.addSubview(movieDescription)
@@ -92,22 +92,49 @@ class CarouselItemVC: UIViewController, DAORequester {
     }
     
     private func setupMovieBanner() {
-        movieBanner.layer.borderWidth = 1
-        movieBanner.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        movieBanner.layer.cornerRadius = 5
-        movieBanner.clipsToBounds = true
+       
+        let radius: CGFloat = 5
         
+       //movieBanner.layer.borderWidth = 1
+       //movieBanner.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+       //movieBanner.layer.shadowColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1.0)
+       //movieBanner.layer.shadowRadius = 10
+       //movieBanner.layer.shadowOpacity = 0.5
+        movieBanner.clipsToBounds = true
+        movieBanner.layer.cornerRadius = radius
+        movieBanner.contentMode = .scaleAspectFill
+    
+        
+        let roundedView = UIView()
+        roundedView.layer.shadowColor = UIColor.black.cgColor
+        roundedView.layer.shadowOffset = CGSize(width: 0, height: 10)
+        roundedView.layer.shadowOpacity = 0.5
+        roundedView.layer.shadowRadius = 10
+        
+        roundedView.addSubview(movieBanner)
+        view.addSubview(roundedView)
+        
+        movieBanner.translatesAutoresizingMaskIntoConstraints = false
+        roundedView.translatesAutoresizingMaskIntoConstraints = false
+        roundedView.heightAnchor.constraint(equalTo: movieHeader.heightAnchor, multiplier: 0.75).isActive = true
+        roundedView.widthAnchor.constraint(equalTo: movieBanner.heightAnchor, multiplier: 0.71830986).isActive = true
+        roundedView.centerYAnchor.constraint(equalTo: movieHeader.centerYAnchor, constant: 10).isActive = true
+        roundedView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        roundedView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 112).isActive = true
         movieBanner.heightAnchor.constraint(equalTo: movieHeader.heightAnchor, multiplier: 0.75).isActive = true
         movieBanner.widthAnchor.constraint(equalTo: movieBanner.heightAnchor, multiplier: 0.71830986).isActive = true
         movieBanner.centerYAnchor.constraint(equalTo: movieHeader.centerYAnchor, constant: 10).isActive = true
         movieBanner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         movieBanner.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 112).isActive = true
         
+
+        
+        
     }
     
     private func setupMovieHeader() {
         
-        var height = movieHeader.heightAnchor.constraint(equalToConstant: 350)
+        let height = movieHeader.heightAnchor.constraint(equalToConstant: 350)
         height.priority = UILayoutPriority(250)
         height.isActive = true
         
@@ -124,19 +151,21 @@ class CarouselItemVC: UIViewController, DAORequester {
         NSLayoutConstraint.activate([
           blurView.heightAnchor.constraint(equalTo: movieHeader.heightAnchor),
           blurView.widthAnchor.constraint(equalTo: movieHeader.widthAnchor),
-          ])
+        ])
     }
     
     private func setupMovieName() {
-        movieName.font = UIFont.boldSystemFont(ofSize: 32)
+        movieName.font = UIFont.boldSystemFont(ofSize: 30)
         
         // Constraints tiradas do Storyboard...
         let height = movieName.heightAnchor.constraint(equalToConstant: 50)
+        height.isActive = true
+        height.priority = UILayoutPriority(250)
         movieName.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor).isActive = true
         movieName.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor).isActive = true
         movieName.numberOfLines = 2
-        height.isActive = true
-        height.priority = UILayoutPriority(250)
+        movieName.adjustsFontSizeToFitWidth = true
+        
         NSLayoutConstraint(item: movieName, attribute: .top, relatedBy: .equal, toItem: movieHeader, attribute: .bottom, multiplier: 1, constant: 10).isActive = true
         
     }
@@ -153,8 +182,8 @@ class CarouselItemVC: UIViewController, DAORequester {
         movieDescription.backgroundColor = UIColor(named: "backgroundColor")
         movieDescription.font = UIFont.systemFont(ofSize: 15)
         
-        movieDescription.trailingAnchor.constraint(equalTo: movieName.trailingAnchor).isActive = true
-        movieDescription.leadingAnchor.constraint(equalTo: movieName.leadingAnchor).isActive = true
+        movieDescription.trailingAnchor.constraint(equalTo: movieName.trailingAnchor, constant: -5).isActive = true
+        movieDescription.leadingAnchor.constraint(equalTo: movieName.leadingAnchor, constant: -5).isActive = true
         movieDescription.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
         NSLayoutConstraint(item: movieDescription, attribute: .top, relatedBy: .equal, toItem: timeAndGenre, attribute: .bottom, multiplier: 1, constant: 10).isActive = true

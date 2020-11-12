@@ -90,7 +90,7 @@
 "jrM-Ro-ktd.text" = "Título do Filme";
 
 /* Class = "UINavigationItem"; title = "About"; ObjectID = "nGc-9q-HwI"; */
-"nGc-9q-HwI.title" = "Sobre";
+"nGc-9q-HwI.title" = "Ajustes";
 
 /* Class = "UIButton"; normalTitle = "Review Movie"; ObjectID = "pFo-6r-Cp9"; */
 "pFo-6r-Cp9.normalTitle" = "Analisar Filme";
@@ -125,3 +125,4 @@
 /* Class = "UIButton"; normalTitle = "No"; ObjectID = "zvX-CX-H9U"; */
 "zvX-CX-H9U.normalTitle" = "Não";
 
+"hvn-ZK-arz.title" = "Equipe";

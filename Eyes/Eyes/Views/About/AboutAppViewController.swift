@@ -10,13 +10,16 @@ import SafariServices
 
 class AboutAppViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SFSafariViewControllerDelegate {
  
-    var sections : [String] = [NSLocalizedString("Third-Party_APIs", comment: "APIs used on the app"), NSLocalizedString("HowToUseIt", comment: "How can you use the app?"), NSLocalizedString("Follow us on Social Media", comment: "Social Media Links")]
+    var sections : [String] = [NSLocalizedString("HowToUseIt", comment: "How can you use the app?"), NSLocalizedString("Third-Party_APIs", comment: "APIs used on the app"), NSLocalizedString("Follow us on Social Media", comment: "Social Media Links"), NSLocalizedString("Development Team", comment: "")]
     
     var apis: [String] = ["TMDb API"]
     
     var howToUse: [String] = [NSLocalizedString("Watch On-boarding", comment: "Watch Tutorial")]
     
-    var socialMedia: [String] = [ "Facebook", "Instagram"]
+    var socialMedia: [String] = ["Facebook", "Instagram"]
+    
+    var devTeam: [String] = [NSLocalizedString("Get to know us!", comment: "")]
+
     
     var identifier = ""
     
@@ -40,7 +43,7 @@ class AboutAppViewController: UIViewController, UITableViewDataSource, UITableVi
         if selectedIndexPath.section == 0 { // Account Section
 
             if selectedIndexPath.row == 0 { // Name Row
-                identifier = "toDetails"
+                identifier = "toOnboarding"
                 performSegue(withIdentifier: identifier, sender: self)
             } else if selectedIndexPath.row == 1 { // School Row
                 //dataToSend = "school"
@@ -51,7 +54,7 @@ class AboutAppViewController: UIViewController, UITableViewDataSource, UITableVi
         } else if selectedIndexPath.section == 1 { // Private Section
 
             if selectedIndexPath.row == 0 { // Email Row
-                identifier = "toOnboarding"
+                identifier = "toDetails"
                 performSegue(withIdentifier: identifier, sender: self)
             } else if selectedIndexPath.row == 1 { // Password Row
                //dataToSend = "password"
@@ -62,11 +65,10 @@ class AboutAppViewController: UIViewController, UITableViewDataSource, UITableVi
         } else if selectedIndexPath.section == 2 {
           
             if selectedIndexPath.row == 0 { // Email Row
-                    url = "https://web.facebook.com/AplicativoEyes"
-                    
+                url = "https://web.facebook.com/AplicativoEyes"
             } else if selectedIndexPath.row == 1 { // Password Row
                //dataToSend = "password"
-                    url = "https://www.instagram.com/app.eyes/?hl=pt-br"
+                url = "https://www.instagram.com/app.eyes/?hl=pt-br"
             } else if selectedIndexPath.row == 2 { // Phone Number Row
                // dataToSend = "phone"
             }
@@ -76,6 +78,18 @@ class AboutAppViewController: UIViewController, UITableViewDataSource, UITableVi
             
             present(safariVC, animated: true, completion: nil)
   
+        } else if selectedIndexPath.section == 3 {
+            
+            if selectedIndexPath.row == 0 { // Email Row
+                identifier = "toDevTeam"
+                performSegue(withIdentifier: identifier, sender: self)
+            } else if selectedIndexPath.row == 1 { // Password Row
+               //dataToSend = "password"
+                    
+            } else if selectedIndexPath.row == 2 { // Phone Number Row
+               // dataToSend = "phone"
+            }
+            
         }
         
     }
@@ -88,11 +102,13 @@ class AboutAppViewController: UIViewController, UITableViewDataSource, UITableVi
         
         switch section {
         case 0:
-            return apis.count
-        case 1:
             return howToUse.count
-        default:
+        case 1:
+            return apis.count
+        case 2:
             return socialMedia.count
+        default:
+            return devTeam.count
         }
     }
     
@@ -101,11 +117,14 @@ class AboutAppViewController: UIViewController, UITableViewDataSource, UITableVi
         
         switch indexPath.section {
         case 0:
-            cell.settingsLabel.text = apis[indexPath.row]
-        case 1:
             cell.settingsLabel.text = howToUse[indexPath.row]
-        default:
+        case 1:
+            cell.settingsLabel.text =
+                apis[indexPath.row]
+        case 2:
             cell.settingsLabel.text = socialMedia[indexPath.row]
+        default:
+            cell.settingsLabel.text = devTeam[indexPath.row]
         }
         
         return cell

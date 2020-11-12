@@ -9,23 +9,8 @@
       "scale" : "2x"
     },
     {
+      "filename" : "Tags_ptBR-1.png",
       "idiom" : "universal",
-      "scale" : "3x"
-    },
-    {
-      "idiom" : "universal",
-      "locale" : "en",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "locale" : "en",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Simulator Screen Shot - iPhone 12 Pro Max - 2020-11-09 at 19.16.50.png",
-      "idiom" : "universal",
-      "locale" : "en",
       "scale" : "3x"
     },
     {
@@ -39,7 +24,7 @@
       "scale" : "2x"
     },
     {
-      "filename" : "Simulator Screen Shot - iPhone 11 Pro Max - 2020-11-04 at 17.35.15.png",
+      "filename" : "Tags_ptBR.png",
       "idiom" : "universal",
       "locale" : "pt-BR",
       "scale" : "3x"

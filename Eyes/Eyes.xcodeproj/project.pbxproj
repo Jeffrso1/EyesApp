@@ -24,6 +24,8 @@
 		CF424FA82546352000C85A37 /* ChooseTagsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF424FA72546352000C85A37 /* ChooseTagsCollectionViewCell.swift */; };
 		CF428AC1254B30DF00DD25A5 /* AboutDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF428AC0254B30DF00DD25A5 /* AboutDetailsVC.swift */; };
 		CF42BDB125545B1E00A84447 /* OnBoarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF42BDB325545B1E00A84447 /* OnBoarding.storyboard */; };
+		CF5A8640255C736200DDE395 /* AboutDevTeamCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A863F255C736200DDE395 /* AboutDevTeamCollectionViewCell.swift */; };
+		CF5A8648255C762E00DDE395 /* AboutDevTeamVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A8647255C762E00DDE395 /* AboutDevTeamVC.swift */; };
 		CF846D7D25422E9000BBC7D3 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF846D7C25422E9000BBC7D3 /* Question.swift */; };
 		CF846D8B2543504A00BBC7D3 /* TagVotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF846D8A2543504A00BBC7D3 /* TagVotes.swift */; };
 		CF846D90254350C700BBC7D3 /* MyMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF846D8F254350C700BBC7D3 /* MyMovies.swift */; };
@@ -107,6 +109,8 @@
 		CF428AC0254B30DF00DD25A5 /* AboutDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDetailsVC.swift; sourceTree = "<group>"; };
 		CF42BDB225545B1E00A84447 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/OnBoarding.storyboard; sourceTree = "<group>"; };
 		CF42BDB825545B2200A84447 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OnBoarding.strings; sourceTree = "<group>"; };
+		CF5A863F255C736200DDE395 /* AboutDevTeamCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDevTeamCollectionViewCell.swift; sourceTree = "<group>"; };
+		CF5A8647255C762E00DDE395 /* AboutDevTeamVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDevTeamVC.swift; sourceTree = "<group>"; };
 		CF846D7C25422E9000BBC7D3 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		CF846D8A2543504A00BBC7D3 /* TagVotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagVotes.swift; sourceTree = "<group>"; };
 		CF846D8F254350C700BBC7D3 /* MyMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMovies.swift; sourceTree = "<group>"; };
@@ -301,6 +305,8 @@
 			children = (
 				CF1337EC254B297E00B377C6 /* AboutAppViewController.swift */,
 				CFD17EBC255AB5FA00AF61F6 /* AboutTableViewCell.swift */,
+				CF5A8647255C762E00DDE395 /* AboutDevTeamVC.swift */,
+				CF5A863F255C736200DDE395 /* AboutDevTeamCollectionViewCell.swift */,
 				CF428AC0254B30DF00DD25A5 /* AboutDetailsVC.swift */,
 			);
 			path = About;
@@ -583,6 +589,7 @@
 				CFFE89A5253E2815002BD1BA /* MovieSearchState.swift in Sources */,
 				CFB73C532559C4B000F7B7C9 /* CarouselPageVC.swift in Sources */,
 				CF424FA82546352000C85A37 /* ChooseTagsCollectionViewCell.swift in Sources */,
+				CF5A8648255C762E00DDE395 /* AboutDevTeamVC.swift in Sources */,
 				CFAE47E42541FFF700244D74 /* ConfirmationButton.swift in Sources */,
 				CFAE47DF2541FE3700244D74 /* BechdelTestViewController.swift in Sources */,
 				CF1BDE752540B0BD002FA236 /* Tag.swift in Sources */,
@@ -613,6 +620,7 @@
 				CFFE89A4253E2815002BD1BA /* MovieListState.swift in Sources */,
 				CFB73C352559AB9B00F7B7C9 /* AboutBechdelTableViewCell.swift in Sources */,
 				CF846DB02543955E00BBC7D3 /* MovieDetailsViewController.swift in Sources */,
+				CF5A8640255C736200DDE395 /* AboutDevTeamCollectionViewCell.swift in Sources */,
 				CFFE896D253E27F6002BD1BA /* AppDelegate.swift in Sources */,
 				CFD17EBD255AB5FA00AF61F6 /* AboutTableViewCell.swift in Sources */,
 				CFFE896F253E27F6002BD1BA /* SceneDelegate.swift in Sources */,
@@ -828,7 +836,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Eyes/Eyes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = 83KH3JF2CE;
 				INFOPLIST_FILE = Eyes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -851,7 +859,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Eyes/Eyes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_TEAM = 83KH3JF2CE;
 				INFOPLIST_FILE = Eyes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

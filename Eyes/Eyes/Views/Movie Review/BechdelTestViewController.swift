@@ -149,6 +149,11 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
                 print(error)
             }
         }
+        
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
+        //generator.impactOccurred()
+        
        //print("Submiting review!")
     }
     

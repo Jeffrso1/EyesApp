@@ -9,12 +9,21 @@
 "Language" = "pt-BR";
 "Country" = "BR";
 "Third-Party_APIs" = "APIs de Terceiros";
-"HowToUseIt" = "Como usar o app?";
+"HowToUseIt" = "Como usar o app";
 "Follow us on Social Media" = "Nos Siga nas Redes Sociais";
+"Get to know us!" = "Conheça a gente!";
+"Development Team" = "Equipe de Desenvolvimento";
 "Watch On-boarding" = "Assistir Tutorial";
 
 //On-boarding
-"Pick Movies" = "Pick Movies from a Weekly-Trending List.";
+"Movies" = "Filmes";
+"Review" = "Avalie";
+"Tags" = "Tags";
+"Details" = "Detalhes";
+"Pick Movies" = "Escolha um filme das tendências semanais.";
+"Review Movie" = "Avalie o filme por um processo de três perguntas. Fáceis e simples!";
+"Choose Tags" = "Escolha uma ou mais tags para representar o filme.";
+"Go To Details" = "Veja mais detalhes como o elenco e o trailer do seu filme favorito.";
 
 "WhatBechdelTest" = "O que é o Teste de Bechdel?";
 "BechdelTest" = "O Teste de Bechdel é um conjunto de parâmetros utilizados para mensurar a representação de mulheres em um filme. Para que um filme passe no Teste de Bechdel, duas mulheres devem conversar sobre algo além de um homem. No Estados Unidos, 40% dos filmes ainda falham nesse teste.";
@@ -28,5 +37,4 @@
 
 
 • O teste de Bechdel somente mede o que as mulheres falam uma para a outra; ele não mede quais são suas ocupações, o que estão vestindo, seu personagem no filme como um todo ou qualquer outro fator definidor do personagem. Para que haja empoderamento de gênero, os testes precisam ir além da superfície dos personagens femininos (suas conversas) e olhar mais a fundo no personagem para servir de vitrine para vários tipos diferentes de representação feminina.";
-"Movies" = "Filmes";
-"Review" = "Avalie";
+
