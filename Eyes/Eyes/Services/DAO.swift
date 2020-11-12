@@ -23,6 +23,8 @@ class DAO: MovieDelegate {
     let movieLoadingState = MovieLoadingDetailState()
     
     var movies : [Int : Movie] = [:]
+    var myMovies: [Int : MyMovie] = [:]
+    
     var currentMovie : Int = 0
     
     var movie: Movie?
@@ -191,17 +193,23 @@ class DAO: MovieDelegate {
     }
     
     func loadMovieCK(with movieID: String, to caller: DAORequester) {
+        guard let movieID = Int(movieID) else { return }
         
         //var movie : MyMovie?
         
-        MyMovie.ckLoad(with: movieID, then: {result in
+        if let _ = myMovies[movieID] {
+            caller.updated()
+            return
+        }
+        
+        MyMovie.ckLoad(with: String(movieID), then: {result in
             
             switch result {
             case .success(let result):
-                self.movieCK = result as! MyMovie
+                self.myMovies[movieID] = result as! MyMovie
                 caller.updated()
             case .failure(let error):
-                caller.updated()
+//                caller.updated()
                 print(error)
                 
             }
