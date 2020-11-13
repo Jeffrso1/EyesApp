@@ -40,8 +40,10 @@ class ChooseTagsCollectionViewCell: UICollectionViewCell {
     fileprivate func checkButtonStatus() {
         switch buttonIsSelected {
         case true:
+            haptic.setupImpactHaptic(style: .light)
             tagButton.backgroundColor = UIColor(named: "AccentColor")
         case false:
+            haptic.setupImpactHaptic(style: .heavy)
             tagButton.backgroundColor = UIColor(named: "Button")
         }
     }

@@ -15,6 +15,7 @@ class CarouselItemVC: UIViewController, DAORequester {
     var movie : Movie
     
     func updated() {
+        
         tags = (dao.myMovies[Int(movie.id)]?.tags) ?? []
         
         DispatchQueue.main.async {
@@ -76,6 +77,25 @@ class CarouselItemVC: UIViewController, DAORequester {
         return textView
     }()
     
+    var movieReviewed: UIButton = {
+        let uiButton = UIButton()
+        uiButton.translatesAutoresizingMaskIntoConstraints = false
+        uiButton.isUserInteractionEnabled = false
+        
+        let mediumConfig = UIImage.SymbolConfiguration(pointSize: 20, weight: .bold, scale: .large)
+        let mediumCheckmark = UIImage(systemName: "checkmark.circle.fill", withConfiguration: mediumConfig)
+        uiButton.setImage(mediumCheckmark, for: .normal)
+        
+        uiButton.tintColor = .white
+        
+        uiButton.layer.shadowColor = UIColor.black.cgColor
+        uiButton.layer.shadowRadius = 10
+        uiButton.layer.shadowOpacity = 0.8
+        
+        
+        return uiButton
+    }()
+    
     init(movie: Movie) {
         self.movie = movie
         super.init(nibName: nil, bundle: nil)
@@ -112,6 +132,7 @@ class CarouselItemVC: UIViewController, DAORequester {
         view.addSubview(tagsCV)
        //view.addSubview(movieBanner)
         view.addSubview(movieName)
+        view.addSubview(movieReviewed)
         view.addSubview(timeAndGenre)
         view.addSubview(movieDescription)
         
@@ -119,6 +140,7 @@ class CarouselItemVC: UIViewController, DAORequester {
         setupMovieHeader()
         setupTagsCV()
         setupMovieName()
+        setupMovieReviewed()
         setupTimeAndGenre()
         setupMovieDescription()
         
@@ -127,12 +149,7 @@ class CarouselItemVC: UIViewController, DAORequester {
     private func setupMovieBanner() {
        
         let radius: CGFloat = 5
-        
-       //movieBanner.layer.borderWidth = 1
-       //movieBanner.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-       //movieBanner.layer.shadowColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1.0)
-       //movieBanner.layer.shadowRadius = 10
-       //movieBanner.layer.shadowOpacity = 0.5
+
         movieBanner.clipsToBounds = true
         movieBanner.layer.cornerRadius = radius
         movieBanner.contentMode = .scaleAspectFill
@@ -159,8 +176,19 @@ class CarouselItemVC: UIViewController, DAORequester {
         movieBanner.centerYAnchor.constraint(equalTo: movieHeader.centerYAnchor, constant: 10).isActive = true
         movieBanner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         movieBanner.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 112).isActive = true
+      
         
     }
+    
+    private func setupMovieReviewed() {
+        
+        
+        movieReviewed.trailingAnchor.constraint(equalTo: movieBanner.trailingAnchor, constant: 7).isActive = true
+        movieReviewed.centerYAnchor.constraint(equalTo: movieBanner.topAnchor, constant: 7).isActive = true
+        movieReviewed.layer.zPosition = 1
+        
+    }
+    
     
     private func setupMovieHeader() {
         
@@ -186,6 +214,7 @@ class CarouselItemVC: UIViewController, DAORequester {
     }
     
     private func setupTagsCV() {
+        
         tagsCV.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tagsCV.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         tagsCV.heightAnchor.constraint(equalToConstant: 50).isActive = true
@@ -194,6 +223,7 @@ class CarouselItemVC: UIViewController, DAORequester {
     }
     
     private func setupMovieName() {
+        
         movieName.font = UIFont.boldSystemFont(ofSize: 30)
         
         // Constraints tiradas do Storyboard...
@@ -209,11 +239,12 @@ class CarouselItemVC: UIViewController, DAORequester {
         
     }
     
+    
     private func setupTimeAndGenre() {
         timeAndGenre.font = UIFont.systemFont(ofSize: 17)
         
-        timeAndGenre.leadingAnchor.constraint(equalTo: movieName.leadingAnchor).isActive = true
-        timeAndGenre.trailingAnchor.constraint(equalTo: movieName.trailingAnchor).isActive = true
+        timeAndGenre.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor).isActive = true
+        timeAndGenre.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor).isActive = true
         NSLayoutConstraint(item: timeAndGenre, attribute: .top, relatedBy: .equal, toItem: movieName, attribute: .bottom, multiplier: 1, constant: 3).isActive = true
     }
     
@@ -221,8 +252,8 @@ class CarouselItemVC: UIViewController, DAORequester {
         movieDescription.backgroundColor = UIColor(named: "backgroundColor")
         movieDescription.font = UIFont.systemFont(ofSize: 15)
         
-        movieDescription.trailingAnchor.constraint(equalTo: movieName.trailingAnchor, constant: -5).isActive = true
-        movieDescription.leadingAnchor.constraint(equalTo: movieName.leadingAnchor, constant: -5).isActive = true
+        movieDescription.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: -5).isActive = true
+        movieDescription.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: -5).isActive = true
         movieDescription.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
         NSLayoutConstraint(item: movieDescription, attribute: .top, relatedBy: .equal, toItem: timeAndGenre, attribute: .bottom, multiplier: 1, constant: 10).isActive = true
@@ -268,18 +299,18 @@ extension CarouselItemVC: UICollectionViewDelegate, UICollectionViewDataSource, 
         
         if tags.count != 0 {
         
-        if langStr == "en" {
-        cell.setupTagCell(title: tags[indexPath.row].displayName_enUS)
-        } else {
+        if langStr == "pt" {
         cell.setupTagCell(title: tags[indexPath.row].displayName_ptBR)
+        } else {
+        cell.setupTagCell(title: tags[indexPath.row].displayName_enUS)
         }
             
         } else {
             
-        if langStr == "en" {
-        cell.setupTagCell(title: "No Review Available")
-        } else {
+        if langStr == "pt" {
         cell.setupTagCell(title: "Sem Análises Disponíveis")
+        } else {
+        cell.setupTagCell(title: "No Review Available")
         }
         
         }

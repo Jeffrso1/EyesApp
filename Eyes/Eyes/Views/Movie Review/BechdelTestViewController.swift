@@ -27,8 +27,6 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
     var selectedTags: [Tag] = []
     var tagsSelected : [TagSelected] = []
     
-    //let loadTags = dao.loadTags()
-    
     var currentMovie = dao.movies[Array(dao.movies)[dao.currentMovie].key]
     
     @IBOutlet weak var posterImage: UIImageView!
@@ -44,9 +42,8 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet weak var submitReview: UIButton!
     
     @IBAction func confirmButton(_ sender: Any) {
-        let generator = UIImpactFeedbackGenerator(style: .light)
-        generator.prepare()
-        generator.impactOccurred()
+    
+        haptic.setupImpactHaptic(style: .light)
         
     }
     
@@ -77,7 +74,6 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     func updated() {
-        
         
         print("running update")
         
@@ -150,11 +146,8 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
             }
         }
         
-        let generator = UINotificationFeedbackGenerator()
-        generator.notificationOccurred(.success)
-        //generator.impactOccurred()
-        
-       //print("Submiting review!")
+        haptic.setupNotificationHaptic(type: .success)
+ 
     }
     
     

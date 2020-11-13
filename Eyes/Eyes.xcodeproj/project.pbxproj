@@ -26,6 +26,7 @@
 		CF42BDB125545B1E00A84447 /* OnBoarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF42BDB325545B1E00A84447 /* OnBoarding.storyboard */; };
 		CF5A8640255C736200DDE395 /* AboutDevTeamCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A863F255C736200DDE395 /* AboutDevTeamCollectionViewCell.swift */; };
 		CF5A8648255C762E00DDE395 /* AboutDevTeamVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A8647255C762E00DDE395 /* AboutDevTeamVC.swift */; };
+		CF79537B255EBD3100AEF5A8 /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF79537A255EBD3100AEF5A8 /* Haptic.swift */; };
 		CF846D7D25422E9000BBC7D3 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF846D7C25422E9000BBC7D3 /* Question.swift */; };
 		CF846D8B2543504A00BBC7D3 /* TagVotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF846D8A2543504A00BBC7D3 /* TagVotes.swift */; };
 		CF846D90254350C700BBC7D3 /* MyMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF846D8F254350C700BBC7D3 /* MyMovies.swift */; };
@@ -111,6 +112,7 @@
 		CF42BDB825545B2200A84447 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OnBoarding.strings; sourceTree = "<group>"; };
 		CF5A863F255C736200DDE395 /* AboutDevTeamCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDevTeamCollectionViewCell.swift; sourceTree = "<group>"; };
 		CF5A8647255C762E00DDE395 /* AboutDevTeamVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDevTeamVC.swift; sourceTree = "<group>"; };
+		CF79537A255EBD3100AEF5A8 /* Haptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptic.swift; sourceTree = "<group>"; };
 		CF846D7C25422E9000BBC7D3 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		CF846D8A2543504A00BBC7D3 /* TagVotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagVotes.swift; sourceTree = "<group>"; };
 		CF846D8F254350C700BBC7D3 /* MyMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMovies.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				CFFE89AA253E2819002BD1BA /* Utils.swift */,
+				CF79537A255EBD3100AEF5A8 /* Haptic.swift */,
 				CFAE47B42541CB8700244D74 /* Buttons.swift */,
 				CF424FA225462EFB00C85A37 /* TagButton.swift */,
 				CFAE47E32541FFF700244D74 /* ConfirmationButton.swift */,
@@ -619,6 +622,7 @@
 				CFFE89A4253E2815002BD1BA /* MovieListState.swift in Sources */,
 				CFB73C352559AB9B00F7B7C9 /* AboutBechdelTableViewCell.swift in Sources */,
 				CF846DB02543955E00BBC7D3 /* MovieDetailsViewController.swift in Sources */,
+				CF79537B255EBD3100AEF5A8 /* Haptic.swift in Sources */,
 				CF5A8640255C736200DDE395 /* AboutDevTeamCollectionViewCell.swift in Sources */,
 				CFFE896D253E27F6002BD1BA /* AppDelegate.swift in Sources */,
 				CFD17EBD255AB5FA00AF61F6 /* AboutTableViewCell.swift in Sources */,
@@ -836,7 +840,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Eyes/Eyes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_TEAM = 83KH3JF2CE;
 				INFOPLIST_FILE = Eyes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -859,7 +863,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Eyes/Eyes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 21;
 				DEVELOPMENT_TEAM = 83KH3JF2CE;
 				INFOPLIST_FILE = Eyes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

@@ -9,7 +9,7 @@ import UIKit
 
 class AboutBechdelTestVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var sections = [[NSLocalizedString("WhatBechdelTest", comment: ""), NSLocalizedString("BechdelTest", comment: "")], ["How does it impact the films industry?", NSLocalizedString("ImpactIndustry", comment: "")]]
+    var sections = [[NSLocalizedString("WhatBechdelTest", comment: ""), NSLocalizedString("BechdelTest", comment: "")], [NSLocalizedString("How does it impact the films industry?", comment: ""), NSLocalizedString("ImpactIndustry", comment: "")]]
     
 
     @IBOutlet weak var whatBechdelTest: UITextView!

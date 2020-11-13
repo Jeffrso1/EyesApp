@@ -23,8 +23,6 @@ class InsideTagsCollectionViewCell: UICollectionViewCell {
     }
         
     fileprivate func setupButton() {
-  
-     //  tagButton.sizeToFit()
         
        tagButton.contentEdgeInsets = UIEdgeInsets(top: 10.0, left: 30.0, bottom: 10.0, right: 30.0)
         

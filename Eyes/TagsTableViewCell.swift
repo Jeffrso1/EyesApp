@@ -19,23 +19,28 @@ class TagsTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollecti
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        collectionView.reloadData()
+        //collectionView.reloadData()
     }
+    
+    var currentMovie = dao.movies[Array(dao.movies)[dao.currentMovie].key]
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         collectionView.delegate = self
         collectionView.dataSource = self
-        
-        var currentMovie = dao.movies[Array(dao.movies)[dao.currentMovie].key]
-        
+    
         dao.loadMovieCK(with: String(currentMovie!.id), to: self)
  
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dao.movieCK?.tags.count ?? 0
+       
+        if tags.count != 0 {
+            return tags.count
+        } else {
+            return 1
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -43,10 +48,24 @@ class TagsTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollecti
  
         let langStr = Locale.current.languageCode
         
-        if langStr == "en" {
-            cell.tagButton.setTitle(dao.movieCK?.tags[indexPath.row].displayName_enUS, for: .normal)
+        if tags.count != 0 {
+            
+            if langStr == "pt" {
+                cell.tagButton.setTitle(tags[indexPath.row].displayName_ptBR, for: .normal)
+            } else {
+                cell.tagButton.setTitle(tags[indexPath.row].displayName_enUS, for: .normal)
+            }
+            
         } else {
-            cell.tagButton.setTitle(dao.movieCK?.tags[indexPath.row].displayName_ptBR, for: .normal)
+            
+            if langStr == "pt" {
+                cell.tagButton.setTitle("Seja a primeira a analisar esse filme!", for: .normal)
+            } else {
+                cell.tagButton.setTitle("Be the first review this movie!", for: .normal)
+                
+        }
+            
+            
         }
 
         return cell
@@ -54,6 +73,9 @@ class TagsTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollecti
     }
     
     func updated() {
+        
+        tags = (dao.myMovies[Int(currentMovie!.id)]?.tags) ?? []
+        
         DispatchQueue.main.async {
         self.collectionView.reloadData()
         }

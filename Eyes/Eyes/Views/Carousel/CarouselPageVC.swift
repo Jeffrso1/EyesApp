@@ -48,7 +48,6 @@ class CarouselPageVC: UIPageViewController, UIPageViewControllerDataSource, UIPa
             let previousIndex = viewControllerIndex - 1
             itemIndex = viewControllerIndex - 1
         
-//            print(String(itemIndex) + " ALEGRIAAAAAAAA")
             guard previousIndex >= 0 else {
                 return items.last
             }
