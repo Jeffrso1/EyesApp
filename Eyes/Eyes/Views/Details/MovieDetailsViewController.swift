@@ -138,7 +138,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
             UIView.animate(withDuration: 0.5, animations: {
             self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
             self.navigationController?.navigationBar.shadowImage = UIImage()
-            //self.navigationController?.navigationBar.alpha = 0
+            self.navigationController?.navigationBar.alpha = 0.8
             }, completion: nil)
         }
         

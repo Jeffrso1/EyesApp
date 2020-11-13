@@ -13,8 +13,6 @@ class CastListTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDa
     //@IBOutlet weak var castName: UILabel!
     //@IBOutlet weak var characterName: UILabel!
     
-    
-    
     var currentMovie = dao.movies[Array(dao.movies)[dao.currentMovie].key]
 
     @IBOutlet weak var tableView: UITableView!
@@ -43,7 +41,7 @@ class CastListTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDa
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "castCell", for: indexPath as IndexPath) as! CastTableVC
         
-        print("Table View Loaded")
+        //print("Table View Loaded")
         
         cell.castName.text = currentMovie?.cast?[indexPath.row].name ?? "Cast Name Not Available"
         cell.characterName.text = currentMovie?.cast?[indexPath.row].character ?? "Character Name Not Available"
