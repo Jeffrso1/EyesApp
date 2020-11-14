@@ -83,15 +83,14 @@ class CarouselItemVC: UIViewController, DAORequester {
         uiButton.isUserInteractionEnabled = false
         
         let mediumConfig = UIImage.SymbolConfiguration(pointSize: 20, weight: .bold, scale: .large)
-        let mediumCheckmark = UIImage(systemName: "checkmark.circle.fill", withConfiguration: mediumConfig)
+        let mediumCheckmark = SFSymbols.checkmarkCircle?.applyingSymbolConfiguration(mediumConfig)
         uiButton.setImage(mediumCheckmark, for: .normal)
         
         uiButton.tintColor = .white
         
         uiButton.layer.shadowColor = UIColor.black.cgColor
-        uiButton.layer.shadowRadius = 10
-        uiButton.layer.shadowOpacity = 0.8
-        
+        uiButton.layer.shadowRadius = 5
+        uiButton.layer.shadowOpacity = 0.5
         
         return uiButton
     }()

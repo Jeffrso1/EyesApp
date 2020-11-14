@@ -24,6 +24,9 @@
 		CF424FA82546352000C85A37 /* ChooseTagsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF424FA72546352000C85A37 /* ChooseTagsCollectionViewCell.swift */; };
 		CF428AC1254B30DF00DD25A5 /* AboutDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF428AC0254B30DF00DD25A5 /* AboutDetailsVC.swift */; };
 		CF42BDB125545B1E00A84447 /* OnBoarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF42BDB325545B1E00A84447 /* OnBoarding.storyboard */; };
+		CF48B04A25605C8E00A5D1AB /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF48B04925605C8E00A5D1AB /* Localization.swift */; };
+		CF48B04F25605E8D00A5D1AB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF48B04E25605E8D00A5D1AB /* Constants.swift */; };
+		CF48B05425605FC800A5D1AB /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF48B05325605FC800A5D1AB /* Alert.swift */; };
 		CF5A8640255C736200DDE395 /* AboutDevTeamCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A863F255C736200DDE395 /* AboutDevTeamCollectionViewCell.swift */; };
 		CF5A8648255C762E00DDE395 /* AboutDevTeamVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A8647255C762E00DDE395 /* AboutDevTeamVC.swift */; };
 		CF79537B255EBD3100AEF5A8 /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF79537A255EBD3100AEF5A8 /* Haptic.swift */; };
@@ -45,7 +48,6 @@
 		CFB76C0C254A0F9F00C3C6A1 /* EndReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB76C0B254A0F9F00C3C6A1 /* EndReviewViewController.swift */; };
 		CFC47C5025519AAA001CB77E /* CastListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC47C4F25519AAA001CB77E /* CastListTableViewCell.swift */; };
 		CFC47C5525519F44001CB77E /* CastTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC47C5425519F44001CB77E /* CastTableVC.swift */; };
-		CFC47C5A2551A59C001CB77E /* StretchyLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC47C592551A59C001CB77E /* StretchyLayout.swift */; };
 		CFD17EBD255AB5FA00AF61F6 /* AboutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD17EBC255AB5FA00AF61F6 /* AboutTableViewCell.swift */; };
 		CFE011FF255B277400F29B6C /* TagsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE011FE255B277400F29B6C /* TagsTableViewCell.swift */; };
 		CFE01208255B278500F29B6C /* OverviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE01206255B278400F29B6C /* OverviewTableViewCell.swift */; };
@@ -110,6 +112,9 @@
 		CF428AC0254B30DF00DD25A5 /* AboutDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDetailsVC.swift; sourceTree = "<group>"; };
 		CF42BDB225545B1E00A84447 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/OnBoarding.storyboard; sourceTree = "<group>"; };
 		CF42BDB825545B2200A84447 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OnBoarding.strings; sourceTree = "<group>"; };
+		CF48B04925605C8E00A5D1AB /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		CF48B04E25605E8D00A5D1AB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CF48B05325605FC800A5D1AB /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		CF5A863F255C736200DDE395 /* AboutDevTeamCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDevTeamCollectionViewCell.swift; sourceTree = "<group>"; };
 		CF5A8647255C762E00DDE395 /* AboutDevTeamVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDevTeamVC.swift; sourceTree = "<group>"; };
 		CF79537A255EBD3100AEF5A8 /* Haptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptic.swift; sourceTree = "<group>"; };
@@ -132,7 +137,6 @@
 		CFB76C0B254A0F9F00C3C6A1 /* EndReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndReviewViewController.swift; sourceTree = "<group>"; };
 		CFC47C4F25519AAA001CB77E /* CastListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastListTableViewCell.swift; sourceTree = "<group>"; };
 		CFC47C5425519F44001CB77E /* CastTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastTableVC.swift; sourceTree = "<group>"; };
-		CFC47C592551A59C001CB77E /* StretchyLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchyLayout.swift; sourceTree = "<group>"; };
 		CFD17EBC255AB5FA00AF61F6 /* AboutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableViewCell.swift; sourceTree = "<group>"; };
 		CFE011FE255B277400F29B6C /* TagsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsTableViewCell.swift; sourceTree = "<group>"; };
 		CFE01206255B278400F29B6C /* OverviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewTableViewCell.swift; sourceTree = "<group>"; };
@@ -260,12 +264,14 @@
 			isa = PBXGroup;
 			children = (
 				CFFE89AA253E2819002BD1BA /* Utils.swift */,
+				CF48B04E25605E8D00A5D1AB /* Constants.swift */,
 				CF79537A255EBD3100AEF5A8 /* Haptic.swift */,
+				CF48B05325605FC800A5D1AB /* Alert.swift */,
+				CF48B04925605C8E00A5D1AB /* Localization.swift */,
 				CFAE47B42541CB8700244D74 /* Buttons.swift */,
 				CF424FA225462EFB00C85A37 /* TagButton.swift */,
 				CFAE47E32541FFF700244D74 /* ConfirmationButton.swift */,
 				CFAE47BD2541CE7900244D74 /* Images.swift */,
-				CFC47C592551A59C001CB77E /* StretchyLayout.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -594,6 +600,8 @@
 				CF424FA82546352000C85A37 /* ChooseTagsCollectionViewCell.swift in Sources */,
 				CF5A8648255C762E00DDE395 /* AboutDevTeamVC.swift in Sources */,
 				CFAE47E42541FFF700244D74 /* ConfirmationButton.swift in Sources */,
+				CF48B04A25605C8E00A5D1AB /* Localization.swift in Sources */,
+				CF48B05425605FC800A5D1AB /* Alert.swift in Sources */,
 				CFAE47DF2541FE3700244D74 /* BechdelTestViewController.swift in Sources */,
 				CF1BDE752540B0BD002FA236 /* Tag.swift in Sources */,
 				7133677C2541F4A9005919E8 /* CarouselItemView.swift in Sources */,
@@ -612,7 +620,6 @@
 				CFFE89BE253E2829002BD1BA /* Movie+Stub.swift in Sources */,
 				CFC47C5025519AAA001CB77E /* CastListTableViewCell.swift in Sources */,
 				CF428AC1254B30DF00DD25A5 /* AboutDetailsVC.swift in Sources */,
-				CFC47C5A2551A59C001CB77E /* StretchyLayout.swift in Sources */,
 				CF9ACCE92548AAD000AA4F33 /* AboutBechdelTestVC.swift in Sources */,
 				CFFE89A3253E2815002BD1BA /* MovieDetailState.swift in Sources */,
 				CFAE47BE2541CE7900244D74 /* Images.swift in Sources */,
@@ -640,6 +647,7 @@
 				CFFE89AB253E2819002BD1BA /* Utils.swift in Sources */,
 				CF846DAF2543955E00BBC7D3 /* MoviesCollectionViewCell.swift in Sources */,
 				CFC47C5525519F44001CB77E /* CastTableVC.swift in Sources */,
+				CF48B04F25605E8D00A5D1AB /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -840,7 +848,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Eyes/Eyes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 21;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = 83KH3JF2CE;
 				INFOPLIST_FILE = Eyes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -863,7 +871,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Eyes/Eyes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 21;
+				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = 83KH3JF2CE;
 				INFOPLIST_FILE = Eyes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

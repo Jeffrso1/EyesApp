@@ -9,7 +9,7 @@ import UIKit
 import SafariServices
 
 class HeaderTableViewCell: UITableViewCell, SFSafariViewControllerDelegate {
-   
+    
     @IBOutlet weak var movieHeader: UIImageView!
     @IBOutlet weak var movieBanner: UIImageView!
     @IBOutlet weak var movieTitle: UILabel!
@@ -59,31 +59,16 @@ class HeaderTableViewCell: UITableViewCell, SFSafariViewControllerDelegate {
     
     @IBAction func watchTrailer(_ sender: Any) {
         
-        if currentMovie?.youtubeTrailers?.count != 0 {
+        do {
+            
+            try checkMovieTrailer()
+            
+        } catch MovieDetailError.trailerNotAvailable {
         
-        let safariVC = SFSafariViewController(url: (currentMovie?.youtubeTrailers?.first?.youtubeURL)!)
-        safariVC.delegate = self
-        safariVC.modalPresentationStyle = .pageSheet
-        
-        haptic.setupImpactHaptic(style: .light)
+            Alert.showBasic(title: NSLocalizedString("Movie Trailer Not Available", comment: ""), message: NSLocalizedString("Please, try again later.", comment: ""), vc: (self.window?.rootViewController)!)
             
-        self.window?.rootViewController?.present(safariVC, animated: true, completion: nil)
-            
-        } else {
-            
-        let alert = UIAlertController(title: NSLocalizedString("Movie Trailer Not Available", comment: ""),
-                        message: NSLocalizedString("Please, try again later.", comment: ""),
-                        preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Ok", style: .default, handler: { action in
-                print("Ok Button Pressed")
-        })
-            
-        alert.addAction(okAction)
-            
-        haptic.setupNotificationHaptic(type: .error)
-            
-        self.window?.rootViewController?.present(alert, animated: true, completion:nil)
-            
+        } catch {
+            Alert.showBasic(title: NSLocalizedString("There was a problem loading this movie.", comment: ""), message: NSLocalizedString("Please, try again later.", comment: ""), vc: (self.window?.rootViewController)!)
         }
         
         
@@ -93,11 +78,9 @@ class HeaderTableViewCell: UITableViewCell, SFSafariViewControllerDelegate {
         
         haptic.setupImpactHaptic(style: .light)
         
-        //print("MovieID: \(currentMovie)")
+        let arrayCurrentMovie = [Array(dao.movies)[dao.currentMovie]]
         
-        var currentMovie = [Array(dao.movies)[dao.currentMovie]]
-        
-        let safariVC = SFSafariViewController(url: URL(string: "https://www.themoviedb.org/movie/\(currentMovie.first!.key)")!)
+        let safariVC = SFSafariViewController(url: URL(string: "https://www.themoviedb.org/movie/\(arrayCurrentMovie.first!.key)")!)
         safariVC.delegate = self
         safariVC.modalPresentationStyle = .pageSheet
         
@@ -105,6 +88,22 @@ class HeaderTableViewCell: UITableViewCell, SFSafariViewControllerDelegate {
         
     }
     
+    func checkMovieTrailer() throws {
+        
+        if currentMovie?.youtubeTrailers?.count == 0 {
+            throw MovieDetailError.trailerNotAvailable
+        }
+        
+        let safariVC = SFSafariViewController(url: (currentMovie?.youtubeTrailers?.first?.youtubeURL)!)
+        safariVC.delegate = self
+        safariVC.modalPresentationStyle = .pageSheet
+        
+        haptic.setupImpactHaptic(style: .light)
+        
+        self.window?.rootViewController?.present(safariVC, animated: true, completion: nil)
+        
+        
+    }
     
     
     fileprivate func loadAsyncImage(from movie: Movie, then completion: @escaping (UIImage)->Void) {

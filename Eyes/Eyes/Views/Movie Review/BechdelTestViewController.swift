@@ -65,8 +65,8 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
        // dao.loadMovie(movie: movieID, to: self)
         
         setupMovie()
-        submitReview.isEnabled = false
-        submitReview.backgroundColor = UIColor(named: "Button")
+        //submitReview.isEnabled = false
+        //submitReview.backgroundColor = UIColor(named: "Button")
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
@@ -117,19 +117,42 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         
-        
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "bechdelSegue" {
+        if segue.identifier == "endReview" {
+            
+            do {
+                
+                try checkReviewSubmission()
+            
+            } catch MovieReviewError.reviewIsMissing {
+                
+                Alert.showBasic(title: NSLocalizedString("Error Uploading Review", comment: ""), message: NSLocalizedString("Please, make sure all questions were anwsered.", comment: "") , vc: self)
+                
+            } catch {
+                
+                Alert.showBasic(title: NSLocalizedString("An unexpected error has ocurred.", comment: ""), message: NSLocalizedString("Please, try again.", comment: ""), vc: self)
+            }
+            
             
         }
         
     }
     
     @IBAction func submitReview(_ sender: Any) {
+  
+    }
+    
+    func checkReviewSubmission() throws {
+        
+        if !responses.allResponsesOk {
+            
+            throw MovieReviewError.reviewIsMissing
+            
+        } else {
         
         selectedTags = dao.tags.filter { ($0.isSelected ?? false) }
         
@@ -147,8 +170,11 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
         }
         
         haptic.setupNotificationHaptic(type: .success)
- 
+            
+        }
+  
     }
+    
     
     
     @IBAction func selectResponse(_ sender: UIButton) {
@@ -193,6 +219,8 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
             submitReview.backgroundColor = UIColor(named: "AccentColor")
             
         } else {
+            
+            //haptic.setupNotificationHaptic(type: .error)
             
             
         }
