@@ -21,6 +21,14 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
 
     var alpha : CGFloat = 0.0
     
+    @IBOutlet weak var optionsButton: UIBarButtonItem!
+    
+    
+    
+    @IBAction func optionsButton(_ sender: Any) {
+        Alert.showMovieOptions(vc: self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //collectionView.contentInsetAdjustmentBehavior = .never
@@ -28,7 +36,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
         tableView.dataSource = self
         tableView.estimatedRowHeight = 44
         tableView.rowHeight = UITableView.automaticDimension
-        
+
         self.navigationController?.navigationBar.tintColor = .white
         
     }
@@ -90,23 +98,10 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-        self.navigationController?.navigationBar.tintColor = UIColor(named: "AccentColor")
+        self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        switch indexPath.row {
-//        case 0:
-//            return .init(width: view.frame.width, height: 400)
-//        case 1:
-//            return .init(width: view.frame.width, height: 220)
-//        case 2:
-//            return .init(width: view.frame.width, height: 300)
-//        default:
-//            return .init(width: view.frame.width, height: 700)
-//        }
-//    }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
@@ -138,7 +133,8 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
             UIView.animate(withDuration: 0.5, animations: {
             self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
             self.navigationController?.navigationBar.shadowImage = UIImage()
-            self.navigationController?.navigationBar.alpha = 0.8
+           // self.navigationController?.navigationBar.alpha = 0.8
+                
             }, completion: nil)
         }
         
