@@ -25,7 +25,6 @@ class HeaderTableViewCell: UITableViewCell, SFSafariViewControllerDelegate {
         movieBanner.image = UIImage(data: (currentMovie?.imageData)!)
         movieBanner.layer.cornerRadius = 7
         movieBanner.layer.borderColor = CGColor.init(red: 255, green: 255, blue: 255, alpha: 0.8)
-        //movieBanner.layer.borderWidth = 2
         movieTitle.text = currentMovie?.title
         
         
@@ -38,16 +37,33 @@ class HeaderTableViewCell: UITableViewCell, SFSafariViewControllerDelegate {
         roundedView.layer.shadowOpacity = 0.8
         roundedView.layer.shadowRadius = 10
         
-        //roundedView.addSubview(movieBanner)
-        
         loadAsyncImage(from: currentMovie!) { image in
             self.movieHeader.image = image
         }
         
+        let view = UIView(frame: movieHeader.frame)
+
+        let clearColor = UIColor.black.withAlphaComponent(0.2)
+        
+        let gradient = CAGradientLayer()
+
+        gradient.frame = view.frame
+
+        gradient.colors = [clearColor.cgColor, UIColor(named: "BackgroundColor")?.cgColor]
+
+        gradient.locations = [0.0, 1.0]
+
+        view.layer.insertSublayer(gradient, at: 0)
+
+        movieHeader.addSubview(view)
+
+        movieHeader.bringSubviewToFront(view)
+        
+        
         setupButton(button: watchTrailer)
         setupButton(button: seeTMDb)
         
-        self.reloadInputViews()
+        //self.reloadInputViews()
     }
     
     func setupButton(button: UIButton) {
