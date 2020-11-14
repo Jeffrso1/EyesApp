@@ -5,9 +5,7 @@
 //  Created by Lucas Frazão on 13/11/20.
 //
 
-import Foundation
 import UIKit
-
 
 let haptic = Haptic()
 
