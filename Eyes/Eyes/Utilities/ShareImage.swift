@@ -243,11 +243,21 @@ class ShareImage: UIViewController, DAORequester {
             
         let randomTagNumber = Int.random(in: 0..<tags.count)
         
-        if langStr == "pt" {
-        tagButton.setTitle(tags[randomTagNumber].displayName_ptBR, for: .normal)
+            if langStr == "pt" {
+                tagButton.setTitle(tags[randomTagNumber].displayName_ptBR, for: .normal)
+            } else {
+                tagButton.setTitle(tags[randomTagNumber].displayName_enUS, for: .normal)
+            }
+            
         } else {
-        tagButton.setTitle(tags[randomTagNumber].displayName_enUS, for: .normal)
-        }
+            
+            if langStr == "pt" {
+                tagButton.setTitle("Baixe agora e avalie esse filme!", for: .normal)
+            } else {
+                tagButton.setTitle("Download now and review this movie!", for: .normal)
+            }
+            
+            
         }
   
         tagButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 40).isActive = true
