@@ -23,6 +23,8 @@ class CarouselItemVC: UIViewController, DAORequester {
         }
     }
     
+    let scrollView = UIScrollView()
+    
     var movieBanner: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -78,6 +80,7 @@ class CarouselItemVC: UIViewController, DAORequester {
     }()
     
     var movieReviewed: UIButton = {
+        
         let uiButton = UIButton()
         uiButton.translatesAutoresizingMaskIntoConstraints = false
         uiButton.isUserInteractionEnabled = false
@@ -89,8 +92,9 @@ class CarouselItemVC: UIViewController, DAORequester {
         uiButton.tintColor = .white
         
         uiButton.layer.shadowColor = UIColor.black.cgColor
-        uiButton.layer.shadowRadius = 5
+        uiButton.layer.shadowRadius = 3
         uiButton.layer.shadowOpacity = 0.5
+        
         
         return uiButton
     }()
@@ -127,14 +131,15 @@ class CarouselItemVC: UIViewController, DAORequester {
         tagsCV.contentInset.left = 15
         tagsCV.showsHorizontalScrollIndicator = false
         
+        //view.addSubview(self.scrollView)
         view.addSubview(movieHeader)
         view.addSubview(tagsCV)
-       //view.addSubview(movieBanner)
         view.addSubview(movieName)
         view.addSubview(movieReviewed)
         view.addSubview(timeAndGenre)
         view.addSubview(movieDescription)
         
+        //setupScrollview()
         setupMovieBanner()
         setupMovieHeader()
         setupTagsCV()
@@ -142,6 +147,23 @@ class CarouselItemVC: UIViewController, DAORequester {
         setupMovieReviewed()
         setupTimeAndGenre()
         setupMovieDescription()
+   
+    }
+    
+    private func setupScrollview() {
+        
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.isScrollEnabled = true
+        
+        //scrollView.contentSize = CGSize(width:2000, height: 5678)
+        
+        //Constrain scroll view
+        scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        scrollView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        scrollView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+        
         
     }
     
@@ -180,6 +202,16 @@ class CarouselItemVC: UIViewController, DAORequester {
     }
     
     private func setupMovieReviewed() {
+        
+        if tags.count != 0 {
+            
+            movieReviewed.isHidden = false
+            
+        } else {
+            
+            movieReviewed.isHidden = true
+            self.reloadInputViews()
+        }
         
         
         movieReviewed.trailingAnchor.constraint(equalTo: movieBanner.trailingAnchor, constant: 7).isActive = true

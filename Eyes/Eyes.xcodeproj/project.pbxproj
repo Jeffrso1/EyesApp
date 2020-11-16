@@ -514,7 +514,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1200;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1220;
 				TargetAttributes = {
 					CFFE8968253E27F6002BD1BA = {
 						CreatedOnToolsVersion = 12.0.1;
@@ -636,13 +636,10 @@
 				CFFE896F253E27F6002BD1BA /* SceneDelegate.swift in Sources */,
 				CF846D8B2543504A00BBC7D3 /* TagVotes.swift in Sources */,
 				CF1337ED254B297E00B377C6 /* AboutAppViewController.swift in Sources */,
-				CFFE89A4253E2815002BD1BA /* MovieListState.swift in Sources */,
 				CFE011FF255B277400F29B6C /* TagsTableViewCell.swift in Sources */,
 				CFE01208255B278500F29B6C /* OverviewTableViewCell.swift in Sources */,
 				7184A569255B4D180078CDBA /* CarouselTagCell.swift in Sources */,
-				CFFE896D253E27F6002BD1BA /* AppDelegate.swift in Sources */,
 				CF9A7D482555D38200D6748C /* InsideTagsCollectionViewCell.swift in Sources */,
-				CFFE896F253E27F6002BD1BA /* SceneDelegate.swift in Sources */,
 				713367722541F2A5005919E8 /* CatalogueViewController.swift in Sources */,
 				CFFE89AB253E2819002BD1BA /* Utils.swift in Sources */,
 				CF846DAF2543955E00BBC7D3 /* MoviesCollectionViewCell.swift in Sources */,
@@ -848,7 +845,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Eyes/Eyes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 23;
+				CURRENT_PROJECT_VERSION = 24;
 				DEVELOPMENT_TEAM = 83KH3JF2CE;
 				INFOPLIST_FILE = Eyes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -871,7 +868,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Eyes/Eyes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 23;
+				CURRENT_PROJECT_VERSION = 24;
 				DEVELOPMENT_TEAM = 83KH3JF2CE;
 				INFOPLIST_FILE = Eyes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

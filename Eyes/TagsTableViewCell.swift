@@ -61,7 +61,7 @@ class TagsTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollecti
             if langStr == "pt" {
                 cell.tagButton.setTitle("Seja a primeira a analisar esse filme!", for: .normal)
             } else {
-                cell.tagButton.setTitle("Be the first review this movie!", for: .normal)
+                cell.tagButton.setTitle("Be the first to review this movie!", for: .normal)
                 
         }
             

@@ -104,8 +104,6 @@ class CarouselItemView: UIView, UICollectionViewDelegate, UICollectionViewDataSo
         cell.tagsName.setTitle(tags[indexPath.row].displayName_ptBR, for: .normal)
         }
         
-        //cell.setupTagCell()
-        
         return cell
     }
     

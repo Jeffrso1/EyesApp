@@ -44,6 +44,7 @@ class CarouselTagCell: UICollectionViewCell {
         super.awakeFromNib()
         self.translatesAutoresizingMaskIntoConstraints = false
         
+        
     }
     
     func setupTagCell(title: String) {
@@ -53,4 +54,5 @@ class CarouselTagCell: UICollectionViewCell {
         tagsName.titleLabel?.lineBreakMode = .byClipping
         tagsName.titleLabel?.textAlignment = .center
     }
+    
 }

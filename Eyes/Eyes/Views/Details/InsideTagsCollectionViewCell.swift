@@ -24,7 +24,12 @@ class InsideTagsCollectionViewCell: UICollectionViewCell {
         
     fileprivate func setupButton() {
         
-       tagButton.contentEdgeInsets = UIEdgeInsets(top: 10.0, left: 30.0, bottom: 10.0, right: 30.0)
+        tagButton.titleLabel?.numberOfLines = 2
+        tagButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        tagButton.titleLabel?.lineBreakMode = .byClipping
+        tagButton.titleLabel?.textAlignment = .center
+        
+       tagButton.contentEdgeInsets = UIEdgeInsets(top: 15.0, left: 30.0, bottom: 15.0, right: 30.0)
         
        tagButton.layer.cornerRadius = 7
   
