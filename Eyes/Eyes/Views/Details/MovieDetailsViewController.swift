@@ -12,7 +12,6 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
     var movieID: Int?
     var imageID: UIImage?
     
-    //@IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
     
     var imageLoader = ImageLoader()
@@ -23,10 +22,18 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBOutlet weak var optionsButton: UIBarButtonItem!
     
-    
+    var currentMovie = dao.movies[Array(dao.movies)[dao.currentMovie].key]
     
     @IBAction func optionsButton(_ sender: Any) {
-        Alert.showMovieOptions(vc: self)
+        
+        let shareViewController = ShareImage(movie: currentMovie!)
+        
+        let renderer = UIGraphicsImageRenderer(size: shareViewController.view.bounds.size)
+        let image = renderer.image { ctx in
+            shareViewController.view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+        }
+        
+        Alert.showMovieOptions(vc: self, image: image)
     }
     
     override func viewDidLoad() {
@@ -47,7 +54,6 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
         tableView.endUpdates()
         UIView.setAnimationsEnabled(true)
     }
-    
  
     func numberOfSections(in tableView: UITableView) -> Int {
         return 4
@@ -75,6 +81,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
             
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "tags", for: indexPath) as! TagsTableViewCell
+            
             
             return cell
             
@@ -141,7 +148,9 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
         
     }
     
-
+    
+    
+    
     
     func updated() {
         

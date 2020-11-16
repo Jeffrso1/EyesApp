@@ -17,7 +17,6 @@ class HeaderTableViewCell: UITableViewCell, SFSafariViewControllerDelegate {
     @IBOutlet weak var watchTrailer: UIButton!
     @IBOutlet weak var seeTMDb: UIButton!
     
-    
     var currentMovie = dao.movies[Array(dao.movies)[dao.currentMovie].key]
     
     func setupHeaderCell() {
@@ -27,9 +26,7 @@ class HeaderTableViewCell: UITableViewCell, SFSafariViewControllerDelegate {
         movieBanner.layer.borderColor = CGColor.init(red: 255, green: 255, blue: 255, alpha: 0.8)
         movieTitle.text = currentMovie?.title
         
-        
         timeAndGenre.text = currentMovie!.durationText + " • " + currentMovie!.genreText
-        
         
         let roundedView = UIView()
         roundedView.layer.shadowColor = UIColor.black.cgColor
@@ -59,11 +56,9 @@ class HeaderTableViewCell: UITableViewCell, SFSafariViewControllerDelegate {
 
         movieHeader.bringSubviewToFront(view)
         
-        
         setupButton(button: watchTrailer)
         setupButton(button: seeTMDb)
-        
-        //self.reloadInputViews()
+       
     }
     
     func setupButton(button: UIButton) {
