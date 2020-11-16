@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Network
 
 class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
    
@@ -13,6 +14,9 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
     @IBOutlet weak var reviewButton: UIButton!
     @IBOutlet weak var detailsButton: UIButton!
     @IBOutlet weak var infoButton: UIBarButtonItem!
+    
+//    private var connectionSegue: UIStoryboardSegue!
+    let connection = ConnectionViewController()
     
     @IBAction func showDetails(_ sender: UIButton) {
    
@@ -26,6 +30,11 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+//        self.connectionSegue = UIStoryboardSegue(identifier: "ConnectionSegue", source: CatalogueViewController, destination: ConnectionViewController) {
+//            self.connectionSegue.source.showDetailViewController(self.connectionSegue.destination, sender: self)
+//        }
+        
+        monitorNetwork()
         configNavBar()
     }
     
@@ -75,6 +84,26 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
         
     }
     
+    func monitorNetwork() {
+        let monitor = NWPathMonitor()
+        monitor.pathUpdateHandler = { path in
+            if path.status == .satisfied {
+                DispatchQueue.main.async {
+                    print("adasdaadsasd")
+                }
+                
+            } else {
+                
+                DispatchQueue.main.async {
+                    self.present(self.connection, animated: false, completion: nil)
+                }
+                
+            }
+        }
+        
+        let queue = DispatchQueue(label: "Network")
+        monitor.start(queue: queue)
+    }
     
     @IBAction func backToCatalogue( _ segue: UIStoryboardSegue) {
         
