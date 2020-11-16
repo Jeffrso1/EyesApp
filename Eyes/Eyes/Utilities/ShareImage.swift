@@ -33,6 +33,7 @@ class ShareImage: UIViewController, DAORequester {
         view.addSubview(timeAndGenre)
         view.addSubview(header)
         view.addSubview(tagButton)
+        view.addSubview(shareLogo)
         //view.addSubview(tagsCV)
         
         setupMoviePoster()
@@ -41,6 +42,8 @@ class ShareImage: UIViewController, DAORequester {
         setupTimeAndGenre()
         setupHeader()
         setupTagButton()
+        setupShareLogo()
+        
         //setupTagsCV()
     }
     
@@ -113,6 +116,11 @@ class ShareImage: UIViewController, DAORequester {
         uiButton.setTitleColor(.white, for: .normal)
         uiButton.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         uiButton.sizeToFit()
+        
+        uiButton.titleLabel?.numberOfLines = 2
+        uiButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        uiButton.titleLabel?.lineBreakMode = .byClipping
+        uiButton.titleLabel?.textAlignment = .center
          
         uiButton.contentEdgeInsets = UIEdgeInsets(top: 14.0, left: 10.0, bottom: 14.0, right: 10.0)
         
@@ -121,6 +129,19 @@ class ShareImage: UIViewController, DAORequester {
         return uiButton
         
     }()
+    
+    var shareLogo: UIImageView = {
+        
+        let image = UIImageView()
+        image.contentMode = .scaleAspectFit
+        
+        
+        image.image = UIImage(named: "shareLogo")
+        
+        return image
+        
+    }()
+    
     
     init(movie: Movie) {
         self.movie = movie
@@ -216,11 +237,11 @@ class ShareImage: UIViewController, DAORequester {
     
     private func setupTagButton() {
     
-        let randomTagNumber = Int.random(in: 0..<tags.count)
-        
         let langStr = Locale.current.languageCode
         
         if tags.count != 0 {
+            
+        let randomTagNumber = Int.random(in: 0..<tags.count)
         
         if langStr == "pt" {
         tagButton.setTitle(tags[randomTagNumber].displayName_ptBR, for: .normal)
@@ -259,6 +280,21 @@ class ShareImage: UIViewController, DAORequester {
         ])
         
     }
+    
+    private func setupShareLogo() {
+        
+        shareLogo.translatesAutoresizingMaskIntoConstraints = false
+        
+        shareLogo.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor).isActive = true
+        shareLogo.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor).isActive = true
+        //shareLogo.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: 20).isActive = true
+        shareLogo.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        shareLogo.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        
+        NSLayoutConstraint(item: shareLogo, attribute: .top, relatedBy: .equal, toItem: tagButton, attribute: .bottom, multiplier: 1, constant: 30).isActive = true
+        
+    }
+    
     
     fileprivate func loadAsyncImage(from movie: Movie, then completion: @escaping (UIImage)->Void) {
         if let data = movie.imageData {
