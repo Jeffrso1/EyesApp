@@ -20,10 +20,12 @@ class Alert {
         
     }
     
-    class func showMovieOptions(vc: UIViewController){
+    class func showMovieOptions(vc: UIViewController, image: UIImage){
+        
+        let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         
         let actionSheet = UIAlertController(title: NSLocalizedString("Movie Options", comment: ""), message: nil, preferredStyle: .actionSheet)
-        actionSheet.addAction(UIAlertAction(title: NSLocalizedString("Share on Instagram Stories", comment: ""), style: .default, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: NSLocalizedString("Share on Instagram Stories", comment: ""), style: .default, handler: { _ in vc.present(activityController, animated: true)}))
         actionSheet.addAction(UIAlertAction(title: NSLocalizedString("Report Issue", comment: ""), style: .destructive, handler: nil))
         actionSheet.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
         vc.present(actionSheet, animated: true)
