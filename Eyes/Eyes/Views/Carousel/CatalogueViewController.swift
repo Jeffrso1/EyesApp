@@ -16,7 +16,6 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
     @IBOutlet weak var infoButton: UIBarButtonItem!
     
 //    private var connectionSegue: UIStoryboardSegue!
-    let connection = ConnectionViewController()
     
     @IBAction func showDetails(_ sender: UIButton) {
    
@@ -92,10 +91,10 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
                     print("adasdaadsasd")
                 }
                 
-            } else {
-                
+            }
+            else if path.status == .unsatisfied {
                 DispatchQueue.main.async {
-                    self.present(self.connection, animated: false, completion: nil)
+                    Alert.showBasic(title: "Ocorreu um problema na conexão com o servidor", message: "Por favor, tente novamente mais tarde", vc: self, type: .warning)
                 }
                 
             }
