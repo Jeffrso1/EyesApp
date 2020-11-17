@@ -34,7 +34,6 @@ class ShareImage: UIViewController, DAORequester {
         view.addSubview(header)
         view.addSubview(tagButton)
         view.addSubview(shareLogo)
-        //view.addSubview(tagsCV)
         
         setupMoviePoster()
         setupMovieBanner()
@@ -44,7 +43,7 @@ class ShareImage: UIViewController, DAORequester {
         setupTagButton()
         setupShareLogo()
         
-        //setupTagsCV()
+        
     }
     
     func updated() {
@@ -114,7 +113,7 @@ class ShareImage: UIViewController, DAORequester {
         
         uiButton.backgroundColor = UIColor(named: "AccentColor")
         uiButton.setTitleColor(.white, for: .normal)
-        uiButton.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+        uiButton.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         uiButton.sizeToFit()
         
         uiButton.titleLabel?.numberOfLines = 2
@@ -122,7 +121,7 @@ class ShareImage: UIViewController, DAORequester {
         uiButton.titleLabel?.lineBreakMode = .byClipping
         uiButton.titleLabel?.textAlignment = .center
          
-        uiButton.contentEdgeInsets = UIEdgeInsets(top: 14.0, left: 10.0, bottom: 14.0, right: 10.0)
+        uiButton.contentEdgeInsets = UIEdgeInsets(top: 15.0, left: 10.0, bottom: 15.0, right: 10.0)
         
         uiButton.layer.cornerRadius = 7
         

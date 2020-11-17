@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, DAORequester {
+class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, DAORequester, MFMailComposeViewControllerDelegate {
     
     var movieID: Int?
     var imageID: UIImage?
@@ -33,8 +34,39 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
             shareViewController.view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
         }
         
-        Alert.showMovieOptions(vc: self, image: image)
+        Alert.showMovieOptions(vc: self, image: image, movie: currentMovie!)
     }
+    
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+            // Dismiss the mail compose view controller.
+        
+        controller.dismiss(animated: true, completion: nil)
+        
+        switch result.rawValue {
+            case MFMailComposeResult.cancelled.rawValue :
+                print("Cancelled")
+
+            case MFMailComposeResult.failed.rawValue :
+                print("Failed")
+                
+                Alert.showBasic(title: NSLocalizedString("There was a problem sending your feedback", comment: ""), message:NSLocalizedString("Please, try again later.", comment: "") , vc: self, type: .error)
+
+            case MFMailComposeResult.saved.rawValue :
+                print("Saved")
+
+            case MFMailComposeResult.sent.rawValue :
+                print("Sent")
+
+                Alert.showBasic(title: NSLocalizedString("Thanks for your feedback!", comment: ""), message:NSLocalizedString("Your opinion is very important to us. We'll be in touch soon.", comment: "") , vc: self, type: .success)
+
+            default: break
+
+
+            }
+            
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

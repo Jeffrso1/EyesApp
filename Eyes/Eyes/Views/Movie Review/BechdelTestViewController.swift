@@ -130,11 +130,11 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
             
             } catch MovieReviewError.reviewIsMissing {
                 
-                Alert.showBasic(title: NSLocalizedString("Error Uploading Review", comment: ""), message: NSLocalizedString("Please, make sure all questions were anwsered.", comment: "") , vc: self)
+                Alert.showBasic(title: NSLocalizedString("Error Uploading Review", comment: ""), message: NSLocalizedString("Please, make sure all questions were anwsered.", comment: "") , vc: self, type: .warning)
                 
             } catch {
                 
-                Alert.showBasic(title: NSLocalizedString("An unexpected error has ocurred.", comment: ""), message: NSLocalizedString("Please, try again.", comment: ""), vc: self)
+                Alert.showBasic(title: NSLocalizedString("An unexpected error has ocurred.", comment: ""), message: NSLocalizedString("Please, try again.", comment: ""), vc: self, type: .error)
             }
             
             
