@@ -11,6 +11,7 @@ import UIKit
 enum SFSymbols {
     
     static let checkmarkCircle = UIImage(systemName: "checkmark.circle.fill")
+    static let cloudKit = UIImage(systemName: "icloud.fill")
     
 }
 

@@ -17,6 +17,7 @@
 		71EA47A4255321BA0072A74A /* OBItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EA47A3255321BA0072A74A /* OBItem.swift */; };
 		71EA47A9255323AC0072A74A /* OBPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EA47A8255323AC0072A74A /* OBPageViewController.swift */; };
 		71EA47B425533F660072A74A /* OBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EA47B325533F660072A74A /* OBViewController.swift */; };
+		CF033A3125642EF900740FC9 /* CloudKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF033A3025642EF900740FC9 /* CloudKitViewController.swift */; };
 		CF09B0092562E3AA00645FAC /* ShareImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF09B0082562E3AA00645FAC /* ShareImage.swift */; };
 		CF1337ED254B297E00B377C6 /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1337EC254B297E00B377C6 /* AboutAppViewController.swift */; };
 		CF1BDE6D2540A98A002FA236 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF1BDE6C2540A98A002FA236 /* CloudKit.framework */; };
@@ -106,6 +107,7 @@
 		71EA47A3255321BA0072A74A /* OBItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBItem.swift; sourceTree = "<group>"; };
 		71EA47A8255323AC0072A74A /* OBPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBPageViewController.swift; sourceTree = "<group>"; };
 		71EA47B325533F660072A74A /* OBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBViewController.swift; sourceTree = "<group>"; };
+		CF033A3025642EF900740FC9 /* CloudKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitViewController.swift; sourceTree = "<group>"; };
 		CF09B0082562E3AA00645FAC /* ShareImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareImage.swift; sourceTree = "<group>"; };
 		CF1337EC254B297E00B377C6 /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
 		CF1BDE5E2540A970002FA236 /* Eyes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Eyes.entitlements; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				71EA47B325533F660072A74A /* OBViewController.swift */,
 				71EA47A3255321BA0072A74A /* OBItem.swift */,
 				71EA47A8255323AC0072A74A /* OBPageViewController.swift */,
+				CF033A3025642EF900740FC9 /* CloudKitViewController.swift */,
 			);
 			path = OnBoarding;
 			sourceTree = "<group>";
@@ -612,6 +615,7 @@
 				CF1BDE752540B0BD002FA236 /* Tag.swift in Sources */,
 				7133677C2541F4A9005919E8 /* CarouselItemView.swift in Sources */,
 				71EA47A4255321BA0072A74A /* OBItem.swift in Sources */,
+				CF033A3125642EF900740FC9 /* CloudKitViewController.swift in Sources */,
 				CFFE89BC253E2829002BD1BA /* Movie.swift in Sources */,
 				71EA47A9255323AC0072A74A /* OBPageViewController.swift in Sources */,
 				CFAE47B52541CB8700244D74 /* Buttons.swift in Sources */,

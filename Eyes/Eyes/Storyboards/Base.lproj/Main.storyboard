@@ -45,7 +45,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="48C-ZP-3bV" kind="show" identifier="movieReview" id="Emj-pW-Y3e"/>
+                                            <action selector="reviewMoview:" destination="yZm-ha-IAp" eventType="touchUpInside" id="IAN-El-XUW"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qgc-Xe-NGA">
@@ -97,6 +97,7 @@
                         <outlet property="infoButton" destination="Gaa-w8-Ic0" id="XXA-iG-ghB"/>
                         <outlet property="reviewButton" destination="pFo-6r-Cp9" id="4br-ED-5KZ"/>
                         <outlet property="viewBox" destination="3ek-X2-iQa" id="hwU-iG-ich"/>
+                        <segue destination="48C-ZP-3bV" kind="show" identifier="movieReview" id="cvz-my-Qtp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="URB-dy-gQI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

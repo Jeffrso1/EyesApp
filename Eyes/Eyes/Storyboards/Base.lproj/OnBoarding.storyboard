@@ -30,12 +30,12 @@
                                     <constraint firstAttribute="height" constant="50" id="GQ5-bk-ql1"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                <state key="normal" title="Get Started">
+                                <state key="normal" title="Continue">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="continueSegue:" destination="eNe-ZB-DGI" eventType="touchUpInside" id="WF6-tg-PeM"/>
-                                    <segue destination="1k3-Ma-TIB" kind="show" id="BmO-7u-fMx"/>
+                                    <segue destination="1Yp-DV-fX9" kind="show" id="x0R-aX-Wx5"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -60,13 +60,32 @@
             </objects>
             <point key="canvasLocation" x="921.73913043478262" y="-241.07142857142856"/>
         </scene>
+        <!--Cloud Kit View Controller-->
+        <scene sceneID="LNm-cX-avg">
+            <objects>
+                <viewController id="1Yp-DV-fX9" customClass="CloudKitViewController" customModule="Eyes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CCb-LJ-Mm9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="tBQ-00-pMA"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ypn-Zd-pQG"/>
+                    <connections>
+                        <segue destination="1k3-Ma-TIB" kind="show" identifier="goToHome" id="7yf-jb-9S4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uf1-om-LPv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1691" y="-241"/>
+        </scene>
         <!--Page View Controller-->
         <scene sceneID="FNF-Hk-WAa">
             <objects>
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Fnw-SK-fbf" customClass="OBPageViewController" customModule="Eyes" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XNl-av-ekv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1813" y="-241"/>
+            <point key="canvasLocation" x="1693" y="-842"/>
         </scene>
         <!--homeScreen-->
         <scene sceneID="6aE-x5-ubh">
@@ -76,7 +95,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MjO-dd-qdJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="922" y="239"/>
+            <point key="canvasLocation" x="1690" y="230"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CRK-Dx-b9a">

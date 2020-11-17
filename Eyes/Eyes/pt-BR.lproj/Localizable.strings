@@ -25,6 +25,17 @@
 "Choose Tags" = "Escolha uma ou mais tags para representar o filme.";
 "Go To Details" = "Veja mais detalhes como o elenco e o trailer do seu filme favorito.";
 
+"iCloud Not Logged In" = "iCloud sem Login";
+
+"Please, go to the Settings app on your iPhone and login to iCloud to review" = "Por favor, vá até o app Ajustes no seu iPhone e inicie sua sessão para avaliar";
+
+"iCloud Integration" = "Integração com iCloud";
+
+"iCloud Description" = "Eyes utiliza o iCloud para armazenar todos os dados gerados pelos usuários no app.\n\n Para avaliar os filmes disponíveis no app, você precisa estar logada(o) na sua conta do iCloud.";
+
+"Go to Settings App" = "Ir para o app Ajustes";
+"Get Started" = "Começar";
+
 "WhatBechdelTest" = "O que é o Teste de Bechdel?";
 "BechdelTest" = "O Teste de Bechdel é um conjunto de parâmetros utilizados para mensurar a representação de mulheres em um filme. Para que um filme passe no Teste de Bechdel, duas mulheres devem conversar sobre algo além de um homem. No Estados Unidos, 40% dos filmes ainda falham nesse teste.";
 

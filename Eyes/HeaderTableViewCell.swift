@@ -45,6 +45,8 @@ class HeaderTableViewCell: UITableViewCell, SFSafariViewControllerDelegate {
         let gradient = CAGradientLayer()
 
         gradient.frame = view.frame
+        
+        gradient.frame.size.width = view.frame.width + 30
 
         gradient.colors = [clearColor.cgColor, UIColor(named: "BackgroundColor")?.cgColor]
 

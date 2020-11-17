@@ -12,7 +12,7 @@ class OBViewController: UIViewController {
     @IBOutlet weak var continueButton: UIButton!
     
     @IBAction func continueSegue(_ sender: Any) {
-        UserDefaults.standard.set(true, forKey: "firstLaunch")
+        //UserDefaults.standard.set(true, forKey: "firstLaunch")
     }
     
     override func viewDidLoad() {

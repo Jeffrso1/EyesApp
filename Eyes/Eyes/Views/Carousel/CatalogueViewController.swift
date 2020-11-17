@@ -23,6 +23,26 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
     
     }
     
+    @IBAction func reviewMoview(_ sender: Any) {
+        
+        if FileManager.default.ubiquityIdentityToken != nil {
+            
+            print("iCloud Available")
+            
+            performSegue(withIdentifier: "movieReview", sender: self)
+                
+            print("Review Movie pressed")
+            
+        } else {
+            print("iCloud Unavailable")
+            
+            Alert.showBasic(title: NSLocalizedString("iCloud Not Logged In", comment: ""), message: NSLocalizedString("Please, go to the Settings app on your iPhone and login to iCloud to review", comment: "") , vc: self, type: .error)
+        }
+        
+    }
+    
+    
+    
     var currentPage : Int = 0
 //    let pageViewController = PageViewController()
     var selectedID : Int = 0
@@ -55,15 +75,6 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
         if dao.currentMovie != 0 {
-        
-        if segue.identifier == "movieReview" {
-            let vc = segue.destination as! BechdelTestViewController
-            selectedID = Array(dao.movies)[dao.currentMovie].key
-            vc.movieID = selectedID
-                
-            print("Review Movie pressed")
-                
-        }
         
         if segue.identifier == "movieDetails" {
             let vc = segue.destination as! MovieDetailsViewController
@@ -109,5 +120,10 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
         
         
     }
+    
+    
+    
+  
+    
     
 }
