@@ -450,20 +450,20 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" tag="1" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="overview" id="53r-g3-YOc" customClass="OverviewTableViewCell" customModule="Eyes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="497.33334350585938" width="414" height="110"/>
+                                        <rect key="frame" x="0.0" y="497.33334350585938" width="414" height="109.33333587646484"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="53r-g3-YOc" id="Lt3-eF-9BZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="109.33333587646484"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1f-XF-KIP">
-                                                    <rect key="frame" x="29" y="26" width="357" height="27.333333333333329"/>
+                                                    <rect key="frame" x="29" y="26" width="357" height="26.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DzM-uw-aTV">
-                                                    <rect key="frame" x="29" y="61.000000000000007" width="357" height="20.333333333333336"/>
+                                                    <rect key="frame" x="29" y="60.333333333333336" width="357" height="20.333333333333336"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" priority="250" constant="20.333333333333336" id="p5T-Sp-Hoo"/>
                                                     </constraints>
@@ -488,7 +488,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" tag="2" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tags" id="qEj-Do-8Ef" customClass="TagsTableViewCell" customModule="Eyes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="607.33334350585938" width="414" height="300.66665649414062"/>
+                                        <rect key="frame" x="0.0" y="606.66667938232422" width="414" height="300.66665649414062"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qEj-Do-8Ef" id="pxX-IR-eXd">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="300.66665649414062"/>
@@ -563,7 +563,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" tag="3" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cast" id="e6X-1D-8Hy" customClass="CastListTableViewCell" customModule="Eyes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="908" width="414" height="43.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="907.33333587646484" width="414" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="e6X-1D-8Hy" id="NDW-pi-enQ">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
@@ -1031,8 +1031,8 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
+                                                    <action selector="endReview:" destination="48C-ZP-3bV" eventType="touchUpInside" id="xwb-JB-gIQ"/>
                                                     <action selector="submitReview:" destination="48C-ZP-3bV" eventType="touchUpInside" id="5SH-fj-lv8"/>
-                                                    <segue destination="XCo-eU-ah5" kind="show" identifier="endReview" id="KRz-Ym-9Mg"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1093,6 +1093,7 @@
                         <outlet property="posterBlurImage" destination="gDm-px-yyG" id="y7i-g4-0mX"/>
                         <outlet property="posterImage" destination="121-sy-p2i" id="fc6-Ic-qGD"/>
                         <outlet property="submitReview" destination="tS9-4H-bwi" id="p81-9g-OQX"/>
+                        <segue destination="XCo-eU-ah5" kind="show" identifier="endReview" id="tPN-H2-jwR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cQT-pI-kBD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1123,6 +1124,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="goToHomeScreen:" destination="XCo-eU-ah5" eventType="touchUpInside" id="1Vc-qh-1fW"/>
                                     <action selector="submitReview:" destination="48C-ZP-3bV" eventType="touchUpInside" id="jkr-sj-NHR"/>
                                     <segue destination="evS-sA-fPq" kind="unwind" unwindAction="backToCatalogue:" id="Vr2-n9-cz9"/>
                                 </connections>

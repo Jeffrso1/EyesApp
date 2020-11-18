@@ -179,10 +179,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
         
         
     }
-    
-    
-    
-    
+
     
     func updated() {
         

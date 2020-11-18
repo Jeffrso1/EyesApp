@@ -19,7 +19,6 @@ class TagsTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollecti
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        //collectionView.reloadData()
     }
     
     var currentMovie = dao.movies[Array(dao.movies)[dao.currentMovie].key]
@@ -31,8 +30,11 @@ class TagsTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollecti
         collectionView.dataSource = self
     
         dao.loadMovieCK(with: String(currentMovie!.id), to: self)
+        
+        collectionView.reloadData()
  
     }
+    
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
        
@@ -77,7 +79,9 @@ class TagsTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollecti
         tags = (dao.myMovies[Int(currentMovie!.id)]?.tags) ?? []
         
         DispatchQueue.main.async {
-        self.collectionView.reloadData()
+        
+            self.collectionView.reloadData()
+        
         }
     }
 }

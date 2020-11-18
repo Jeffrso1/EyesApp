@@ -7,12 +7,16 @@
 
 import UIKit
 
-class CarouselItemVC: UIViewController, DAORequester {
-    
+
+class CarouselItemVC: UIViewController, DAORequester, CarouselUpdater {
+   
     let cellID = "tagCell"
+    
     var tags: [Tag] = []
     
     var movie : Movie
+    
+    var endReview = EndReviewViewController()
     
     func updated() {
         
@@ -21,8 +25,19 @@ class CarouselItemVC: UIViewController, DAORequester {
         DispatchQueue.main.async {
             self.tagsCV.reloadData()
         }
+        
     }
     
+    func updateCarousel() {
+        
+        print("ATUALIZOU")
+        
+        DispatchQueue.main.async {
+            self.tagsCV.reloadData()
+        }
+        
+    }
+
     let scrollView = UIScrollView()
     
     var movieBanner: UIImageView = {
@@ -115,6 +130,8 @@ class CarouselItemVC: UIViewController, DAORequester {
         }
         
         dao.loadMovieCK(with: String(movie.id), to: self)
+        
+        
     }
     
     required init?(coder: NSCoder) {
@@ -131,7 +148,6 @@ class CarouselItemVC: UIViewController, DAORequester {
         tagsCV.contentInset.left = 15
         tagsCV.showsHorizontalScrollIndicator = false
         
-        //view.addSubview(self.scrollView)
         view.addSubview(movieHeader)
         view.addSubview(tagsCV)
         view.addSubview(movieName)
@@ -139,7 +155,6 @@ class CarouselItemVC: UIViewController, DAORequester {
         view.addSubview(timeAndGenre)
         view.addSubview(movieDescription)
         
-        //setupScrollview()
         setupMovieBanner()
         setupMovieHeader()
         setupTagsCV()
@@ -147,7 +162,9 @@ class CarouselItemVC: UIViewController, DAORequester {
         setupMovieReviewed()
         setupTimeAndGenre()
         setupMovieDescription()
-   
+        
+        endReview.delegate = self
+        
     }
     
     private func setupScrollview() {

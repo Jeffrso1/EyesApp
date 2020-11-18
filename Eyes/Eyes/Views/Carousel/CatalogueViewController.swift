@@ -74,6 +74,14 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
         if dao.currentMovie != 0 {
+            
+        if segue.identifier == "movieReview" {
+            let vc = segue.destination as! BechdelTestViewController
+            selectedID = Array(dao.movies)[dao.currentMovie].key
+            vc.movieID = selectedID
+            
+            print("Bechdel Test Button pressed")
+        }
         
         if segue.identifier == "movieDetails" {
             let vc = segue.destination as! MovieDetailsViewController
@@ -105,7 +113,7 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
             }
             else if path.status == .unsatisfied {
                 DispatchQueue.main.async {
-                    Alert.showBasic(title: "Ocorreu um problema na conexão com o servidor", message: "Por favor, tente novamente mais tarde", vc: self, type: .warning)
+                    Alert.showBasic(title: NSLocalizedString("A problem has occurred with the connection", comment: ""), message: NSLocalizedString("Please, try again later.", comment: ""), vc: self, type: .warning)
                 }
                 
             }

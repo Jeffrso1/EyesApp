@@ -119,26 +119,28 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
         
     }
     
+    @IBAction func endReview(_ sender: Any) {
+        
+        do {
+            
+            try checkReviewSubmission()
+            performSegue(withIdentifier: "endReview", sender: nil)
+        
+        } catch MovieReviewError.reviewIsMissing {
+            
+            Alert.showBasic(title: NSLocalizedString("Error Uploading Review", comment: ""), message: NSLocalizedString("Please, make sure all questions were anwsered.", comment: "") , vc: self, type: .warning)
+            
+        } catch {
+            
+            Alert.showBasic(title: NSLocalizedString("An unexpected error has ocurred.", comment: ""), message: NSLocalizedString("Please, try again.", comment: ""), vc: self, type: .error)
+        }
+        
+        
+        
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "endReview" {
-            
-            do {
-                
-                try checkReviewSubmission()
-            
-            } catch MovieReviewError.reviewIsMissing {
-                
-                Alert.showBasic(title: NSLocalizedString("Error Uploading Review", comment: ""), message: NSLocalizedString("Please, make sure all questions were anwsered.", comment: "") , vc: self, type: .warning)
-                
-            } catch {
-                
-                Alert.showBasic(title: NSLocalizedString("An unexpected error has ocurred.", comment: ""), message: NSLocalizedString("Please, try again.", comment: ""), vc: self, type: .error)
-            }
-            
-            
-        }
+     
         
     }
     
@@ -154,22 +156,30 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
             
         } else {
         
-        selectedTags = dao.tags.filter { ($0.isSelected ?? false) }
+            selectedTags = dao.tags.filter { ($0.isSelected ?? false) }
+            
+            tagsSelected.append(contentsOf: [firstTag!, secondTag!])
+            
+            let arrayCurrentMovie = [Array(dao.movies)[dao.currentMovie]]
         
-        tagsSelected.append(contentsOf: [firstTag!, secondTag!])
         
-        let movie = MyMovie.init(movieID: movieID, tags: selectedTags, tagsSelected: tagsSelected)
-        
-        movie.ckSave { result in
-            switch result {
-            case .success(let result):
-                print(result)
-            case .failure(let error):
-                print(error)
+            let movie = MyMovie.init(movieID: arrayCurrentMovie.first!.key, tags: selectedTags, tagsSelected: tagsSelected)
+            
+            movie.ckSave { result in
+                switch result {
+                case .success(let result):
+                    print(result)
+                case .failure(let error):
+                    print(error)
+                    print("error")
+                }
             }
-        }
-        
-        haptic.setupNotificationHaptic(type: .success)
+                
+            print("saving movie")
+            
+            haptic.setupNotificationHaptic(type: .success)
+           // performSegue(withIdentifier: "endReview", sender: nil)
+            
             
         }
   
