@@ -176,7 +176,6 @@ class CloudKitViewController: UIViewController {
         
         continueButton.setTitle(NSLocalizedString(NSLocalizedString("Get Started", comment: ""), comment: ""), for: .normal)
         
-        
         continueButton.centerXAnchor.constraint(equalTo: view.layoutMarginsGuide.centerXAnchor).isActive = true
         continueButton.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -40).isActive = true
         

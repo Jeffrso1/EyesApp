@@ -51,7 +51,7 @@
                             <constraint firstItem="7Rg-Ux-YdV" firstAttribute="trailing" secondItem="edE-Hf-9M9" secondAttribute="trailing" id="aio-5T-G9t"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="hle-X3-yBh"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="hle-X3-yBh"/>
                     <connections>
                         <outlet property="continueButton" destination="UOH-ic-clY" id="ejW-Gj-gQt"/>
                     </connections>
@@ -102,8 +102,8 @@
             <objects>
                 <navigationController storyboardIdentifier="navController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FSG-mR-pZS" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="GoV-Rj-bRh">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GoV-Rj-bRh">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

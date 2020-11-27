@@ -18,12 +18,16 @@ class OBViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupButton()
-        self.navigationController?.navigationBar.isHidden = true
+        //self.navigationController?.navigationBar.isHidden = true
         
     }
 
     func setupButton() {
         self.continueButton.layer.cornerRadius = 7
         self.continueButton.layer.shadowRadius = 10
+        
+        if UserDefaults.standard.bool(forKey: "firstLaunch") {
+            continueButton.isHidden = true
+        }
     }
 }
