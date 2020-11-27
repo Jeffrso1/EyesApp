@@ -12,7 +12,7 @@ class AboutDevTeamVC: UIViewController, UICollectionViewDelegate, UICollectionVi
    
     var url = ""
     
-    var devTeam : [DevTeam] = [DevTeam(imageName: "carol", devName: "Carol Marceli", socialMediaName: "Instagram", socialMediaURL: "https://www.instagram.com/carolmarceli/?hl=pt-br"), DevTeam(imageName: "jeff", devName: "Jefferson Silva", socialMediaName: "Instagram", socialMediaURL: "https://www.instagram.com"), DevTeam(imageName: "larissa", devName: "Larissa Diniz", socialMediaName: "Instagram", socialMediaURL: "https://www.instagram.com/lariediniz/"), DevTeam(imageName: "lucas", devName: "Lucas Frazão", socialMediaName: "Twitter", socialMediaURL: "https://www.twitter.com/lucasfrazao")]
+    var devTeam : [DevTeam] = [DevTeam(imageName: "carol", devName: "Carol Marceli", socialMediaName: "Instagram", socialMediaURL: "https://www.instagram.com/carolmarceli/?hl=pt-br"), DevTeam(imageName: "jeff", devName: "Jefferson Silva", socialMediaName: "Instagram", socialMediaURL: "https://instagram.com/jeffrso12?igshid=1d4ssn8diedmg"), DevTeam(imageName: "larissa", devName: "Larissa Diniz", socialMediaName: "Instagram", socialMediaURL: "https://www.instagram.com/lariediniz/"), DevTeam(imageName: "lucas", devName: "Lucas Frazão", socialMediaName: "Twitter", socialMediaURL: "https://www.twitter.com/lucasfrazao")]
     
     
     @IBOutlet weak var collectionView: UICollectionView!

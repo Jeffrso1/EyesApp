@@ -37,15 +37,30 @@
 "Go to Settings App" = "Go to Settings App";
 "Get Started" = "Get Started";
 
-"BechdelTest" = "The Bechdel test also known as the Bechdel–Wallace test, is a measure of the representation of women in fiction. It asks whether a work features at least two women who talk to each other about something other than a man. The requirement that the two women must be named is sometimes added.";
+"BechdelTest" = "The Bechdel Test also known as the Bechdel–Wallace test, is a measure of the representation of women in fiction. It asks whether a work features at least two women who talk to each other about something other than a man. The requirement that the two women must be named is sometimes added.
+
+- Article from WikiPedia
+
+";
 
 "How does it impact the films industry?" = "How does it impact the films industry?";
 
 "ImpactIndustry" = "In 1985, the Bechdel Test impacted a lot inside of a little board that shows a discussion about its parameters. However, over time, the Test received criticism like:
 
 The Test Bechdel can’t investigate all the inequality in movies and media.
+
 According to the Study Center about the Woman in the Television and in the Cinema, in the San Diego State University, only 16% of women are directors or producer (2013).
-The Test Bechdel just measure what women say to each other; it doesn’t measure her positions, her clothing, her character in the movie or any other factor that defines the character. To ensure the gender empowerment, the tests need to go beyond the surface of female characters (their conversations) and look deeper into the characters to     serve as a showcase to many different types of female representation.";
+
+The Bechdel Test just measure what women say to each other; it doesn’t measure her positions, her clothing, her character in the movie or any other factor that defines the character.
+
+To ensure the gender empowerment, the tests need to go beyond the surface of female characters and look deeper into the characters to serve as a showcase to many different types of female representation.'
+
+
+Research based on:
+- Bouchat, Kathryn Gray. Testing the Bechdel Test (2019). University Honors Theses. Paper 714. https://doi.org/10.15760/honors.731
+- Smith, Robin. Sizing Up Hollywood's Gender Gap (2017). Duke Research Blog. Available on: https://researchblog.duke.edu/2017/08/04/sizing-up-hollywoods-gender-gap/
+
+";
 
 "Movie Trailer Not Available" = "Movie Trailer Not Available";
 

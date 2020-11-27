@@ -167,6 +167,20 @@ class CarouselItemVC: UIViewController, DAORequester, CarouselUpdater {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        print(#function)
+        
+        tags = (dao.myMovies[Int(movie.id)]?.tags) ?? []
+        
+        DispatchQueue.main.async {
+            self.tagsCV.reloadData()
+        }
+        
+        dump(tags)
+    }
+    
     private func setupScrollview() {
         
         scrollView.translatesAutoresizingMaskIntoConstraints = false

@@ -29,7 +29,9 @@ class EndReviewViewController: UIViewController, UIPageViewControllerDelegate {
 
     @IBAction func goToHomeScreen(_ sender: Any) {
    
-        delegate?.updateCarousel()
+        //delegate?.updateCarousel()
+        
+        
         
     }
 

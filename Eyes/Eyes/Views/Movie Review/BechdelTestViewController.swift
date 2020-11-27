@@ -162,12 +162,13 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
             
             let arrayCurrentMovie = [Array(dao.movies)[dao.currentMovie]]
         
-        
-            let movie = MyMovie.init(movieID: arrayCurrentMovie.first!.key, tags: selectedTags, tagsSelected: tagsSelected)
+            let movie = MyMovie(movieID: arrayCurrentMovie.first!.key, tags: selectedTags, tagsSelected: tagsSelected)
             
             movie.ckSave { result in
                 switch result {
                 case .success(let result):
+                    let savedMovie = result as! MyMovie
+                    dao.myMovies[savedMovie.movieID!] = savedMovie
                     print(result)
                 case .failure(let error):
                     print(error)
@@ -178,8 +179,7 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
             print("saving movie")
             
             haptic.setupNotificationHaptic(type: .success)
-           // performSegue(withIdentifier: "endReview", sender: nil)
-            
+        
             
         }
   
