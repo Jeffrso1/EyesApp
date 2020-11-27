@@ -40,7 +40,6 @@ class Movie: Decodable, Identifiable, Hashable {
     var imageData: Data?
     var imageBackdropData: Data?
     
-    
     let genres: [MovieGenre]?
     let credits: MovieCredit?
     let videos: MovieVideoResponse?
@@ -146,10 +145,15 @@ struct MovieCredit: Decodable {
     let crew: [MovieCrew]
 }
 
-struct MovieCast: Decodable, Identifiable {
+class MovieCast: Decodable, Identifiable {
     let id: Int
     let character: String
     let name: String
+    var profileImageData: Data?
+    let profilePath: String?
+    var profileURL: URL? {
+        return URL(string: "https://image.tmdb.org/t/p/w500/\(profilePath ?? "")")!
+    }
 }
 
 struct MovieCrew: Decodable, Identifiable {

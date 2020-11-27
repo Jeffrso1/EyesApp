@@ -47,7 +47,7 @@
 		CFB73C532559C4B000F7B7C9 /* CarouselPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB73C522559C4B000F7B7C9 /* CarouselPageVC.swift */; };
 		CFB76C0C254A0F9F00C3C6A1 /* EndReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB76C0B254A0F9F00C3C6A1 /* EndReviewViewController.swift */; };
 		CFC47C5025519AAA001CB77E /* CastListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC47C4F25519AAA001CB77E /* CastListTableViewCell.swift */; };
-		CFC47C5525519F44001CB77E /* CastTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC47C5425519F44001CB77E /* CastTableVC.swift */; };
+		CFC47C5525519F44001CB77E /* CastCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC47C5425519F44001CB77E /* CastCVCell.swift */; };
 		CFD17EBD255AB5FA00AF61F6 /* AboutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD17EBC255AB5FA00AF61F6 /* AboutTableViewCell.swift */; };
 		CFE011FF255B277400F29B6C /* TagsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE011FE255B277400F29B6C /* TagsTableViewCell.swift */; };
 		CFE01208255B278500F29B6C /* OverviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE01206255B278400F29B6C /* OverviewTableViewCell.swift */; };
@@ -136,7 +136,7 @@
 		CFB73C522559C4B000F7B7C9 /* CarouselPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselPageVC.swift; sourceTree = "<group>"; };
 		CFB76C0B254A0F9F00C3C6A1 /* EndReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndReviewViewController.swift; sourceTree = "<group>"; };
 		CFC47C4F25519AAA001CB77E /* CastListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastListTableViewCell.swift; sourceTree = "<group>"; };
-		CFC47C5425519F44001CB77E /* CastTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastTableVC.swift; sourceTree = "<group>"; };
+		CFC47C5425519F44001CB77E /* CastCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCVCell.swift; sourceTree = "<group>"; };
 		CFD17EBC255AB5FA00AF61F6 /* AboutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableViewCell.swift; sourceTree = "<group>"; };
 		CFE011FE255B277400F29B6C /* TagsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsTableViewCell.swift; sourceTree = "<group>"; };
 		CFE01206255B278400F29B6C /* OverviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewTableViewCell.swift; sourceTree = "<group>"; };
@@ -213,7 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				CF846DAE2543955E00BBC7D3 /* MovieDetailsViewController.swift */,
-				CFC47C5425519F44001CB77E /* CastTableVC.swift */,
+				CFC47C5425519F44001CB77E /* CastCVCell.swift */,
 				CFC47C4F25519AAA001CB77E /* CastListTableViewCell.swift */,
 				CF9A7D472555D38200D6748C /* InsideTagsCollectionViewCell.swift */,
 			);
@@ -643,7 +643,7 @@
 				713367722541F2A5005919E8 /* CatalogueViewController.swift in Sources */,
 				CFFE89AB253E2819002BD1BA /* Utils.swift in Sources */,
 				CF846DAF2543955E00BBC7D3 /* MoviesCollectionViewCell.swift in Sources */,
-				CFC47C5525519F44001CB77E /* CastTableVC.swift in Sources */,
+				CFC47C5525519F44001CB77E /* CastCVCell.swift in Sources */,
 				CF48B04F25605E8D00A5D1AB /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -853,7 +853,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.eyesapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -876,7 +876,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.eyesapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

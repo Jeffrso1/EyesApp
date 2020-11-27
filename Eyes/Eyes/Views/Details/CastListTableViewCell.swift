@@ -7,28 +7,25 @@
 
 import UIKit
 
-class CastListTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
-    
-    
-    //@IBOutlet weak var castName: UILabel!
-    //@IBOutlet weak var characterName: UILabel!
+class CastListTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
     var currentMovie = dao.movies[Array(dao.movies)[dao.currentMovie].key]
-
-    @IBOutlet weak var tableView: UITableView!
     
     let cellIdentifier: String = "castCell"
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.estimatedRowHeight = 60
-        tableView.rowHeight = UITableView.automaticDimension
+        collectionView.dataSource = self
+        collectionView.delegate = self
 
     }
 
+/*
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -39,23 +36,39 @@ class CastListTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "castCell", for: indexPath as IndexPath) as! CastTableVC
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "castCell", for: indexPath as IndexPath) as CastCVCell
+
         //print("Table View Loaded")
-        
-        cell.castName.text = currentMovie?.cast?[indexPath.row].name ?? "Cast Name Not Available"
-        cell.characterName.text = currentMovie?.cast?[indexPath.row].character ?? "Character Name Not Available"
-        
+
+
+
         return cell
         
     }
     
-
-    func setupOverviewCell() {
+ */
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
+        switch currentMovie?.cast?.count {
+        case 0:
+            return 1
+        default:
+            return 10
+        }
         
-       
     }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "castCell", for: indexPath as IndexPath) as! CastCVCell
+      
+        cell.setupCastCell(indexPath: indexPath)
+        
+        return cell
+    }
+    
+    
     
     
 }

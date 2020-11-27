@@ -120,7 +120,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "cast", for: indexPath) as! CastListTableViewCell
             
-            cell.tableView.reloadData()
+            cell.collectionView.reloadData()
             updateHeight()
             
             return cell
