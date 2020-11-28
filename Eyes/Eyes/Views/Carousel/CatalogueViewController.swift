@@ -19,10 +19,18 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
     
     @IBAction func showDetails(_ sender: UIButton) {
    
-    
+        if dao.movies.count != 0 {
+        
+            
+            performSegue(withIdentifier: "showDetails", sender: self)
+            
+        }
+        
     }
     
     @IBAction func reviewMoview(_ sender: Any) {
+        
+        if dao.movies.count != 0 {
         
         if FileManager.default.ubiquityIdentityToken != nil {
             
@@ -38,8 +46,8 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
             Alert.showBasic(title: NSLocalizedString("iCloud Not Logged In", comment: ""), message: NSLocalizedString("Please, go to the Settings app on your iPhone and login to iCloud to review", comment: "") , vc: self, type: .error)
         }
         
+        }
     }
-    
     
     
     var currentPage : Int = 0
@@ -52,6 +60,8 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
 //        self.connectionSegue = UIStoryboardSegue(identifier: "ConnectionSegue", source: CatalogueViewController, destination: ConnectionViewController) {
 //            self.connectionSegue.source.showDetailViewController(self.connectionSegue.destination, sender: self)
 //        }
+        
+        
         
         monitorNetwork()
         configNavBar()
@@ -98,6 +108,10 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
             print("About Section pressed")
         }
         
+        } else {
+            
+            
+            
         }
         
     }
