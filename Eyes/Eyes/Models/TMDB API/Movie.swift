@@ -11,6 +11,7 @@ import Foundation
 struct MovieResponse: Decodable {
     
     let results: [Movie]
+    
 }
 
 /*
@@ -36,6 +37,7 @@ class Movie: Decodable, Identifiable, Hashable {
     let voteCount: Int
     let runtime: Int?
     let releaseDate: String?
+    
     
     var imageData: Data?
     var imageBackdropData: Data?

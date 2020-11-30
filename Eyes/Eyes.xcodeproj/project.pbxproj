@@ -27,6 +27,8 @@
 		CF48B04A25605C8E00A5D1AB /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF48B04925605C8E00A5D1AB /* Localization.swift */; };
 		CF48B04F25605E8D00A5D1AB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF48B04E25605E8D00A5D1AB /* Constants.swift */; };
 		CF48B05425605FC800A5D1AB /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF48B05325605FC800A5D1AB /* Alert.swift */; };
+		CF5811F225755F02001C08BD /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5811F125755F02001C08BD /* SearchViewController.swift */; };
+		CF58120B25757791001C08BD /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF58120A25757791001C08BD /* SearchTableViewCell.swift */; };
 		CF5A8640255C736200DDE395 /* AboutDevTeamCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A863F255C736200DDE395 /* AboutDevTeamCollectionViewCell.swift */; };
 		CF5A8648255C762E00DDE395 /* AboutDevTeamVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A8647255C762E00DDE395 /* AboutDevTeamVC.swift */; };
 		CF79537B255EBD3100AEF5A8 /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF79537A255EBD3100AEF5A8 /* Haptic.swift */; };
@@ -115,6 +117,8 @@
 		CF48B04925605C8E00A5D1AB /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		CF48B04E25605E8D00A5D1AB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CF48B05325605FC800A5D1AB /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		CF5811F125755F02001C08BD /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		CF58120A25757791001C08BD /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		CF5A863F255C736200DDE395 /* AboutDevTeamCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDevTeamCollectionViewCell.swift; sourceTree = "<group>"; };
 		CF5A8647255C762E00DDE395 /* AboutDevTeamVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDevTeamVC.swift; sourceTree = "<group>"; };
 		CF79537A255EBD3100AEF5A8 /* Haptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptic.swift; sourceTree = "<group>"; };
@@ -264,8 +268,8 @@
 			children = (
 				CFFE89AA253E2819002BD1BA /* Utils.swift */,
 				CF48B04E25605E8D00A5D1AB /* Constants.swift */,
-				CF79537A255EBD3100AEF5A8 /* Haptic.swift */,
 				CF48B05325605FC800A5D1AB /* Alert.swift */,
+				CF79537A255EBD3100AEF5A8 /* Haptic.swift */,
 				CF48B04925605C8E00A5D1AB /* Localization.swift */,
 				CFAE47B42541CB8700244D74 /* Buttons.swift */,
 				CF09B0082562E3AA00645FAC /* ShareImage.swift */,
@@ -279,6 +283,8 @@
 		CFAE47D22541FD0400244D74 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CF5811F125755F02001C08BD /* SearchViewController.swift */,
+				CF58120A25757791001C08BD /* SearchTableViewCell.swift */,
 				CF7BA4A7255B02630015898C /* OnBoarding */,
 				CFB73C482559B73D00F7B7C9 /* Carousel */,
 				CF7BA4A3255B02380015898C /* Details */,
@@ -604,6 +610,7 @@
 				CF1BDE752540B0BD002FA236 /* Tag.swift in Sources */,
 				7133677C2541F4A9005919E8 /* CarouselItemView.swift in Sources */,
 				71EA47A4255321BA0072A74A /* OBItem.swift in Sources */,
+				CF58120B25757791001C08BD /* SearchTableViewCell.swift in Sources */,
 				CF033A3125642EF900740FC9 /* CloudKitViewController.swift in Sources */,
 				CFFE89BC253E2829002BD1BA /* Movie.swift in Sources */,
 				71EA47A9255323AC0072A74A /* OBPageViewController.swift in Sources */,
@@ -636,6 +643,7 @@
 				CFFE896F253E27F6002BD1BA /* SceneDelegate.swift in Sources */,
 				CF846D8B2543504A00BBC7D3 /* TagVotes.swift in Sources */,
 				CF1337ED254B297E00B377C6 /* AboutAppViewController.swift in Sources */,
+				CF5811F225755F02001C08BD /* SearchViewController.swift in Sources */,
 				CFE011FF255B277400F29B6C /* TagsTableViewCell.swift in Sources */,
 				CFE01208255B278500F29B6C /* OverviewTableViewCell.swift in Sources */,
 				7184A569255B4D180078CDBA /* CarouselTagCell.swift in Sources */,
@@ -845,7 +853,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Eyes/Eyes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 83KH3JF2CE;
 				INFOPLIST_FILE = Eyes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -868,7 +876,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Eyes/Eyes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 83KH3JF2CE;
 				INFOPLIST_FILE = Eyes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

@@ -23,11 +23,8 @@ class Blur: UIImageView {
         let blurFilter:CIFilter = CIFilter(name: "CIGaussianBlur")!
         blurFilter.setValue(imageToBlur, forKey: "inputImage")
         let resultImage:CIImage = blurFilter.value(forKey: "outputImage")! as! CIImage
-        //self.contentMode = .scaleAspectFill
         self.image = UIImage(ciImage: resultImage)
         
     }
-
-
-
-    }
+    
+}

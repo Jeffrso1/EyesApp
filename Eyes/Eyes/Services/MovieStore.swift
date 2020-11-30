@@ -75,6 +75,7 @@ class MovieStore: MovieService {
             "language": NSLocalizedString("Language", comment: ""),
             "include_adult": "false",
             "region": NSLocalizedString("Country", comment: ""),
+            "popularity" : "7",
             "query": query
         ], completion: completion)
     }
@@ -88,6 +89,7 @@ class MovieStore: MovieService {
         }
         
         var queryItems = [URLQueryItem(name: "api_key", value: apiKey)]
+        
         if let params = params {
             queryItems.append(contentsOf: params.map { URLQueryItem(name: $0.key, value: $0.value) })
         }

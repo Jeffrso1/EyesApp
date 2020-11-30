@@ -6,21 +6,20 @@
 //  Copyright © 2020 Alfian Losari. All rights reserved.
 //
 
-import SwiftUI
+//import SwiftUI
 import Combine
 import Foundation
 
-class MovieSearchState: ObservableObject {
+class MovieSearchState {
     
     @Published var query = ""
-    @Published var movies: [Movie]?
-    @Published var isLoading = false
-    @Published var error: NSError?
+    var movies: [Movie]?
+    var isLoading = false
+    var error: NSError?
     
     private var subscriptionToken: AnyCancellable?
     
     let movieService: MovieService
-    
     
     /*
      Handles empty results. Could be more precise!
@@ -37,7 +36,7 @@ class MovieSearchState: ObservableObject {
     /*
      Starts observing search!
     */
-    
+
     func startObserve() {
         guard subscriptionToken == nil else { return }
         
@@ -48,11 +47,13 @@ class MovieSearchState: ObservableObject {
                 return text
                 
         }.throttle(for: 1, scheduler: DispatchQueue.main, latest: true)
-            .sink { [weak self] in self?.search(query: $0) }
+            .sink { [weak self] in self?.search(query: $0) { movies in} }
     }
+ 
     
-    func search(query: String) {
-        self.movies = nil
+    
+    func search(query: String, completion: @escaping ([Movie]) -> ()) {
+        //self.movies = nil
         self.isLoading = false
         self.error = nil
         
@@ -62,14 +63,14 @@ class MovieSearchState: ObservableObject {
         
         self.isLoading = true
         self.movieService.searchMovie(query: query) {[weak self] (result) in
-            guard let self = self, self.query == query else { return }
-            
-            self.isLoading = false
+            guard let searchResult = self else { return }
+            searchResult.isLoading = false
             switch result {
             case .success(let response):
-                self.movies = response.results
+                //self.movies = response.results
+                completion(response.results)
             case .failure(let error):
-                self.error = error as NSError
+                searchResult.error = error as NSError
             }
         }
     }
@@ -79,3 +80,6 @@ class MovieSearchState: ObservableObject {
         self.subscriptionToken = nil
     }
 }
+
+
+//searchResult.query == query

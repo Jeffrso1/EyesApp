@@ -21,9 +21,12 @@ class DAO: MovieDelegate {
     let movieListState = MovieListState()
     let movieDetailState = MovieDetailState()
     let movieLoadingState = MovieLoadingDetailState()
+    let movieSearchState = MovieSearchState()
     
     var movies : [Int : Movie] = [:]
     var myMovies: [Int : MyMovie] = [:]
+    
+    var searchedMovies : [Int : Movie] = [:]
     
     var currentMovie : Int = 0
     
@@ -239,6 +242,19 @@ class DAO: MovieDelegate {
         return movies
     }
     
+    
+    func searchMovies(to caller: DAORequester?, query: String) {
+        
+        movieSearchState.search(query: query) { movies in
+            
+            for movie in movies {
+                self.searchedMovies[movie.id] = movie
+            }
+            
+            caller?.updated()
+        }
+        
+    }
     
     
     func passMovie(movie: Movie) {

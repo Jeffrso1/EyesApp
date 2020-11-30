@@ -31,7 +31,7 @@ public class MovieDetailState {
  
     func loadMovie(id: Int, completion: @escaping (Result<Movie, MovieError>) -> ()) {
        // self.movie = nil
-        self.isLoading = false
+        self.isLoading = true
         self.movieService.fetchMovie(id: id) {[weak self] (result) in
             guard let self = self else { return }
             self.isLoading = false
