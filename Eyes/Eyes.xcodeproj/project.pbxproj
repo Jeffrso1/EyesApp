@@ -142,9 +142,9 @@
 		CFC47C4F25519AAA001CB77E /* CastListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastListTableViewCell.swift; sourceTree = "<group>"; };
 		CFC47C5425519F44001CB77E /* CastCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCVCell.swift; sourceTree = "<group>"; };
 		CFD17EBC255AB5FA00AF61F6 /* AboutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableViewCell.swift; sourceTree = "<group>"; };
-		CFE011FE255B277400F29B6C /* TagsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsTableViewCell.swift; sourceTree = "<group>"; };
-		CFE01206255B278400F29B6C /* OverviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewTableViewCell.swift; sourceTree = "<group>"; };
-		CFE01207255B278400F29B6C /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
+		CFE011FE255B277400F29B6C /* TagsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagsTableViewCell.swift; path = ../../../TagsTableViewCell.swift; sourceTree = "<group>"; };
+		CFE01206255B278400F29B6C /* OverviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OverviewTableViewCell.swift; path = ../../../OverviewTableViewCell.swift; sourceTree = "<group>"; };
+		CFE01207255B278400F29B6C /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeaderTableViewCell.swift; path = ../../../HeaderTableViewCell.swift; sourceTree = "<group>"; };
 		CFE01210255B27B500F29B6C /* CarouselItemVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselItemVC.swift; sourceTree = "<group>"; };
 		CFE476052551F8A60053B5BA /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
 		CFE476062551F8A70053B5BA /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -217,8 +217,11 @@
 			isa = PBXGroup;
 			children = (
 				CF846DAE2543955E00BBC7D3 /* MovieDetailsViewController.swift */,
-				CFC47C5425519F44001CB77E /* CastCVCell.swift */,
 				CFC47C4F25519AAA001CB77E /* CastListTableViewCell.swift */,
+				CFC47C5425519F44001CB77E /* CastCVCell.swift */,
+				CFE01207255B278400F29B6C /* HeaderTableViewCell.swift */,
+				CFE01206255B278400F29B6C /* OverviewTableViewCell.swift */,
+				CFE011FE255B277400F29B6C /* TagsTableViewCell.swift */,
 				CF9A7D472555D38200D6748C /* InsideTagsCollectionViewCell.swift */,
 			);
 			path = Details;
@@ -342,9 +345,6 @@
 		CFE011D6255B266200F29B6C /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				CFE01207255B278400F29B6C /* HeaderTableViewCell.swift */,
-				CFE01206255B278400F29B6C /* OverviewTableViewCell.swift */,
-				CFE011FE255B277400F29B6C /* TagsTableViewCell.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -853,7 +853,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Eyes/Eyes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 83KH3JF2CE;
 				INFOPLIST_FILE = Eyes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -876,7 +876,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Eyes/Eyes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 83KH3JF2CE;
 				INFOPLIST_FILE = Eyes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

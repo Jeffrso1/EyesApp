@@ -36,16 +36,6 @@ public class MovieDetailState {
             guard let self = self else { return }
             self.isLoading = false
             completion(result)
-//            switch result {
-//            case .success(let movie):
-//                self.movie = movie
-//                //self.loadImage(to: movie)
-//                //completion(movie)
-//                //self.delegate?.passMovie(movie: movie, to:)
-//            case .failure(let error):
-//                self.error = error as NSError
-//                //completion(nil)
-//            }
         }
     }
     

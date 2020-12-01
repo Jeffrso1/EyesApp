@@ -8,7 +8,6 @@
 import UIKit
 
 class CastCVCell: UICollectionViewCell {
-
     
     @IBOutlet weak var castImage: UIImageView!
     @IBOutlet weak var castName: UILabel!
@@ -30,17 +29,18 @@ class CastCVCell: UICollectionViewCell {
         
     func setupCastCell(indexPath: IndexPath) {
         
-        castName.text = currentMovie?.cast?[indexPath.row].name ?? "Cast Name Not Available"
-        characterName.text = currentMovie?.cast?[indexPath.row].character ?? "Character Name Not Available"
+        if dao.selectedMovie == nil {
+            dao.selectedMovie = currentMovie
+        }
         
-        
-        
-        loadAsyncImage(from: (currentMovie?.cast![indexPath.row])!) { image in
+        castName.text = dao.selectedMovie?.cast?[indexPath.row].name ?? "Cast Name Not Available"
+        characterName.text = dao.selectedMovie?.cast?[indexPath.row].character ?? "Character Name Not Available"
+
+        loadAsyncImage(from: (dao.selectedMovie?.cast![indexPath.row])!) { image in
       
             self.castImage.image = image
             
         }
-        
         
     }
     

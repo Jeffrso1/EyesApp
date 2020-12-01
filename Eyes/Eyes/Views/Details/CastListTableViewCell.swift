@@ -23,34 +23,14 @@ class CastListTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollec
         collectionView.delegate = self
 
     }
-
-/*
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return currentMovie?.cast?.count ?? 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        let cell = tableView.dequeueReusableCell(withIdentifier: "castCell", for: indexPath as IndexPath) as CastCVCell
-
-        //print("Table View Loaded")
-
-
-
-        return cell
-        
-    }
-    
- */
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        switch currentMovie?.cast?.count {
+        if dao.selectedMovie == nil {
+            dao.selectedMovie = currentMovie
+        }
+        
+        switch dao.selectedMovie?.cast?.count {
         case 0:
             return 1
         default:

@@ -19,7 +19,8 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
     
     @IBAction func showDetails(_ sender: UIButton) {
    
-    
+        dao.selectedMovie = nil
+        
     }
     
     @IBAction func reviewMoview(_ sender: Any) {
@@ -38,21 +39,18 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
             Alert.showBasic(title: NSLocalizedString("iCloud Not Logged In", comment: ""), message: NSLocalizedString("Please, go to the Settings app on your iPhone and login to iCloud to review", comment: "") , vc: self, type: .error)
         }
         
+        dao.selectedMovie = nil
+        
     }
     
-    
+    var currentMovie : Movie?
     
     var currentPage : Int = 0
-//    let pageViewController = PageViewController()
-    var selectedID : Int = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-//        self.connectionSegue = UIStoryboardSegue(identifier: "ConnectionSegue", source: CatalogueViewController, destination: ConnectionViewController) {
-//            self.connectionSegue.source.showDetailViewController(self.connectionSegue.destination, sender: self)
-//        }
-        
         monitorNetwork()
         configNavBar()
     }
@@ -76,17 +74,12 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
         if dao.currentMovie != 0 {
             
         if segue.identifier == "movieReview" {
-            let vc = segue.destination as! BechdelTestViewController
-            selectedID = Array(dao.movies)[dao.currentMovie].key
-            vc.movieID = selectedID
             
             print("Bechdel Test Button pressed")
         }
         
         if segue.identifier == "movieDetails" {
-            let vc = segue.destination as! MovieDetailsViewController
-            selectedID = Array(dao.movies)[dao.currentMovie].key
-            vc.movieID = selectedID
+            
                 
             print("Details Button pressed")
         }

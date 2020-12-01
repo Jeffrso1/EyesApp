@@ -26,10 +26,14 @@ class TagsTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollecti
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        if dao.selectedMovie == nil {
+            dao.selectedMovie = currentMovie
+        }
+        
         collectionView.delegate = self
         collectionView.dataSource = self
     
-        dao.loadMovieCK(with: String(currentMovie!.id), to: self)
+        dao.loadMovieCK(with: String(dao.selectedMovie!.id), to: self)
         
         collectionView.reloadData()
  
@@ -76,7 +80,7 @@ class TagsTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollecti
     
     func updated() {
         
-        tags = (dao.myMovies[Int(currentMovie!.id)]?.tags) ?? []
+        tags = (dao.myMovies[Int(dao.selectedMovie!.id)]?.tags) ?? []
         
         DispatchQueue.main.async {
         

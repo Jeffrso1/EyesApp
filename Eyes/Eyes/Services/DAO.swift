@@ -28,14 +28,14 @@ class DAO: MovieDelegate {
     
     var searchedMovies : [Int : Movie] = [:]
     
+    var selectedMovie: Movie?
+    
     var currentMovie : Int = 0
     
     var movie: Movie?
     
     var tags : [Tag] = []
     var movieCK : MyMovie?
-    
-   // var moviesLocalized: [Movie?] = []
     
     var movieDetails : Movie? {
        return movieLoadingState.movie
@@ -69,26 +69,7 @@ class DAO: MovieDelegate {
         
     }
     
-    
-//    func loadMovie(movie: Movie, completion: ()->Void)  {
-//
-//        var result: Movie?
-//
-//        movieDetailState.loadMovie(id: movie.id) { movie in
-//
-//            //self.movie = movie
-//
-//            //movieDetail = movie
-//
-//           // caller?.updated()
-//
-//        }
-//
-//    }
-//
     func loadMovie(movie: Int, to caller: DAORequester?)  {
-        
-        //var result: Movie?
         
         movieLoadingState.loadMovie(id: movie) { movie in
             
@@ -247,11 +228,16 @@ class DAO: MovieDelegate {
         
         movieSearchState.search(query: query) { movies in
             
-            for movie in movies {
-                self.searchedMovies[movie.id] = movie
-            }
-            
-            caller?.updated()
+            self.loadMovieLocalized(movies: movies, completion: { movies in
+               
+                for movie in movies {
+                    
+                    self.searchedMovies[movie.id] = movie
+                    
+                }
+               
+                caller?.updated()
+            })
         }
         
     }

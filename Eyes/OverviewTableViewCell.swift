@@ -12,6 +12,9 @@ class OverviewTableViewCell: UITableViewCell {
     @IBOutlet weak var overviewText: UILabel!
     
     func setupOverviewCell() {
-        overviewText.text = dao.movies[Array(dao.movies)[dao.currentMovie].key]?.overview
+        
+        overviewText.text = dao.selectedMovie?.overview
+        
+        //overviewText.text = dao.movies[Array(dao.movies)[dao.currentMovie].key]?.overview
     }
 }

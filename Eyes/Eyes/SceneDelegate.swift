@@ -30,6 +30,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
         dao.loadTags()
         
+        
+        
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 

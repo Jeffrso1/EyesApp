@@ -130,8 +130,6 @@ class CarouselItemVC: UIViewController, DAORequester, CarouselUpdater {
         }
         
         dao.loadMovieCK(with: String(movie.id), to: self)
-        
-        
     }
     
     required init?(coder: NSCoder) {
@@ -185,8 +183,6 @@ class CarouselItemVC: UIViewController, DAORequester, CarouselUpdater {
         
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.isScrollEnabled = true
-        
-        //scrollView.contentSize = CGSize(width:2000, height: 5678)
         
         //Constrain scroll view
         scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true

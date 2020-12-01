@@ -21,12 +21,11 @@ class HeaderTableViewCell: UITableViewCell, SFSafariViewControllerDelegate {
     
     func setupHeaderCell() {
         
-        movieBanner.image = UIImage(data: (currentMovie?.imageData)!)
-        movieBanner.layer.cornerRadius = 7
-        movieBanner.layer.borderColor = CGColor.init(red: 255, green: 255, blue: 255, alpha: 0.8)
-        movieTitle.text = currentMovie?.title
-        
-        timeAndGenre.text = currentMovie!.durationText + " • " + currentMovie!.genreText
+        if dao.selectedMovie == nil {
+            dao.selectedMovie = currentMovie
+        }
+
+        timeAndGenre.text = dao.selectedMovie!.durationText + " • " + dao.selectedMovie!.genreText
         
         let roundedView = UIView()
         roundedView.layer.shadowColor = UIColor.black.cgColor
@@ -34,7 +33,15 @@ class HeaderTableViewCell: UITableViewCell, SFSafariViewControllerDelegate {
         roundedView.layer.shadowOpacity = 0.8
         roundedView.layer.shadowRadius = 10
         
-        loadAsyncImage(from: currentMovie!) { image in
+        loadAsyncPosterImage(from: dao.selectedMovie!) { image in
+            self.movieBanner.image = image
+        }
+        
+        movieBanner.layer.cornerRadius = 7
+        movieBanner.layer.borderColor = CGColor.init(red: 255, green: 255, blue: 255, alpha: 0.8)
+        movieTitle.text = dao.selectedMovie?.title
+        
+        loadAsyncImage(from: dao.selectedMovie!) { image in
             self.movieHeader.image = image
         }
         
@@ -91,9 +98,9 @@ class HeaderTableViewCell: UITableViewCell, SFSafariViewControllerDelegate {
         
         haptic.setupImpactHaptic(style: .light)
         
-        let arrayCurrentMovie = [Array(dao.movies)[dao.currentMovie]]
+        let arrayCurrentMovie = dao.selectedMovie
         
-        let safariVC = SFSafariViewController(url: URL(string: "https://www.themoviedb.org/movie/\(arrayCurrentMovie.first!.key)")!)
+        let safariVC = SFSafariViewController(url: URL(string: "https://www.themoviedb.org/movie/\(arrayCurrentMovie!.id)")!)
         safariVC.delegate = self
         safariVC.modalPresentationStyle = .pageSheet
         
@@ -103,18 +110,20 @@ class HeaderTableViewCell: UITableViewCell, SFSafariViewControllerDelegate {
     
     func checkMovieTrailer() throws {
         
-        if currentMovie?.youtubeTrailers?.count == 0 {
+        if dao.selectedMovie?.videos == nil {
+           
             throw MovieDetailError.trailerNotAvailable
-        }
         
-        let safariVC = SFSafariViewController(url: (currentMovie?.youtubeTrailers?.first?.youtubeURL)!)
+        } else {
+        
+        let safariVC = SFSafariViewController(url: (dao.selectedMovie?.youtubeTrailers?.first?.youtubeURL)!)
         safariVC.delegate = self
         safariVC.modalPresentationStyle = .pageSheet
         
         haptic.setupImpactHaptic(style: .light)
         
         self.window?.rootViewController?.present(safariVC, animated: true, completion: nil)
-        
+        }
         
     }
     
@@ -125,6 +134,22 @@ class HeaderTableViewCell: UITableViewCell, SFSafariViewControllerDelegate {
             DispatchQueue.global().async {
                 if let data = try? Data(contentsOf: url) {
                     movie.imageBackdropData = data
+                    DispatchQueue.main.async {
+                        if let currentImage = UIImage(data: data) {
+                            completion(currentImage)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    fileprivate func loadAsyncPosterImage(from movie: Movie, then completion: @escaping (UIImage)->Void) {
+        
+        if let url = movie.posterURL {
+            DispatchQueue.global().async {
+                if let data = try? Data(contentsOf: url) {
+                    movie.imageData = data
                     DispatchQueue.main.async {
                         if let currentImage = UIImage(data: data) {
                             completion(currentImage)

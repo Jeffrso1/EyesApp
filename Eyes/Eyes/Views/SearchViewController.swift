@@ -9,6 +9,8 @@ import UIKit
 
 class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DAORequester {
     
+    var selectedMovie: Movie?
+    
     var sortedDictionary : [Movie] = []
     
     @IBOutlet weak var tableView: UITableView!
@@ -77,6 +79,22 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return 0
         
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        selectedMovie = sortedDictionary[indexPath.row]
+        
+        performSegue(withIdentifier: "searchSegue", sender: self)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+            if(segue.identifier == "searchSegue") {
+                let vc = segue.destination as! MovieDetailsViewController
+                dao.selectedMovie = selectedMovie
+            }
+        }
     
     
     

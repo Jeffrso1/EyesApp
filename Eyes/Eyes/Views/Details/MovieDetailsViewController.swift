@@ -10,7 +10,7 @@ import MessageUI
 
 class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, DAORequester, MFMailComposeViewControllerDelegate {
     
-    var movieID: Int?
+    var movie: Movie?
     var imageID: UIImage?
     
     @IBOutlet weak var tableView: UITableView!
@@ -27,14 +27,18 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBAction func optionsButton(_ sender: Any) {
         
-        let shareViewController = ShareImage(movie: currentMovie!)
+        if dao.selectedMovie == nil {
+            dao.selectedMovie = currentMovie
+        }
+        
+        let shareViewController = ShareImage(movie: dao.selectedMovie!)
         
         let renderer = UIGraphicsImageRenderer(size: shareViewController.view.bounds.size)
         let image = renderer.image { ctx in
             shareViewController.view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
         }
         
-        Alert.showMovieOptions(vc: self, image: image, movie: currentMovie!)
+        Alert.showMovieOptions(vc: self, image: image, movie: dao.selectedMovie!)
     }
     
     
@@ -70,13 +74,17 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //collectionView.contentInsetAdjustmentBehavior = .never
         tableView.delegate = self
         tableView.dataSource = self
         tableView.estimatedRowHeight = 44
         tableView.rowHeight = UITableView.automaticDimension
 
         self.navigationController?.navigationBar.tintColor = .white
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
         
     }
     
@@ -151,8 +159,6 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
         transition.type = CATransitionType.fade
         
         lastOffsetY = scrollView.contentOffset.y
-        
-        //print(lastOffsetY)
         
         if lastOffsetY > 60 {
         
