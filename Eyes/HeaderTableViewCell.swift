@@ -19,13 +19,9 @@ class HeaderTableViewCell: UITableViewCell, SFSafariViewControllerDelegate {
     
     var currentMovie = dao.movies[Array(dao.movies)[dao.currentMovie].key]
     
-    func setupHeaderCell() {
-        
-        if dao.selectedMovie == nil {
-            dao.selectedMovie = currentMovie
-        }
-
-        timeAndGenre.text = dao.selectedMovie!.durationText + " • " + dao.selectedMovie!.genreText
+    func setupHeaderCell(movie: Movie) {
+ 
+        timeAndGenre.text = movie.durationText + " • " + movie.genreText
         
         let roundedView = UIView()
         roundedView.layer.shadowColor = UIColor.black.cgColor
@@ -33,7 +29,7 @@ class HeaderTableViewCell: UITableViewCell, SFSafariViewControllerDelegate {
         roundedView.layer.shadowOpacity = 0.8
         roundedView.layer.shadowRadius = 10
         
-        loadAsyncPosterImage(from: dao.selectedMovie!) { image in
+        loadAsyncPosterImage(from: movie) { image in
             self.movieBanner.image = image
         }
         
@@ -41,7 +37,7 @@ class HeaderTableViewCell: UITableViewCell, SFSafariViewControllerDelegate {
         movieBanner.layer.borderColor = CGColor.init(red: 255, green: 255, blue: 255, alpha: 0.8)
         movieTitle.text = dao.selectedMovie?.title
         
-        loadAsyncImage(from: dao.selectedMovie!) { image in
+        loadAsyncImage(from: movie) { image in
             self.movieHeader.image = image
         }
         
@@ -110,7 +106,7 @@ class HeaderTableViewCell: UITableViewCell, SFSafariViewControllerDelegate {
     
     func checkMovieTrailer() throws {
         
-        if dao.selectedMovie?.videos == nil {
+        if dao.selectedMovie?.youtubeTrailers?.count == 0 {
            
             throw MovieDetailError.trailerNotAvailable
         

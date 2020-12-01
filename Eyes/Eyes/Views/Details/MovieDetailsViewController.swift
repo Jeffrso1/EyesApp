@@ -105,17 +105,24 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        if dao.selectedMovie == nil {
+            dao.selectedMovie = currentMovie
+        }
+        
+        
         switch indexPath.section {
         case 0:
+            
             let cell = tableView.dequeueReusableCell(withIdentifier: "header", for: indexPath) as! HeaderTableViewCell
             
-            cell.setupHeaderCell()
+            cell.setupHeaderCell(movie: dao.selectedMovie!)
             
             return cell
+            
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "overview", for: indexPath) as! OverviewTableViewCell
             
-            cell.setupOverviewCell()
+            cell.setupOverviewCell(movie: dao.selectedMovie!)
             
             return cell
             

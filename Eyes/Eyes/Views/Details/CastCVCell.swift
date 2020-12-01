@@ -27,18 +27,18 @@ class CastCVCell: UICollectionViewCell {
 
     }
         
-    func setupCastCell(indexPath: IndexPath) {
+    func setupCastCell(indexPath: IndexPath, movie: Movie) {
         
-        if dao.selectedMovie == nil {
-            dao.selectedMovie = currentMovie
-        }
+        if movie.cast?.count != 0 {
         
-        castName.text = dao.selectedMovie?.cast?[indexPath.row].name ?? "Cast Name Not Available"
-        characterName.text = dao.selectedMovie?.cast?[indexPath.row].character ?? "Character Name Not Available"
+        castName.text = movie.cast?[indexPath.row].name ?? "Cast Name Not Available"
+        characterName.text = movie.cast?[indexPath.row].character ?? "Character Name Not Available"
 
-        loadAsyncImage(from: (dao.selectedMovie?.cast![indexPath.row])!) { image in
+        loadAsyncImage(from: (movie.cast![indexPath.row])) { image in
       
             self.castImage.image = image
+            
+        }
             
         }
         

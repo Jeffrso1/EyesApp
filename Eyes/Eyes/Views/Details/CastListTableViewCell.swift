@@ -15,7 +15,6 @@ class CastListTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollec
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -34,7 +33,7 @@ class CastListTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollec
         case 0:
             return 1
         default:
-            return 10
+            return dao.selectedMovie!.cast!.count
         }
         
     }
@@ -43,7 +42,12 @@ class CastListTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollec
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "castCell", for: indexPath as IndexPath) as! CastCVCell
       
-        cell.setupCastCell(indexPath: indexPath)
+        
+        if dao.selectedMovie == nil {
+            dao.selectedMovie = currentMovie
+        }
+        
+        cell.setupCastCell(indexPath: indexPath, movie: dao.selectedMovie!)
         
         return cell
     }

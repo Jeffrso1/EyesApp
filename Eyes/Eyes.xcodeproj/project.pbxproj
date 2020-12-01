@@ -20,6 +20,7 @@
 		CF1BDE6D2540A98A002FA236 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF1BDE6C2540A98A002FA236 /* CloudKit.framework */; };
 		CF1BDE702540AC4C002FA236 /* CloudKitMagicCRUD in Frameworks */ = {isa = PBXBuildFile; productRef = CF1BDE6F2540AC4C002FA236 /* CloudKitMagicCRUD */; };
 		CF1BDE752540B0BD002FA236 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1BDE742540B0BD002FA236 /* Tag.swift */; };
+		CF3D56D62576C4080014B8D5 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3D56D52576C4080014B8D5 /* NavigationBar.swift */; };
 		CF424FA325462EFB00C85A37 /* TagButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF424FA225462EFB00C85A37 /* TagButton.swift */; };
 		CF424FA82546352000C85A37 /* ChooseTagsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF424FA72546352000C85A37 /* ChooseTagsCollectionViewCell.swift */; };
 		CF428AC1254B30DF00DD25A5 /* AboutDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF428AC0254B30DF00DD25A5 /* AboutDetailsVC.swift */; };
@@ -109,6 +110,7 @@
 		CF1BDE5E2540A970002FA236 /* Eyes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Eyes.entitlements; sourceTree = "<group>"; };
 		CF1BDE6C2540A98A002FA236 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		CF1BDE742540B0BD002FA236 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		CF3D56D52576C4080014B8D5 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		CF424FA225462EFB00C85A37 /* TagButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagButton.swift; sourceTree = "<group>"; };
 		CF424FA72546352000C85A37 /* ChooseTagsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTagsCollectionViewCell.swift; sourceTree = "<group>"; };
 		CF428AC0254B30DF00DD25A5 /* AboutDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDetailsVC.swift; sourceTree = "<group>"; };
@@ -213,6 +215,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CF3D56DA2576C45E0014B8D5 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				CF5811F125755F02001C08BD /* SearchViewController.swift */,
+				CF58120A25757791001C08BD /* SearchTableViewCell.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		CF7BA4A3255B02380015898C /* Details */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +283,7 @@
 				CFFE89AA253E2819002BD1BA /* Utils.swift */,
 				CF48B04E25605E8D00A5D1AB /* Constants.swift */,
 				CF48B05325605FC800A5D1AB /* Alert.swift */,
+				CF3D56D52576C4080014B8D5 /* NavigationBar.swift */,
 				CF79537A255EBD3100AEF5A8 /* Haptic.swift */,
 				CF48B04925605C8E00A5D1AB /* Localization.swift */,
 				CFAE47B42541CB8700244D74 /* Buttons.swift */,
@@ -286,8 +298,7 @@
 		CFAE47D22541FD0400244D74 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CF5811F125755F02001C08BD /* SearchViewController.swift */,
-				CF58120A25757791001C08BD /* SearchTableViewCell.swift */,
+				CF3D56DA2576C45E0014B8D5 /* Search */,
 				CF7BA4A7255B02630015898C /* OnBoarding */,
 				CFB73C482559B73D00F7B7C9 /* Carousel */,
 				CF7BA4A3255B02380015898C /* Details */,
@@ -653,6 +664,7 @@
 				CF846DAF2543955E00BBC7D3 /* MoviesCollectionViewCell.swift in Sources */,
 				CFC47C5525519F44001CB77E /* CastCVCell.swift in Sources */,
 				CF48B04F25605E8D00A5D1AB /* Constants.swift in Sources */,
+				CF3D56D62576C4080014B8D5 /* NavigationBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
