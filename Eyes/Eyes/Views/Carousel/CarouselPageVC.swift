@@ -11,6 +11,8 @@ import CloudKitMagicCRUD
 
 class CarouselPageVC: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, DAORequester {
     
+    let favorites = UserDefaults.standard.stringArray(forKey: "FavoriteList")
+    
     func updated() {
         //print("run function")
         populateItems()
@@ -105,6 +107,7 @@ class CarouselPageVC: UIPageViewController, UIPageViewControllerDataSource, UIPa
             if let currentViewController = pageViewController.viewControllers?.first,
                let index = self.items.firstIndex(of: currentViewController as! CarouselItemVC) {
                 dao.currentMovie = index
+                
             }
         }
     }
