@@ -38,7 +38,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
             shareViewController.view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
         }
         
-        Alert.showMovieOptions(vc: self, image: image, url: dao.selectedMovie?.youtubeTrailers?.first?.youtubeURL, movie: dao.selectedMovie!)
+        Alert.showMovieOptions(vc: self, image: image.jpegData(compressionQuality: 0.8), url: dao.selectedMovie?.youtubeTrailers?.first?.youtubeURL, movie: dao.selectedMovie!)
     }
     
     
@@ -193,6 +193,24 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
         
     }
 
+    @objc func buttonAction(_ sender: UIButton!) {
+          
+        performSegue(withIdentifier: "reviewSegue", sender: sender)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "reviewSegue") {
+            if let destination = segue.destination as? BechdelTestViewController {
+
+               if let button:UIButton = sender as! UIButton? {
+                  // print(button.tag) //optional
+                  // destination.valueViaSegue = button.tag
+               }
+            }
+        }
+    }
+    
     
     func updated() {
         

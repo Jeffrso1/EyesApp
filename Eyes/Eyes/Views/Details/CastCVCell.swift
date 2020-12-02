@@ -9,7 +9,7 @@ import UIKit
 
 class CastCVCell: UICollectionViewCell {
     
-    @IBOutlet weak var castImage: UIImageView!
+  //  @IBOutlet weak var castImage: UIImageView!
     @IBOutlet weak var castName: UILabel!
     @IBOutlet weak var characterName: UILabel!
     
@@ -18,12 +18,12 @@ class CastCVCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
-        castImage.layer.borderWidth = 2
-        castImage.layer.borderColor = UIColor.white.cgColor
-        castImage.layer.masksToBounds = false
-        castImage.layer.cornerRadius = castImage.frame.size.width / 2
-        castImage.clipsToBounds = true
+//
+//        castImage.layer.borderWidth = 2
+//        castImage.layer.borderColor = UIColor.white.cgColor
+//        castImage.layer.masksToBounds = false
+//        castImage.layer.cornerRadius = castImage.frame.size.width / 2
+//        castImage.clipsToBounds = true
 
     }
         
@@ -34,11 +34,11 @@ class CastCVCell: UICollectionViewCell {
         castName.text = movie.cast?[indexPath.row].name ?? "Cast Name Not Available"
         characterName.text = movie.cast?[indexPath.row].character ?? "Character Name Not Available"
 
-        loadAsyncImage(from: (movie.cast![indexPath.row])) { image in
-      
-            self.castImage.image = image
-            
-        }
+//        loadAsyncImage(from: (movie.cast![indexPath.row])) { image in
+//
+//            //self.castImage.image = image
+//
+//        }
             
         }
         

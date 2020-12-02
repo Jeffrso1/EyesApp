@@ -45,7 +45,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // 2
         searchController.obscuresBackgroundDuringPresentation = false
         // 3
-        searchController.searchBar.placeholder = "Search for Movies or Tags"
+        searchController.searchBar.placeholder = NSLocalizedString("Search Movies", comment: "")
         // 4
         navigationItem.searchController = searchController
         // 5

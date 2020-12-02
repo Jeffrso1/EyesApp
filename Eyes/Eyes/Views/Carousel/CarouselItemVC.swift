@@ -275,7 +275,6 @@ class CarouselItemVC: UIViewController, DAORequester, CarouselUpdater {
             self.reloadInputViews()
         }
         
-        
         movieReviewed.trailingAnchor.constraint(equalTo: movieBanner.trailingAnchor, constant: 7).isActive = true
         movieReviewed.centerYAnchor.constraint(equalTo: movieBanner.topAnchor, constant: 7).isActive = true
         movieReviewed.layer.zPosition = 1
@@ -324,8 +323,12 @@ class CarouselItemVC: UIViewController, DAORequester, CarouselUpdater {
         height.isActive = true
         height.priority = UILayoutPriority(250)
         
+        let width = movieName.widthAnchor.constraint(lessThanOrEqualToConstant: 120)
+        width.isActive = true
+        width.priority = UILayoutPriority(250)
+        
         movieName.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor).isActive = true
-//        movieName.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor, constant: -20).isActive = true
+        //movieName.rightAnchor.constraint(equalTo: favoriteButton.leadingAnchor).isActive = true
         movieName.numberOfLines = 2
         movieName.adjustsFontSizeToFitWidth = true
         
@@ -334,7 +337,7 @@ class CarouselItemVC: UIViewController, DAORequester, CarouselUpdater {
     }
     
     private func setupFavoriteButton() {
-        let buttonSC = UIImage.SymbolConfiguration(pointSize: 17, weight: .medium, scale: .large)
+        let buttonSC = UIImage.SymbolConfiguration(pointSize: 19, weight: .medium, scale: .large)
         
         if ((favoriteList.contains(String(movie.id))) == true) {
             let heart = SFSymbols.heartFill?.applyingSymbolConfiguration(buttonSC)
@@ -343,9 +346,9 @@ class CarouselItemVC: UIViewController, DAORequester, CarouselUpdater {
             let heart = SFSymbols.heart?.applyingSymbolConfiguration(buttonSC)
             favoriteButton.setImage(heart, for: .normal)
         }
-        
+
         favoriteButton.centerYAnchor.constraint(equalTo: movieName.centerYAnchor).isActive = true
-        favoriteButton.rightAnchor.constraint(lessThanOrEqualTo: view.layoutMarginsGuide.rightAnchor, constant: -20).isActive = true
+        favoriteButton.rightAnchor.constraint(lessThanOrEqualTo: view.layoutMarginsGuide.rightAnchor).isActive = true
         
         NSLayoutConstraint(item: favoriteButton, attribute: .left, relatedBy: .equal, toItem: movieName, attribute: .right, multiplier: 1, constant: 10).isActive = true
     }

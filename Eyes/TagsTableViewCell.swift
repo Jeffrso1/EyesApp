@@ -68,10 +68,7 @@ class TagsTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollecti
                 cell.tagButton.setTitle("Seja a primeira a analisar esse filme!", for: .normal)
             } else {
                 cell.tagButton.setTitle("Be the first to review this movie!", for: .normal)
-                
-        }
-            
-            
+            }
         }
 
         return cell
@@ -88,4 +85,8 @@ class TagsTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollecti
         
         }
     }
+    
+    
+    
+    
 }

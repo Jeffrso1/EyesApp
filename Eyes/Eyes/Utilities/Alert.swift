@@ -21,15 +21,18 @@ class Alert: UIViewController, MFMailComposeViewControllerDelegate {
         
     }
     
-    class func showMovieOptions(vc: UIViewController, image: UIImage, url: URL?, movie: Movie){
+    class func showMovieOptions(vc: UIViewController, image: Data?, url: URL?, movie: Movie){
         
-        let activityController = UIActivityViewController(activityItems: [image, url], applicationActivities: nil)
+        let activityControllerImage = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        
+        let activityControllerTrailer = UIActivityViewController(activityItems: [url], applicationActivities: nil)
         
         let actionSheet = UIAlertController(title: NSLocalizedString("Movie Options", comment: ""), message: nil, preferredStyle: .actionSheet)
-        actionSheet.addAction(UIAlertAction(title: NSLocalizedString("Save or Share on Social Media", comment: ""), style: .default, handler: { _ in vc.present(activityController, animated: true)}))
+        actionSheet.addAction(UIAlertAction(title: NSLocalizedString("Save or Share Image", comment: ""), style: .default, handler: { _ in vc.present(activityControllerImage, animated: true)}))
+        actionSheet.addAction(UIAlertAction(title: NSLocalizedString("Share Trailer", comment: ""), style: .default, handler: { _ in vc.present(activityControllerTrailer, animated: true)}))
         actionSheet.addAction(UIAlertAction(title: NSLocalizedString("Report Issue", comment: ""), style: .destructive, handler: { action in
             
-            sendEmail(movie: movie)
+        sendEmail(movie: movie)
  
         }))
         
