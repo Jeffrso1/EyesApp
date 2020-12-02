@@ -10,6 +10,9 @@ import UIKit
 
 class CarouselItemVC: UIViewController, DAORequester, CarouselUpdater {
    
+    let defaults = UserDefaults.standard
+    lazy var favoriteList = defaults.stringArray(forKey: "FavoriteList") ?? [String]()
+    
     let cellID = "tagCell"
     
     var tags: [Tag] = []
@@ -78,6 +81,13 @@ class CarouselItemVC: UIViewController, DAORequester, CarouselUpdater {
         return uiLabel
     }()
     
+    var favoriteButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+    }()
+    
     var timeAndGenre: UILabel = {
         let uiLabel = UILabel()
         uiLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -114,6 +124,26 @@ class CarouselItemVC: UIViewController, DAORequester, CarouselUpdater {
         return uiButton
     }()
     
+    @objc func userChoseFavoriteMovie(sender: UIButton!) {
+        let movieToAdd = String(movie.id)
+        let mediumConfig = UIImage.SymbolConfiguration(pointSize: 17, weight: .medium, scale: .large)
+        
+        if !favoriteList.contains(movieToAdd) {
+            
+            favoriteList.append(movieToAdd)
+            defaults.set(favoriteList, forKey: "FavoriteList")
+            
+            let heart = SFSymbols.heartFill?.applyingSymbolConfiguration(mediumConfig)
+            favoriteButton.setImage(heart, for: .normal)
+            
+        } else {
+            
+            favoriteList.remove(at: favoriteList.firstIndex(of: movieToAdd)!)
+            let heart = SFSymbols.heart?.applyingSymbolConfiguration(mediumConfig)
+            favoriteButton.setImage(heart, for: .normal)
+        }
+    }
+    
     init(movie: Movie) {
         self.movie = movie
         super.init(nibName: nil, bundle: nil)
@@ -130,6 +160,7 @@ class CarouselItemVC: UIViewController, DAORequester, CarouselUpdater {
         }
         
         dao.loadMovieCK(with: String(movie.id), to: self)
+        
     }
     
     required init?(coder: NSCoder) {
@@ -149,6 +180,7 @@ class CarouselItemVC: UIViewController, DAORequester, CarouselUpdater {
         view.addSubview(movieHeader)
         view.addSubview(tagsCV)
         view.addSubview(movieName)
+        view.addSubview(favoriteButton)
         view.addSubview(movieReviewed)
         view.addSubview(timeAndGenre)
         view.addSubview(movieDescription)
@@ -157,9 +189,12 @@ class CarouselItemVC: UIViewController, DAORequester, CarouselUpdater {
         setupMovieHeader()
         setupTagsCV()
         setupMovieName()
+        setupFavoriteButton()
         setupMovieReviewed()
         setupTimeAndGenre()
         setupMovieDescription()
+        
+        favoriteButton.addTarget(self, action: #selector(userChoseFavoriteMovie), for: .touchUpInside)
         
         endReview.delegate = self
         
@@ -288,8 +323,9 @@ class CarouselItemVC: UIViewController, DAORequester, CarouselUpdater {
         let height = movieName.heightAnchor.constraint(equalToConstant: 50)
         height.isActive = true
         height.priority = UILayoutPriority(250)
-        movieName.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor).isActive = true
-        movieName.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor).isActive = true
+        
+        movieName.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor).isActive = true
+//        movieName.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor, constant: -20).isActive = true
         movieName.numberOfLines = 2
         movieName.adjustsFontSizeToFitWidth = true
         
@@ -297,6 +333,22 @@ class CarouselItemVC: UIViewController, DAORequester, CarouselUpdater {
         
     }
     
+    private func setupFavoriteButton() {
+        let buttonSC = UIImage.SymbolConfiguration(pointSize: 17, weight: .medium, scale: .large)
+        
+        if ((favoriteList.contains(String(movie.id))) == true) {
+            let heart = SFSymbols.heartFill?.applyingSymbolConfiguration(buttonSC)
+            favoriteButton.setImage(heart, for: .normal)
+        } else {
+            let heart = SFSymbols.heart?.applyingSymbolConfiguration(buttonSC)
+            favoriteButton.setImage(heart, for: .normal)
+        }
+        
+        favoriteButton.centerYAnchor.constraint(equalTo: movieName.centerYAnchor).isActive = true
+        favoriteButton.rightAnchor.constraint(lessThanOrEqualTo: view.layoutMarginsGuide.rightAnchor, constant: -20).isActive = true
+        
+        NSLayoutConstraint(item: favoriteButton, attribute: .left, relatedBy: .equal, toItem: movieName, attribute: .right, multiplier: 1, constant: 10).isActive = true
+    }
     
     private func setupTimeAndGenre() {
         timeAndGenre.font = UIFont.systemFont(ofSize: 17)

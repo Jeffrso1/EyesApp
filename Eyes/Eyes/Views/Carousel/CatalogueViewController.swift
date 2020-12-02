@@ -9,13 +9,14 @@ import UIKit
 import Network
 
 class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
-   
+    
     @IBOutlet weak var viewBox: UIView!
     @IBOutlet weak var reviewButton: UIButton!
     @IBOutlet weak var detailsButton: UIButton!
     @IBOutlet weak var infoButton: UIBarButtonItem!
+    @IBOutlet weak var favoriteButton: UIButton!
     
-//    private var connectionSegue: UIStoryboardSegue!
+    //    private var connectionSegue: UIStoryboardSegue!
     
     @IBAction func showDetails(_ sender: UIButton) {
    
@@ -86,7 +87,7 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
         monitor.pathUpdateHandler = { path in
             if path.status == .satisfied {
                 DispatchQueue.main.async {
-                    print("adasdaadsasd")
+                    
                 }
                 
             }
