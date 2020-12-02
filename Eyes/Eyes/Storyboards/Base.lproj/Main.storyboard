@@ -1338,11 +1338,13 @@
             </objects>
             <point key="canvasLocation" x="2867" y="1902"/>
         </scene>
-        <!--Home-->
+        <!--Trending-->
         <scene sceneID="TuZ-62-RKj">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZC5-0D-aJr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="square.stack" catalog="system" id="095-b2-clP"/>
+                    <tabBarItem key="tabBarItem" title="Trending" id="095-b2-clP">
+                        <imageReference key="image" image="square.stack" catalog="system" symbolScale="medium"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="9Gy-5z-NKN">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -1398,7 +1400,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3yf-yX-XL6">
-                                                    <rect key="frame" x="20" y="19" width="374" height="52"/>
+                                                    <rect key="frame" x="20" y="19" width="335" height="52"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" priority="250" constant="52" id="opQ-LM-cpW"/>
                                                     </constraints>
@@ -1412,14 +1414,23 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="E0t-Vk-cdX">
+                                                    <rect key="frame" x="360" y="37" width="34" height="16.666666666666664"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="34" id="7lR-en-nti"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="E0t-Vk-cdX" firstAttribute="leading" secondItem="3yf-yX-XL6" secondAttribute="trailing" constant="5" id="3di-L0-zfe"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="fNO-V0-D1G" secondAttribute="bottom" constant="15" id="Jz0-a6-pcQ"/>
-                                                <constraint firstItem="3yf-yX-XL6" firstAttribute="trailing" secondItem="iht-mh-vWR" secondAttribute="trailingMargin" id="PR3-dn-YVd"/>
                                                 <constraint firstItem="3yf-yX-XL6" firstAttribute="leading" secondItem="iht-mh-vWR" secondAttribute="leadingMargin" id="R1s-HC-ROb"/>
+                                                <constraint firstItem="E0t-Vk-cdX" firstAttribute="centerY" secondItem="3yf-yX-XL6" secondAttribute="centerY" id="S4H-Od-iB7"/>
                                                 <constraint firstItem="fNO-V0-D1G" firstAttribute="leading" secondItem="iht-mh-vWR" secondAttribute="leadingMargin" id="Whc-8S-91a"/>
                                                 <constraint firstItem="fNO-V0-D1G" firstAttribute="top" secondItem="3yf-yX-XL6" secondAttribute="bottom" constant="18" id="ceF-kV-H7V"/>
                                                 <constraint firstItem="3yf-yX-XL6" firstAttribute="top" secondItem="iht-mh-vWR" secondAttribute="topMargin" constant="8" id="emu-bK-2lo"/>
+                                                <constraint firstAttribute="trailing" secondItem="E0t-Vk-cdX" secondAttribute="trailing" constant="20" symbolic="YES" id="i8h-Ic-ahN"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1452,13 +1463,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UMv-Zd-uSC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-458" y="2171"/>
+            <point key="canvasLocation" x="-459.4202898550725" y="2170.9821428571427"/>
         </scene>
-        <!--Buscar-->
+        <!--Search-->
         <scene sceneID="CkR-qQ-RaI">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Coi-qw-f53" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Buscar" image="magnifyingglass" catalog="system" id="sXJ-rp-SGA"/>
+                    <tabBarItem key="tabBarItem" title="Search" id="sXJ-rp-SGA">
+                        <imageReference key="image" image="magnifyingglass" catalog="system" symbolScale="medium"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="JBu-3L-R2E">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>

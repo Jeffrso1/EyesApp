@@ -21,9 +21,9 @@ class Alert: UIViewController, MFMailComposeViewControllerDelegate {
         
     }
     
-    class func showMovieOptions(vc: UIViewController, image: UIImage, movie: Movie){
+    class func showMovieOptions(vc: UIViewController, image: UIImage, url: URL?, movie: Movie){
         
-        let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        let activityController = UIActivityViewController(activityItems: [image, url], applicationActivities: nil)
         
         let actionSheet = UIAlertController(title: NSLocalizedString("Movie Options", comment: ""), message: nil, preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: NSLocalizedString("Save or Share on Social Media", comment: ""), style: .default, handler: { _ in vc.present(activityController, animated: true)}))

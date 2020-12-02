@@ -84,7 +84,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         selectedMovie = sortedDictionary[indexPath.row]
         
+        
+        
         performSegue(withIdentifier: "searchSegue", sender: self)
+            
+        
         
     }
     

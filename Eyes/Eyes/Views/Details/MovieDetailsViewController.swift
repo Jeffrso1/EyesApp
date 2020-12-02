@@ -38,7 +38,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
             shareViewController.view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
         }
         
-        Alert.showMovieOptions(vc: self, image: image, movie: dao.selectedMovie!)
+        Alert.showMovieOptions(vc: self, image: image, url: dao.selectedMovie?.youtubeTrailers?.first?.youtubeURL, movie: dao.selectedMovie!)
     }
     
     
