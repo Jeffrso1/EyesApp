@@ -19,7 +19,7 @@ class OBViewController: UIViewController {
         super.viewDidLoad()
         setupButton()
         //self.navigationController?.navigationBar.isHidden = true
-        
+        navigationBar.configNavBar(view: self)
     }
 
     func setupButton() {

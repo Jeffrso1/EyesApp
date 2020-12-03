@@ -18,6 +18,7 @@ class NavigationBar {
         view.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         view.navigationController?.navigationBar.shadowImage = UIImage()
         view.navigationController?.navigationBar.isTranslucent = true
+        view.navigationController?.navigationBar.tintColor = .white
         view.navigationController?.view.backgroundColor = UIColor.clear
         view.navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
         view.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 1, height: 1)

@@ -83,19 +83,17 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         selectedMovie = sortedDictionary[indexPath.row]
-        
-        
+    
+        tableView.deselectRow(at: indexPath, animated: true)
         
         performSegue(withIdentifier: "searchSegue", sender: self)
             
-        
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
             if(segue.identifier == "searchSegue") {
-                let vc = segue.destination as! MovieDetailsViewController
+                //let vc = segue.destination as! MovieDetailsViewController
                 dao.selectedMovie = selectedMovie
             }
         }

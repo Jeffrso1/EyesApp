@@ -24,6 +24,13 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
         
     }
     
+    let scrollView: UIScrollView = {
+            let v = UIScrollView()
+            v.translatesAutoresizingMaskIntoConstraints = false
+            v.backgroundColor = .clear
+            return v
+    }()
+    
     @IBAction func reviewMoview(_ sender: Any) {
         
         if FileManager.default.ubiquityIdentityToken != nil {
@@ -51,9 +58,14 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view
+        
+        
         monitorNetwork()
         navigationBar.configNavBar(view: self)
+        self.navigationController?.navigationItem.hidesBackButton = true
+        
+        
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -72,8 +84,8 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
         }
         
         if segue.identifier == "about" {
-            let vc = segue.destination as! AboutAppViewController
-            vc.navigationController?.navigationBar.prefersLargeTitles = true
+            //let vc = segue.destination as! AboutAppViewController
+            //vc.navigationController?.navigationBar.prefersLargeTitles = true
                 
             print("About Section pressed")
         }
