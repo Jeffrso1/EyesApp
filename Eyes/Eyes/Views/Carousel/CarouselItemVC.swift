@@ -128,20 +128,22 @@ class CarouselItemVC: UIViewController, DAORequester, CarouselUpdater {
         let movieToAdd = String(movie.id)
         let mediumConfig = UIImage.SymbolConfiguration(pointSize: 17, weight: .medium, scale: .large)
         
-        if !favoriteList.contains(movieToAdd) {
+        if favoriteList.contains(movieToAdd) {
+            favoriteList.remove(at: favoriteList.firstIndex(of: movieToAdd)!)
+            defaults.set(favoriteList, forKey: "FavoriteList")
             
+            let heart = SFSymbols.heart?.applyingSymbolConfiguration(mediumConfig)
+            favoriteButton.setImage(heart, for: .normal)
+            
+        } else {
             favoriteList.append(movieToAdd)
             defaults.set(favoriteList, forKey: "FavoriteList")
             
             let heart = SFSymbols.heartFill?.applyingSymbolConfiguration(mediumConfig)
             favoriteButton.setImage(heart, for: .normal)
-            
-        } else {
-            
-            favoriteList.remove(at: favoriteList.firstIndex(of: movieToAdd)!)
-            let heart = SFSymbols.heart?.applyingSymbolConfiguration(mediumConfig)
-            favoriteButton.setImage(heart, for: .normal)
         }
+        
+        
     }
     
     init(movie: Movie) {

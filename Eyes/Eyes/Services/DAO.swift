@@ -18,6 +18,8 @@ protocol DAORequester {
 
 class DAO: MovieDelegate {    
     
+    var favoriteMovies : [Int : Movie] = [:]
+    
     let movieListState = MovieListState()
     let movieDetailState = MovieDetailState()
     let movieLoadingState = MovieLoadingDetailState()
@@ -253,6 +255,18 @@ class DAO: MovieDelegate {
     
     func imageUpdated() {
         
+    }
+    
+    func loadFavoritesMovies(IDs: [Int], to caller: DAORequester?) {
+        
+        for id in IDs {
+            
+            movieLoadingState.loadMovie(id: id) { movie in
+                print(movie.title)
+                self.favoriteMovies[movie.id] = movie
+                caller?.updated()
+            }
+        }
     }
     
 }
