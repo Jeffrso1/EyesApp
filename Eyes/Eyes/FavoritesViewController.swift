@@ -82,10 +82,10 @@ extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDat
     
     private func setupFavoriteCV() {
         NSLayoutConstraint.activate([
-            favoritesCollectionView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            favoritesCollectionView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            favoritesCollectionView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
-            favoritesCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            favoritesCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20),
+            favoritesCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
+            favoritesCollectionView.topAnchor.constraint(equalTo: self.view.layoutMarginsGuide.topAnchor, constant: 20),
+            favoritesCollectionView.bottomAnchor.constraint(equalTo: self.view.layoutMarginsGuide.bottomAnchor),
         ])
     }
 }
@@ -93,7 +93,7 @@ extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDat
 extension FavoritesViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let fullWidth = UIScreen.main.bounds.width - (collectionView.contentInset.left + collectionView.contentInset.right)
+        let fullWidth = UIScreen.main.bounds.width - (40)
         let horizontalSpacing: CGFloat = 20
         let availableWidth = fullWidth - horizontalSpacing
         let itemWidth = availableWidth / 3

@@ -138,11 +138,11 @@ class CarouselItemVC: UIViewController, DAORequester, CarouselUpdater {
         } else {
             favoriteList.append(movieToAdd)
             defaults.set(favoriteList, forKey: "FavoriteList")
-            
             let heart = SFSymbols.heartFill?.applyingSymbolConfiguration(mediumConfig)
             favoriteButton.setImage(heart, for: .normal)
         }
         
+        haptic.setupImpactHaptic(style: .light)
         
     }
     

@@ -40,7 +40,7 @@ class FavoritesCell: UICollectionViewCell {
             movieBanner.image = UIImage(named: "wait")
         }
         
-        movieBanner.layer.borderWidth = 1
+        movieBanner.layer.borderWidth = 0.8
         movieBanner.layer.borderColor = UIColor.white.cgColor
     }
     
