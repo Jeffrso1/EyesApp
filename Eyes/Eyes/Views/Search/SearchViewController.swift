@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DAORequester {
+class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DAORequester, DAOSearch {
     
     var selectedMovie: Movie?
     
@@ -88,18 +88,20 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         selectedMovie = sortedDictionary[indexPath.row]
-    
+        
+        dao.searchMovieLocalized(movie: [selectedMovie!], to: self)
+        
         tableView.deselectRow(at: indexPath, animated: true)
         
-        performSegue(withIdentifier: "searchSegue", sender: self)
-            
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
             if(segue.identifier == "searchSegue") {
                 //let vc = segue.destination as! MovieDetailsViewController
-                dao.selectedMovie = selectedMovie
+                
+                
             }
         }
     
@@ -112,16 +114,20 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
     func updated() {
-        
-        //print("Euuu")
+
         sortedDictionary = Array(dao.searchedMovies.values).sorted(by: {$0.voteCount > $1.voteCount})
-        
+
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+    }
+    
+    func search() {
         
+        performSegue(withIdentifier: "searchSegue", sender: self)
         
     }
+    
     /*
     // MARK: - Navigation
 

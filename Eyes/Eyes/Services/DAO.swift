@@ -16,6 +16,11 @@ protocol DAORequester {
     
 }
 
+protocol DAOSearch {
+    
+    func search()
+}
+
 class DAO: MovieDelegate {    
     
     var favoriteMovies : [Int : Movie] = [:]
@@ -29,6 +34,8 @@ class DAO: MovieDelegate {
     var myMovies: [Int : MyMovie] = [:]
     
     var searchedMovies : [Int : Movie] = [:]
+    
+    //var searchedLocalizedMovies : Movie?
     
     var selectedMovie: Movie?
     
@@ -229,21 +236,46 @@ class DAO: MovieDelegate {
     func searchMovies(to caller: DAORequester?, query: String) {
         
         movieSearchState.search(query: query) { movies in
+                
+            for movie in movies {
             
-            self.loadMovieLocalized(movies: movies, completion: { movies in
-               
-                for movie in movies {
-                    
-                    self.searchedMovies[movie.id] = movie
-                    
-                }
-               
+                self.searchedMovies[movie.id] = movie
+                
+            }
                 caller?.updated()
-            })
-        }
+            }
         
     }
     
+    func searchMovieLocalized(movie: [Movie], to caller: DAOSearch?) {
+        
+        loadMovieLocalized(movies: movie, completion: { movies in
+           
+            for movie in movies {
+                
+                self.selectedMovie = movie
+         
+            }
+            
+            caller?.search()
+            
+        })
+    }
+    
+    func loadFavoritesMovies(IDs: [Int], to caller: DAORequester?) {
+        
+        for id in IDs {
+            
+            movieLoadingState.loadMovie(id: id) { movie in
+            
+                if self.favoriteMovies[id] != movie {
+                    self.favoriteMovies[movie.id] = movie
+                }
+                    
+                caller?.updated()
+            }
+        }
+    }
     
     func passMovie(movie: Movie) {
         
@@ -257,21 +289,6 @@ class DAO: MovieDelegate {
         
     }
     
-    func loadFavoritesMovies(IDs: [Int], to caller: DAORequester?) {
-        
-        for id in IDs {
-            
-            movieLoadingState.loadMovie(id: id) { movie in
-                
-                //print(movie.title)
-                
-                if self.favoriteMovies[id] != movie {
-                    self.favoriteMovies[movie.id] = movie
-                }
-                    
-                caller?.updated()
-            }
-        }
-    }
+    
     
 }
