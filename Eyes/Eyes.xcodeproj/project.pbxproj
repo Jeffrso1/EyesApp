@@ -22,12 +22,12 @@
 		CF1BDE6D2540A98A002FA236 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF1BDE6C2540A98A002FA236 /* CloudKit.framework */; };
 		CF1BDE702540AC4C002FA236 /* CloudKitMagicCRUD in Frameworks */ = {isa = PBXBuildFile; productRef = CF1BDE6F2540AC4C002FA236 /* CloudKitMagicCRUD */; };
 		CF1BDE752540B0BD002FA236 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1BDE742540B0BD002FA236 /* Tag.swift */; };
+		CF34286E257ABB7000B94443 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF34286D257ABB7000B94443 /* Color.swift */; };
 		CF3D56D62576C4080014B8D5 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3D56D52576C4080014B8D5 /* NavigationBar.swift */; };
 		CF424FA325462EFB00C85A37 /* TagButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF424FA225462EFB00C85A37 /* TagButton.swift */; };
 		CF424FA82546352000C85A37 /* ChooseTagsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF424FA72546352000C85A37 /* ChooseTagsCollectionViewCell.swift */; };
 		CF428AC1254B30DF00DD25A5 /* AboutDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF428AC0254B30DF00DD25A5 /* AboutDetailsVC.swift */; };
 		CF42BDB125545B1E00A84447 /* OnBoarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF42BDB325545B1E00A84447 /* OnBoarding.storyboard */; };
-		CF48B04A25605C8E00A5D1AB /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF48B04925605C8E00A5D1AB /* Localization.swift */; };
 		CF48B04F25605E8D00A5D1AB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF48B04E25605E8D00A5D1AB /* Constants.swift */; };
 		CF48B05425605FC800A5D1AB /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF48B05325605FC800A5D1AB /* Alert.swift */; };
 		CF5811F225755F02001C08BD /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5811F125755F02001C08BD /* SearchViewController.swift */; };
@@ -115,13 +115,13 @@
 		CF1BDE5E2540A970002FA236 /* Eyes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Eyes.entitlements; sourceTree = "<group>"; };
 		CF1BDE6C2540A98A002FA236 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		CF1BDE742540B0BD002FA236 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		CF34286D257ABB7000B94443 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		CF3D56D52576C4080014B8D5 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		CF424FA225462EFB00C85A37 /* TagButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagButton.swift; sourceTree = "<group>"; };
 		CF424FA72546352000C85A37 /* ChooseTagsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTagsCollectionViewCell.swift; sourceTree = "<group>"; };
 		CF428AC0254B30DF00DD25A5 /* AboutDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDetailsVC.swift; sourceTree = "<group>"; };
 		CF42BDB225545B1E00A84447 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/OnBoarding.storyboard; sourceTree = "<group>"; };
 		CF42BDB825545B2200A84447 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OnBoarding.strings; sourceTree = "<group>"; };
-		CF48B04925605C8E00A5D1AB /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		CF48B04E25605E8D00A5D1AB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CF48B05325605FC800A5D1AB /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		CF5811F125755F02001C08BD /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -286,14 +286,14 @@
 		CFAE47B92541CB8C00244D74 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				CFFE89AA253E2819002BD1BA /* Utils.swift */,
-				CF48B04E25605E8D00A5D1AB /* Constants.swift */,
 				CF48B05325605FC800A5D1AB /* Alert.swift */,
-				CF3D56D52576C4080014B8D5 /* NavigationBar.swift */,
-				CF79537A255EBD3100AEF5A8 /* Haptic.swift */,
+				CF34286D257ABB7000B94443 /* Color.swift */,
+				CF48B04E25605E8D00A5D1AB /* Constants.swift */,
 				CF72DC43257A492300D8E252 /* Favorites.swift */,
+				CF3D56D52576C4080014B8D5 /* NavigationBar.swift */,
+				CFFE89AA253E2819002BD1BA /* Utils.swift */,
+				CF79537A255EBD3100AEF5A8 /* Haptic.swift */,
 				CFAE47BD2541CE7900244D74 /* Images.swift */,
-				CF48B04925605C8E00A5D1AB /* Localization.swift */,
 				CFAE47B42541CB8700244D74 /* Buttons.swift */,
 				CF09B0082562E3AA00645FAC /* ShareImage.swift */,
 				CF424FA225462EFB00C85A37 /* TagButton.swift */,
@@ -624,7 +624,6 @@
 				CF424FA82546352000C85A37 /* ChooseTagsCollectionViewCell.swift in Sources */,
 				CF5A8648255C762E00DDE395 /* AboutDevTeamVC.swift in Sources */,
 				CFAE47E42541FFF700244D74 /* ConfirmationButton.swift in Sources */,
-				CF48B04A25605C8E00A5D1AB /* Localization.swift in Sources */,
 				CF48B05425605FC800A5D1AB /* Alert.swift in Sources */,
 				CFAE47DF2541FE3700244D74 /* BechdelTestViewController.swift in Sources */,
 				CF1BDE752540B0BD002FA236 /* Tag.swift in Sources */,
@@ -657,6 +656,7 @@
 				CFFE89A4253E2815002BD1BA /* MovieListState.swift in Sources */,
 				CFB73C352559AB9B00F7B7C9 /* AboutBechdelTableViewCell.swift in Sources */,
 				CF846DB02543955E00BBC7D3 /* MovieDetailsViewController.swift in Sources */,
+				CF34286E257ABB7000B94443 /* Color.swift in Sources */,
 				CF79537B255EBD3100AEF5A8 /* Haptic.swift in Sources */,
 				CF5A8640255C736200DDE395 /* AboutDevTeamCollectionViewCell.swift in Sources */,
 				CFFE896D253E27F6002BD1BA /* AppDelegate.swift in Sources */,

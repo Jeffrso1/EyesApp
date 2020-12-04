@@ -59,8 +59,6 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view
-        
-        
         monitorNetwork()
         navigationBar.configNavBar(view: self)
         self.navigationController?.navigationItem.hidesBackButton = true
@@ -119,10 +117,5 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
         
         
     }
-    
-    
-    
   
-    
-    
 }

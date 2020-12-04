@@ -10,6 +10,7 @@ import UIKit
 let favoritesViewController = FavoritesViewController()
 
 class FavoritesViewController: UIViewController, DAORequester {
+    
     func updated() {
         DispatchQueue.main.async {
             self.favoritesCollectionView.reloadData()
@@ -27,7 +28,7 @@ class FavoritesViewController: UIViewController, DAORequester {
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = UIColor(named: "BackgroundColor")
+        collectionView.backgroundColor = UIColor.backgroundColor()
         
         return collectionView
     }()
@@ -44,7 +45,7 @@ class FavoritesViewController: UIViewController, DAORequester {
         intFavoriteList = favoriteList.map { Int($0)! }
         dao.loadFavoritesMovies(IDs: intFavoriteList, to: self)
         
-        view.backgroundColor = UIColor(named: "BackgroundColor")
+        view.backgroundColor = UIColor.backgroundColor()
         
         favoritesCollectionView.register(FavoritesCell.self, forCellWithReuseIdentifier: favoritesID)
         favoritesCollectionView.delegate = self
@@ -58,7 +59,7 @@ class FavoritesViewController: UIViewController, DAORequester {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         //intFavoriteList = favoriteList.map { Int($0)! }
-        //dao.loadFavoritesMovies(IDs: intFavoriteList, to: self)
+        //dao.loadFavoritesMovies(IDs: favorites.intFavoriteList, to: self)
         
     }
     
@@ -66,7 +67,7 @@ class FavoritesViewController: UIViewController, DAORequester {
 
 extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(favoriteList)
+        //print(favoriteList)
         return dao.favoriteMovies.count
     }
     

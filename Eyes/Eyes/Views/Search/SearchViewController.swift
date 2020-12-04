@@ -45,7 +45,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // 2
         searchController.obscuresBackgroundDuringPresentation = false
         // 3
-        searchController.searchBar.placeholder = NSLocalizedString("Search Movies", comment: "")
+        searchController.searchBar.placeholder = NSLocalizedString("Movies", comment: "")
         // 4
         navigationItem.searchController = searchController
         // 5
@@ -64,7 +64,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: "results", for: indexPath) as! SearchTableViewCell
     
         cell.movieTitle.text = sortedDictionary[indexPath.row].title
-        //cell.movieReleaseDate.text = sortedDictionary[indexPath.row].releaseDate
     
         cell.movieImage.image = UIImage(named:"wait")
         

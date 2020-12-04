@@ -263,7 +263,7 @@ class DAO: MovieDelegate {
             
             movieLoadingState.loadMovie(id: id) { movie in
                 
-                print(movie.title)
+                //print(movie.title)
                 
                 if self.favoriteMovies[id] != movie {
                     self.favoriteMovies[movie.id] = movie

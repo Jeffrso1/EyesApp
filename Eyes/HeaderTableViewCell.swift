@@ -29,7 +29,7 @@ class HeaderTableViewCell: UITableViewCell, SFSafariViewControllerDelegate {
         roundedView.layer.shadowOpacity = 0.8
         roundedView.layer.shadowRadius = 10
         
-        loadAsyncPosterImage(from: movie) { image in
+        imageLoader.loadAsyncPosterImage(from: movie) { image in
             self.movieBanner.image = image
         }
         
@@ -37,7 +37,7 @@ class HeaderTableViewCell: UITableViewCell, SFSafariViewControllerDelegate {
         movieBanner.layer.borderColor = CGColor.init(red: 255, green: 255, blue: 255, alpha: 0.8)
         movieTitle.text = dao.selectedMovie?.title
         
-        loadAsyncImage(from: movie) { image in
+        imageLoader.loadAsyncImage(from: movie) { image in
             self.movieHeader.image = image
         }
         
@@ -119,40 +119,6 @@ class HeaderTableViewCell: UITableViewCell, SFSafariViewControllerDelegate {
         haptic.setupImpactHaptic(style: .light)
         
         self.window?.rootViewController?.present(safariVC, animated: true, completion: nil)
-        }
-        
-    }
-    
-    
-    fileprivate func loadAsyncImage(from movie: Movie, then completion: @escaping (UIImage)->Void) {
-        
-        if let url = movie.backdropURL {
-            DispatchQueue.global().async {
-                if let data = try? Data(contentsOf: url) {
-                    movie.imageBackdropData = data
-                    DispatchQueue.main.async {
-                        if let currentImage = UIImage(data: data) {
-                            completion(currentImage)
-                        }
-                    }
-                }
-            }
-        }
-    }
-    
-    fileprivate func loadAsyncPosterImage(from movie: Movie, then completion: @escaping (UIImage)->Void) {
-        
-        if let url = movie.posterURL {
-            DispatchQueue.global().async {
-                if let data = try? Data(contentsOf: url) {
-                    movie.imageData = data
-                    DispatchQueue.main.async {
-                        if let currentImage = UIImage(data: data) {
-                            completion(currentImage)
-                        }
-                    }
-                }
-            }
         }
     }
 }

@@ -21,6 +21,8 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
 
     var alpha : CGFloat = 0.0
     
+    @IBOutlet weak var favoriteButton: UIBarButtonItem!
+    
     @IBOutlet weak var optionsButton: UIBarButtonItem!
     
     var currentMovie = dao.movies[Array(dao.movies)[dao.currentMovie].key]
@@ -70,7 +72,6 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
             }
             
     }
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,7 +86,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        
+        favorites.checkMovieFavoriteBar(movieID:dao.selectedMovie!.id, barItem: favoriteButton)
     }
     
     func updateHeight() {
@@ -214,8 +215,15 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
     
     func updated() {
         
-        //        movieImage.image = imageID
+        //movieImage.image = imageID
         
     }
+    
+    
+    @IBAction func favoriteAction(_ sender: Any) {
+        favorites.movieFavoriteBarAction(movieID: dao.selectedMovie!.id, barItem: favoriteButton)
+        haptic.setupImpactHaptic(style: .light)
+    }
+
     
 }

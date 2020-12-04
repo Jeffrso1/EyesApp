@@ -84,6 +84,9 @@ class CarouselItemVC: UIViewController, DAORequester, CarouselUpdater {
     var favoriteButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
+        let buttonSC = UIImage.SymbolConfiguration(pointSize: 19, weight: .medium, scale: .large)
+        
+        button.setPreferredSymbolConfiguration(buttonSC, forImageIn: .normal)
         
         return button
     }()
@@ -125,22 +128,10 @@ class CarouselItemVC: UIViewController, DAORequester, CarouselUpdater {
     }()
     
     @objc func userChoseFavoriteMovie(sender: UIButton!) {
-        let movieToAdd = String(movie.id)
-        let mediumConfig = UIImage.SymbolConfiguration(pointSize: 17, weight: .medium, scale: .large)
         
-        if favoriteList.contains(movieToAdd) {
-            favoriteList.remove(at: favoriteList.firstIndex(of: movieToAdd)!)
-            defaults.set(favoriteList, forKey: "FavoriteList")
-            
-            let heart = SFSymbols.heart?.applyingSymbolConfiguration(mediumConfig)
-            favoriteButton.setImage(heart, for: .normal)
-            
-        } else {
-            favoriteList.append(movieToAdd)
-            defaults.set(favoriteList, forKey: "FavoriteList")
-            let heart = SFSymbols.heartFill?.applyingSymbolConfiguration(mediumConfig)
-            favoriteButton.setImage(heart, for: .normal)
-        }
+        let movieToAdd = movie.id
+        
+        favorites.checkIfMovieFavoriteButton(movieID: movieToAdd, button: favoriteButton)
         
         haptic.setupImpactHaptic(style: .light)
         
@@ -197,6 +188,7 @@ class CarouselItemVC: UIViewController, DAORequester, CarouselUpdater {
         setupMovieDescription()
         
         favoriteButton.addTarget(self, action: #selector(userChoseFavoriteMovie), for: .touchUpInside)
+        favorites.checkMovieFavoriteButton(movieID:movie.id, button: favoriteButton)
         
         endReview.delegate = self
         
@@ -204,16 +196,13 @@ class CarouselItemVC: UIViewController, DAORequester, CarouselUpdater {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        
-        print(#function)
-        
         tags = (dao.myMovies[Int(movie.id)]?.tags) ?? []
         
         DispatchQueue.main.async {
             self.tagsCV.reloadData()
         }
         
-        dump(tags)
+        favorites.checkMovieFavoriteButton(movieID:movie.id, button: favoriteButton)
     }
     
     private func setupScrollview() {
@@ -339,15 +328,14 @@ class CarouselItemVC: UIViewController, DAORequester, CarouselUpdater {
     }
     
     private func setupFavoriteButton() {
-        let buttonSC = UIImage.SymbolConfiguration(pointSize: 19, weight: .medium, scale: .large)
         
-        if ((favoriteList.contains(String(movie.id))) == true) {
-            let heart = SFSymbols.heartFill?.applyingSymbolConfiguration(buttonSC)
-            favoriteButton.setImage(heart, for: .normal)
-        } else {
-            let heart = SFSymbols.heart?.applyingSymbolConfiguration(buttonSC)
-            favoriteButton.setImage(heart, for: .normal)
-        }
+//        if ((favoriteList.contains(String(movie.id))) == true) {
+//            let heart = SFSymbols.heartFill?.applyingSymbolConfiguration(buttonSC)
+//            favoriteButton.setImage(heart, for: .normal)
+//        } else {
+//            let heart = SFSymbols.heart?.applyingSymbolConfiguration(buttonSC)
+//            favoriteButton.setImage(heart, for: .normal)
+//        }
 
         favoriteButton.centerYAnchor.constraint(equalTo: movieName.centerYAnchor).isActive = true
         favoriteButton.rightAnchor.constraint(lessThanOrEqualTo: view.layoutMarginsGuide.rightAnchor).isActive = true

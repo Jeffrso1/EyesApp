@@ -10,7 +10,7 @@ import CloudKitMagicCRUD
 
 class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, DAORequester {
     
-    var imageLoader = ImageLoader()
+   // var imageLoader = ImageLoader()
     
     let button = TagButton()
     
@@ -56,17 +56,15 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        loadAsyncImage(from: currentMovie ?? Movie.stubbedMovie) { image in
+        imageLoader.loadAsyncPosterImage(from: currentMovie ?? Movie.stubbedMovie) { image in
             self.posterImage.image = image
             self.posterBlurImage.image = image
         }
         
         //dao.loadTags()
-       // dao.loadMovie(movie: movieID, to: self)
+        //dao.loadMovie(movie: movieID, to: self)
         
         setupMovie()
-        //submitReview.isEnabled = false
-        //submitReview.backgroundColor = UIColor(named: "Button")
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
@@ -323,26 +321,6 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
      // Pass the selected object to the new view controller.
      }
      */
-    
-    fileprivate func loadAsyncImage(from movie: Movie, then completion: @escaping (UIImage)->Void) {
-        if let data = movie.imageData {
-            if let currentImage = UIImage(data: data) {
-                completion(currentImage)
-            }
-        }
-        else if let url = movie.posterURL {
-            DispatchQueue.global().async {
-                if let data = try? Data(contentsOf: url) {
-                    movie.imageData = data
-                    DispatchQueue.main.async {
-                        if let currentImage = UIImage(data: data) {
-                            completion(currentImage)
-                        }
-                    }
-                }
-            }
-        }
-    }
     
 }
 

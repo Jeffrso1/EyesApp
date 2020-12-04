@@ -7,7 +7,6 @@
 
 import UIKit
 
-//@IBDesignable
 class TagButton: UIButton {
     
     var i = 0
@@ -31,7 +30,6 @@ class TagButton: UIButton {
     func setupConstraints() {
         translatesAutoresizingMaskIntoConstraints = false
         heightAnchor.constraint(equalToConstant: 50).isActive = true
-        //centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
     }
     
     
