@@ -39,6 +39,8 @@ class Favorites {
         } else {
             
             favorites.favoriteList.append(movieAdd)
+            dao.loadFavoritesMovies(IDs: [movieID], to: nil)
+            
             favorites.defaults.set(favorites.favoriteList, forKey: "FavoriteList")
             let heart = SFSymbols.heartFill?.applyingSymbolConfiguration(buttonSC)
             button.setImage(heart, for: .normal)
