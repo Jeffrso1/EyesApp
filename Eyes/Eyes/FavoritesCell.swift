@@ -7,7 +7,9 @@
 
 import UIKit
 
-class FavoritesCell: UICollectionViewCell {
+class FavoritesCell: UICollectionViewCell, UIContextMenuInteractionDelegate {
+    
+    var movie: Movie?
     
     let movieBanner: UIImageView = {
         let imageView = UIImageView()
@@ -33,39 +35,48 @@ class FavoritesCell: UICollectionViewCell {
         movieBanner.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
         
         if isImageLoaded == true {
-            loadAsyncImage(from: movie) { image in
+            imageLoader.loadAsyncPosterImage(from: movie) { image in
                 self.movieBanner.image = image
             }
         } else {
             movieBanner.image = UIImage(named: "wait")
         }
         
-        movieBanner.layer.borderWidth = 0.8
+        let interaction = UIContextMenuInteraction(delegate: self)
+        self.addInteraction(interaction)
+        
+        movieBanner.layer.borderWidth = 1
         movieBanner.layer.borderColor = UIColor.white.cgColor
+        
+        self.movie = movie
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    fileprivate func loadAsyncImage(from movie: Movie, then completion: @escaping (UIImage)->Void) {
-        if let data = movie.imageData {
-            if let currentImage = UIImage(data: data) {
-                completion(currentImage)
-            }
-        }
-        else if let url = movie.posterURL {
-            DispatchQueue.global().async {
-                if let data = try? Data(contentsOf: url) {
-                    movie.imageData = data
-                    DispatchQueue.main.async {
-                        if let currentImage = UIImage(data: data) {
-                            completion(currentImage)
-                        }
-                    }
-                }
-            }
-        }
+   
+   func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
+       
+       return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { suggestedActions in
+        let destruct = UIAction(title: NSLocalizedString("Remove from Favorites", comment: ""), attributes: .destructive) { [self] _ in favorites.removeFavoriteMovie(movie: self.movie!) }
+                
+        let items = UIMenu(title: "More", options: .displayInline, children: [
+            UIAction(title: "Item 1", image: UIImage(systemName: "mic"), handler: { _ in }),
+            UIAction(title: "Item 2", image: UIImage(systemName: "envelope"), handler: { _ in }),
+            UIAction(title: "Item 3", image: UIImage(systemName: "flame.fill"), handler: { _ in }),
+            UIAction(title: "Item 4", image: UIImage(systemName: "video"), state: .on, handler: { _ in })
+        ])
+        
+        self.movieBanner.layer.borderWidth = 0
+        
+        return UIMenu(title: "", children: [destruct])
     }
+   }
     
+    func contextMenuInteraction(_ interaction: UIContextMenuInteraction, willEndFor configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionAnimating?) {
+        
+        self.movieBanner.layer.borderWidth = 1
+    }
+
 }

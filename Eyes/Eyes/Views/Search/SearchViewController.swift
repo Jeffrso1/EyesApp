@@ -122,11 +122,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         
     }
-    
-    
-    
-    
-
     /*
     // MARK: - Navigation
 
@@ -145,10 +140,7 @@ extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
 
         searchController.showsSearchResultsController = true
-        
-        //tableView.reloadData()
-        
-        
+ 
     return
     
     
@@ -169,10 +161,9 @@ extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
         dao.searchedMovies.removeAll()
         
         UIView.transition(with: tableView,
-        duration: 0.2,
+        duration: 0.3,
         options: .transitionCrossDissolve,
         animations: { self.tableView.reloadData() })
-        
     }
     
 }
