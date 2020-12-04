@@ -21,8 +21,7 @@ class FavoritesViewController: UIViewController, DAORequester{
     
     let favoritesID = "favorite"
     
-    let defaults = UserDefaults.standard
-    lazy var favoriteList = defaults.stringArray(forKey: "FavoriteList") ?? [String]()
+    var favoriteList: [String] { UserDefaults.standard.stringArray(forKey: "FavoriteList") ?? [String]() }
     
     var intFavoriteList : [Int] = []
     
@@ -60,8 +59,8 @@ class FavoritesViewController: UIViewController, DAORequester{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        //intFavoriteList = favoriteList.map { Int($0)! }
-        //dao.loadFavoritesMovies(IDs: favorites.intFavoriteList, to: self)
+        
+        favoritesCollectionView.reloadData()
         
     }
     
