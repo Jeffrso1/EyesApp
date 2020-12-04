@@ -64,9 +64,15 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: "results", for: indexPath) as! SearchTableViewCell
     
         cell.movieTitle.text = sortedDictionary[indexPath.row].title
-        cell.movieReleaseDate.text = sortedDictionary[indexPath.row].releaseDate
-        //cell.movieGenre.text = dao.searchedMovies[Array(dao.searchedMovies.keys)[indexPath.row]]?.genres?.first?.name
+        //cell.movieReleaseDate.text = sortedDictionary[indexPath.row].releaseDate
     
+        cell.movieImage.image = UIImage(named:"wait")
+        
+        imageLoader.loadAsyncImage(from: sortedDictionary[indexPath.row]) { image in
+            cell.movieImage.image = image
+        }
+        
+        
         return cell
     }
     

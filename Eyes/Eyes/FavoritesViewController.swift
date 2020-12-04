@@ -7,6 +7,8 @@
 
 import UIKit
 
+let favoritesViewController = FavoritesViewController()
+
 class FavoritesViewController: UIViewController, DAORequester {
     func updated() {
         DispatchQueue.main.async {
@@ -18,6 +20,8 @@ class FavoritesViewController: UIViewController, DAORequester {
     
     let defaults = UserDefaults.standard
     lazy var favoriteList = defaults.stringArray(forKey: "FavoriteList") ?? [String]()
+    
+    var intFavoriteList : [Int] = []
     
     var favoritesCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -31,15 +35,13 @@ class FavoritesViewController: UIViewController, DAORequester {
     var pageName: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        
         return label
-        
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let intFavoriteList = favoriteList.map { Int($0)! }
+        intFavoriteList = favoriteList.map { Int($0)! }
         dao.loadFavoritesMovies(IDs: intFavoriteList, to: self)
         
         view.backgroundColor = UIColor(named: "BackgroundColor")
@@ -55,9 +57,9 @@ class FavoritesViewController: UIViewController, DAORequester {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
+        //intFavoriteList = favoriteList.map { Int($0)! }
+        //dao.loadFavoritesMovies(IDs: intFavoriteList, to: self)
         
-//        let intFavoriteList = favoriteList.map { Int($0)! }
-//        dao.loadFavoritesMovies(IDs: intFavoriteList, to: self)
     }
     
 }
@@ -82,11 +84,16 @@ extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDat
     
     private func setupFavoriteCV() {
         NSLayoutConstraint.activate([
-            favoritesCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20),
-            favoritesCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
-            favoritesCollectionView.topAnchor.constraint(equalTo: self.view.layoutMarginsGuide.topAnchor, constant: 20),
-            favoritesCollectionView.bottomAnchor.constraint(equalTo: self.view.layoutMarginsGuide.bottomAnchor),
+            favoritesCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            favoritesCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            favoritesCollectionView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            favoritesCollectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
         ])
+        
+        favoritesCollectionView.contentInset.left = 20
+        favoritesCollectionView.contentInset.right = 20
+        favoritesCollectionView.contentInset.top = 20
+        favoritesCollectionView.contentInset.bottom = 30
     }
 }
 

@@ -8,23 +8,45 @@
 import UIKit
 import Foundation
 
-//@IBDesignable
-class Blur: UIImageView {
 
-    @IBInspectable var blurImage:UIImage?{
-        didSet{
-            updateImage(imageBlur: blurImage!)
+let imageLoader = Images()
+
+class Images {
+
+     func loadAsyncImage(from movie: Movie, then completion: @escaping (UIImage)->Void) {
+        
+        if let url = movie.backdropURL {
+            DispatchQueue.global().async {
+                if let data = try? Data(contentsOf: url) {
+                    movie.imageBackdropData = data
+                    DispatchQueue.main.async {
+                        if let currentImage = UIImage(data: data) {
+                            completion(currentImage)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+     func loadAsyncPosterImage(from movie: Movie, then completion: @escaping (UIImage)->Void) {
+        
+        if let url = movie.posterURL {
+            DispatchQueue.global().async {
+                if let data = try? Data(contentsOf: url) {
+                    movie.imageData = data
+                    DispatchQueue.main.async {
+                        if let currentImage = UIImage(data: data) {
+                            completion(currentImage)
+                        }
+                    }
+                }
+            }
         }
     }
 
-
-    func updateImage(imageBlur:UIImage){
-        let imageToBlur:CIImage = CIImage(image: imageBlur)!
-        let blurFilter:CIFilter = CIFilter(name: "CIGaussianBlur")!
-        blurFilter.setValue(imageToBlur, forKey: "inputImage")
-        let resultImage:CIImage = blurFilter.value(forKey: "outputImage")! as! CIImage
-        self.image = UIImage(ciImage: resultImage)
-        
-    }
+    
+    
+    
     
 }

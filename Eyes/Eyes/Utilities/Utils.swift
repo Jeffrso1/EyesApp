@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 /*
  Utilitarian JSON Decoding and Data Formating for front-end handling. Be sure to localize Data Formating!
 */
@@ -26,4 +26,5 @@ class Utils {
         dateFormatter.dateFormat = "yyyy-mm-dd"
         return dateFormatter
     }()
+    
 }
