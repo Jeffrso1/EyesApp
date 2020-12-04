@@ -110,6 +110,14 @@ class Favorites {
         
     }
     
+    func removeFavoriteMovie(movie: Movie) {
+        
+        let movieAdd = String(movie.id)
+        
+        favorites.favoriteList.remove(at: favorites.favoriteList.firstIndex(of: movieAdd)!)
+        favorites.defaults.set(favorites.favoriteList, forKey: "FavoriteList")
+        
+    }
    
     
 

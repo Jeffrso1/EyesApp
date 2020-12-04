@@ -9,8 +9,10 @@ import UIKit
 
 let favoritesViewController = FavoritesViewController()
 
-class FavoritesViewController: UIViewController, DAORequester {
+class FavoritesViewController: UIViewController, DAORequester{
     
+    
+
     func updated() {
         DispatchQueue.main.async {
             self.favoritesCollectionView.reloadData()
@@ -63,6 +65,9 @@ class FavoritesViewController: UIViewController, DAORequester {
         
     }
     
+    
+    
+    
 }
 
 extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -84,6 +89,7 @@ extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDat
     }
     
     private func setupFavoriteCV() {
+        
         NSLayoutConstraint.activate([
             favoritesCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             favoritesCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
