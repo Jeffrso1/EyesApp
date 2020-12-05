@@ -10,8 +10,6 @@ import UIKit
 let favoritesViewController = FavoritesViewController()
 
 class FavoritesViewController: UIViewController, DAORequester{
-    
-    
 
     func updated() {
         DispatchQueue.main.async {
@@ -59,12 +57,10 @@ class FavoritesViewController: UIViewController, DAORequester{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        
+
         favoritesCollectionView.reloadData()
-        
+   
     }
-    
-    
     
     
 }

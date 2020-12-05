@@ -27,22 +27,15 @@ class EndReviewViewController: UIViewController, UIPageViewControllerDelegate {
         
     }
 
-    @IBAction func goToHomeScreen(_ sender: Any) {
-   
-        //delegate?.updateCarousel()
-        
-        
-        
-    }
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     
-        if let vc2 = segue.destination as? CarouselPageVC{
-            vc2.delegate = self
-        }
         
     }
     
+   
+    @IBAction func returnButton(_ sender: Any) {
+        
+        self.navigationController?.popViewControllers(viewsToPop: 2)
+    }
     
 
     /*

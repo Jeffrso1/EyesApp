@@ -44,10 +44,7 @@ class FavoritesCell: UICollectionViewCell, UIContextMenuInteractionDelegate {
         
         let interaction = UIContextMenuInteraction(delegate: self)
         self.addInteraction(interaction)
-        
-        //movieBanner.layer.borderWidth = 1
-        //movieBanner.layer.borderColor = UIColor.white.cgColor
-        
+
         self.movie = movie
     }
     
