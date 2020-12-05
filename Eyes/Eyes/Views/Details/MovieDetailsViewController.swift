@@ -7,8 +7,9 @@
 
 import UIKit
 import MessageUI
+import SafariServices
 
-class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, DAORequester, MFMailComposeViewControllerDelegate {
+class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate, DAORequester, MFMailComposeViewControllerDelegate, SFSafariViewControllerDelegate {
     
     var movie: Movie?
     var imageID: UIImage?
@@ -110,11 +111,12 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
             dao.selectedMovie = currentMovie
         }
         
-        
         switch indexPath.section {
         case 0:
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "header", for: indexPath) as! HeaderTableViewCell
+            
+            cell.delegate = self
             
             cell.setupHeaderCell(movie: dao.selectedMovie!)
             
@@ -194,22 +196,15 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
         
     }
 
-    @objc func buttonAction(_ sender: UIButton!) {
-          
-        performSegue(withIdentifier: "reviewSegue", sender: sender)
-        
-    }
+
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if(segue.identifier == "reviewSegue") {
-            if let destination = segue.destination as? BechdelTestViewController {
-
-               if let button:UIButton = sender as! UIButton? {
-                  // print(button.tag) //optional
-                  // destination.valueViaSegue = button.tag
-               }
-            }
+            
         }
+        
     }
     
     
@@ -225,5 +220,15 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
         haptic.setupImpactHaptic(style: .light)
     }
 
+    
+}
+
+
+extension MovieDetailsViewController: MovieReviewDelegate {
+    
+    func callSegueFromCell(dataObject: Movie) {
+        self.performSegue(withIdentifier: "reviewSegue", sender: dataObject)
+    }
+    
     
 }

@@ -71,7 +71,6 @@ class FavoritesViewController: UIViewController, DAORequester{
 
 extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //print(favoriteList)
         return dao.favoriteMovies.count
     }
     

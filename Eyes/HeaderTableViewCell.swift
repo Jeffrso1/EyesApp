@@ -8,6 +8,14 @@
 import UIKit
 import SafariServices
 
+//Pass any objects, params you need to use on the
+//segue call to send to the next controller.
+
+protocol MovieReviewDelegate {
+    func callSegueFromCell(dataObject: Movie)
+}
+
+
 class HeaderTableViewCell: UITableViewCell, SFSafariViewControllerDelegate {
     
     @IBOutlet weak var movieHeader: UIImageView!
@@ -16,6 +24,8 @@ class HeaderTableViewCell: UITableViewCell, SFSafariViewControllerDelegate {
     @IBOutlet weak var timeAndGenre: UILabel!
     @IBOutlet weak var watchTrailer: UIButton!
     @IBOutlet weak var seeTMDb: UIButton!
+    
+    var delegate:MovieReviewDelegate!
     
     var currentMovie = dao.movies[Array(dao.movies)[dao.currentMovie].key]
     
@@ -90,20 +100,6 @@ class HeaderTableViewCell: UITableViewCell, SFSafariViewControllerDelegate {
         
     }
     
-    @IBAction func seeTMDb(_ sender: Any) {
-        
-        haptic.setupImpactHaptic(style: .light)
-        
-        let arrayCurrentMovie = dao.selectedMovie
-        
-        let safariVC = SFSafariViewController(url: URL(string: "https://www.themoviedb.org/movie/\(arrayCurrentMovie!.id)")!)
-        safariVC.delegate = self
-        safariVC.modalPresentationStyle = .pageSheet
-        
-        self.window?.rootViewController?.present(safariVC, animated: true, completion: nil)
-        
-    }
-    
     func checkMovieTrailer() throws {
         
         if dao.selectedMovie?.youtubeTrailers?.count == 0 {
@@ -121,4 +117,16 @@ class HeaderTableViewCell: UITableViewCell, SFSafariViewControllerDelegate {
         self.window?.rootViewController?.present(safariVC, animated: true, completion: nil)
         }
     }
+    
+    @IBAction func reviewMovie(_ sender: Any) {
+        
+        if(self.delegate != nil){ //Just to be safe.
+            self.delegate.callSegueFromCell(dataObject: dao.selectedMovie!)
+        }
+        
+        haptic.setupImpactHaptic(style: .light)
+        
+    }
+    
+ 
 }

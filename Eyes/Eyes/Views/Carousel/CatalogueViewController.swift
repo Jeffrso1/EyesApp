@@ -33,6 +33,8 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
     
     @IBAction func reviewMoview(_ sender: Any) {
         
+        dao.selectedMovie = nil
+        
         if FileManager.default.ubiquityIdentityToken != nil {
             
             print("iCloud Available")
@@ -46,9 +48,7 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
             
             Alert.showBasic(title: NSLocalizedString("iCloud Not Logged In", comment: ""), message: NSLocalizedString("Please, go to the Settings app on your iPhone and login to iCloud to review", comment: "") , vc: self, type: .error)
         }
-        
-        dao.selectedMovie = nil
-        
+    
     }
     
     var currentMovie : Movie?
@@ -61,7 +61,6 @@ class CatalogueViewController: UIViewController, UIPageViewControllerDelegate {
         // Do any additional setup after loading the view
         monitorNetwork()
         navigationBar.configNavBar(view: self)
-        self.navigationController?.navigationItem.hidesBackButton = true
         
         
     }

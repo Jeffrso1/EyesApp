@@ -45,8 +45,8 @@ class FavoritesCell: UICollectionViewCell, UIContextMenuInteractionDelegate {
         let interaction = UIContextMenuInteraction(delegate: self)
         self.addInteraction(interaction)
         
-        movieBanner.layer.borderWidth = 1
-        movieBanner.layer.borderColor = UIColor.white.cgColor
+        //movieBanner.layer.borderWidth = 1
+        //movieBanner.layer.borderColor = UIColor.white.cgColor
         
         self.movie = movie
     }
@@ -61,22 +61,22 @@ class FavoritesCell: UICollectionViewCell, UIContextMenuInteractionDelegate {
        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { suggestedActions in
         let destruct = UIAction(title: NSLocalizedString("Remove from Favorites", comment: ""), attributes: .destructive) { [self] _ in favorites.removeFavoriteMovie(movie: self.movie!) }
                 
-        let items = UIMenu(title: "More", options: .displayInline, children: [
-            UIAction(title: "Item 1", image: UIImage(systemName: "mic"), handler: { _ in }),
-            UIAction(title: "Item 2", image: UIImage(systemName: "envelope"), handler: { _ in }),
-            UIAction(title: "Item 3", image: UIImage(systemName: "flame.fill"), handler: { _ in }),
-            UIAction(title: "Item 4", image: UIImage(systemName: "video"), state: .on, handler: { _ in })
+        let items = UIMenu(title: NSLocalizedString("More", comment: ""), options: .displayInline, children: [
+            UIAction(title: "Ir para Detalhes", image: UIImage(systemName: "arrow.uturn.right"), handler: { _ in })
+            //UIAction(title: "Item 2", image: UIImage(systemName: "envelope"), handler: { _ in }),
+            //UIAction(title: "Item 3", image: UIImage(systemName: "flame.fill"), handler: { _ in }),
+            //UIAction(title: "Item 4", image: UIImage(systemName: "video"), state: .on, handler: { _ in })
         ])
         
-        self.movieBanner.layer.borderWidth = 0
+        self.movieBanner.layer.cornerRadius = 0
         
-        return UIMenu(title: "", children: [destruct])
+        return UIMenu(title: "", children: [destruct, items])
     }
    }
     
     func contextMenuInteraction(_ interaction: UIContextMenuInteraction, willEndFor configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionAnimating?) {
         
-        self.movieBanner.layer.borderWidth = 1
+        self.movieBanner.layer.cornerRadius = 7
     }
 
 }

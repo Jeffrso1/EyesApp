@@ -265,15 +265,18 @@ class DAO: MovieDelegate {
     func loadFavoritesMovies(IDs: [Int], to caller: DAORequester?) {
         
         for id in IDs {
-            
+
             movieLoadingState.loadMovie(id: id) { movie in
             
                 if self.favoriteMovies[id] != movie {
+                    
                     self.favoriteMovies[movie.id] = movie
+                    
                 }
                     
                 caller?.updated()
             }
+            
         }
     }
     

@@ -15,7 +15,6 @@ class Favorites {
     lazy var favoriteList = defaults.stringArray(forKey: "FavoriteList") ?? [String]()
     var intFavoriteList : [Int] = []
     
-    
     func checkFavoriteMovies(collectionView: UICollectionView) {
         
         //dao.loadFavoritesMovies(IDs: intFavoriteList, to: self)
@@ -84,7 +83,10 @@ class Favorites {
             
         } else {
             
+            //favorites.favoriteList.append(movieAdd)
             favorites.favoriteList.append(movieAdd)
+            dao.loadFavoritesMovies(IDs: [movieID], to: nil)
+            
             favorites.defaults.set(favorites.favoriteList, forKey: "FavoriteList")
             let heart = SFSymbols.heartFill
             barItem.image = heart

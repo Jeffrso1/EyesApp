@@ -208,8 +208,6 @@ class CloudKitViewController: UIViewController {
         
     }
     
-    
-    
     /*
     // MARK: - Navigation
 

@@ -18,6 +18,7 @@
 		71EA47B425533F660072A74A /* OBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EA47B325533F660072A74A /* OBViewController.swift */; };
 		CF033A3125642EF900740FC9 /* CloudKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF033A3025642EF900740FC9 /* CloudKitViewController.swift */; };
 		CF09B0092562E3AA00645FAC /* ShareImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF09B0082562E3AA00645FAC /* ShareImage.swift */; };
+		CF12DB15257BEDE9009DFDD8 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF12DB14257BEDE9009DFDD8 /* TabBarController.swift */; };
 		CF1337ED254B297E00B377C6 /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1337EC254B297E00B377C6 /* AboutAppViewController.swift */; };
 		CF1BDE6D2540A98A002FA236 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF1BDE6C2540A98A002FA236 /* CloudKit.framework */; };
 		CF1BDE702540AC4C002FA236 /* CloudKitMagicCRUD in Frameworks */ = {isa = PBXBuildFile; productRef = CF1BDE6F2540AC4C002FA236 /* CloudKitMagicCRUD */; };
@@ -111,6 +112,7 @@
 		71EA47B325533F660072A74A /* OBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBViewController.swift; sourceTree = "<group>"; };
 		CF033A3025642EF900740FC9 /* CloudKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitViewController.swift; sourceTree = "<group>"; };
 		CF09B0082562E3AA00645FAC /* ShareImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareImage.swift; sourceTree = "<group>"; };
+		CF12DB14257BEDE9009DFDD8 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = Eyes/Views/TabBarController.swift; sourceTree = SOURCE_ROOT; };
 		CF1337EC254B297E00B377C6 /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
 		CF1BDE5E2540A970002FA236 /* Eyes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Eyes.entitlements; sourceTree = "<group>"; };
 		CF1BDE6C2540A98A002FA236 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -305,6 +307,7 @@
 		CFAE47D22541FD0400244D74 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CF12DB14257BEDE9009DFDD8 /* TabBarController.swift */,
 				CF3D56DA2576C45E0014B8D5 /* Search */,
 				CF7BA4A7255B02630015898C /* OnBoarding */,
 				CFB73C482559B73D00F7B7C9 /* Carousel */,
@@ -626,6 +629,7 @@
 				CFAE47E42541FFF700244D74 /* ConfirmationButton.swift in Sources */,
 				CF48B05425605FC800A5D1AB /* Alert.swift in Sources */,
 				CFAE47DF2541FE3700244D74 /* BechdelTestViewController.swift in Sources */,
+				CF12DB15257BEDE9009DFDD8 /* TabBarController.swift in Sources */,
 				CF1BDE752540B0BD002FA236 /* Tag.swift in Sources */,
 				7133677C2541F4A9005919E8 /* CarouselItemView.swift in Sources */,
 				71EA47A4255321BA0072A74A /* OBItem.swift in Sources */,
@@ -877,7 +881,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Eyes/Eyes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 83KH3JF2CE;
 				INFOPLIST_FILE = Eyes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -900,7 +904,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Eyes/Eyes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 83KH3JF2CE;
 				INFOPLIST_FILE = Eyes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

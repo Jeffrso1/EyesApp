@@ -360,6 +360,26 @@ class CarouselItemVC: UIViewController, DAORequester, CarouselUpdater {
         movieDescription.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
         NSLayoutConstraint(item: movieDescription, attribute: .top, relatedBy: .equal, toItem: timeAndGenre, attribute: .bottom, multiplier: 1, constant: 10).isActive = true
+        
+        if UIDevice().userInterfaceIdiom == .phone {
+            switch UIScreen.main.nativeBounds.height {
+                case 1136:
+                    print("iPhone 5 or 5S or 5C")
+                    movieDescription.isHidden = true
+
+                case 1334:
+                    print("iPhone 6/6S/7/8")
+                    movieDescription.isHidden = true
+
+                case 1920, 2208:
+                    print("iPhone 6+/6S+/7+/8+")
+                    movieDescription.isHidden = true
+
+                default:
+                    print("Unknown")
+                }
+            }
+        
     }
     
     fileprivate func loadAsyncImage(from movie: Movie, then completion: @escaping (UIImage)->Void) {

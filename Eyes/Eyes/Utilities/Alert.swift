@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import MessageUI
+import SafariServices
 
 class Alert: UIViewController, MFMailComposeViewControllerDelegate {
     
@@ -30,11 +31,17 @@ class Alert: UIViewController, MFMailComposeViewControllerDelegate {
         let actionSheet = UIAlertController(title: NSLocalizedString("Movie Options", comment: ""), message: nil, preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: NSLocalizedString("Save or Share Image", comment: ""), style: .default, handler: { _ in vc.present(activityControllerImage, animated: true)}))
         actionSheet.addAction(UIAlertAction(title: NSLocalizedString("Share Trailer", comment: ""), style: .default, handler: { _ in vc.present(activityControllerTrailer, animated: true)}))
+        actionSheet.addAction(UIAlertAction(title: NSLocalizedString("See in on TMDb", comment: ""), style: .default, handler: { action in
+            
+        seeTMDB(from: vc)
+            
+        }))
         actionSheet.addAction(UIAlertAction(title: NSLocalizedString("Report Issue", comment: ""), style: .destructive, handler: { action in
             
         sendEmail(movie: movie)
  
         }))
+        
         
         actionSheet.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
         
@@ -59,6 +66,21 @@ class Alert: UIViewController, MFMailComposeViewControllerDelegate {
                 self.showBasic(title: NSLocalizedString("Your request could not be completed", comment: "Request Not Completed"), message: NSLocalizedString("Make sure you have an e-mail account set up on your iPhone", comment: "Account Not Set Up"), vc: vc, type: .error)
             }
         }
+        
+        
+        func seeTMDB(from: UIViewController) {
+            
+            let arrayCurrentMovie = dao.selectedMovie
+            
+            let safariVC = SFSafariViewController(url: URL(string: "https://www.themoviedb.org/movie/\(arrayCurrentMovie!.id)")!)
+            safariVC.delegate = vc as! SFSafariViewControllerDelegate
+            safariVC.modalPresentationStyle = .pageSheet
+            
+            vc.present(safariVC, animated: true, completion: nil)
+            
+            
+        }
+        
         
     }
     

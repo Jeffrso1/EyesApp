@@ -10,8 +10,6 @@ import CloudKitMagicCRUD
 
 class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, DAORequester {
     
-   // var imageLoader = ImageLoader()
-    
     let button = TagButton()
     
     let responses = TestResponse()
@@ -52,18 +50,18 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
         // Do any additional setup after loading the view
         configNavBar()
         
+        if dao.selectedMovie == nil {
+            dao.selectedMovie = currentMovie
+        }
+        
         setupFlowLayout()
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        imageLoader.loadAsyncPosterImage(from: currentMovie ?? Movie.stubbedMovie) { image in
+        imageLoader.loadAsyncPosterImage(from: dao.selectedMovie ?? Movie.stubbedMovie) { image in
             self.posterImage.image = image
             self.posterBlurImage.image = image
         }
-        
-        //dao.loadTags()
-        //dao.loadMovie(movie: movieID, to: self)
-        
         setupMovie()
     }
     
@@ -103,7 +101,7 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
             
         navigationController?.navigationBar.layer.add(fadeTextAnimation, forKey: "fadeText")
         
-        self.navigationController?.navigationBar.topItem?.title = currentMovie?.title
+        self.navigationController?.navigationBar.topItem?.title = dao.selectedMovie?.title
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ChooseTagsCollectionViewCell
        
@@ -158,9 +156,9 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
             
             tagsSelected.append(contentsOf: [firstTag!, secondTag!])
             
-            let arrayCurrentMovie = [Array(dao.movies)[dao.currentMovie]]
+           // let arrayCurrentMovie = [Array(dao.movies)[dao.currentMovie]]
         
-            let movie = MyMovie(movieID: arrayCurrentMovie.first!.key, tags: selectedTags, tagsSelected: tagsSelected)
+            let movie = MyMovie(movieID: dao.selectedMovie!.id, tags: selectedTags, tagsSelected: tagsSelected)
             
             movie.ckSave { result in
                 switch result {
