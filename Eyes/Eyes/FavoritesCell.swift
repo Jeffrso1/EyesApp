@@ -7,8 +7,8 @@
 
 import UIKit
 
-class FavoritesCell: UICollectionViewCell, UIContextMenuInteractionDelegate {
-    
+class FavoritesCell: UICollectionViewCell, UIContextMenuInteractionDelegate, FavoriteRequester {
+ 
     var movie: Movie?
     
     let movieBanner: UIImageView = {
@@ -56,10 +56,10 @@ class FavoritesCell: UICollectionViewCell, UIContextMenuInteractionDelegate {
    func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
        
        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { suggestedActions in
-        let destruct = UIAction(title: NSLocalizedString("Remove from Favorites", comment: ""), attributes: .destructive) { [self] _ in favorites.removeFavoriteMovie(movie: self.movie!) }
+        let destruct = UIAction(title: NSLocalizedString("Remove from Favorites", comment: ""), attributes: .destructive) { [self] _ in favorites.removeFavoriteMovie(movie: self.movie!, to: self) }
                 
         let items = UIMenu(title: NSLocalizedString("More", comment: ""), options: .displayInline, children: [
-            UIAction(title: "Ir para Detalhes", image: UIImage(systemName: "arrow.uturn.right"), handler: { _ in })
+            UIAction(title: NSLocalizedString("Go to Details", comment: ""), image: UIImage(systemName: "arrow.uturn.right"), handler: { [self] _ in })
             //UIAction(title: "Item 2", image: UIImage(systemName: "envelope"), handler: { _ in }),
             //UIAction(title: "Item 3", image: UIImage(systemName: "flame.fill"), handler: { _ in }),
             //UIAction(title: "Item 4", image: UIImage(systemName: "video"), state: .on, handler: { _ in })
@@ -67,13 +67,16 @@ class FavoritesCell: UICollectionViewCell, UIContextMenuInteractionDelegate {
         
         self.movieBanner.layer.cornerRadius = 0
         
-        return UIMenu(title: "", children: [destruct, items])
+        return UIMenu(title: "", children: [destruct])
     }
    }
     
     func contextMenuInteraction(_ interaction: UIContextMenuInteraction, willEndFor configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionAnimating?) {
-        
         self.movieBanner.layer.cornerRadius = 7
+    }
+    
+    func favoriteRequester() {
+        
     }
 
 }

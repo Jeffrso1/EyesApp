@@ -9,6 +9,13 @@ import UIKit
 
 let favorites = Favorites()
 
+protocol FavoriteRequester {
+
+    func favoriteRequester()
+
+}
+
+
 class Favorites {
     
     let defaults = UserDefaults.standard
@@ -31,6 +38,8 @@ class Favorites {
         if favorites.favoriteList.contains(movieAdd) {
             
             favorites.favoriteList.remove(at: favorites.favoriteList.firstIndex(of: movieAdd)!)
+            dao.favoriteMovies.removeValue(forKey: movieID)
+            
             favorites.defaults.set(favorites.favoriteList, forKey: "FavoriteList")
             let heart = SFSymbols.heart?.applyingSymbolConfiguration(buttonSC)
             button.setImage(heart, for: .normal)
@@ -77,6 +86,8 @@ class Favorites {
         if favorites.favoriteList.contains(movieAdd) {
         
             favorites.favoriteList.remove(at: favorites.favoriteList.firstIndex(of: movieAdd)!)
+            dao.favoriteMovies.removeValue(forKey: movieID)
+            
             favorites.defaults.set(favorites.favoriteList, forKey: "FavoriteList")
             let heart = SFSymbols.heart
             barItem.image = heart
@@ -114,16 +125,17 @@ class Favorites {
         
     }
     
-    func removeFavoriteMovie(movie: Movie) {
+    func removeFavoriteMovie(movie: Movie, to caller: FavoriteRequester) {
         
         let movieAdd = String(movie.id)
         
         favorites.favoriteList.remove(at: favorites.favoriteList.firstIndex(of: movieAdd)!)
+        dao.favoriteMovies.removeValue(forKey: movie.id)
+        
         favorites.defaults.set(favorites.favoriteList, forKey: "FavoriteList")
         
+        caller.favoriteRequester()
+        
     }
-   
-    
-
-    
+ 
 }

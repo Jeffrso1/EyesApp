@@ -9,13 +9,7 @@ import UIKit
 
 let favoritesViewController = FavoritesViewController()
 
-class FavoritesViewController: UIViewController, DAORequester{
-
-    func updated() {
-        DispatchQueue.main.async {
-            self.favoritesCollectionView.reloadData()
-        }
-    }
+class FavoritesViewController: UIViewController, DAORequester {
     
     let favoritesID = "favorite"
     
@@ -32,11 +26,46 @@ class FavoritesViewController: UIViewController, DAORequester{
         return collectionView
     }()
     
+    var noFavoritesView: UIView = {
+        let uiView = UIView()
+        uiView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return uiView
+    }()
+    
     var pageName: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    var noFavoritesLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        label.textColor = .white
+        label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
+        label.text = NSLocalizedString("No Movies Favorited", comment: "")
+        label.textAlignment = .center
+        label.numberOfLines = 2
+        
+        
+        return label
+    }()
+    
+    var noFavoritesMessageLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        label.textColor = .white
+        label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        label.text = NSLocalizedString("Find movies on Trending or on Search", comment: "")
+        label.textAlignment = .center
+        label.numberOfLines = 2
+        
+        return label
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +79,9 @@ class FavoritesViewController: UIViewController, DAORequester{
         favoritesCollectionView.delegate = self
         favoritesCollectionView.dataSource = self
         
+        noFavoritesView.addSubview(noFavoritesLabel)
+        noFavoritesView.addSubview(noFavoritesMessageLabel)
+        
         view.addSubview(favoritesCollectionView)
         
         setupFavoriteCV()
@@ -57,15 +89,52 @@ class FavoritesViewController: UIViewController, DAORequester{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-
+        
         favoritesCollectionView.reloadData()
-   
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        navigationBar.configNavBar(view: self)
+        
+    }
+    
+    func updated() {
+        DispatchQueue.main.async {
+            self.favoritesCollectionView.reloadData()
+        }
     }
     
     
 }
 
 extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        
+        var numOfSections: Int = 0
+        
+        if dao.favoriteMovies.count != 0
+        {
+            numOfSections            = 1
+            favoritesCollectionView.backgroundView = nil
+            
+        }
+       
+        else
+        
+        {
+            setupNoFavoritesView()
+        }
+        
+        return numOfSections
+        
+        
+    }
+    
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dao.favoriteMovies.count
     }
@@ -80,6 +149,15 @@ extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDat
         }
         
         return cell
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        dao.selectedMovie = dao.favoriteMovies[Int(favoriteList[indexPath.row])!]!
+        
+        performSegue(withIdentifier: "toDetails", sender: self)
+        
     }
     
     private func setupFavoriteCV() {
@@ -95,7 +173,29 @@ extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDat
         favoritesCollectionView.contentInset.right = 20
         favoritesCollectionView.contentInset.top = 20
         favoritesCollectionView.contentInset.bottom = 30
+        
     }
+    
+    private func setupNoFavoritesView() {
+        
+        noFavoritesView.frame = CGRect(x: 0, y: 0, width: favoritesCollectionView.bounds.width, height: favoritesCollectionView.bounds.height)
+    
+        favoritesCollectionView.backgroundView = noFavoritesView
+ 
+        NSLayoutConstraint.activate([
+            noFavoritesLabel.leadingAnchor.constraint(equalTo: favoritesCollectionView.layoutMarginsGuide.leadingAnchor, constant: 20),
+            noFavoritesLabel.trailingAnchor.constraint(equalTo: favoritesCollectionView.layoutMarginsGuide.trailingAnchor, constant: 20),
+            noFavoritesLabel.centerYAnchor.constraint(equalTo: favoritesCollectionView.centerYAnchor),
+            
+            noFavoritesMessageLabel.leadingAnchor.constraint(equalTo: favoritesCollectionView.layoutMarginsGuide.leadingAnchor, constant: 20),
+            noFavoritesMessageLabel.trailingAnchor.constraint(equalTo: favoritesCollectionView.layoutMarginsGuide.trailingAnchor, constant: 20),
+            noFavoritesMessageLabel.topAnchor.constraint(equalTo: noFavoritesLabel.bottomAnchor, constant: 20)
+        ])
+    
+    }
+    
+    
+    
 }
 
 extension FavoritesViewController: UICollectionViewDelegateFlowLayout {

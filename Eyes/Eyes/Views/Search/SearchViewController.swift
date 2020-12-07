@@ -24,6 +24,12 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.view.addSubview(indicator)
     }
     
+    var noResultsView: UIView = {
+        let uiView = UIView()
+        
+        return uiView
+    }()
+    
     
     let movieSearch = MovieSearchState()
     
@@ -71,7 +77,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.movieImage.image = image
         }
         
-        
         return cell
     }
     
@@ -100,16 +105,33 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
             if(segue.identifier == "searchSegue") {
                 //let vc = segue.destination as! MovieDetailsViewController
-                
-                
             }
-        }
+    }
     
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         
         navigationBar.configNavBar(view: self)
+    }
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int
+    {
+        var numOfSections: Int = 0
+        if dao.searchedMovies.count != 0
+        {
+            tableView.separatorStyle = .singleLine
+            numOfSections            = 1
+            tableView.backgroundView = nil
+        }
+        else
+        {
+            
+            
+            
+        }
+        return numOfSections
     }
     
     
@@ -127,6 +149,27 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         performSegue(withIdentifier: "searchSegue", sender: self)
         
     }
+    
+    func setupNoResultsView() {
+        
+        noResultsView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: 100)
+        
+        let gradient = CAGradientLayer()
+
+        gradient.frame = noResultsView.bounds
+        gradient.colors = [UIColor.accentColor().cgColor, UIColor.purple.cgColor]
+        
+        noResultsView.layer.addSublayer(gradient)
+        
+        //tableView.addSubview(noResultsView)
+        
+        //noResultsView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 20).isActive = true
+        //noResultsView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: -20).isActive = true
+        
+        tableView.backgroundView = noResultsView
+        
+    }
+    
     
     /*
     // MARK: - Navigation

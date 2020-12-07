@@ -174,7 +174,7 @@ class CarouselItemVC: UIViewController, DAORequester, CarouselUpdater {
         view.addSubview(tagsCV)
         view.addSubview(movieName)
         view.addSubview(favoriteButton)
-        view.addSubview(movieReviewed)
+        //view.addSubview(movieReviewed)
         view.addSubview(timeAndGenre)
         view.addSubview(movieDescription)
         
@@ -183,7 +183,7 @@ class CarouselItemVC: UIViewController, DAORequester, CarouselUpdater {
         setupTagsCV()
         setupMovieName()
         setupFavoriteButton()
-        setupMovieReviewed()
+        //setupMovieReviewed()
         setupTimeAndGenre()
         setupMovieDescription()
         

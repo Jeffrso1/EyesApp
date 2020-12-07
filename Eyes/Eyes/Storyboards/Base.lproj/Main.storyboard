@@ -458,20 +458,20 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" tag="1" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="overview" id="53r-g3-YOc" customClass="OverviewTableViewCell" customModule="Eyes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="497.33334350585938" width="414" height="109.66666412353516"/>
+                                        <rect key="frame" x="0.0" y="497.33334350585938" width="414" height="109.33333587646484"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="53r-g3-YOc" id="Lt3-eF-9BZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="109.66666412353516"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="109.33333587646484"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1f-XF-KIP">
-                                                    <rect key="frame" x="29" y="26" width="357" height="27"/>
+                                                    <rect key="frame" x="29" y="26" width="357" height="26.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DzM-uw-aTV">
-                                                    <rect key="frame" x="29" y="60.666666666666664" width="357" height="20.333333333333336"/>
+                                                    <rect key="frame" x="29" y="60.333333333333336" width="357" height="20.333333333333336"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" priority="250" constant="20.333333333333336" id="p5T-Sp-Hoo"/>
                                                     </constraints>
@@ -496,7 +496,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" tag="2" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tags" id="qEj-Do-8Ef" customClass="TagsTableViewCell" customModule="Eyes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="607.00000762939453" width="414" height="300.66665649414062"/>
+                                        <rect key="frame" x="0.0" y="606.66667938232422" width="414" height="300.66665649414062"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qEj-Do-8Ef" id="pxX-IR-eXd">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="300.66665649414062"/>
@@ -570,7 +570,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" tag="3" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cast" id="e6X-1D-8Hy" customClass="CastListTableViewCell" customModule="Eyes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="907.66666412353516" width="414" height="235.33332824707031"/>
+                                        <rect key="frame" x="0.0" y="907.33333587646484" width="414" height="235.33332824707031"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="e6X-1D-8Hy" id="NDW-pi-enQ">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="235.33332824707031"/>
@@ -1211,7 +1211,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5dd-oq-mm3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2570" y="2646"/>
+            <point key="canvasLocation" x="1661" y="2811"/>
         </scene>
         <!--About Bechdel Test-->
         <scene sceneID="hlW-Gu-awn">
@@ -1315,7 +1315,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8c2-N0-TED" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="NIr-XS-C0j" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4984.057971014493" y="1901.7857142857142"/>
+            <point key="canvasLocation" x="4248" y="1797"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="UKz-xE-hP1">
@@ -1333,7 +1333,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VrO-vh-Huq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3776.811594202899" y="1901.7857142857142"/>
+            <point key="canvasLocation" x="3216" y="1797"/>
         </scene>
         <!--Trending-->
         <scene sceneID="TuZ-62-RKj">
@@ -1511,6 +1511,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Favorites" largeTitleDisplayMode="always" id="URe-jx-zFz"/>
+                    <connections>
+                        <segue destination="sAb-xw-rUj" kind="show" identifier="toDetails" id="xzq-5s-ldB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gj3-Ax-w4n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1538,7 +1541,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="wyb-xE-Tih"/>
-        <segue reference="m1e-s5-bfU"/>
+        <segue reference="xzq-5s-ldB"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
