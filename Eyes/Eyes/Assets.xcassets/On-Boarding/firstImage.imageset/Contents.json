@@ -9,7 +9,7 @@
       "scale" : "2x"
     },
     {
-      "filename" : "Home_enUS.png",
+      "filename" : "Trending.png",
       "idiom" : "universal",
       "scale" : "3x"
     },
@@ -24,7 +24,7 @@
       "scale" : "2x"
     },
     {
-      "filename" : "Home_ptBR.png",
+      "filename" : "Em Alta.png",
       "idiom" : "universal",
       "locale" : "pt-BR",
       "scale" : "3x"
