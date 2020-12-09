@@ -9,7 +9,9 @@ import UIKit
 
 let favoritesViewController = FavoritesViewController()
 
-class FavoritesViewController: UIViewController, DAORequester {
+class FavoritesViewController: UIViewController, DAORequester, FavoritesDelegate {
+   
+    
     
     let favoritesID = "favorite"
     
@@ -94,6 +96,12 @@ class FavoritesViewController: UIViewController, DAORequester {
         
     }
     
+    func updateCell() {
+        
+        favoritesCollectionView.reloadData()
+        
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
@@ -147,6 +155,8 @@ extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDat
         } else {
             cell.setupCell(movie: dao.favoriteMovies[Int(favoriteList[indexPath.row])!]!, check: true)
         }
+        
+        cell.delegate = self
         
         return cell
         

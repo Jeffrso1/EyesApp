@@ -7,9 +7,18 @@
 
 import UIKit
 
+protocol FavoritesDelegate {
+    
+    func updateCell()
+    
+}
+
+
 class FavoritesCell: UICollectionViewCell, UIContextMenuInteractionDelegate, FavoriteRequester {
  
     var movie: Movie?
+    
+    var delegate:FavoritesDelegate!
     
     let movieBanner: UIImageView = {
         let imageView = UIImageView()
@@ -76,6 +85,8 @@ class FavoritesCell: UICollectionViewCell, UIContextMenuInteractionDelegate, Fav
     }
     
     func favoriteRequester() {
+        
+        delegate.updateCell()
         
     }
 

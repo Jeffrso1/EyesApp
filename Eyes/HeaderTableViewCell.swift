@@ -25,7 +25,7 @@ class HeaderTableViewCell: UITableViewCell, SFSafariViewControllerDelegate {
     @IBOutlet weak var watchTrailer: UIButton!
     @IBOutlet weak var seeTMDb: UIButton!
     
-    var delegate:MovieReviewDelegate!
+    var delegate: MovieReviewDelegate!
     
     var currentMovie = dao.movies[Array(dao.movies)[dao.currentMovie].key]
     
