@@ -82,12 +82,14 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
         tableView.rowHeight = UITableView.automaticDimension
 
         self.navigationController?.navigationBar.tintColor = .white
+        navigationBar.configNavBar(view: self)
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         favorites.checkMovieFavoriteBar(movieID:dao.selectedMovie!.id, barItem: favoriteButton)
+        navigationBar.configNavBar(view: self)
     }
     
     func updateHeight() {

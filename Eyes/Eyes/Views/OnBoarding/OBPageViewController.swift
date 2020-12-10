@@ -13,7 +13,7 @@ class OBPageViewController: UIPageViewController, UIPageViewControllerDataSource
     var obArray: [OnBoarding] = []
     
     var titles: [String] = [NSLocalizedString("Movies", comment: ""), NSLocalizedString("Review", comment: ""), NSLocalizedString("Tags", comment: ""), NSLocalizedString("Details", comment: ""), NSLocalizedString("Search", comment: ""),NSLocalizedString("Favorites", comment: "") ]
-    var subtitles: [String] = [NSLocalizedString("Pick Movies", comment: ""), NSLocalizedString("Review Movie", comment: ""), NSLocalizedString("Choose Tags", comment: ""), NSLocalizedString("Go To Details", comment: ""),NSLocalizedString("Go To Details", comment: ""), NSLocalizedString("Go To Details", comment: "")]
+    var subtitles: [String] = [NSLocalizedString("Pick Movies", comment: ""), NSLocalizedString("Review Movie", comment: ""), NSLocalizedString("Choose Tags", comment: ""), NSLocalizedString("Go To Details", comment: ""),NSLocalizedString("Search Movies", comment: ""), NSLocalizedString("Favorite Movies", comment: "")]
     var images: [String] = ["firstImage", "secondImage", "thirdImage", "fourthImage", "fifthImage", "sixthImage"]
     
     var itemIndex = 0
