@@ -10,8 +10,6 @@ import UIKit
 let favoritesViewController = FavoritesViewController()
 
 class FavoritesViewController: UIViewController, DAORequester, FavoritesDelegate {
-   
-    
     
     let favoritesID = "favorite"
     
@@ -87,12 +85,23 @@ class FavoritesViewController: UIViewController, DAORequester, FavoritesDelegate
         view.addSubview(favoritesCollectionView)
         
         setupFavoriteCV()
+        
+        
+        
+        UIView.transition(with: favoritesCollectionView,
+        duration: 0.5,
+        options: .transitionCrossDissolve,
+        animations: {})
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-        favoritesCollectionView.reloadData()
+        navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+        navigationController?.navigationBar.shadowImage = nil
+        
+        self.favoritesCollectionView.reloadData()
         
     }
     
@@ -108,6 +117,7 @@ class FavoritesViewController: UIViewController, DAORequester, FavoritesDelegate
         navigationBar.configNavBar(view: self)
         
     }
+    
     
     func updated() {
         DispatchQueue.main.async {

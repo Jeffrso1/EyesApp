@@ -29,6 +29,8 @@ class AboutAppViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        navigationController?.navigationBar.tintColor = .white
+        
     }
     
     @IBOutlet weak var tableView: UITableView!

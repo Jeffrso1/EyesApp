@@ -21,11 +21,7 @@ class Favorites {
     let defaults = UserDefaults.standard
     lazy var favoriteList = defaults.stringArray(forKey: "FavoriteList") ?? [String]()
     var intFavoriteList : [Int] = []
-    
-    func checkFavoriteMovies(collectionView: UICollectionView) {
-        
-        //dao.loadFavoritesMovies(IDs: intFavoriteList, to: self)
-    }
+
     
     func checkIfMovieFavoriteButton(movieID:Int, button: UIButton) {
         

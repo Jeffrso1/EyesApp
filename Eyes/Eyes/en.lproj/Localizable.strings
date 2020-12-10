@@ -23,10 +23,14 @@
 "Details" = "Details";
 "Search" = "Search";
 "Favorites" = "Favorites";
+
+
 "Pick Movies" = "Pick Movies from a Weekly-Trending List.";
 "Review Movie" = "Review movies through a three simple and easy steps!";
 "Choose Tags" = "Choose one or more tags to share the themes present on the movie.";
 "Go To Details" = "See more details from your favorite movie, like the cast or a trailer!";
+"Search Movies" = "Find thousands of movies in one place.";
+"Favorite Movies" = "Create personalized lists of your favorite movies.";
 
 "iCloud Not Logged In" = "iCloud Not Logged In";
 
@@ -111,6 +115,8 @@ Research based on:
 "Go to Details" = "Go to Details";
 
 "No Results Found" = "No Results Found";
+
+"No Movies Found" = "No Movies Found";
 
 "No Movies Favorited" = "You didn't favorite any movies yet";
 

@@ -23,21 +23,20 @@ protocol DAOSearch {
 
 class DAO: MovieDelegate {    
     
-    var favoriteMovies : [Int : Movie] = [:]
-    
     let movieListState = MovieListState()
     let movieDetailState = MovieDetailState()
     let movieLoadingState = MovieLoadingDetailState()
     let movieSearchState = MovieSearchState()
     
     var movies : [Int : Movie] = [:]
-    var myMovies: [Int : MyMovie] = [:]
-    
-    var searchedMovies : [Int : Movie] = [:]
-    
-    //var searchedLocalizedMovies : Movie?
     
     var selectedMovie: Movie?
+    
+    var myMovies: [Int : MyMovie] = [:]
+    
+    var favoriteMovies : [Int : Movie] = [:]
+    
+    var searchedMovies : [Int : Movie] = [:]
     
     var currentMovie : Int = 0
     
@@ -265,18 +264,18 @@ class DAO: MovieDelegate {
     func loadFavoritesMovies(IDs: [Int], to caller: DAORequester?) {
         
         for id in IDs {
-
-            movieLoadingState.loadMovie(id: id) { movie in
             
+            movieLoadingState.loadMovie(id: id) { movie in
+                
                 if self.favoriteMovies[id] != movie {
                     
                     self.favoriteMovies[movie.id] = movie
                     
                 }
-                    
+                
                 caller?.updated()
+                
             }
-            
         }
     }
     

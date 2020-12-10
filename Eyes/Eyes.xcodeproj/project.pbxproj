@@ -24,6 +24,7 @@
 		CF1BDE702540AC4C002FA236 /* CloudKitMagicCRUD in Frameworks */ = {isa = PBXBuildFile; productRef = CF1BDE6F2540AC4C002FA236 /* CloudKitMagicCRUD */; };
 		CF1BDE752540B0BD002FA236 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1BDE742540B0BD002FA236 /* Tag.swift */; };
 		CF34286E257ABB7000B94443 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF34286D257ABB7000B94443 /* Color.swift */; };
+		CF38469725814AED0057C004 /* ActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF38469625814AED0057C004 /* ActivityController.swift */; };
 		CF3D56D62576C4080014B8D5 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3D56D52576C4080014B8D5 /* NavigationBar.swift */; };
 		CF424FA325462EFB00C85A37 /* TagButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF424FA225462EFB00C85A37 /* TagButton.swift */; };
 		CF424FA82546352000C85A37 /* ChooseTagsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF424FA72546352000C85A37 /* ChooseTagsCollectionViewCell.swift */; };
@@ -118,6 +119,7 @@
 		CF1BDE6C2540A98A002FA236 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		CF1BDE742540B0BD002FA236 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		CF34286D257ABB7000B94443 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		CF38469625814AED0057C004 /* ActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityController.swift; sourceTree = "<group>"; };
 		CF3D56D52576C4080014B8D5 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		CF424FA225462EFB00C85A37 /* TagButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagButton.swift; sourceTree = "<group>"; };
 		CF424FA72546352000C85A37 /* ChooseTagsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTagsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 				CFFE89AA253E2819002BD1BA /* Utils.swift */,
 				CF79537A255EBD3100AEF5A8 /* Haptic.swift */,
 				CFAE47BD2541CE7900244D74 /* Images.swift */,
+				CF38469625814AED0057C004 /* ActivityController.swift */,
 				CFAE47B42541CB8700244D74 /* Buttons.swift */,
 				CF09B0082562E3AA00645FAC /* ShareImage.swift */,
 				CF424FA225462EFB00C85A37 /* TagButton.swift */,
@@ -674,6 +677,7 @@
 				CFE01208255B278500F29B6C /* OverviewTableViewCell.swift in Sources */,
 				7184A569255B4D180078CDBA /* CarouselTagCell.swift in Sources */,
 				CF9A7D482555D38200D6748C /* InsideTagsCollectionViewCell.swift in Sources */,
+				CF38469725814AED0057C004 /* ActivityController.swift in Sources */,
 				713367722541F2A5005919E8 /* CatalogueViewController.swift in Sources */,
 				7115538225780B450068C0E1 /* FavoritesViewController.swift in Sources */,
 				CFFE89AB253E2819002BD1BA /* Utils.swift in Sources */,
@@ -881,7 +885,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Eyes/Eyes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = 83KH3JF2CE;
 				INFOPLIST_FILE = Eyes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -904,7 +908,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Eyes/Eyes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = 83KH3JF2CE;
 				INFOPLIST_FILE = Eyes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

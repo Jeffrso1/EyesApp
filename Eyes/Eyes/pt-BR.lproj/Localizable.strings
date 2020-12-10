@@ -22,10 +22,13 @@
 "Details" = "Detalhes";
 "Search" = "Buscar";
 "Favorites" = "Favoritos";
+
 "Pick Movies" = "Escolha um filme das tendências semanais.";
 "Review Movie" = "Avalie o filme por um processo de três perguntas. Fáceis e simples!";
 "Choose Tags" = "Escolha uma ou mais tags para representar o filme.";
 "Go To Details" = "Veja mais detalhes como o elenco e o trailer do seu filme favorito.";
+"Search Movies" = "Encontre milhares de filmes em só lugar.";
+"Favorite Movies" = "Crie uma lista personalizada com seus filmes favoritos.";
 
 "iCloud Not Logged In" = "iCloud sem Login";
 
@@ -39,7 +42,13 @@
 "Get Started" = "Começar";
 
 "WhatBechdelTest" = "O que é o Teste de Bechdel?";
-"BechdelTest" = "O Teste de Bechdel é um conjunto de parâmetros utilizados para mensurar a representação de mulheres em um filme. Para que um filme passe no Teste de Bechdel, duas mulheres devem conversar sobre algo além de um homem. No Estados Unidos, 40% dos filmes ainda falham nesse teste.";
+"BechdelTest" = "O Teste de Bechdel é um conjunto de parâmetros utilizados para mensurar a representação de mulheres em um filme. Para que um filme passe no Teste de Bechdel, duas mulheres devem conversar sobre algo além de um homem. No Estados Unidos, 40% dos filmes ainda falham nesse teste.
+
+    Perguntas:
+    - O filme tem pelo menos duas personagens femininas nomeadas?
+    - Elas conversam entre si?
+    - As personagens têm pelo menos uma conversa que não seja sobre um homem?
+";
 
 "How does it impact the films industry?" = "Como ele impacta a indústria do cinema?";
 
@@ -110,6 +119,8 @@ Pesquisa baseada em:
 "Go to Details" = "Ir para Detalhes";
 
 "No Results Found" = "Nenhum Resultado Encontrado";
+
+"No Movies Found" = "Nenhum Filme Encontrado";
 
 "No Movies Favorited" = "Você ainda não favoritou nenhum filme";
 
