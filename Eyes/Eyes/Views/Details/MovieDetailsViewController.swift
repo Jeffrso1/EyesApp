@@ -76,6 +76,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.estimatedRowHeight = 44
