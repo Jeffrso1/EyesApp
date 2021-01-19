@@ -86,13 +86,13 @@ class FavoritesViewController: UIViewController, DAORequester, FavoritesDelegate
         
         setupFavoriteCV()
         
-        
-        
         UIView.transition(with: favoritesCollectionView,
         duration: 0.5,
         options: .transitionCrossDissolve,
         animations: {})
         
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.topItem?.title = "Favoritos"
     }
     
     override func viewDidAppear(_ animated: Bool) {

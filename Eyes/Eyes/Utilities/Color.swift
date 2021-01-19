@@ -18,4 +18,7 @@ extension UIColor {
         return UIColor(named: "BackgroundColor")!
     }
     
+    class func secondaryButton() -> UIColor {
+        return UIColor(named: "SecondaryButton")!
+    }
 }

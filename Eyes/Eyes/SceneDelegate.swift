@@ -30,9 +30,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
         dao.loadTags()
         
+        guard let windowScene = (scene as? UIWindowScene) else { return }
         
+        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        window?.windowScene = windowScene
         
-        guard let _ = (scene as? UIWindowScene) else { return }
+        let mainNavController = UINavigationController(rootViewController: CatalogueViewController2())
+        mainNavController.tabBarItem = UITabBarItem(title: "Em Alta", image: UIImage(systemName: "clock"), tag: 0)
+        
+        let favoritesNavController = UINavigationController(rootViewController: FavoritesViewController())
+        favoritesNavController.tabBarItem = UITabBarItem(title: "Favoritos", image: UIImage(systemName: "heart"), tag: 1)
+        
+        let tabController = UITabBarController()
+        tabController.viewControllers = [mainNavController, favoritesNavController]
+        tabController.tabBar.tintColor = .white
+        tabController.selectedIndex = 0
+        
+        window?.rootViewController = tabController
+        
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -11,6 +11,7 @@
 		711553902578126A0068C0E1 /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7115538F2578126A0068C0E1 /* FavoritesCell.swift */; };
 		713367722541F2A5005919E8 /* CatalogueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713367712541F2A5005919E8 /* CatalogueViewController.swift */; };
 		7133677C2541F4A9005919E8 /* CarouselItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7133677B2541F4A9005919E8 /* CarouselItemView.swift */; };
+		716A0E0625B61A9A00BDB23C /* CatalogueViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716A0E0525B61A9A00BDB23C /* CatalogueViewController2.swift */; };
 		7184A569255B4D180078CDBA /* CarouselTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7184A568255B4D180078CDBA /* CarouselTagCell.swift */; };
 		71EA479F255320630072A74A /* OBItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71EA479E255320630072A74A /* OBItem.xib */; };
 		71EA47A4255321BA0072A74A /* OBItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EA47A3255321BA0072A74A /* OBItem.swift */; };
@@ -106,6 +107,7 @@
 		7115538F2578126A0068C0E1 /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
 		713367712541F2A5005919E8 /* CatalogueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueViewController.swift; sourceTree = "<group>"; };
 		7133677B2541F4A9005919E8 /* CarouselItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselItemView.swift; sourceTree = "<group>"; };
+		716A0E0525B61A9A00BDB23C /* CatalogueViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueViewController2.swift; sourceTree = "<group>"; };
 		7184A568255B4D180078CDBA /* CarouselTagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselTagCell.swift; sourceTree = "<group>"; };
 		71EA479E255320630072A74A /* OBItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OBItem.xib; sourceTree = "<group>"; };
 		71EA47A3255321BA0072A74A /* OBItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBItem.swift; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 			isa = PBXGroup;
 			children = (
 				713367712541F2A5005919E8 /* CatalogueViewController.swift */,
+				716A0E0525B61A9A00BDB23C /* CatalogueViewController2.swift */,
 				CFB73C522559C4B000F7B7C9 /* CarouselPageVC.swift */,
 				CFE01210255B27B500F29B6C /* CarouselItemVC.swift */,
 				7133677B2541F4A9005919E8 /* CarouselItemView.swift */,
@@ -652,6 +655,7 @@
 				CFFE89BD253E2829002BD1BA /* MovieService.swift in Sources */,
 				CFFE89BE253E2829002BD1BA /* Movie+Stub.swift in Sources */,
 				CFC47C5025519AAA001CB77E /* CastListTableViewCell.swift in Sources */,
+				716A0E0625B61A9A00BDB23C /* CatalogueViewController2.swift in Sources */,
 				CF428AC1254B30DF00DD25A5 /* AboutDetailsVC.swift in Sources */,
 				CF9ACCE92548AAD000AA4F33 /* AboutBechdelTestVC.swift in Sources */,
 				CFFE89A3253E2815002BD1BA /* MovieDetailState.swift in Sources */,
