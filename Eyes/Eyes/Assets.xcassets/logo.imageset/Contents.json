@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "eyes_logo.png",
+      "filename" : "Ativo 14.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "eyes_logo@2x.png",
+      "filename" : "Ativo 14@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "eyes_logo@3x.png",
+      "filename" : "Ativo 14@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
