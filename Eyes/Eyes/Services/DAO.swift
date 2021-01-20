@@ -251,9 +251,7 @@ class DAO: MovieDelegate {
         loadMovieLocalized(movies: movie, completion: { movies in
            
             for movie in movies {
-                
                 self.selectedMovie = movie
-         
             }
             
             caller?.search()

@@ -7,8 +7,6 @@
 
 import UIKit
 
-
-
 class TagsTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate, DAORequester {
     
     var isLoaded: Bool = false
@@ -75,9 +73,16 @@ class TagsTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollecti
     
     }
     
+    func setupCell(movie: Movie) {
+        
+        tags = (dao.myMovies[Int(movie.id)]?.tags) ?? []
+        
+    }
+    
+    
     func updated() {
         
-        tags = (dao.myMovies[Int(dao.selectedMovie!.id)]?.tags) ?? []
+        //tags = (dao.myMovies[Int(dao.selectedMovie!.id)]?.tags) ?? []
         
         DispatchQueue.main.async {
         

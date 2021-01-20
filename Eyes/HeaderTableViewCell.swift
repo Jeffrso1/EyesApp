@@ -15,7 +15,6 @@ protocol MovieReviewDelegate {
     func callSegueFromCell(dataObject: Movie)
 }
 
-
 class HeaderTableViewCell: UITableViewCell, SFSafariViewControllerDelegate {
     
     @IBOutlet weak var movieHeader: UIImageView!
@@ -25,12 +24,16 @@ class HeaderTableViewCell: UITableViewCell, SFSafariViewControllerDelegate {
     @IBOutlet weak var watchTrailer: UIButton!
     @IBOutlet weak var seeTMDb: UIButton!
     
+    var movie: Movie?
+    
     var delegate: MovieReviewDelegate!
     
     var currentMovie = dao.movies[Array(dao.movies)[dao.currentMovie].key]
     
     func setupHeaderCell(movie: Movie) {
  
+        self.movie = movie
+        
         timeAndGenre.text = movie.durationText + " • " + movie.genreText
         
         let roundedView = UIView()
@@ -45,7 +48,7 @@ class HeaderTableViewCell: UITableViewCell, SFSafariViewControllerDelegate {
         
         movieBanner.layer.cornerRadius = 7
         movieBanner.layer.borderColor = CGColor.init(red: 255, green: 255, blue: 255, alpha: 0.8)
-        movieTitle.text = dao.selectedMovie?.title
+        movieTitle.text = movie.title
         
         imageLoader.loadAsyncImage(from: movie) { image in
             self.movieHeader.image = image
@@ -87,7 +90,8 @@ class HeaderTableViewCell: UITableViewCell, SFSafariViewControllerDelegate {
         
         do {
             
-            try checkMovieTrailer()
+        try checkMovieTrailer()
+        
             
         } catch MovieDetailError.trailerNotAvailable {
         
@@ -102,13 +106,13 @@ class HeaderTableViewCell: UITableViewCell, SFSafariViewControllerDelegate {
     
     func checkMovieTrailer() throws {
         
-        if dao.selectedMovie?.youtubeTrailers?.count == 0 {
+        if dao.selectedMovie!.youtubeTrailers?.count == 0 {
            
             throw MovieDetailError.trailerNotAvailable
         
         } else {
         
-        let safariVC = SFSafariViewController(url: (dao.selectedMovie?.youtubeTrailers?.first?.youtubeURL)!)
+            let safariVC = SFSafariViewController(url: (dao.selectedMovie!.youtubeTrailers?.first?.youtubeURL)!)
         safariVC.delegate = self
         safariVC.modalPresentationStyle = .pageSheet
         
@@ -121,7 +125,7 @@ class HeaderTableViewCell: UITableViewCell, SFSafariViewControllerDelegate {
     @IBAction func reviewMovie(_ sender: Any) {
         
         if(self.delegate != nil){ //Just to be safe.
-            self.delegate.callSegueFromCell(dataObject: dao.selectedMovie!)
+            self.delegate.callSegueFromCell(dataObject: movie!)
         }
         
         haptic.setupImpactHaptic(style: .light)

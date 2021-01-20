@@ -41,8 +41,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let favoritesNavController = UINavigationController(rootViewController: FavoritesViewController())
         favoritesNavController.tabBarItem = UITabBarItem(title: "Favoritos", image: UIImage(systemName: "heart"), tag: 1)
         
+        let searchNavController = UINavigationController(rootViewController: SearchViewController())
+        searchNavController.tabBarItem = UITabBarItem(title: NSLocalizedString("Search", comment: ""), image: UIImage(systemName: "magnifyingglass"), tag: 2)
+        
         let tabController = UITabBarController()
-        tabController.viewControllers = [mainNavController, favoritesNavController]
+        tabController.viewControllers = [mainNavController, favoritesNavController, searchNavController]
         tabController.tabBar.tintColor = .white
         tabController.selectedIndex = 0
         

@@ -34,14 +34,14 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
             dao.selectedMovie = currentMovie
         }
         
-        let shareViewController = ShareImage(movie: dao.selectedMovie!)
+        let shareViewController = ShareImage(movie: movie!)
         
         let renderer = UIGraphicsImageRenderer(size: shareViewController.view.bounds.size)
         let image = renderer.image { ctx in
             shareViewController.view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
         }
         
-        Alert.showMovieOptions(vc: self, image: image.jpegData(compressionQuality: 0.8), url: dao.selectedMovie?.youtubeTrailers?.first?.youtubeURL, movie: dao.selectedMovie!)
+        Alert.showMovieOptions(vc: self, image: image.jpegData(compressionQuality: 0.8), url: dao.selectedMovie!.youtubeTrailers?.first?.youtubeURL, movie: movie!)
     }
     
     
@@ -121,20 +121,21 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
             
             cell.delegate = self
             
-            cell.setupHeaderCell(movie: dao.selectedMovie!)
+            cell.setupHeaderCell(movie: movie!)
             
             return cell
             
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "overview", for: indexPath) as! OverviewTableViewCell
             
-            cell.setupOverviewCell(movie: dao.selectedMovie!)
+            cell.setupOverviewCell(movie: movie!)
             
             return cell
             
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "tags", for: indexPath) as! TagsTableViewCell
             
+            cell.setupCell(movie: movie!)
             
             return cell
             
