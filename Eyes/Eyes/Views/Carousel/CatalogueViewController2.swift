@@ -9,6 +9,15 @@ import UIKit
 
 class CatalogueViewController2: UIViewController {
     
+    @objc func reviewButtonWasPressed(sender: UIButton!) {
+        print("REVIEW BUTTON WAS PRESSED!")
+    }
+    
+    @objc func detailsButtonWasPressed(sender: UIButton!) {
+        navigationController?.pushViewController(MovieDetailsViewController2(), animated: true)
+        dao.selectedMovie = nil
+    }
+    
     let myPageVC = CarouselPageVC(transitionStyle: .scroll, navigationOrientation: .horizontal)
     
     let viewBox: UIView = {
@@ -69,6 +78,8 @@ class CatalogueViewController2: UIViewController {
             reviewButton.heightAnchor.constraint(equalToConstant: 50),
             NSLayoutConstraint(item: reviewButton, attribute: .top, relatedBy: .equal, toItem: viewBox, attribute: .bottom, multiplier: 1, constant: 12)
         ])
+        
+        reviewButton.addTarget(self, action: #selector(reviewButtonWasPressed), for: .touchUpInside)
     }
     
     func setupDetailsButton() {
@@ -82,5 +93,7 @@ class CatalogueViewController2: UIViewController {
             detailsButton.heightAnchor.constraint(equalTo: reviewButton.heightAnchor),
             NSLayoutConstraint(item: detailsButton, attribute: .top, relatedBy: .equal, toItem: reviewButton, attribute: .bottom, multiplier: 1, constant: 10)
         ])
+        
+        detailsButton.addTarget(self, action: #selector(detailsButtonWasPressed), for: .touchUpInside)
     }
 }
