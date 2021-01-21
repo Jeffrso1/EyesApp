@@ -54,29 +54,30 @@ class HeaderTableViewCell: UITableViewCell, SFSafariViewControllerDelegate {
             self.movieHeader.image = image
         }
         
-        let view = UIView(frame: movieHeader.frame)
+        let view = UIView(frame: movieHeader.bounds)
 
         let clearColor = UIColor.black.withAlphaComponent(0.2)
         
         let gradient = CAGradientLayer()
 
-        gradient.frame = view.frame
+        gradient.frame.size.height = movieHeader.bounds.height
         
-        gradient.frame.size.width = view.frame.width + 30
+        gradient.frame.size.width = UIScreen.main.bounds.width
 
-        gradient.colors = [clearColor.cgColor, UIColor(named: "BackgroundColor")?.cgColor]
+        gradient.colors = [clearColor.cgColor, UIColor.backgroundColor().cgColor]
 
         gradient.locations = [0.0, 1.0]
 
         view.layer.insertSublayer(gradient, at: 0)
 
         movieHeader.addSubview(view)
-
         movieHeader.bringSubviewToFront(view)
         
         setupButton(button: watchTrailer)
         setupButton(button: seeTMDb)
        
+        
+        
     }
     
     func setupButton(button: UIButton) {
