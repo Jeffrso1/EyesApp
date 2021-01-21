@@ -35,7 +35,7 @@ class CatalogueViewController2: UIViewController {
     
     let reviewButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Avaliar Filme", for: .normal)
+        button.setTitle(NSLocalizedString("Review Movies Action", comment: ""), for: .normal)
         button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -43,7 +43,7 @@ class CatalogueViewController2: UIViewController {
     
     let detailsButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Mais Detalhes", for: .normal)
+        button.setTitle(NSLocalizedString("Go to Details", comment: ""), for: .normal)
         button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button

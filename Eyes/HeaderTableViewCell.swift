@@ -36,19 +36,12 @@ class HeaderTableViewCell: UITableViewCell, SFSafariViewControllerDelegate {
         
         timeAndGenre.text = movie.durationText + " • " + movie.genreText
         
-        let roundedView = UIView()
-        roundedView.layer.shadowColor = UIColor.black.cgColor
-        roundedView.layer.shadowOffset = CGSize(width: 0, height: 10)
-        roundedView.layer.shadowOpacity = 0.8
-        roundedView.layer.shadowRadius = 10
-        
         imageLoader.loadAsyncPosterImage(from: movie) { image in
             self.movieBanner.image = image
         }
         
-        movieBanner.layer.cornerRadius = 7
-        movieBanner.layer.borderColor = CGColor.init(red: 255, green: 255, blue: 255, alpha: 0.8)
-        movieTitle.text = movie.title
+        //movieBanner.layer.cornerRadius = 7
+       // movieTitle.text = movie.title
         
         imageLoader.loadAsyncImage(from: movie) { image in
             self.movieHeader.image = image
@@ -75,9 +68,7 @@ class HeaderTableViewCell: UITableViewCell, SFSafariViewControllerDelegate {
         
         setupButton(button: watchTrailer)
         setupButton(button: seeTMDb)
-       
-        
-        
+    
     }
     
     func setupButton(button: UIButton) {

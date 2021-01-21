@@ -131,8 +131,22 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate {
         self.movie = movie
         self.backgroundColor = UIColor.backgroundColor()
         
+        let radius: CGFloat = 7
+
+        movieBanner.clipsToBounds = true
+        movieBanner.layer.cornerRadius = radius
+        movieBanner.contentMode = .scaleAspectFill
+    
+        let roundedView = UIView()
+        roundedView.layer.shadowColor = UIColor.black.cgColor
+        roundedView.layer.shadowOffset = CGSize(width: 0, height: -20)
+        roundedView.layer.shadowOpacity = 0.8
+        roundedView.layer.shadowRadius = 40
+        
+        roundedView.addSubview(movieBanner)
         contentView.addSubview(movieHeader)
-        contentView.addSubview(movieBanner)
+        contentView.addSubview(roundedView)
+        //contentView.addSubview(movieBanner)
         contentView.addSubview(movieName)
         contentView.addSubview(timeAndGenre)
         contentView.addSubview(watchTrailer)
@@ -189,10 +203,11 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate {
             self.movieHeader.image = image
         }
         
-        movieBanner.layer.cornerRadius = 7
-        movieBanner.clipsToBounds = true
-        movieBanner.layer.borderColor = CGColor.init(red: 255, green: 255, blue: 255, alpha: 0.8)
+//        movieBanner.layer.cornerRadius = 7
+//        movieBanner.clipsToBounds = true
+//        movieBanner.layer.borderColor = CGColor.init(red: 255, green: 255, blue: 255, alpha: 0.8)
         
+       
         movieName.text = movie.title
         movieName.textAlignment = .center
         movieName.font = UIFont.boldSystemFont(ofSize: 27)

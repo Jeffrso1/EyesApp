@@ -222,18 +222,17 @@ class CarouselItemVC: UIViewController, DAORequester, CarouselUpdater {
     
     private func setupMovieBanner() {
        
-        let radius: CGFloat = 5
+        let radius: CGFloat = 10
 
         movieBanner.clipsToBounds = true
         movieBanner.layer.cornerRadius = radius
         movieBanner.contentMode = .scaleAspectFill
     
-        
         let roundedView = UIView()
         roundedView.layer.shadowColor = UIColor.black.cgColor
-        roundedView.layer.shadowOffset = CGSize(width: 0, height: 10)
-        roundedView.layer.shadowOpacity = 0.5
-        roundedView.layer.shadowRadius = 10
+        roundedView.layer.shadowOffset = CGSize(width: 0, height: 20)
+        roundedView.layer.shadowOpacity = 0.7
+        roundedView.layer.shadowRadius = 25
         
         roundedView.addSubview(movieBanner)
         view.addSubview(roundedView)
@@ -250,8 +249,6 @@ class CarouselItemVC: UIViewController, DAORequester, CarouselUpdater {
         movieBanner.centerYAnchor.constraint(equalTo: movieHeader.centerYAnchor, constant: 10).isActive = true
         movieBanner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         movieBanner.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 112).isActive = true
-      
-        
     }
     
     private func setupMovieReviewed() {
