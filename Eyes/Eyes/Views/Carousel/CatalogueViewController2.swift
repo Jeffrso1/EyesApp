@@ -55,6 +55,8 @@ class CatalogueViewController2: UIViewController {
         setupViewBox()
         setupReviewButton()
         setupDetailsButton()
+        
+        navigationBar.configNavBar(view: self)
     }
 
     func setupViewBox() {

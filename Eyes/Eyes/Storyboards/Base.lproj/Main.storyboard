@@ -573,7 +573,7 @@
                                         <rect key="frame" x="0.0" y="907.33333587646484" width="414" height="235.33332824707031"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="e6X-1D-8Hy" id="NDW-pi-enQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="235.33332824707031"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="235.33333333333337"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cast" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dpV-oh-Tag">

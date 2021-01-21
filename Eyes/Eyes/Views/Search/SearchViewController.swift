@@ -156,7 +156,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let nextScene = storyboard.instantiateViewController(withIdentifier: "MovieDetailsViewController") as! MovieDetailsViewController
+        let nextScene = storyboard.instantiateViewController(withIdentifier: "MovieDetailsViewController2") as! MovieDetailsViewController
         
         nextScene.movie = selectedMovie
         
