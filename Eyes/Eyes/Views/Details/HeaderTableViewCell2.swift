@@ -9,16 +9,18 @@ import UIKit
 import SafariServices
 
 class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate {
-
+    
     let movieHeader: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
     let movieBanner: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        
         return imageView
     }()
     
@@ -55,38 +57,58 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
     }
     
     func checkMovieTrailer() throws {
         
-        if dao.selectedMovie!.youtubeTrailers?.count == 0 {
-           
+        if movie!.youtubeTrailers?.count == 0 {
+            
             throw MovieDetailError.trailerNotAvailable
-        
+            
         } else {
+            
+            /*
+            Essa lógica tem objetivo verificar se a variável "movie" contém os componentes necessários para que seja mostrado o filme, caso não, será utilizada a variável "dao.selectedMovie" que armazena o filme que foi buscado.
+             
+             Podemos melhorá-la. No momento, resolve o problema.
+            */
+            
+            if movie!.youtubeTrailers?.first?.youtubeURL != nil {
+                
+                let safariVC = SFSafariViewController(url: (movie!.youtubeTrailers?.first?.youtubeURL)!)
+                safariVC.delegate = self
+                safariVC.modalPresentationStyle = .pageSheet
+                
+                self.window?.rootViewController?.present(safariVC, animated: true, completion: nil)
+                
+            } else {
+                
+                let safariVC = SFSafariViewController(url: (dao.selectedMovie!.youtubeTrailers?.first?.youtubeURL)!)
+                safariVC.delegate = self
+                safariVC.modalPresentationStyle = .pageSheet
+                
+                self.window?.rootViewController?.present(safariVC, animated: true, completion: nil)
+            }
+            
+            
+        }
         
-            let safariVC = SFSafariViewController(url: (dao.selectedMovie!.youtubeTrailers?.first?.youtubeURL)!)
-        safariVC.delegate = self
-        safariVC.modalPresentationStyle = .pageSheet
         
         haptic.setupImpactHaptic(style: .light)
-        
-        self.window?.rootViewController?.present(safariVC, animated: true, completion: nil)
-        }
     }
     
     @objc func watchTrailerWasPressed(sender: UIButton!) {
         do {
             
-        try checkMovieTrailer()
-        
+            try checkMovieTrailer()
+            
             
         } catch MovieDetailError.trailerNotAvailable {
-        
+            
             Alert.showBasic(title: NSLocalizedString("Movie Trailer Not Available", comment: ""), message: NSLocalizedString("Please, try again later.", comment: ""), vc: (self.window?.rootViewController)!, type: .error)
             
         } catch {
@@ -96,6 +118,7 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate {
     }
     
     @objc func reviewMovieWasPressed(sender: UIButton!) {
+        
         if(self.delegate != nil){ //Just to be safe.
             self.delegate.callSegueFromCell(dataObject: movie!)
         }
@@ -104,7 +127,8 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate {
     }
     
     func setupCell(movie: Movie) {
-//        self.movie = movie
+        
+        self.movie = movie
         self.backgroundColor = UIColor.backgroundColor()
         
         contentView.addSubview(movieHeader)
@@ -117,9 +141,11 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate {
         watchTrailer.addTarget(self, action: #selector(watchTrailerWasPressed), for: .touchUpInside)
         reviewMovie.addTarget(self, action: #selector(reviewMovieWasPressed), for: .touchUpInside)
         
+        let movieHeaderHeight = movieHeader.heightAnchor.constraint(equalToConstant: 281)
+        
         NSLayoutConstraint.activate([
             movieHeader.topAnchor.constraint(equalTo: contentView.topAnchor),
-            movieHeader.heightAnchor.constraint(equalToConstant: 281),
+            movieHeaderHeight,
             movieHeader.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: -5),
             movieHeader.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 5),
             
@@ -181,6 +207,28 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate {
         
         reviewMovie.backgroundColor = UIColor.accentColor()
         setupButtonFeatures(button: reviewMovie, withLabel: "Review Movie")
+        
+        //Configurações referentes ao gradiente do MovieHeader
+        
+        let view = UIView(frame: movieHeader.bounds)
+        
+        let clearColor = UIColor.black.withAlphaComponent(0.2)
+        
+        let gradient = CAGradientLayer()
+        
+        gradient.frame.size.height = movieHeaderHeight.constant + 5
+        
+        gradient.frame.size.width = UIScreen.main.bounds.width + 20
+        
+        gradient.colors = [clearColor.cgColor, UIColor.backgroundColor().cgColor]
+        
+        gradient.locations = [0.0, 1.0]
+        
+        view.layer.insertSublayer(gradient, at: 0)
+        
+        movieHeader.addSubview(view)
+        movieHeader.bringSubviewToFront(view)
+        
     }
     
     func setupButtonFeatures(button: UIButton, withLabel label: String) {

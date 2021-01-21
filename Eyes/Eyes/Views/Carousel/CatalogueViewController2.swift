@@ -14,8 +14,14 @@ class CatalogueViewController2: UIViewController {
     }
     
     @objc func detailsButtonWasPressed(sender: UIButton!) {
-        navigationController?.pushViewController(MovieDetailsViewController2(), animated: true)
-        dao.selectedMovie = nil
+        
+        let nextScene = MovieDetailsViewController2()
+        
+        //Passa o filme para a variável "movie" da MovieDetailsViewController
+        nextScene.movie = dao.movies[Array(dao.movies)[dao.currentMovie].key]
+        
+        navigationController?.pushViewController(nextScene, animated: true)
+        
     }
     
     let myPageVC = CarouselPageVC(transitionStyle: .scroll, navigationOrientation: .horizontal)

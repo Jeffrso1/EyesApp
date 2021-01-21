@@ -174,9 +174,12 @@ extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        dao.selectedMovie = dao.favoriteMovies[Int(favoriteList[indexPath.row])!]!
+        let nextScene = MovieDetailsViewController2()
         
-        performSegue(withIdentifier: "toDetails", sender: self)
+        //Passa o filme para a variável "movie" da MovieDetailsViewController
+        nextScene.movie = dao.favoriteMovies[Int(favoriteList[indexPath.row])!]!
+        
+        navigationController?.pushViewController(nextScene, animated: true)
         
     }
     

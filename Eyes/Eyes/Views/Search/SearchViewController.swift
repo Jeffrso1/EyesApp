@@ -154,10 +154,9 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         dao.searchMovieLocalized(movie: [selectedMovie!], to: self)
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextScene = MovieDetailsViewController2()
         
-        let nextScene = storyboard.instantiateViewController(withIdentifier: "MovieDetailsViewController2") as! MovieDetailsViewController
-        
+        //Passa o filme para a variável "movie" da MovieDetailsViewController
         nextScene.movie = selectedMovie
         
         self.navigationController?.pushViewController(nextScene, animated: true)

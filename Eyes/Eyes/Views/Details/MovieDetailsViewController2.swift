@@ -9,7 +9,7 @@ import UIKit
 
 class MovieDetailsViewController2: UIViewController {
 
-    var lastOffsetY :CGFloat = 0
+    var lastOffsetY : CGFloat = 0
     
     let headerID = "header"
     let overviewID = "overview"
@@ -84,21 +84,21 @@ extension MovieDetailsViewController2: UITableViewDelegate, UITableViewDataSourc
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: headerID) as! HeaderTableViewCell2
             
-            cell.setupCell(movie: currentMovie!)
+            cell.setupCell(movie: movie!)
             
             return cell
             
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: overviewID) as! OverviewTableViewCell2
             
-            cell.setupCell(movie: currentMovie!)
+            cell.setupCell(movie: movie!)
             
             return cell
         
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: tagsID) as! TagsTableViewCell2
             
-            cell.setupCell(movie: currentMovie!)
+            cell.setupCell(movie: movie!)
             
             return cell
             
