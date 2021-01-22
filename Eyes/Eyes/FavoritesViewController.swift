@@ -11,7 +11,13 @@ let favoritesViewController = FavoritesViewController()
 
 class FavoritesViewController: UIViewController, DAORequester, FavoritesDelegate {
     
+    private var compactConstraints: [NSLayoutConstraint] = []
+    private var regularConstraints: [NSLayoutConstraint] = []
+    private var sharedConstraints: [NSLayoutConstraint] = []
+    
     let favoritesID = "favorite"
+    
+    var numberOfItems: CGFloat = 6
     
     var favoriteList: [String] { UserDefaults.standard.stringArray(forKey: "FavoriteList") ?? [String]() }
     
@@ -93,6 +99,29 @@ class FavoritesViewController: UIViewController, DAORequester, FavoritesDelegate
         
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.topItem?.title = "Favoritos"
+        
+        sharedConstraints.append(contentsOf: [
+                         
+            favoritesCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            favoritesCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            favoritesCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            favoritesCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            
+        ])
+        
+        regularConstraints.append(contentsOf: [
+
+                                    
+        ])
+        
+        compactConstraints.append(contentsOf: [
+            
+            
+        ])
+        
+        NSLayoutConstraint.activate(sharedConstraints)
+        layoutTrait(traitCollection: UIScreen.main.traitCollection)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -185,13 +214,6 @@ extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDat
     
     private func setupFavoriteCV() {
         
-        NSLayoutConstraint.activate([
-            favoritesCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            favoritesCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            favoritesCollectionView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            favoritesCollectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-        ])
-        
         favoritesCollectionView.contentInset.left = 20
         favoritesCollectionView.contentInset.right = 20
         favoritesCollectionView.contentInset.top = 20
@@ -227,7 +249,7 @@ extension FavoritesViewController: UICollectionViewDelegateFlowLayout {
         let fullWidth = UIScreen.main.bounds.width - (40)
         let horizontalSpacing: CGFloat = 20
         let availableWidth = fullWidth - horizontalSpacing
-        let itemWidth = availableWidth / 3
+        let itemWidth = availableWidth / numberOfItems
         
         return CGSize(width: itemWidth, height: itemWidth / 0.71830986)
     }
@@ -235,5 +257,42 @@ extension FavoritesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
+    
+   
+    
+    func layoutTrait(traitCollection:UITraitCollection) {
+        if (!sharedConstraints[0].isActive) {
+           // activating shared constraints
+           NSLayoutConstraint.activate(sharedConstraints)
+        }
+        if traitCollection.horizontalSizeClass == .compact && traitCollection.verticalSizeClass == .regular {
+            if regularConstraints.count > 0 && regularConstraints[0].isActive {
+                NSLayoutConstraint.deactivate(regularConstraints)
+            }
+            // activating compact constraints
+            NSLayoutConstraint.activate(compactConstraints)
+            numberOfItems = 3
+            favoritesCollectionView.layoutIfNeeded()
+        } else {
+            if compactConstraints.count > 0 && compactConstraints[0].isActive {
+                NSLayoutConstraint.deactivate(compactConstraints)
+            }
+            // activating regular constraints
+            NSLayoutConstraint.activate(regularConstraints)
+            numberOfItems = 6
+            favoritesCollectionView.layoutIfNeeded()
+            
+        }
+    }
+    
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        layoutTrait(traitCollection: traitCollection)
+        
+    }
+    
     
 }

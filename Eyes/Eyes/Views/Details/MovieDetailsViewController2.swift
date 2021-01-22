@@ -16,6 +16,10 @@ class MovieDetailsViewController2: UIViewController {
     let tagsID = "tags"
     let castID = "cast"
     
+    private var compactConstraints: [NSLayoutConstraint] = []
+    private var regularConstraints: [NSLayoutConstraint] = []
+    private var sharedConstraints: [NSLayoutConstraint] = []
+    
     var movie: Movie?
     var currentMovie = dao.movies[Array(dao.movies)[dao.currentMovie].key]
     
@@ -38,6 +42,7 @@ class MovieDetailsViewController2: UIViewController {
         detailsTableView.estimatedRowHeight = 100
         detailsTableView.rowHeight = UITableView.automaticDimension
         detailsTableView.tableFooterView = UIView()
+        detailsTableView.backgroundColor = UIColor.backgroundColor()
         
         view.addSubview(detailsTableView)
         
@@ -48,21 +53,41 @@ class MovieDetailsViewController2: UIViewController {
         
         setupDetailsTableView()
         
+        NSLayoutConstraint.activate(sharedConstraints)
+        layoutTrait(traitCollection: UIScreen.main.traitCollection)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-//        favorites.checkMovieFavoriteBar(movieID:dao.selectedMovie!.id, barItem: favoriteButton)
+//      favorites.checkMovieFavoriteBar(movieID:dao.selectedMovie!.id, barItem: favoriteButton)
         navigationBar.configNavBar(view: self)
     }
     
     func setupDetailsTableView() {
-        NSLayoutConstraint.activate([
+        
+        sharedConstraints.append(contentsOf: [
+            
+            detailsTableView.topAnchor.constraint(equalTo: view.topAnchor),
+            detailsTableView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor),
+        ])
+        
+        regularConstraints.append(contentsOf: [
+            detailsTableView.topAnchor.constraint(equalTo: view.topAnchor),
+            detailsTableView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor),
+            detailsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            detailsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+          
+            ])
+
+        compactConstraints.append(contentsOf: [
             detailsTableView.topAnchor.constraint(equalTo: view.topAnchor),
             detailsTableView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor),
             detailsTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             detailsTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
+       
+        
     }
 }
 
@@ -100,8 +125,10 @@ extension MovieDetailsViewController2: UITableViewDelegate, UITableViewDataSourc
             let cell = tableView.dequeueReusableCell(withIdentifier: tagsID) as! TagsTableViewCell2
             
             cell.setupCell(movie: movie!)
-            cell.contentView.setNeedsLayout()
-            cell.contentView.layoutIfNeeded()
+//            cell.frame = detailsTableView.bounds
+//            cell.layoutIfNeeded()
+//            cell.tagsCollectionView.reloadData()
+//            cell.collectionViewHeight = cell.tagsCollectionView.collectionViewLayout.collectionViewContentSize.height
             
             return cell
             
@@ -123,6 +150,36 @@ extension MovieDetailsViewController2: UITableViewDelegate, UITableViewDataSourc
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
     }
+    
+    func layoutTrait(traitCollection:UITraitCollection) {
+        if (!sharedConstraints[0].isActive) {
+           // activating shared constraints
+           NSLayoutConstraint.activate(sharedConstraints)
+        }
+        if traitCollection.horizontalSizeClass == .compact && traitCollection.verticalSizeClass == .regular {
+            if regularConstraints.count > 0 && regularConstraints[0].isActive {
+                NSLayoutConstraint.deactivate(regularConstraints)
+            }
+            // activating compact constraints
+            NSLayoutConstraint.activate(compactConstraints)
+        } else {
+            if compactConstraints.count > 0 && compactConstraints[0].isActive {
+                NSLayoutConstraint.deactivate(compactConstraints)
+            }
+            // activating regular constraints
+            NSLayoutConstraint.activate(regularConstraints)
+        }
+    }
+    
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        layoutTrait(traitCollection: traitCollection)
+        
+    }
+    
     
 }
 

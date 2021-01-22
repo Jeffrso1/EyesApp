@@ -68,8 +68,8 @@ class CatalogueViewController2: UIViewController {
     func setupViewBox() {
         NSLayoutConstraint.activate([
             viewBox.topAnchor.constraint(equalTo: view.topAnchor),
-            viewBox.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            viewBox.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+            viewBox.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            viewBox.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
         
         viewBox.addSubview(myPageVC.view)

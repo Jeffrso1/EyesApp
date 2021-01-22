@@ -22,6 +22,8 @@ class TagsTableViewCell2: UITableViewCell, DAORequester {
     let tagsID = "tagsID"
     var tags : [Tag] = []
     
+    var collectionViewHeight : CGFloat = 0
+    
     let tagsCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -53,6 +55,7 @@ class TagsTableViewCell2: UITableViewCell, DAORequester {
         tagsCollectionView.delegate = self
         tagsCollectionView.dataSource = self
         tagsCollectionView.backgroundColor = UIColor.backgroundColor()
+        tagsCollectionView.contentInset = UIEdgeInsets(top: 0, left: 20.0, bottom: 20.0, right: 20.0)
         
         if let layout = tagsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
@@ -62,19 +65,18 @@ class TagsTableViewCell2: UITableViewCell, DAORequester {
         contentView.addSubview(tagsCollectionView)
         
         let tagsHeightConstraint = tagsCollectionView.heightAnchor.constraint(equalToConstant: 208)
-        tagsHeightConstraint.priority = UILayoutPriority(250)
+        tagsHeightConstraint.priority = UILayoutPriority(999)
         
         NSLayoutConstraint.activate([
             sessionTitle.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 25),
             sessionTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 29),
             sessionTitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -29),
-            //sessionTitle.bottomAnchor.constraint(equalTo: contentView.topAnchor, constant: -40),
             
             tagsHeightConstraint,
             tagsCollectionView.topAnchor.constraint(equalTo: sessionTitle.bottomAnchor, constant: 20),
-            tagsCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            tagsCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             tagsCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            tagsCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30)
+            tagsCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
         
         sessionTitle.text = NSLocalizedString("Why Should You Watch It?", comment: "")
@@ -127,6 +129,6 @@ extension TagsTableViewCell2: UICollectionViewDelegate, UICollectionViewDataSour
 
 extension TagsTableViewCell2: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 240, height: 54)
+        return CGSize(width: 240, height: 55)
     }
 }

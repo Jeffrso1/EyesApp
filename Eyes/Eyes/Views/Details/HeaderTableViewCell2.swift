@@ -10,10 +10,17 @@ import SafariServices
 
 class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate {
     
+    private var compactConstraints: [NSLayoutConstraint] = []
+    private var regularConstraints: [NSLayoutConstraint] = []
+    private var sharedConstraints: [NSLayoutConstraint] = []
+    
+    let gradient = CAGradientLayer()
+    
     let movieHeader: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -146,7 +153,6 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate {
         roundedView.addSubview(movieBanner)
         contentView.addSubview(movieHeader)
         contentView.addSubview(roundedView)
-        //contentView.addSubview(movieBanner)
         contentView.addSubview(movieName)
         contentView.addSubview(timeAndGenre)
         contentView.addSubview(watchTrailer)
@@ -155,24 +161,45 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate {
         watchTrailer.addTarget(self, action: #selector(watchTrailerWasPressed), for: .touchUpInside)
         reviewMovie.addTarget(self, action: #selector(reviewMovieWasPressed), for: .touchUpInside)
         
-        let movieHeaderHeight = movieHeader.heightAnchor.constraint(equalToConstant: 281)
+        let movieHeaderHeightCompact = movieHeader.heightAnchor.constraint(equalToConstant: 281)
         
-        NSLayoutConstraint.activate([
+        sharedConstraints.append(contentsOf: [
+               
             movieHeader.topAnchor.constraint(equalTo: contentView.topAnchor),
-            movieHeaderHeight,
-            movieHeader.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: -5),
-            movieHeader.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 5),
-            
+            movieHeader.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            movieHeader.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             movieBanner.widthAnchor.constraint(equalToConstant: 146),
             movieBanner.centerXAnchor.constraint(equalTo: movieHeader.centerXAnchor),
             movieBanner.heightAnchor.constraint(equalToConstant: 212),
-            movieBanner.topAnchor.constraint(equalTo: movieHeader.bottomAnchor, constant: -186),
             movieBanner.widthAnchor.constraint(equalTo: movieBanner.heightAnchor, multiplier: 0.68867925),
             
             movieName.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             movieName.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             movieName.heightAnchor.constraint(equalToConstant: 33),
-            movieName.topAnchor.constraint(equalTo: movieBanner.bottomAnchor, constant: 2),
+            movieName.topAnchor.constraint(equalTo: movieBanner.bottomAnchor, constant: 5),
+                                  
+        ])
+        
+        regularConstraints.append(contentsOf: [
+                                
+            
+            movieBanner.topAnchor.constraint(equalTo: movieHeader.bottomAnchor, constant: -220),
+            movieHeaderHeightCompact
+            
+                                    
+        ])
+        
+        compactConstraints.append(contentsOf: [
+            movieHeaderHeightCompact,
+            movieBanner.topAnchor.constraint(equalTo: movieHeader.bottomAnchor, constant: -186),
+        ])
+        
+        
+        NSLayoutConstraint.activate([
+            //movieHeader.topAnchor.constraint(equalTo: contentView.topAnchor),
+            //movieHeaderHeight,
+            //movieHeader.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: -5),
+            //movieHeader.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 5),
             
             timeAndGenre.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             timeAndGenre.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
@@ -202,12 +229,7 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate {
         imageLoader.loadAsyncImage(from: movie) { image in
             self.movieHeader.image = image
         }
-        
-//        movieBanner.layer.cornerRadius = 7
-//        movieBanner.clipsToBounds = true
-//        movieBanner.layer.borderColor = CGColor.init(red: 255, green: 255, blue: 255, alpha: 0.8)
-        
-       
+
         movieName.text = movie.title
         movieName.textAlignment = .center
         movieName.font = UIFont.boldSystemFont(ofSize: 27)
@@ -229,9 +251,7 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate {
         
         let clearColor = UIColor.black.withAlphaComponent(0.2)
         
-        let gradient = CAGradientLayer()
-        
-        gradient.frame.size.height = movieHeaderHeight.constant + 5
+        gradient.frame.size.height = movieHeaderHeightCompact.constant + 4
         
         gradient.frame.size.width = UIScreen.main.bounds.width + 20
         
@@ -244,6 +264,8 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate {
         movieHeader.addSubview(view)
         movieHeader.bringSubviewToFront(view)
         
+        NSLayoutConstraint.activate(sharedConstraints)
+        layoutTrait(traitCollection: UIScreen.main.traitCollection)
     }
     
     func setupButtonFeatures(button: UIButton, withLabel label: String) {
@@ -252,4 +274,36 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate {
         button.titleLabel?.textAlignment = .center
         button.cornerRadius = 7
     }
+    
+    func layoutTrait(traitCollection:UITraitCollection) {
+        if (!sharedConstraints[0].isActive) {
+           // activating shared constraints
+           NSLayoutConstraint.activate(sharedConstraints)
+        }
+        if traitCollection.horizontalSizeClass == .compact && traitCollection.verticalSizeClass == .regular {
+            if regularConstraints.count > 0 && regularConstraints[0].isActive {
+                NSLayoutConstraint.deactivate(regularConstraints)
+            }
+            // activating compact constraints
+            NSLayoutConstraint.activate(compactConstraints)
+            
+        } else {
+            if compactConstraints.count > 0 && compactConstraints[0].isActive {
+                NSLayoutConstraint.deactivate(compactConstraints)
+            }
+            // activating regular constraints
+            NSLayoutConstraint.activate(regularConstraints)
+            gradient.frame.size.width = UIScreen.main.bounds.width + 20
+        }
+    }
+    
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        layoutTrait(traitCollection: traitCollection)
+        
+    }
+    
 }
