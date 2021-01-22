@@ -59,7 +59,7 @@ class MovieDetailsViewController2: UIViewController {
     func setupDetailsTableView() {
         NSLayoutConstraint.activate([
             detailsTableView.topAnchor.constraint(equalTo: view.topAnchor),
-            detailsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            detailsTableView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor),
             detailsTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             detailsTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
@@ -76,6 +76,7 @@ extension MovieDetailsViewController2: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         if dao.selectedMovie == nil {
             dao.selectedMovie = currentMovie
         }
@@ -99,6 +100,8 @@ extension MovieDetailsViewController2: UITableViewDelegate, UITableViewDataSourc
             let cell = tableView.dequeueReusableCell(withIdentifier: tagsID) as! TagsTableViewCell2
             
             cell.setupCell(movie: movie!)
+            cell.contentView.setNeedsLayout()
+            cell.contentView.layoutIfNeeded()
             
             return cell
             

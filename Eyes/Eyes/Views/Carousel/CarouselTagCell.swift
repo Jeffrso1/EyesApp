@@ -18,6 +18,7 @@ class CarouselTagCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         addSubview(tagsName)
         
         tagsName.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
@@ -43,8 +44,6 @@ class CarouselTagCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.translatesAutoresizingMaskIntoConstraints = false
-        
-        
     }
     
     func setupTagCell(title: String) {

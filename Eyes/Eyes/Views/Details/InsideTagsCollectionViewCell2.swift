@@ -7,7 +7,8 @@
 
 import UIKit
 
-class InsideTagsCollectionViewCell2: UICollectionViewCell {
+class InsideTagsCollectionViewCell2: UICollectionViewCell, UICollectionViewDelegateFlowLayout {
+   
     let tagButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -21,28 +22,50 @@ class InsideTagsCollectionViewCell2: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        self.translatesAutoresizingMaskIntoConstraints = false
         setupButton()
         
     }
     
-    func setupButton() {
-        contentView.addSubview(tagButton)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
-        NSLayoutConstraint.activate([
-            tagButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            tagButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            tagButton.widthAnchor.constraint(equalToConstant: 238),
-            tagButton.topAnchor.constraint(equalTo: contentView.topAnchor),
-            tagButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-        ])
+        addSubview(tagButton)
+        
+        tagButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        tagButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        tagButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 5).isActive = true
+        tagButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -5).isActive = true
+        
+        tagButton.backgroundColor = UIColor(named: "AccentColor")
+        tagButton.setTitleColor(.white, for: .normal)
+        tagButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+        tagButton.sizeToFit()
         
         tagButton.titleLabel?.numberOfLines = 2
         tagButton.titleLabel?.adjustsFontSizeToFitWidth = true
         tagButton.titleLabel?.lineBreakMode = .byClipping
         tagButton.titleLabel?.textAlignment = .center
+         
+        tagButton.contentEdgeInsets = UIEdgeInsets(top: 14.0, left: 20.0, bottom: 14.0, right: 20.0)
         
-       tagButton.contentEdgeInsets = UIEdgeInsets(top: 15.0, left: 30.0, bottom: 15.0, right: 30.0)
+        tagButton.layer.cornerRadius = 7
         
-       tagButton.layer.cornerRadius = 7
     }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    func setupButton() {
+        
+        //contentView.addSubview(tagButton)
+        
+        
+        
+    }
+    
+    
 }

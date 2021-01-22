@@ -8,15 +8,17 @@
 import UIKit
 
 class TagsTableViewCell2: UITableViewCell, DAORequester {
+    
     func updated() {
+       
         DispatchQueue.main.async {
         
             self.tagsCollectionView.reloadData()
         
         }
+        
     }
     
-
     let tagsID = "tagsID"
     var tags : [Tag] = []
     
@@ -42,13 +44,19 @@ class TagsTableViewCell2: UITableViewCell, DAORequester {
     }
     
     func setupCell(movie: Movie) {
+        
         backgroundColor = UIColor.backgroundColor()
+        
         tags = (dao.myMovies[Int(movie.id)]?.tags) ?? []
         
         tagsCollectionView.register(InsideTagsCollectionViewCell2.self, forCellWithReuseIdentifier: tagsID)
         tagsCollectionView.delegate = self
         tagsCollectionView.dataSource = self
         tagsCollectionView.backgroundColor = UIColor.backgroundColor()
+        
+        if let layout = tagsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.scrollDirection = .horizontal
+        }
         
         contentView.addSubview(sessionTitle)
         contentView.addSubview(tagsCollectionView)
@@ -57,18 +65,19 @@ class TagsTableViewCell2: UITableViewCell, DAORequester {
         tagsHeightConstraint.priority = UILayoutPriority(250)
         
         NSLayoutConstraint.activate([
-            sessionTitle.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 29),
+            sessionTitle.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 25),
             sessionTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 29),
             sessionTitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -29),
-            sessionTitle.bottomAnchor.constraint(equalTo: tagsCollectionView.topAnchor, constant: -20),
+            //sessionTitle.bottomAnchor.constraint(equalTo: contentView.topAnchor, constant: -40),
             
             tagsHeightConstraint,
-            tagsCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            tagsCollectionView.topAnchor.constraint(equalTo: sessionTitle.bottomAnchor, constant: 20),
+            tagsCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             tagsCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            tagsCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -25)
+            tagsCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30)
         ])
         
-        sessionTitle.text = "Why should I watch it?"
+        sessionTitle.text = NSLocalizedString("Why Should You Watch It?", comment: "")
         sessionTitle.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
         
     }
@@ -76,15 +85,19 @@ class TagsTableViewCell2: UITableViewCell, DAORequester {
 }
 
 extension TagsTableViewCell2: UICollectionViewDelegate, UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         if tags.count != 0 {
             return tags.count
         } else {
             return 1
         }
+    
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: tagsID, for: indexPath) as! InsideTagsCollectionViewCell2
  
         let langStr = Locale.current.languageCode
@@ -110,4 +123,10 @@ extension TagsTableViewCell2: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     
+}
+
+extension TagsTableViewCell2: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 240, height: 54)
+    }
 }
