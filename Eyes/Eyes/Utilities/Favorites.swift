@@ -22,6 +22,8 @@ class Favorites {
     lazy var favoriteList = defaults.stringArray(forKey: "FavoriteList") ?? [String]()
     var intFavoriteList : [Int] = []
 
+    public var isNewMovieAdded : Bool = false
+    
     
     func checkIfMovieFavoriteButton(movieID:Int, button: UIButton) {
         
@@ -39,6 +41,8 @@ class Favorites {
             favorites.defaults.set(favorites.favoriteList, forKey: "FavoriteList")
             let heart = SFSymbols.heart?.applyingSymbolConfiguration(buttonSC)
             button.setImage(heart, for: .normal)
+            
+            
             
         } else {
             

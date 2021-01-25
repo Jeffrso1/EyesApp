@@ -133,6 +133,8 @@ class CarouselItemVC: UIViewController, DAORequester, CarouselUpdater {
         
         favorites.checkIfMovieFavoriteButton(movieID: movieToAdd, button: favoriteButton)
         
+        favorites.isNewMovieAdded = true
+        
         haptic.setupImpactHaptic(style: .light)
         
     }

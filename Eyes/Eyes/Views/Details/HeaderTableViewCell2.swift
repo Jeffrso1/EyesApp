@@ -270,10 +270,10 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate {
         timeAndGenre.font = UIFont.systemFont(ofSize: 16)
         
         watchTrailer.backgroundColor = UIColor.accentColor()
-        setupButtonFeatures(button: watchTrailer, withLabel: "Watch Trailer")
+        setupButtonFeatures(button: watchTrailer, withLabel: "Watch Trailer", withImage: "film")
         
         reviewMovie.backgroundColor = UIColor.accentColor()
-        setupButtonFeatures(button: reviewMovie, withLabel: "Review Movie")
+        setupButtonFeatures(button: reviewMovie, withLabel: "Review Movie", withImage: "pencil")
         
         //Configurações referentes ao gradiente do MovieHeader
         
@@ -298,8 +298,11 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate {
         layoutTrait(traitCollection: UIScreen.main.traitCollection)
     }
     
-    func setupButtonFeatures(button: UIButton, withLabel label: String) {
+    func setupButtonFeatures(button: UIButton, withLabel label: String, withImage image: String) {
         button.setTitle(label, for: .normal)
+        button.setImage(UIImage(systemName: image), for: .normal)
+        button.imageView?.tintColor = .white
+        button.imageEdgeInsets.left = -10
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
         button.titleLabel?.textAlignment = .center
         button.cornerRadius = 7

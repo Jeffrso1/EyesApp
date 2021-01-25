@@ -52,6 +52,8 @@ class SearchTableViewCell: UITableViewCell {
     
     func setupCell(movie: Movie) {
         
+        backgroundColor = UIColor.backgroundColor()
+        
         addSubview(movieBanner)
         addSubview(movieTitle)
         

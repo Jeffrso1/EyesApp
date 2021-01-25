@@ -118,6 +118,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         searchTableView.rowHeight = UITableView.automaticDimension
         searchTableView.estimatedRowHeight = 50
         searchTableView.tableFooterView = UIView()
+        
+        self.view.backgroundColor = UIColor.backgroundColor()
 
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.topItem?.title = NSLocalizedString("Search", comment: "")
@@ -129,7 +131,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: "results", for: indexPath) as! SearchTableViewCell
  
         cell.setupCell(movie: sortedDictionary[indexPath.row])
-   
+        
         indicator.stopAnimating()
         indicator.hidesWhenStopped = true
         
@@ -168,8 +170,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         NSLayoutConstraint.activate([
             searchTableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             searchTableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            searchTableView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            searchTableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+            searchTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            searchTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
         
         

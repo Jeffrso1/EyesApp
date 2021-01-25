@@ -93,8 +93,8 @@ class FavoritesViewController: UIViewController, DAORequester, FavoritesDelegate
         setupFavoriteCV()
         
         UIView.transition(with: favoritesCollectionView,
-        duration: 0.5,
-        options: .transitionCrossDissolve,
+                          duration: 1.55,
+        options: .curveEaseInOut,
         animations: {})
         
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -130,7 +130,14 @@ class FavoritesViewController: UIViewController, DAORequester, FavoritesDelegate
         navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
         navigationController?.navigationBar.shadowImage = nil
         
+        print(favorites.isNewMovieAdded)
+        
+        if favorites.isNewMovieAdded == true {
+        
         self.favoritesCollectionView.reloadData()
+        favorites.isNewMovieAdded = false
+            
+        }
         
     }
     
@@ -177,7 +184,6 @@ extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDat
         }
         
         return numOfSections
-        
         
     }
     
