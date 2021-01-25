@@ -172,7 +172,7 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate {
   
             movieBanner.widthAnchor.constraint(equalTo: movieBanner.heightAnchor, multiplier: 0.68867925),
             
-            movieName.heightAnchor.constraint(equalToConstant: 33),
+            //movieName.heightAnchor.constraint(equalToConstant: 33),
             watchTrailer.heightAnchor.constraint(equalToConstant: 50),
             reviewMovie.heightAnchor.constraint(equalTo: watchTrailer.heightAnchor),
             watchTrailer.widthAnchor.constraint(equalTo: reviewMovie.widthAnchor),
@@ -273,7 +273,7 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate {
         setupButtonFeatures(button: watchTrailer, withLabel: "Watch Trailer", withImage: "film")
         
         reviewMovie.backgroundColor = UIColor.accentColor()
-        setupButtonFeatures(button: reviewMovie, withLabel: "Review Movie", withImage: "pencil")
+        setupButtonFeatures(button: reviewMovie, withLabel: "Review Movie", withImage: "square.and.pencil")
         
         //Configurações referentes ao gradiente do MovieHeader
         

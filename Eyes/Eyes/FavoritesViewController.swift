@@ -94,7 +94,7 @@ class FavoritesViewController: UIViewController, DAORequester, FavoritesDelegate
         
         UIView.transition(with: favoritesCollectionView,
                           duration: 1.55,
-        options: .curveEaseInOut,
+                          options: .transitionCurlUp,
         animations: {})
         
         navigationController?.navigationBar.prefersLargeTitles = true

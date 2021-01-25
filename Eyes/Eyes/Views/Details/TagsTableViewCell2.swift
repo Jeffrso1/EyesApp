@@ -101,7 +101,7 @@ class TagsTableViewCell2: UITableViewCell, DAORequester {
             sessionTitle.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 25),
             tagsHeightConstraint,
             tagsCollectionView.topAnchor.constraint(equalTo: sessionTitle.bottomAnchor, constant: 20),
-            tagsCollectionView.leadingAnchor.constraint(equalTo: sessionTitle.leadingAnchor),
+           
             tagsCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             tagsCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
             
@@ -110,6 +110,7 @@ class TagsTableViewCell2: UITableViewCell, DAORequester {
         regularConstraints.append(contentsOf: [
             
             sessionTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 100),
+            tagsCollectionView.leadingAnchor.constraint(equalTo: sessionTitle.leadingAnchor),
             tagsiPadHeight            
         ])
         
@@ -117,6 +118,7 @@ class TagsTableViewCell2: UITableViewCell, DAORequester {
             
             sessionTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 29),
             sessionTitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -29),
+            tagsCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             
         ])
         

@@ -35,10 +35,10 @@ class InsideTagsCollectionViewCell2: UICollectionViewCell, UICollectionViewDeleg
         
         tagButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         tagButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        tagButton.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
+        tagButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
         tagButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -5).isActive = true
         
-        tagButton.backgroundColor = UIColor(named: "AccentColor")
+        tagButton.backgroundColor = UIColor.accentColor()
         tagButton.setTitleColor(.white, for: .normal)
         tagButton.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
         tagButton.sizeToFit()

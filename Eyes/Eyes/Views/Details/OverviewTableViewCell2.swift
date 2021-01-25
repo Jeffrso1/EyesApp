@@ -92,6 +92,7 @@ class OverviewTableViewCell2: UITableViewCell {
 
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 29),
             titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -29),
+            overviewLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20)
             
         ])
         
