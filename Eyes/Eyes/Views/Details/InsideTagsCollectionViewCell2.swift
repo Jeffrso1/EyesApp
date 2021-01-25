@@ -48,7 +48,7 @@ class InsideTagsCollectionViewCell2: UICollectionViewCell, UICollectionViewDeleg
         tagButton.titleLabel?.lineBreakMode = .byClipping
         tagButton.titleLabel?.textAlignment = .center
          
-        tagButton.contentEdgeInsets = UIEdgeInsets(top: 14.0, left: 20.0, bottom: 14.0, right: 20.0)
+        tagButton.contentEdgeInsets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
         
         tagButton.layer.cornerRadius = 7
         

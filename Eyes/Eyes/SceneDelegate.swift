@@ -36,7 +36,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         
         let mainNavController = UINavigationController(rootViewController: CatalogueViewController2())
-        mainNavController.tabBarItem = UITabBarItem(title: "Em Alta", image: UIImage(systemName: "clock"), tag: 0)
+        mainNavController.tabBarItem = UITabBarItem(title: "Início", image: UIImage(systemName: "house"), tag: 0)
         
         let favoritesNavController = UINavigationController(rootViewController: FavoritesViewController())
         favoritesNavController.tabBarItem = UITabBarItem(title: "Favoritos", image: UIImage(systemName: "heart"), tag: 1)
