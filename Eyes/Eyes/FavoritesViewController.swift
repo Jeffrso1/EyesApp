@@ -245,6 +245,13 @@ extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDat
 
 extension FavoritesViewController: UICollectionViewDelegateFlowLayout {
     
+    func constraintsForiPad() {
+        
+        noFavoritesLabel.font = UIFont.systemFont(ofSize: 40, weight: .bold)
+        noFavoritesMessageLabel.font = UIFont.systemFont(ofSize: 21, weight: .regular)
+        
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let fullWidth = UIScreen.main.bounds.width - (40)
         let horizontalSpacing: CGFloat = 20
@@ -279,10 +286,15 @@ extension FavoritesViewController: UICollectionViewDelegateFlowLayout {
             }
             // activating regular constraints
             NSLayoutConstraint.activate(regularConstraints)
-            numberOfItems = 6
+            numberOfItems = 8
+            constraintsForiPad()
             favoritesCollectionView.layoutIfNeeded()
             
         }
+        
+       
+        
+        
     }
     
     

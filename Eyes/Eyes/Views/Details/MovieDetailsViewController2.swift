@@ -89,6 +89,7 @@ class MovieDetailsViewController2: UIViewController {
        
         
     }
+    
 }
 
 extension MovieDetailsViewController2: UITableViewDelegate, UITableViewDataSource {
@@ -134,7 +135,7 @@ extension MovieDetailsViewController2: UITableViewDelegate, UITableViewDataSourc
             
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: castID) as! CastListTableViewCell2
-            cell.backgroundColor = .systemPink
+            cell.backgroundColor = UIColor.backgroundColor()
             return cell
             
         default:
@@ -184,6 +185,7 @@ extension MovieDetailsViewController2: UITableViewDelegate, UITableViewDataSourc
 }
 
 extension MovieDetailsViewController2: UIScrollViewDelegate {
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
                 

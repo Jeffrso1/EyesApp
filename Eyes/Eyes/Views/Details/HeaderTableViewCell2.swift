@@ -34,6 +34,7 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate {
     let movieName: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 2
         return label
     }()
     
@@ -46,12 +47,14 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate {
     let watchTrailer: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
         return button
     }()
     
     let reviewMovie: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
         return button
     }()
     
@@ -166,56 +169,75 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate {
         sharedConstraints.append(contentsOf: [
                
             movieHeader.topAnchor.constraint(equalTo: contentView.topAnchor),
-            movieHeader.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            movieHeader.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            movieBanner.widthAnchor.constraint(equalToConstant: 146),
-            movieBanner.centerXAnchor.constraint(equalTo: movieHeader.centerXAnchor),
-            movieBanner.heightAnchor.constraint(equalToConstant: 212),
+  
             movieBanner.widthAnchor.constraint(equalTo: movieBanner.heightAnchor, multiplier: 0.68867925),
             
-            movieName.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            movieName.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             movieName.heightAnchor.constraint(equalToConstant: 33),
-            movieName.topAnchor.constraint(equalTo: movieBanner.bottomAnchor, constant: 5),
-                                  
+            watchTrailer.heightAnchor.constraint(equalToConstant: 50),
+            reviewMovie.heightAnchor.constraint(equalTo: watchTrailer.heightAnchor),
+            watchTrailer.widthAnchor.constraint(equalTo: reviewMovie.widthAnchor),
+            
         ])
         
         regularConstraints.append(contentsOf: [
                                 
+            movieHeader.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            movieHeader.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             
-            movieBanner.topAnchor.constraint(equalTo: movieHeader.bottomAnchor, constant: -220),
+            movieBanner.widthAnchor.constraint(equalToConstant: 164),
+            movieBanner.heightAnchor.constraint(equalToConstant: 230),
+            movieBanner.topAnchor.constraint(equalTo: movieHeader.bottomAnchor, constant: -200),
+            movieBanner.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 100),
+            movieBanner.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -50),
+            
+            movieName.leadingAnchor.constraint(equalTo: movieBanner.trailingAnchor, constant: 20),
+            movieName.bottomAnchor.constraint(equalTo: timeAndGenre.topAnchor, constant: -5),
+            
+            timeAndGenre.leadingAnchor.constraint(equalTo: movieName.leadingAnchor),
+            timeAndGenre.bottomAnchor.constraint(equalTo: movieBanner.bottomAnchor, constant: -15),
+            
+            reviewMovie.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -50),
+           // watchTrailer.centerYAnchor.constraint(equalTo: movieName.centerYAnchor),
+            watchTrailer.bottomAnchor.constraint(equalTo: movieBanner.bottomAnchor, constant: -15),
+            
+            reviewMovie.leadingAnchor.constraint(equalTo: watchTrailer.trailingAnchor, constant: 20),
+            reviewMovie.centerYAnchor.constraint(equalTo: watchTrailer.centerYAnchor),
+            
             movieHeaderHeightCompact
-            
+  
                                     
         ])
         
         compactConstraints.append(contentsOf: [
+            
             movieHeaderHeightCompact,
+            movieHeader.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            movieHeader.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            
+            movieBanner.centerXAnchor.constraint(equalTo: movieHeader.centerXAnchor),
             movieBanner.topAnchor.constraint(equalTo: movieHeader.bottomAnchor, constant: -186),
-        ])
-        
-        
-        NSLayoutConstraint.activate([
-            //movieHeader.topAnchor.constraint(equalTo: contentView.topAnchor),
-            //movieHeaderHeight,
-            //movieHeader.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: -5),
-            //movieHeader.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 5),
+            movieBanner.widthAnchor.constraint(equalToConstant: 146),
+            movieBanner.heightAnchor.constraint(equalToConstant: 212),
+            
+            movieName.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            movieName.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            movieName.topAnchor.constraint(equalTo: movieBanner.bottomAnchor, constant: 5),
             
             timeAndGenre.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             timeAndGenre.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            timeAndGenre.heightAnchor.constraint(equalToConstant: 25),
-            timeAndGenre.topAnchor.constraint(equalTo: movieName.bottomAnchor),
             
+            timeAndGenre.topAnchor.constraint(equalTo: movieName.bottomAnchor),
+            timeAndGenre.heightAnchor.constraint(equalToConstant: 25),
+            
+            watchTrailer.topAnchor.constraint(equalTo: timeAndGenre.bottomAnchor, constant: 15),
+            
+            watchTrailer.centerYAnchor.constraint(equalTo: reviewMovie.centerYAnchor),
             watchTrailer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             watchTrailer.trailingAnchor.constraint(equalTo: reviewMovie.leadingAnchor, constant: -34),
-            watchTrailer.widthAnchor.constraint(equalTo: reviewMovie.widthAnchor),
-            watchTrailer.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -19),
-            watchTrailer.heightAnchor.constraint(equalToConstant: 50),
-            watchTrailer.centerYAnchor.constraint(equalTo: reviewMovie.centerYAnchor),
-            watchTrailer.topAnchor.constraint(equalTo: timeAndGenre.bottomAnchor, constant: 20),
             
             reviewMovie.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            reviewMovie.heightAnchor.constraint(equalTo: watchTrailer.heightAnchor)
+            
+            watchTrailer.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -19),
             
         ])
         
@@ -234,7 +256,15 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate {
         movieName.textAlignment = .center
         movieName.font = UIFont.boldSystemFont(ofSize: 27)
         
+        if movie.durationText != "n/a" && movie.genreText != "n/a" {
+        
         timeAndGenre.text = movie.durationText + " • " + movie.genreText
+            
+        } else {
+            
+        timeAndGenre.text = dao.selectedMovie!.durationText + " • " + dao.selectedMovie!.genreText
+            
+        }
         
         timeAndGenre.textAlignment = .center
         timeAndGenre.font = UIFont.systemFont(ofSize: 16)
@@ -293,9 +323,17 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate {
             }
             // activating regular constraints
             NSLayoutConstraint.activate(regularConstraints)
-            gradient.frame.size.width = UIScreen.main.bounds.width + 20
+            constraintsForiPad()
         }
     }
+    
+    func constraintsForiPad() {
+        
+        gradient.frame.size.width = UIScreen.main.bounds.width + 20
+        movieName.font = UIFont.boldSystemFont(ofSize: 32)
+ 
+    }
+    
     
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {

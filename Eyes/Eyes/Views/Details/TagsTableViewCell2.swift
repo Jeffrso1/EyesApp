@@ -9,6 +9,11 @@ import UIKit
 
 class TagsTableViewCell2: UITableViewCell, DAORequester {
     
+    private var compactConstraints: [NSLayoutConstraint] = []
+    private var regularConstraints: [NSLayoutConstraint] = []
+    private var sharedConstraints: [NSLayoutConstraint] = []
+    
+    
     func updated() {
        
         DispatchQueue.main.async {
@@ -45,6 +50,28 @@ class TagsTableViewCell2: UITableViewCell, DAORequester {
 
     }
     
+    func layoutTrait(traitCollection:UITraitCollection) {
+        if (!sharedConstraints[0].isActive) {
+           // activating shared constraints
+           NSLayoutConstraint.activate(sharedConstraints)
+        }
+        if traitCollection.horizontalSizeClass == .compact && traitCollection.verticalSizeClass == .regular {
+            if regularConstraints.count > 0 && regularConstraints[0].isActive {
+                NSLayoutConstraint.deactivate(regularConstraints)
+            }
+            // activating compact constraints
+            NSLayoutConstraint.activate(compactConstraints)
+            
+        } else {
+            if compactConstraints.count > 0 && compactConstraints[0].isActive {
+                NSLayoutConstraint.deactivate(compactConstraints)
+            }
+            // activating regular constraints
+            NSLayoutConstraint.activate(regularConstraints)
+        }
+    }
+    
+    
     func setupCell(movie: Movie) {
         
         backgroundColor = UIColor.backgroundColor()
@@ -66,21 +93,39 @@ class TagsTableViewCell2: UITableViewCell, DAORequester {
         
         let tagsHeightConstraint = tagsCollectionView.heightAnchor.constraint(equalToConstant: 208)
         tagsHeightConstraint.priority = UILayoutPriority(999)
+        let tagsiPadHeight = tagsCollectionView.heightAnchor.constraint(equalToConstant: 100)
         
-        NSLayoutConstraint.activate([
+        
+        sharedConstraints.append(contentsOf: [
+            
             sessionTitle.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 25),
+            tagsHeightConstraint,
+            tagsCollectionView.topAnchor.constraint(equalTo: sessionTitle.bottomAnchor, constant: 20),
+            tagsCollectionView.leadingAnchor.constraint(equalTo: sessionTitle.leadingAnchor),
+            tagsCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            tagsCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            
+        ])
+        
+        regularConstraints.append(contentsOf: [
+            
+            sessionTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 100),
+            tagsiPadHeight            
+        ])
+        
+        compactConstraints.append(contentsOf: [
+            
             sessionTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 29),
             sessionTitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -29),
             
-            tagsHeightConstraint,
-            tagsCollectionView.topAnchor.constraint(equalTo: sessionTitle.bottomAnchor, constant: 20),
-            tagsCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            tagsCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            tagsCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
         
         sessionTitle.text = NSLocalizedString("Why Should You Watch It?", comment: "")
         sessionTitle.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
+        
+        
+        NSLayoutConstraint.activate(sharedConstraints)
+        layoutTrait(traitCollection: UIScreen.main.traitCollection)
         
     }
     

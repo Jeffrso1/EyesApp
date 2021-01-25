@@ -25,7 +25,7 @@ class FavoritesCell: UICollectionViewCell, UIContextMenuInteractionDelegate, Fav
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 7
+        imageView.layer.cornerRadius = 10
         
         return imageView
     }()
