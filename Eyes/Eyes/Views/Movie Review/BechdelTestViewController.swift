@@ -314,7 +314,12 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
         posterImage.layer.cornerRadius = 7
         let blurEffect = UIBlurEffect(style: .light)
         let blurView = UIVisualEffectView(effect: blurEffect)
-        blurView.frame = posterBlurImage.bounds
+        
+        blurView.frame.size.width = UIScreen.main.bounds.width
+        
+        blurView.frame.size.height = (posterBlurImage.image?.size.height)!
+        
+        //blurView.frame = posterBlurImage.frame
         posterBlurImage.addSubview(blurView)
         
     }

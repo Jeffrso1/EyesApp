@@ -35,11 +35,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
-        let mainNavController = UINavigationController(rootViewController: CatalogueViewController2())
-        mainNavController.tabBarItem = UITabBarItem(title: "Início", image: UIImage(systemName: "house"), tag: 0)
+        let mainNavController = UINavigationController(rootViewController: HomeViewController())
+        mainNavController.tabBarItem = UITabBarItem(title: NSLocalizedString("Home", comment: ""), image: UIImage(systemName: "house"), tag: 0)
         
         let favoritesNavController = UINavigationController(rootViewController: FavoritesViewController())
-        favoritesNavController.tabBarItem = UITabBarItem(title: "Favoritos", image: UIImage(systemName: "heart"), tag: 1)
+        favoritesNavController.tabBarItem = UITabBarItem(title: NSLocalizedString("Favorites", comment: ""), image: UIImage(systemName: "heart"), tag: 1)
         
         let searchNavController = UINavigationController(rootViewController: SearchViewController())
         searchNavController.tabBarItem = UITabBarItem(title: NSLocalizedString("Search", comment: ""), image: UIImage(systemName: "magnifyingglass"), tag: 2)

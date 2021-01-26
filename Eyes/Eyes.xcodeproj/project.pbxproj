@@ -43,6 +43,11 @@
 		CF58120B25757791001C08BD /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF58120A25757791001C08BD /* SearchTableViewCell.swift */; };
 		CF5A8640255C736200DDE395 /* AboutDevTeamCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A863F255C736200DDE395 /* AboutDevTeamCollectionViewCell.swift */; };
 		CF5A8648255C762E00DDE395 /* AboutDevTeamVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5A8647255C762E00DDE395 /* AboutDevTeamVC.swift */; };
+		CF5F1E0D25C077F0001F76CD /* UIImageColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5F1E0C25C077F0001F76CD /* UIImageColors.swift */; };
+		CF5F1E1225C07C7F001F76CD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5F1E1125C07C7F001F76CD /* HomeViewController.swift */; };
+		CF5F1E1725C07E89001F76CD /* HeaderHomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5F1E1625C07E89001F76CD /* HeaderHomeTableViewCell.swift */; };
+		CF5F1E1C25C090AC001F76CD /* MovieListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5F1E1B25C090AC001F76CD /* MovieListTableViewCell.swift */; };
+		CF5F1E2125C091B4001F76CD /* MovieItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5F1E2025C091B4001F76CD /* MovieItemCollectionViewCell.swift */; };
 		CF72DC44257A492300D8E252 /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF72DC43257A492300D8E252 /* Favorites.swift */; };
 		CF79537B255EBD3100AEF5A8 /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF79537A255EBD3100AEF5A8 /* Haptic.swift */; };
 		CF846D7D25422E9000BBC7D3 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF846D7C25422E9000BBC7D3 /* Question.swift */; };
@@ -146,6 +151,11 @@
 		CF58120A25757791001C08BD /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		CF5A863F255C736200DDE395 /* AboutDevTeamCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDevTeamCollectionViewCell.swift; sourceTree = "<group>"; };
 		CF5A8647255C762E00DDE395 /* AboutDevTeamVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDevTeamVC.swift; sourceTree = "<group>"; };
+		CF5F1E0C25C077F0001F76CD /* UIImageColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageColors.swift; sourceTree = "<group>"; };
+		CF5F1E1125C07C7F001F76CD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		CF5F1E1625C07E89001F76CD /* HeaderHomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderHomeTableViewCell.swift; sourceTree = "<group>"; };
+		CF5F1E1B25C090AC001F76CD /* MovieListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListTableViewCell.swift; sourceTree = "<group>"; };
+		CF5F1E2025C091B4001F76CD /* MovieItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		CF72DC43257A492300D8E252 /* Favorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		CF79537A255EBD3100AEF5A8 /* Haptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptic.swift; sourceTree = "<group>"; };
 		CF846D7C25422E9000BBC7D3 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
@@ -318,6 +328,7 @@
 				CFFE89AA253E2819002BD1BA /* Utils.swift */,
 				CF79537A255EBD3100AEF5A8 /* Haptic.swift */,
 				CFAE47BD2541CE7900244D74 /* Images.swift */,
+				CF5F1E0C25C077F0001F76CD /* UIImageColors.swift */,
 				CF38469625814AED0057C004 /* ActivityController.swift */,
 				CFAE47B42541CB8700244D74 /* Buttons.swift */,
 				CF09B0082562E3AA00645FAC /* ShareImage.swift */,
@@ -355,6 +366,10 @@
 			children = (
 				713367712541F2A5005919E8 /* CatalogueViewController.swift */,
 				716A0E0525B61A9A00BDB23C /* CatalogueViewController2.swift */,
+				CF5F1E1125C07C7F001F76CD /* HomeViewController.swift */,
+				CF5F1E1625C07E89001F76CD /* HeaderHomeTableViewCell.swift */,
+				CF5F1E1B25C090AC001F76CD /* MovieListTableViewCell.swift */,
+				CF5F1E2025C091B4001F76CD /* MovieItemCollectionViewCell.swift */,
 				CFB73C522559C4B000F7B7C9 /* CarouselPageVC.swift */,
 				CFE01210255B27B500F29B6C /* CarouselItemVC.swift */,
 				7133677B2541F4A9005919E8 /* CarouselItemView.swift */,
@@ -646,6 +661,7 @@
 			files = (
 				CF907E22253F308100124BB5 /* DAO.swift in Sources */,
 				CFFE89A6253E2815002BD1BA /* ImageLoader.swift in Sources */,
+				CF5F1E1C25C090AC001F76CD /* MovieListTableViewCell.swift in Sources */,
 				CFFE89A5253E2815002BD1BA /* MovieSearchState.swift in Sources */,
 				CFB73C532559C4B000F7B7C9 /* CarouselPageVC.swift in Sources */,
 				CF424FA82546352000C85A37 /* ChooseTagsCollectionViewCell.swift in Sources */,
@@ -673,6 +689,7 @@
 				716A0E0E25B76BA000BDB23C /* MovieDetailsViewController2.swift in Sources */,
 				CF424FA325462EFB00C85A37 /* TagButton.swift in Sources */,
 				CFFE89BD253E2829002BD1BA /* MovieService.swift in Sources */,
+				CF5F1E2125C091B4001F76CD /* MovieItemCollectionViewCell.swift in Sources */,
 				CFFE89BE253E2829002BD1BA /* Movie+Stub.swift in Sources */,
 				CFC47C5025519AAA001CB77E /* CastListTableViewCell.swift in Sources */,
 				716A0E1D25B7866E00BDB23C /* TagsTableViewCell2.swift in Sources */,
@@ -683,6 +700,7 @@
 				CFFE89A3253E2815002BD1BA /* MovieDetailState.swift in Sources */,
 				CFAE47BE2541CE7900244D74 /* Images.swift in Sources */,
 				CF72DC44257A492300D8E252 /* Favorites.swift in Sources */,
+				CF5F1E0D25C077F0001F76CD /* UIImageColors.swift in Sources */,
 				CFB76C0C254A0F9F00C3C6A1 /* EndReviewViewController.swift in Sources */,
 				CF846D7D25422E9000BBC7D3 /* Question.swift in Sources */,
 				CFE01211255B27B500F29B6C /* CarouselItemVC.swift in Sources */,
@@ -696,12 +714,14 @@
 				CFD17EBD255AB5FA00AF61F6 /* AboutTableViewCell.swift in Sources */,
 				CFFE896F253E27F6002BD1BA /* SceneDelegate.swift in Sources */,
 				CF846D8B2543504A00BBC7D3 /* TagVotes.swift in Sources */,
+				CF5F1E1725C07E89001F76CD /* HeaderHomeTableViewCell.swift in Sources */,
 				CF1337ED254B297E00B377C6 /* AboutAppViewController.swift in Sources */,
 				711553902578126A0068C0E1 /* FavoritesCell.swift in Sources */,
 				CF5811F225755F02001C08BD /* SearchViewController.swift in Sources */,
 				CFE011FF255B277400F29B6C /* TagsTableViewCell.swift in Sources */,
 				716A0E1825B7846D00BDB23C /* OverviewTableViewCell2.swift in Sources */,
 				CFE01208255B278500F29B6C /* OverviewTableViewCell.swift in Sources */,
+				CF5F1E1225C07C7F001F76CD /* HomeViewController.swift in Sources */,
 				7184A569255B4D180078CDBA /* CarouselTagCell.swift in Sources */,
 				CF9A7D482555D38200D6748C /* InsideTagsCollectionViewCell.swift in Sources */,
 				CF38469725814AED0057C004 /* ActivityController.swift in Sources */,

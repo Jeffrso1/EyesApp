@@ -75,7 +75,7 @@ class AboutAppViewController: UIViewController, UITableViewDataSource, UITableVi
                // dataToSend = "phone"
             }
 
-            var safariVC = SFSafariViewController(url: URL(string: url)!)
+            let safariVC = SFSafariViewController(url: URL(string: url)!)
             safariVC.delegate = self
             
             present(safariVC, animated: true, completion: nil)

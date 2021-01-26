@@ -64,7 +64,7 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate {
     
     var delegate: MovieReviewDelegate!
     
-    var currentMovie = dao.movies[Array(dao.movies)[dao.currentMovie].key]
+//    var currentMovie = dao.movies[Array(dao.movies)[dao.currentMovie].key]
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -280,10 +280,12 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate {
         timeAndGenre.textAlignment = .center
         timeAndGenre.font = UIFont.systemFont(ofSize: 16)
         
-        watchTrailer.backgroundColor = UIColor.accentColor()
+        
+        self.watchTrailer.backgroundColor = UIColor.accentColor()
+        
         setupButtonFeatures(button: watchTrailer, withLabel: "Watch Trailer", withImage: "film")
         
-        reviewMovie.backgroundColor = UIColor.accentColor()
+        self.reviewMovie.backgroundColor = UIColor.accentColor()
         setupButtonFeatures(button: reviewMovie, withLabel: "Review Movie", withImage: "square.and.pencil")
         
         //Configurações referentes ao gradiente do MovieHeader

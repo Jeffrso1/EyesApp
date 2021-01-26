@@ -21,7 +21,7 @@ class MovieDetailsViewController2: UIViewController {
     private var sharedConstraints: [NSLayoutConstraint] = []
     
     var movie: Movie?
-    var currentMovie = dao.movies[Array(dao.movies)[dao.currentMovie].key]
+    //var currentMovie = dao.movies[Array(dao.movies)[dao.currentMovie].key]
     
     let detailsTableView: UITableView = {
         let tableView = UITableView()
@@ -105,7 +105,7 @@ extension MovieDetailsViewController2: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if dao.selectedMovie == nil {
-            dao.selectedMovie = currentMovie
+            //dao.selectedMovie = currentMovie
         }
         
         switch indexPath.section {

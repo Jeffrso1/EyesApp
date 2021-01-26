@@ -53,7 +53,7 @@ class Alert: UIViewController, MFMailComposeViewControllerDelegate {
         func sendEmail(movie: Movie) {
             if MFMailComposeViewController.canSendMail() {
                 let mail = MFMailComposeViewController()
-                mail.mailComposeDelegate = vc as! MFMailComposeViewControllerDelegate
+                mail.mailComposeDelegate = vc as? MFMailComposeViewControllerDelegate
                 mail.setToRecipients(["contact.eyesapp@gmail.com"])
                 mail.setSubject("\(NSLocalizedString("Report Issue:", comment: "")) \(movie.title)")
                 mail.setMessageBody("<p><h3>\(NSLocalizedString("Please, describe the issue regarding", comment: "")) \(movie.title).</h3></p>\(NSLocalizedString("If it is related to one or more tags, please list them all and why they are not correct", comment: ""))</p>", isHTML: true)
