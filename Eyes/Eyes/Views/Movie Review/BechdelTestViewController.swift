@@ -27,7 +27,7 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
     var selectedTags: [Tag] = []
     var tagsSelected : [TagSelected] = []
     
-    var currentMovie = dao.movies[Array(dao.movies)[dao.currentMovie].key]
+    //var currentMovie = dao.movies[Array(dao.movies)[dao.currentMovie].key]
     
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var posterBlurImage: UIImageView!
@@ -59,7 +59,7 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
         navigationBar.configNavBar(view: self)
         
         if dao.selectedMovie == nil {
-            dao.selectedMovie = currentMovie
+            //dao.selectedMovie = currentMovie
         }
         
         setupFlowLayout()

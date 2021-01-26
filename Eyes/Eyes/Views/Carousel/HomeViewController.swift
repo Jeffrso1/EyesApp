@@ -9,6 +9,8 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    var lastOffsetY : CGFloat = 0
+    
     let headerID = "header"
     let listsID = "list"
     
@@ -173,4 +175,46 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 //        self.navigationController?.navigationBar.shadowImage = UIImage()
 //    }
 
+}
+
+
+extension HomeViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+                
+        let transition = CATransition()
+        transition.duration = 0.6
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+        transition.type = CATransitionType.fade
+        
+        scrollView.contentInsetAdjustmentBehavior = .never
+        
+        lastOffsetY = scrollView.contentOffset.y
+        
+        if lastOffsetY > 60 {
+        
+            UIView.animate(withDuration: 0.5, animations: {
+               
+                self.navigationController?.navigationBar.alpha = 1.0
+                self.navigationController?.navigationBar.setBackgroundImage(nil, for: UIBarMetrics.default)
+                self.navigationController?.navigationBar.shadowImage = nil
+                self.navigationController?.navigationBar.isTranslucent = true
+                self.navigationController?.view.backgroundColor = UIColor.black
+                
+            }, completion: nil)
+            
+        } else {
+          
+            
+            UIView.animate(withDuration: 0.5, animations: {
+            self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+            self.navigationController?.navigationBar.shadowImage = UIImage()
+           // self.navigationController?.navigationBar.alpha = 0.8
+                
+            }, completion: nil)
+        }
+        
+        
+    }
 }
