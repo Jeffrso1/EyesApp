@@ -68,6 +68,7 @@ class TagsTableViewCell2: UITableViewCell, DAORequester {
             }
             // activating regular constraints
             NSLayoutConstraint.activate(regularConstraints)
+            sessionTitle.font = UIFont.boldSystemFont(ofSize: 27)
         }
     }
     

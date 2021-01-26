@@ -56,6 +56,8 @@ class OverviewTableViewCell2: UITableViewCell {
             }
             // activating regular constraints
             NSLayoutConstraint.activate(regularConstraints)
+            titleLabel.font = UIFont.boldSystemFont(ofSize: 27)
+            overviewLabel.font = UIFont.systemFont(ofSize: 20)
         }
     }
     
@@ -73,7 +75,6 @@ class OverviewTableViewCell2: UITableViewCell {
         
         sharedConstraints.append(contentsOf: [
                
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 29),
             overviewLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             overviewLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -29),
             overviewLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
@@ -83,13 +84,15 @@ class OverviewTableViewCell2: UITableViewCell {
         
         regularConstraints.append(contentsOf: [
  
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 100),
-            overviewLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -400),
+            overviewLabel.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -40),
         
         ])
         
         compactConstraints.append(contentsOf: [
 
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 29),
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 29),
             titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -29),
             overviewLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20)

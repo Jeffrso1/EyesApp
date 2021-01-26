@@ -33,7 +33,7 @@ class CarouselItemVC: UIViewController, DAORequester, CarouselUpdater {
     
     func updateCarousel() {
         
-        print("ATUALIZOU")
+        print("Carousel Movie has Updated")
         
         DispatchQueue.main.async {
             self.tagsCV.reloadData()
@@ -336,6 +336,7 @@ class CarouselItemVC: UIViewController, DAORequester, CarouselUpdater {
 //            favoriteButton.setImage(heart, for: .normal)
 //        }
 
+       
         favoriteButton.centerYAnchor.constraint(equalTo: movieName.centerYAnchor).isActive = true
         favoriteButton.rightAnchor.constraint(lessThanOrEqualTo: view.layoutMarginsGuide.rightAnchor).isActive = true
         

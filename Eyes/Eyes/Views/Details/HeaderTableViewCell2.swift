@@ -177,13 +177,13 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate {
         
         let movieHeaderHeightCompact = movieHeader.heightAnchor.constraint(equalToConstant: 281)
         
+        let movieNameTrailing = movieName.trailingAnchor.constraint(lessThanOrEqualTo: centerXAnchor)
+        movieNameTrailing.priority = UILayoutPriority(999)
+        
         sharedConstraints.append(contentsOf: [
                
             movieHeader.topAnchor.constraint(equalTo: contentView.topAnchor),
-  
             movieBanner.widthAnchor.constraint(equalTo: movieBanner.heightAnchor, multiplier: 0.68867925),
-            
-            //movieName.heightAnchor.constraint(equalToConstant: 33),
             watchTrailer.heightAnchor.constraint(equalToConstant: 50),
             reviewMovie.heightAnchor.constraint(equalTo: watchTrailer.heightAnchor),
             watchTrailer.widthAnchor.constraint(equalTo: reviewMovie.widthAnchor),
@@ -203,12 +203,12 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate {
             
             movieName.leadingAnchor.constraint(equalTo: movieBanner.trailingAnchor, constant: 20),
             movieName.bottomAnchor.constraint(equalTo: timeAndGenre.topAnchor, constant: -5),
+            movieNameTrailing,
             
             timeAndGenre.leadingAnchor.constraint(equalTo: movieName.leadingAnchor),
             timeAndGenre.bottomAnchor.constraint(equalTo: movieBanner.bottomAnchor, constant: -15),
             
             reviewMovie.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -50),
-           // watchTrailer.centerYAnchor.constraint(equalTo: movieName.centerYAnchor),
             watchTrailer.bottomAnchor.constraint(equalTo: movieBanner.bottomAnchor, constant: -15),
             
             reviewMovie.leadingAnchor.constraint(equalTo: watchTrailer.trailingAnchor, constant: 20),

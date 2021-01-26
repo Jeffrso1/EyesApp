@@ -42,6 +42,7 @@ class MovieDetailsViewController2: UIViewController {
         detailsTableView.estimatedRowHeight = 100
         detailsTableView.rowHeight = UITableView.automaticDimension
         detailsTableView.tableFooterView = UIView()
+        detailsTableView.separatorStyle = .none
         detailsTableView.backgroundColor = UIColor.backgroundColor()
         
         view.addSubview(detailsTableView)
