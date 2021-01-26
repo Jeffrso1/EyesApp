@@ -112,6 +112,7 @@ extension MovieDetailsViewController2: UITableViewDelegate, UITableViewDataSourc
             let cell = tableView.dequeueReusableCell(withIdentifier: headerID) as! HeaderTableViewCell2
             
             cell.setupCell(movie: movie!)
+            cell.mainViewController = self
             
             return cell
             
@@ -126,10 +127,6 @@ extension MovieDetailsViewController2: UITableViewDelegate, UITableViewDataSourc
             let cell = tableView.dequeueReusableCell(withIdentifier: tagsID) as! TagsTableViewCell2
             
             cell.setupCell(movie: movie!)
-//            cell.frame = detailsTableView.bounds
-//            cell.layoutIfNeeded()
-//            cell.tagsCollectionView.reloadData()
-//            cell.collectionViewHeight = cell.tagsCollectionView.collectionViewLayout.collectionViewContentSize.height
             
             return cell
             

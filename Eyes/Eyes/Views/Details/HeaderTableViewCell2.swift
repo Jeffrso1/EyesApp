@@ -16,6 +16,8 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate {
     
     let gradient = CAGradientLayer()
     
+    var mainViewController = UIViewController()
+    
     let movieHeader: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -132,6 +134,15 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate {
         if(self.delegate != nil){ //Just to be safe.
             self.delegate.callSegueFromCell(dataObject: movie!)
         }
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let nextScene = storyboard.instantiateViewController(withIdentifier: "BechdelTestViewController") as! BechdelTestViewController
+    
+        //Passa o filme para a variável "movie" da MovieDetailsViewController
+        nextScene.movie = movie
+        
+        self.mainViewController.navigationController?.pushViewController(nextScene, animated: true)
         
         haptic.setupImpactHaptic(style: .light)
     }

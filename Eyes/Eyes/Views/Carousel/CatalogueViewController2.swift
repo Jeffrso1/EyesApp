@@ -11,6 +11,15 @@ class CatalogueViewController2: UIViewController {
     
     @objc func reviewButtonWasPressed(sender: UIButton!) {
         print("REVIEW BUTTON WAS PRESSED!")
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let nextScene = storyboard.instantiateViewController(withIdentifier: "BechdelTestViewController") as! BechdelTestViewController
+    
+        //Passa o filme para a variável "movie" da MovieDetailsViewController
+        nextScene.movie = dao.movies[Array(dao.movies)[dao.currentMovie].key]
+        
+        navigationController?.pushViewController(nextScene, animated: true)
     }
     
     @objc func detailsButtonWasPressed(sender: UIButton!) {
@@ -51,6 +60,7 @@ class CatalogueViewController2: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.navigationController?.isNavigationBarHidden = true
         view.backgroundColor = UIColor.backgroundColor()
         
@@ -77,6 +87,7 @@ class CatalogueViewController2: UIViewController {
     }
     
     func setupReviewButton() {
+        
         reviewButton.backgroundColor = UIColor.accentColor()
         reviewButton.layer.cornerRadius = 10
         

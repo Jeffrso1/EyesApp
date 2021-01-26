@@ -16,6 +16,8 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
     
     var movieID: Int = 0
     
+    var movie: Movie?
+    
     var tag: Tag?
     
     var firstTag : TagSelected?
@@ -48,7 +50,13 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view
-        configNavBar()
+        
+        //navigationBar.configNavBar(view: self)
+    
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.isNavigationBarHidden = false
+        self.navigationController?.navigationBar.tintColor = .white
+        navigationBar.configNavBar(view: self)
         
         if dao.selectedMovie == nil {
             dao.selectedMovie = currentMovie
@@ -58,11 +66,12 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        imageLoader.loadAsyncPosterImage(from: dao.selectedMovie ?? Movie.stubbedMovie) { image in
+        imageLoader.loadAsyncPosterImage(from: movie ?? Movie.stubbedMovie) { image in
             self.posterImage.image = image
             self.posterBlurImage.image = image
         }
         setupMovie()
+        
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
@@ -101,7 +110,8 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
             
         navigationController?.navigationBar.layer.add(fadeTextAnimation, forKey: "fadeText")
         
-        self.navigationController?.navigationBar.topItem?.title = dao.selectedMovie?.title
+        self.navigationController?.navigationBar.topItem?.title = movie!.title
+       
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ChooseTagsCollectionViewCell
        
@@ -158,7 +168,7 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
             
            // let arrayCurrentMovie = [Array(dao.movies)[dao.currentMovie]]
         
-            let movie = MyMovie(movieID: dao.selectedMovie!.id, tags: selectedTags, tagsSelected: tagsSelected)
+            let movie = MyMovie(movieID: self.movie!.id, tags: selectedTags, tagsSelected: tagsSelected)
             
             movie.ckSave { result in
                 switch result {
