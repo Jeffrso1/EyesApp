@@ -34,7 +34,7 @@ class CarouselPageVC: UIPageViewController, UIPageViewControllerDataSource, UIPa
         decoratePageControl()
         dataSource = self
         delegate = self
-        dao.loadMovies(to: self)
+        dao.loadMoviesFromTrending(to: self)
         if let firstViewController = items.first {
             setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
         }

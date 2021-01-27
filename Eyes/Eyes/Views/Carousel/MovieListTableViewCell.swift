@@ -7,8 +7,14 @@
 
 import UIKit
 
-class MovieListTableViewCell: UITableViewCell {
-
+class MovieListTableViewCell: UITableViewCell, DAORequester {
+   
+    func updated() {
+        
+        collectionView.reloadData()
+        
+    }
+    
     let movieListID = "movieList"
     
     var movies: [Movie] = []

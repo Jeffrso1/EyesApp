@@ -7,7 +7,9 @@
 
 import UIKit
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+class SceneDelegate: UIResponder, UIWindowSceneDelegate, DAORequester {
+    
+    
 
     var window: UIWindow?
 
@@ -28,7 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         }
     
-        dao.loadTags()
+        //dao.loadTags()
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
@@ -52,6 +54,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = tabController
         
         window?.makeKeyAndVisible()
+    }
+    
+    func updated() {
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

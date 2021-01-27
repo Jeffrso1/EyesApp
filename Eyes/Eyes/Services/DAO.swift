@@ -30,6 +30,14 @@ class DAO: MovieDelegate {
     
     var movies : [Int : Movie] = [:]
     
+    var popular = [Movie]()
+    var trending = [Movie]()
+    var nowPlaying = [Movie]()
+    var upComing = [Movie]()
+    var topRated = [Movie]()
+    
+    var moviesArray = [Movie]()
+    
     var selectedMovie: Movie?
     
     var myMovies: [Int : MyMovie] = [:]
@@ -58,9 +66,46 @@ class DAO: MovieDelegate {
         loadTagsSelected()
     }
     
-    func loadMovies(to caller: DAORequester?) {
+    func loadMovies(to caller: DAORequester?, from endpoint: MovieListEndpoint) {
         
-        movieListState.loadMovies(with: .trendingWeek) { movies in
+        movieListState.loadMovies(with: endpoint) { movies in
+            
+            self.loadMovieLocalized(movies: movies, completion: { movies in
+               
+                for movie in movies {
+                
+                    switch endpoint {
+                    case .nowPlaying:
+                        self.nowPlaying.append(movie)
+                    case .upcoming:
+                        self.upComing.append(movie)
+                    case .topRated:
+                        self.topRated.append(movie)
+                    case .popular:
+                        self.popular.append(movie)
+                    case .trendingWeek:
+                        self.trending.append(movie)
+                    }
+                
+                
+                }
+                
+                caller?.updated()
+               
+            })
+ 
+        }
+        
+        
+        
+    }
+    
+    
+    
+    
+    func loadMoviesFromTrending(to caller: DAORequester?) {
+        
+        movieListState.loadMoviesFromTrending(with: .trendingWeek) { movies in
             
             self.loadMovieLocalized(movies: movies, completion: { movies in
                
@@ -74,7 +119,6 @@ class DAO: MovieDelegate {
             })
  
         }
-        
     }
     
     func loadMovie(movie: Int, to caller: DAORequester?)  {

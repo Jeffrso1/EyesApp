@@ -7,15 +7,21 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
-
+class HomeViewController: UIViewController, DAORequester {
+  
     var lastOffsetY : CGFloat = 0
     
     let headerID = "header"
     let listsID = "list"
     
-    let sectionTitles = ["Popular", "New & Noteworthy"]
+    //var moviesArray = [Movie]()
     
+    func updated() {
+
+        tableView.reloadData()
+   
+    }
+
     private var compactConstraints: [NSLayoutConstraint] = []
     private var regularConstraints: [NSLayoutConstraint] = []
     private var sharedConstraints: [NSLayoutConstraint] = []
@@ -51,6 +57,18 @@ class HomeViewController: UIViewController {
         tableView.register(HeaderHomeTableViewCell.self, forCellReuseIdentifier: headerID)
         tableView.register(MovieListTableViewCell.self, forCellReuseIdentifier: listsID)
         
+        for (key, value) in sections {
+            
+            sectionArray.append(Sections(sectionName: key, sectionType: value))
+   
+        }
+        
+        for i in 0..<sections.count {
+        
+            dao.loadMovies(to: self, from: sectionArray[i].sectionType)
+            
+        }
+
         
         setupConstraints()
         NSLayoutConstraint.activate(sharedConstraints)
@@ -82,7 +100,6 @@ class HomeViewController: UIViewController {
         compactConstraints.append(contentsOf: [
         
             //TableView
-            
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
@@ -142,7 +159,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             return 1
         default:
-            return sectionTitles.count
+            return sectionArray.count
         }
     }
     
@@ -162,8 +179,31 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: listsID) as! MovieListTableViewCell
-            cell.setupCell(movies: Movie.stubbedMovies, listTitle: sectionTitles[indexPath.row])
+            
+            var movies = [Movie]()
+            
+            switch sectionArray[indexPath.row].sectionType {
+            
+            case .some(.nowPlaying):
+                movies = dao.nowPlaying
+            case .none:
+                movies = dao.nowPlaying
+            case .some(.upcoming):
+                movies = dao.upComing
+            case .some(.topRated):
+                movies = dao.topRated
+            case .some(.popular):
+                movies = dao.popular
+            case .some(.trendingWeek):
+                movies = dao.trending
+            }
+            
+            cell.setupCell(movies: movies, listTitle: sectionArray[indexPath.row].sectionName)
+            
             cell.backgroundColor = .backgroundColor()
+            
+            cell.updated()
+            
             return cell
         }
     }

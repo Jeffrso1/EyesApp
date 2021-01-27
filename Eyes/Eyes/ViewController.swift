@@ -38,7 +38,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         // Do any additional setup after loading the view.
         collectionView.delegate = self
         collectionView.dataSource = self
-        dao.loadMovies(to: self)
+        dao.loadMoviesFromTrending(to: self)
 
     }
     
