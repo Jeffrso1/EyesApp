@@ -8,7 +8,9 @@
 import UIKit
 import SafariServices
 
-class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate {
+class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate, DAORequester {
+    
+    
     
     private var compactConstraints: [NSLayoutConstraint] = []
     private var regularConstraints: [NSLayoutConstraint] = []
@@ -272,8 +274,22 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate {
         timeAndGenre.text = movie.durationText + " • " + movie.genreText
             
         } else {
+          
+        let movieDetailState = MovieDetailState()
             
-        timeAndGenre.text = dao.selectedMovie!.durationText + " • " + dao.selectedMovie!.genreText
+            movieDetailState.loadMovie(id: movie.id) { result in
+                
+                switch result {
+                case .success(let movie):
+                    return self.timeAndGenre.text = movie.durationText + " • " + movie.genreText
+                case .failure(_):
+                    break
+                }
+                
+                
+                
+            }
+       
             
         }
         
@@ -357,6 +373,10 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate {
         super.traitCollectionDidChange(previousTraitCollection)
 
         layoutTrait(traitCollection: traitCollection)
+        
+    }
+    
+    func updated() {
         
     }
     
