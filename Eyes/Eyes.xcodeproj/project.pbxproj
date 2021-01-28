@@ -23,6 +23,7 @@
 		71EA47A4255321BA0072A74A /* OBItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EA47A3255321BA0072A74A /* OBItem.swift */; };
 		71EA47A9255323AC0072A74A /* OBPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EA47A8255323AC0072A74A /* OBPageViewController.swift */; };
 		71EA47B425533F660072A74A /* OBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EA47B325533F660072A74A /* OBViewController.swift */; };
+		71FD85AE25C1F2FF00FC7D9E /* CastCVCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FD85AD25C1F2FF00FC7D9E /* CastCVCell2.swift */; };
 		CF033A3125642EF900740FC9 /* CloudKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF033A3025642EF900740FC9 /* CloudKitViewController.swift */; };
 		CF09B0092562E3AA00645FAC /* ShareImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF09B0082562E3AA00645FAC /* ShareImage.swift */; };
 		CF12DB15257BEDE9009DFDD8 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF12DB14257BEDE9009DFDD8 /* TabBarController.swift */; };
@@ -131,6 +132,7 @@
 		71EA47A3255321BA0072A74A /* OBItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBItem.swift; sourceTree = "<group>"; };
 		71EA47A8255323AC0072A74A /* OBPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBPageViewController.swift; sourceTree = "<group>"; };
 		71EA47B325533F660072A74A /* OBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBViewController.swift; sourceTree = "<group>"; };
+		71FD85AD25C1F2FF00FC7D9E /* CastCVCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCVCell2.swift; sourceTree = "<group>"; };
 		CF033A3025642EF900740FC9 /* CloudKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitViewController.swift; sourceTree = "<group>"; };
 		CF09B0082562E3AA00645FAC /* ShareImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareImage.swift; sourceTree = "<group>"; };
 		CF12DB14257BEDE9009DFDD8 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = Eyes/Views/TabBarController.swift; sourceTree = SOURCE_ROOT; };
@@ -268,6 +270,7 @@
 				CFC47C4F25519AAA001CB77E /* CastListTableViewCell.swift */,
 				716A0E2125B786A100BDB23C /* CastListTableViewCell2.swift */,
 				CFC47C5425519F44001CB77E /* CastCVCell.swift */,
+				71FD85AD25C1F2FF00FC7D9E /* CastCVCell2.swift */,
 				CFE01207255B278400F29B6C /* HeaderTableViewCell.swift */,
 				716A0E1225B781AB00BDB23C /* HeaderTableViewCell2.swift */,
 				CFE01206255B278400F29B6C /* OverviewTableViewCell.swift */,
@@ -727,6 +730,7 @@
 				CFE01208255B278500F29B6C /* OverviewTableViewCell.swift in Sources */,
 				CF5F1E1225C07C7F001F76CD /* HomeViewController.swift in Sources */,
 				7184A569255B4D180078CDBA /* CarouselTagCell.swift in Sources */,
+				71FD85AE25C1F2FF00FC7D9E /* CastCVCell2.swift in Sources */,
 				CF9A7D482555D38200D6748C /* InsideTagsCollectionViewCell.swift in Sources */,
 				CF38469725814AED0057C004 /* ActivityController.swift in Sources */,
 				713367722541F2A5005919E8 /* CatalogueViewController.swift in Sources */,

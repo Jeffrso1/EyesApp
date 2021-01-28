@@ -128,17 +128,15 @@ extension MovieDetailsViewController2: UITableViewDelegate, UITableViewDataSourc
             let cell = tableView.dequeueReusableCell(withIdentifier: tagsID) as! TagsTableViewCell2
             
             cell.setupCell(movie: movie!)
-            
             return cell
             
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: castID) as! CastListTableViewCell2
-            cell.backgroundColor = UIColor.backgroundColor()
+            cell.setupCell()
             return cell
             
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: headerID) as! HeaderTableViewCell2
-            cell.backgroundColor = .yellow
             return cell
         }
     }
