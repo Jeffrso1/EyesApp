@@ -50,7 +50,7 @@ class TagsTableViewCell2: UITableViewCell, DAORequester {
 
     }
     
-    func layoutTrait(traitCollection:UITraitCollection) {
+    func layoutTrait(traitCollection: UITraitCollection) {
         if (!sharedConstraints[0].isActive) {
            // activating shared constraints
            NSLayoutConstraint.activate(sharedConstraints)
@@ -92,10 +92,18 @@ class TagsTableViewCell2: UITableViewCell, DAORequester {
         contentView.addSubview(sessionTitle)
         contentView.addSubview(tagsCollectionView)
         
-        let tagsHeightConstraint = tagsCollectionView.heightAnchor.constraint(equalToConstant: 208)
-        tagsHeightConstraint.priority = UILayoutPriority(999)
-        let tagsiPadHeight = tagsCollectionView.heightAnchor.constraint(equalToConstant: 100)
+        var tagsHeightConstraint = NSLayoutConstraint()
+        var tagsiPadHeight = NSLayoutConstraint()
         
+        if tags.count != 0 {
+            tagsHeightConstraint = tagsCollectionView.heightAnchor.constraint(equalToConstant: 208)
+            tagsiPadHeight = tagsCollectionView.heightAnchor.constraint(equalToConstant: 100)
+        } else {
+            tagsHeightConstraint = tagsCollectionView.heightAnchor.constraint(equalToConstant: 100)
+            tagsiPadHeight = tagsCollectionView.heightAnchor.constraint(equalToConstant: 100)
+        }
+        
+        tagsHeightConstraint.priority = UILayoutPriority(999)
         
         sharedConstraints.append(contentsOf: [
             
