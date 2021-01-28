@@ -15,6 +15,8 @@ class MovieListTableViewCell: UITableViewCell, DAORequester {
         
     }
     
+    var viewController = UIViewController()
+    
     let movieListID = "movieList"
     
     var movies: [Movie] = []
@@ -104,6 +106,20 @@ extension MovieListTableViewCell: UICollectionViewDelegate, UICollectionViewData
         cell.setupCell(movie: movies[indexPath.row])
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let nextScene = MovieDetailsViewController2()
+        
+        //Passa o filme para a variável "movie" da MovieDetailsViewController
+        nextScene.movie = movies[indexPath.row]
+        
+        print("Movie Title: \(nextScene.movie?.title)")
+        print("indexPath.row: \(indexPath.row), indexPath.section: \(indexPath.section)")
+        
+        self.viewController.navigationController?.pushViewController(nextScene, animated: true)
+        
     }
     
     

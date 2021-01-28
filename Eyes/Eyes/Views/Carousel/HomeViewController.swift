@@ -21,6 +21,8 @@ class HomeViewController: UIViewController, DAORequester {
         tableView.reloadData()
    
     }
+    
+    
 
     private var compactConstraints: [NSLayoutConstraint] = []
     private var regularConstraints: [NSLayoutConstraint] = []
@@ -57,15 +59,9 @@ class HomeViewController: UIViewController, DAORequester {
         tableView.register(HeaderHomeTableViewCell.self, forCellReuseIdentifier: headerID)
         tableView.register(MovieListTableViewCell.self, forCellReuseIdentifier: listsID)
         
-        for (key, value) in sections {
-            
-            sectionArray.append(Sections(sectionName: key, sectionType: value))
-   
-        }
-        
         for i in 0..<sections.count {
         
-            dao.loadMovies(to: self, from: sectionArray[i].sectionType)
+            dao.loadMovies(to: self, from: sections[i].sectionType)
             
         }
 
@@ -159,8 +155,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             return 1
         default:
-            return sectionArray.count
+            return sections.count
         }
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -173,47 +170,54 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: headerID) as! HeaderHomeTableViewCell
             
-            cell.setupCell(movie: Movie.stubbedMovie)
+            if dao.popular.count != 0 {
+            
+            cell.setupCell(movie: dao.popular[9])
+                
+            } else {
+                
+            //cell.setupCell(movie: Movie.stubbedMovie)
+                
+            }
 
             return cell
             
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: listsID) as! MovieListTableViewCell
             
-            var movies = [Movie]()
-            
-            switch sectionArray[indexPath.row].sectionType {
-            
-            case .some(.nowPlaying):
-                movies = dao.nowPlaying
-            case .none:
-                movies = dao.nowPlaying
-            case .some(.upcoming):
-                movies = dao.upComing
-            case .some(.topRated):
-                movies = dao.topRated
-            case .some(.popular):
-                movies = dao.popular
-            case .some(.trendingWeek):
-                movies = dao.trending
-            }
-            
-            cell.setupCell(movies: movies, listTitle: sectionArray[indexPath.row].sectionName)
-            
             cell.backgroundColor = .backgroundColor()
             
-            cell.updated()
+            var movies = [Movie]()
             
+            switch indexPath.row {
+            case 0:
+                movies = dao.popular
+            case 1:
+                movies = dao.nowPlaying
+            case 2:
+                movies = dao.upComing
+            case 3:
+                movies = dao.topRated
+            default:
+                movies = dao.nowPlaying
+            }
+            
+            cell.viewController = self
+            
+            cell.setupCell(movies: movies, listTitle: sections[indexPath.row].sectionName)
+            
+            cell.updated()
+    
             return cell
         }
     }
     
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(true)
-//        self.navigationController?.navigationBar.tintColor = UIColor.white
-//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-//        self.navigationController?.navigationBar.shadowImage = UIImage()
-//    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+    }
 
 }
 
