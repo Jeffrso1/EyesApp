@@ -17,7 +17,7 @@ class FavoritesViewController: UIViewController, DAORequester, FavoritesDelegate
     
     let favoritesID = "favorite"
     
-    var numberOfItems: CGFloat = 6
+    var numberOfItems: CGFloat = 0
     
     var favoriteList: [String] { UserDefaults.standard.stringArray(forKey: "FavoriteList") ?? [String]() }
     
@@ -98,7 +98,7 @@ class FavoritesViewController: UIViewController, DAORequester, FavoritesDelegate
         animations: {})
         
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.topItem?.title = "Favoritos"
+        navigationController?.navigationBar.topItem?.title = NSLocalizedString("Favorites", comment: "")
         
         sharedConstraints.append(contentsOf: [
                          
@@ -130,12 +130,12 @@ class FavoritesViewController: UIViewController, DAORequester, FavoritesDelegate
         navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
         navigationController?.navigationBar.shadowImage = nil
         
-        print(favorites.isNewMovieAdded)
+        //print(favorites.isNewMovieAdded)
         
         if favorites.isNewMovieAdded == true {
         
-        self.favoritesCollectionView.reloadData()
-        favorites.isNewMovieAdded = false
+            self.favoritesCollectionView.reloadData()
+            favorites.isNewMovieAdded = false
             
         }
         
@@ -153,7 +153,6 @@ class FavoritesViewController: UIViewController, DAORequester, FavoritesDelegate
         navigationBar.configNavBar(view: self)
         
     }
-    
     
     func updated() {
         DispatchQueue.main.async {
@@ -195,13 +194,13 @@ extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: favoritesID, for: indexPath) as! FavoritesCell
         
+        cell.delegate = self
+        
         if dao.favoriteMovies.count < favoriteList.count {
             cell.setupCell(movie: Movie.stubbedMovie, check: false)
         } else {
             cell.setupCell(movie: dao.favoriteMovies[Int(favoriteList[indexPath.row])!]!, check: true)
         }
-        
-        cell.delegate = self
         
         return cell
         
@@ -244,9 +243,6 @@ extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDat
         ])
     
     }
-    
-    
-    
 }
 
 extension FavoritesViewController: UICollectionViewDelegateFlowLayout {
@@ -270,8 +266,6 @@ extension FavoritesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
-    
-   
     
     func layoutTrait(traitCollection:UITraitCollection) {
         if (!sharedConstraints[0].isActive) {
@@ -297,10 +291,7 @@ extension FavoritesViewController: UICollectionViewDelegateFlowLayout {
             favoritesCollectionView.layoutIfNeeded()
             
         }
-        
-       
-        
-        
+  
     }
     
     

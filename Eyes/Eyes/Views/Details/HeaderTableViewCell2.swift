@@ -39,6 +39,8 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate, DAO
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 2
+        //label.textAlignment = .left
+        //label.lineBreakMode = .byTruncatingHead
         return label
     }()
     
@@ -180,7 +182,7 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate, DAO
         let movieHeaderHeightCompact = movieHeader.heightAnchor.constraint(equalToConstant: 281)
         
         let movieNameTrailing = movieName.trailingAnchor.constraint(lessThanOrEqualTo: centerXAnchor)
-        movieNameTrailing.priority = UILayoutPriority(999)
+        movieNameTrailing.priority = UILayoutPriority(250)
         
         sharedConstraints.append(contentsOf: [
                
@@ -217,8 +219,6 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate, DAO
             reviewMovie.centerYAnchor.constraint(equalTo: watchTrailer.centerYAnchor),
             
             movieHeaderHeightCompact
-  
-                                    
         ])
         
         compactConstraints.append(contentsOf: [

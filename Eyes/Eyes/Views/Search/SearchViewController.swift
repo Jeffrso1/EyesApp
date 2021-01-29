@@ -13,11 +13,9 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var sortedDictionary : [Movie] = []
     
-    //@IBOutlet weak var tableView: UITableView!
-    
     var indicator = UIActivityIndicatorView()
     
-    var searchTableView: UITableView = {
+    var tableView: UITableView = {
         
         let tableView = UITableView(frame: CGRect.zero)
         
@@ -80,17 +78,17 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     let movieSearch = MovieSearchState()
     
     var isSearchBarEmpty: Bool {
-      return searchController.searchBar.text?.isEmpty ?? true
+        return searchController.searchBar.text?.isEmpty ?? true
     }
     
-    var searchText: String = "Carros"
+    var searchText: String = ""
     
     let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.addSubview(searchTableView)
+        view.addSubview(tableView)
         setupSearchTV()
         
         
@@ -110,14 +108,14 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         searchController.searchBar.delegate = self
         searchController.searchBar.tintColor = .white
         
-        searchTableView.delegate = self
-        searchTableView.dataSource = self
+        tableView.delegate = self
+        tableView.dataSource = self
         
-        searchTableView.register(SearchTableViewCell.self, forCellReuseIdentifier: "results")
+        tableView.register(SearchTableViewCell.self, forCellReuseIdentifier: "results")
         
-        searchTableView.rowHeight = UITableView.automaticDimension
-        searchTableView.estimatedRowHeight = 50
-        searchTableView.tableFooterView = UIView()
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 50
+        tableView.tableFooterView = UIView()
         
         self.view.backgroundColor = UIColor.backgroundColor()
 
@@ -131,7 +129,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: "results", for: indexPath) as! SearchTableViewCell
  
         cell.setupCell(movie: sortedDictionary[indexPath.row])
-        
+            
         indicator.stopAnimating()
         indicator.hidesWhenStopped = true
         
@@ -168,17 +166,14 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     private func setupSearchTV() {
         
         NSLayoutConstraint.activate([
-            searchTableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            searchTableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            searchTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            searchTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
-        
-        
+
     }
-    
-    
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         
@@ -196,9 +191,9 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if dao.searchedMovies.count != 0
        
         {
-            searchTableView.separatorStyle = .singleLine
+            tableView.separatorStyle = .singleLine
             numOfSections            = 1
-            searchTableView.backgroundView = nil
+            tableView.backgroundView = nil
         }
         
         else
@@ -223,7 +218,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         sortedDictionary = Array(dao.searchedMovies.values).sorted(by: {$0.voteCount > $1.voteCount})
 
         DispatchQueue.main.async {
-            self.searchTableView.reloadData()
+            self.tableView.reloadData()
         }
         
     }
@@ -236,14 +231,14 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func setupNoResultsView() {
         
-        let noResultsFound: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: self.searchTableView.bounds.size.width, height: searchTableView.bounds.size.height))
+        let noResultsFound: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: tableView.bounds.size.height))
         noResultsFound.textColor = .white
         noResultsFound.font = UIFont.systemFont(ofSize: 25, weight: .bold)
         noResultsFound.text = NSLocalizedString("No Movies Found", comment: "")
         noResultsFound.textAlignment = .center
         noResultsFound.numberOfLines = 2
         
-        let noResultsMessage: UILabel     = UILabel(frame: CGRect(x: 0, y: 40, width: self.searchTableView.bounds.size.width, height: searchTableView.bounds.size.height))
+        let noResultsMessage: UILabel     = UILabel(frame: CGRect(x: 0, y: 40, width: self.tableView.bounds.size.width, height: tableView.bounds.size.height))
         
         noResultsMessage.textColor = .white
         noResultsMessage.font = UIFont.systemFont(ofSize: 25, weight: .bold)
@@ -252,8 +247,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         noResultsMessage.numberOfLines = 2
         
         
-        searchTableView.backgroundView  = noResultsFound
-        searchTableView.separatorStyle  = .none
+        tableView.backgroundView  = noResultsFound
+        tableView.separatorStyle  = .none
         
         
         
@@ -301,15 +296,15 @@ extension SearchViewController: UISearchResultsUpdating, UISearchBarDelegate {
         
         dao.searchedMovies.removeAll()
         
-        UIView.transition(with: searchTableView,
+        UIView.transition(with: tableView,
         duration: 0.3,
         options: .transitionCrossDissolve,
-        animations: { self.searchTableView.reloadData() })
+        animations: { self.tableView.reloadData() })
         
         indicator.stopAnimating()
         indicator.hidesWhenStopped = true
         
-        searchTableView.backgroundView = nil
+        tableView.backgroundView = nil
     }
     
 }

@@ -160,7 +160,9 @@ extension MovieDetailsViewController2: UITableViewDelegate, UITableViewDataSourc
             
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: castID) as! CastListTableViewCell2
+            cell.movie = movie!
             cell.setupCell()
+            
             return cell
             
         default:

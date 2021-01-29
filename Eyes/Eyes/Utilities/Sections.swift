@@ -14,7 +14,12 @@ struct Sections {
     
 }
 
-
-let sections : [String : MovieListEndpoint] = ["Popular" : .popular, "Now Playing": .nowPlaying, "Coming Next": .upcoming, "Top Rated": .topRated]
+let sections : [Sections] = [Sections(sectionName: "Popular", sectionType: .popular), Sections(sectionName: "Now Playing", sectionType: .nowPlaying), Sections(sectionName: "Coming Next", sectionType: .upcoming), Sections(sectionName: "Top Rated", sectionType: .topRated)]
 
 var sectionArray = [Sections]()
+
+//for (key, value) in sections {
+//
+//    sectionArray.append(Sections(sectionName: key, sectionType: value))
+//
+//}

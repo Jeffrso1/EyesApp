@@ -14,7 +14,7 @@ class MovieItemCollectionViewCell: UICollectionViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 5
+        imageView.layer.cornerRadius = 3
         return imageView
     }()
     
@@ -42,21 +42,9 @@ class MovieItemCollectionViewCell: UICollectionViewCell {
         movieBanner.heightAnchor.constraint(equalToConstant: 160).isActive = true
         
         //movieBanner.image = UIImage(named: "wait")
-        
-        if movieBanner.image == nil  {
-        
+      
         imageLoader.loadAsyncPosterImage(from: movie) { image in
             self.movieBanner.image = image
         }
-            
-        }
-
-    }
-    
-    
-    
-    
-    
-    
-    
+    }  
 }

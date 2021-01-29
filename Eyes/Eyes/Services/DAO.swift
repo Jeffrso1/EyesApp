@@ -36,6 +36,8 @@ class DAO: MovieDelegate {
     var upComing = [Movie]()
     var topRated = [Movie]()
     
+    var isMovieListsLoaded : Bool = false
+    
     var moviesArray = [Movie]()
     
     var selectedMovie: Movie?
@@ -86,13 +88,13 @@ class DAO: MovieDelegate {
                     case .trendingWeek:
                         self.trending.append(movie)
                     }
-                
-                
                 }
-                
+     
                 caller?.updated()
-               
+  
             })
+            
+            
  
         }
         
