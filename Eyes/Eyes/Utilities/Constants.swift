@@ -14,6 +14,7 @@ enum SFSymbols {
     static let cloudKit = UIImage(systemName: "icloud.fill")
     static let heart = UIImage(systemName: "heart")
     static let heartFill = UIImage(systemName: "heart.fill")
+    static let ellipsisCircleFill = UIImage(systemName: "ellipsis.circle.fill")
 }
 
 enum MovieDetailError: Error {

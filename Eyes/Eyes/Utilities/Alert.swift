@@ -45,6 +45,22 @@ class Alert: UIViewController, MFMailComposeViewControllerDelegate {
         
         actionSheet.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
         
+        if let popoverActivityController = activityControllerImage.popoverPresentationController {
+            popoverActivityController.sourceView = vc.view
+            popoverActivityController.sourceRect = CGRect(x: UIScreen.main.bounds.width - 40, y: 40, width: 1.0, height: 1.0)
+        }
+        
+        if let popoverActivityController = activityControllerTrailer.popoverPresentationController {
+            popoverActivityController.sourceView = vc.view
+            popoverActivityController.sourceRect = CGRect(x: UIScreen.main.bounds.width - 40, y: 40, width: 1.0, height: 1.0)
+        }
+        
+        if let popoverPresentationController = actionSheet.popoverPresentationController {
+            popoverPresentationController.sourceView = vc.view
+            popoverPresentationController.sourceRect = CGRect(x: UIScreen.main.bounds.width - 40, y: 40, width: 1.0, height: 1.0)
+        }
+        
+        
         vc.present(actionSheet, animated: true)
         
         haptic.setupImpactHaptic(style: .light)

@@ -64,7 +64,7 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate, DAO
     
     var movie: Movie?
     
-    var delegate: MovieReviewDelegate!
+//    var delegate: MovieReviewDelegate!
     
 //    var currentMovie = dao.movies[Array(dao.movies)[dao.currentMovie].key]
     
@@ -133,9 +133,9 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate, DAO
     
     @objc func reviewMovieWasPressed(sender: UIButton!) {
         
-        if(self.delegate != nil){ //Just to be safe.
-            self.delegate.callSegueFromCell(dataObject: movie!)
-        }
+//        if(self.delegate != nil){ //Just to be safe.
+//            self.delegate.callSegueFromCell(dataObject: movie!)
+//        }
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         

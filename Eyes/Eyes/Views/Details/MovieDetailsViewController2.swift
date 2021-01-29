@@ -8,7 +8,9 @@
 import UIKit
 
 class MovieDetailsViewController2: UIViewController {
-
+    
+    var favoriteButton = UIBarButtonItem()
+    
     var lastOffsetY : CGFloat = 0
     
     let headerID = "header"
@@ -29,8 +31,33 @@ class MovieDetailsViewController2: UIViewController {
         return tableView
     }()
     
+    @objc func favoriteButtonWasPressed(sender: UIButton!) {
+        favorites.movieFavoriteBarAction(movieID: movie!.id, barItem: navigationItem.rightBarButtonItems![1])
+        haptic.setupImpactHaptic(style: .light)
+        
+        favorites.isNewMovieAdded = true
+        
+    }
+    
+    @objc func movieOptionsButtonWasPressed(sender: UIButton!) {
+        let shareViewController = ShareImage(movie: movie!)
+        let renderer = UIGraphicsImageRenderer(size: shareViewController.view.bounds.size)
+        
+        let image = renderer.image { ctx in
+            shareViewController.view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+        }
+        
+        Alert.showMovieOptions(vc: self, image: image.jpegData(compressionQuality: 0.8), url: movie?.youtubeTrailers?.first?.youtubeURL, movie: movie!)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        favoriteButton = UIBarButtonItem(image: SFSymbols.heart, style: .plain, target: self, action: #selector(favoriteButtonWasPressed))
+        let movieOptions = UIBarButtonItem(image: SFSymbols.ellipsisCircleFill, style: .plain, target: self, action: #selector(movieOptionsButtonWasPressed))
+        
+        navigationItem.rightBarButtonItems = [movieOptions, favoriteButton]
+        
         navigationController?.isNavigationBarHidden = false
         self.navigationController?.navigationBar.tintColor = .white
         navigationBar.configNavBar(view: self)
@@ -61,8 +88,9 @@ class MovieDetailsViewController2: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-//      favorites.checkMovieFavoriteBar(movieID:dao.selectedMovie!.id, barItem: favoriteButton)
+        favorites.checkMovieFavoriteBar(movieID:movie!.id, barItem: favoriteButton)
         navigationBar.configNavBar(view: self)
+        
     }
     
     func setupDetailsTableView() {
