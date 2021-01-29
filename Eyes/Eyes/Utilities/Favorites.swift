@@ -23,8 +23,7 @@ class Favorites {
     var intFavoriteList : [Int] = []
 
     public var isNewMovieAdded : Bool = false
-    
-    
+
     func checkIfMovieFavoriteButton(movieID:Int, button: UIButton) {
         
         intFavoriteList = favoriteList.map { Int($0)! }
@@ -37,12 +36,9 @@ class Favorites {
             
             favorites.favoriteList.remove(at: favorites.favoriteList.firstIndex(of: movieAdd)!)
             dao.favoriteMovies.removeValue(forKey: movieID)
-            
             favorites.defaults.set(favorites.favoriteList, forKey: "FavoriteList")
             let heart = SFSymbols.heart?.applyingSymbolConfiguration(buttonSC)
             button.setImage(heart, for: .normal)
-            
-            
             
         } else {
             
@@ -87,17 +83,14 @@ class Favorites {
         
             favorites.favoriteList.remove(at: favorites.favoriteList.firstIndex(of: movieAdd)!)
             dao.favoriteMovies.removeValue(forKey: movieID)
-            
             favorites.defaults.set(favorites.favoriteList, forKey: "FavoriteList")
             let heart = SFSymbols.heart
             barItem.image = heart
             
         } else {
             
-            //favorites.favoriteList.append(movieAdd)
             favorites.favoriteList.append(movieAdd)
             dao.loadFavoritesMovies(IDs: [movieID], to: nil)
-            
             favorites.defaults.set(favorites.favoriteList, forKey: "FavoriteList")
             let heart = SFSymbols.heartFill
             barItem.image = heart

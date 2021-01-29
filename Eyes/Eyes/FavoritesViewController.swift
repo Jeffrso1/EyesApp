@@ -98,7 +98,7 @@ class FavoritesViewController: UIViewController, DAORequester, FavoritesDelegate
         animations: {})
         
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.topItem?.title = "Favoritos"
+        navigationController?.navigationBar.topItem?.title = NSLocalizedString("Favorites", comment: "")
         
         sharedConstraints.append(contentsOf: [
                          
