@@ -27,6 +27,8 @@ class CastListTableViewCell2: UITableViewCell, DAORequester {
     
     let castID = "castID"
     
+    var movie : Movie?
+    
     let castCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -89,7 +91,7 @@ class CastListTableViewCell2: UITableViewCell, DAORequester {
         
         compactConstraints.append(contentsOf: [
             
-            sessionTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20)
+            sessionTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 29)
             
         ])
         
@@ -130,17 +132,16 @@ class CastListTableViewCell2: UITableViewCell, DAORequester {
 
 extension CastListTableViewCell2: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        
+        return self.movie?.cast?.count ?? 0
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: castID, for: indexPath) as! CastCVCell2
+ 
+        cell.setupCastCell(indexPath: indexPath, movie: self.movie!)
         
-//        if dao.selectedMovie == nil {
-//            dao.selectedMovie = currentMovie
-//        }
-        
-//        cell.setupCastCell(indexPath: indexPath, movie: dao.selectedMovie!)
         return cell
     }
     

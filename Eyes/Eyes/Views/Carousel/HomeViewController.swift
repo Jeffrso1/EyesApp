@@ -172,7 +172,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             
             if dao.popular.count != 0 {
             
-            cell.setupCell(movie: dao.popular[9])
+            cell.setupCell(movie: dao.popular[5])
                 
             } else {
                 

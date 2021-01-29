@@ -130,8 +130,8 @@ class HeaderHomeTableViewCell: UITableViewCell {
         
             movieHeader.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             movieHeader.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            
             movieName.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor, constant: 70),
+            movieName.trailingAnchor.constraint(equalTo: contentView.centerXAnchor),
             timeAndGenre.leadingAnchor.constraint(equalTo: movieName.leadingAnchor),
             movieOverview.leadingAnchor.constraint(equalTo: movieName.leadingAnchor),
             movieOverview.trailingAnchor.constraint(equalTo:centerXAnchor),
