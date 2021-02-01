@@ -114,10 +114,7 @@ extension MovieListTableViewCell: UICollectionViewDelegate, UICollectionViewData
         
         //Passa o filme para a variável "movie" da MovieDetailsViewController
         nextScene.movie = movies[indexPath.row]
-        
-        print("Movie Title: \(nextScene.movie?.title)")
-        print("indexPath.row: \(indexPath.row), indexPath.section: \(indexPath.section)")
-        
+  
         self.viewController.navigationController?.pushViewController(nextScene, animated: true)
         
     }

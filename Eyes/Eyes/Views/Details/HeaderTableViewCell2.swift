@@ -9,9 +9,7 @@ import UIKit
 import SafariServices
 
 class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate, DAORequester {
-    
-    
-    
+
     private var compactConstraints: [NSLayoutConstraint] = []
     private var regularConstraints: [NSLayoutConstraint] = []
     private var sharedConstraints: [NSLayoutConstraint] = []

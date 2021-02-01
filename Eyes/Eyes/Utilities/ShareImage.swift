@@ -157,6 +157,8 @@ class ShareImage: UIViewController, DAORequester {
             self.movieBanner.image = image
         }
         
+        tagButton.tintColor = moviePoster.image?.averageColor
+        
         dao.loadMovieCK(with: String(movie.id), to: self)
     }
     

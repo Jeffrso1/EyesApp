@@ -21,8 +21,6 @@ class HomeViewController: UIViewController, DAORequester {
         tableView.reloadData()
    
     }
-    
-    
 
     private var compactConstraints: [NSLayoutConstraint] = []
     private var regularConstraints: [NSLayoutConstraint] = []
@@ -170,8 +168,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: headerID) as! HeaderHomeTableViewCell
             
-            if dao.popular.count != 0 {
+            cell.mainViewController = self
             
+            
+            if dao.popular.count != 0 {
+                
+            cell.movie = dao.popular[5]
             cell.setupCell(movie: dao.popular[5])
                 
             } else {

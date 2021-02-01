@@ -31,6 +31,9 @@ class HeaderHomeTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 2
+        label.textAlignment = .center
+        label.sizeToFit()
+        label.minimumScaleFactor = 0.5
         return label
     }()
     
@@ -49,10 +52,38 @@ class HeaderHomeTableViewCell: UITableViewCell {
         return label
     }()
     
+    let movieDetails: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        button.setTitle(NSLocalizedString("Learn More", comment: ""), for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        
+        button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        button.backgroundColor = .accentColor()
+        button.layer.cornerRadius = 10
+        button.isUserInteractionEnabled = true
+        
+        
+        return button
+    }()
+    
+    @objc func learnMore(sender: UIButton!) {
+        
+        let nextScene = MovieDetailsViewController2()
+        
+        //Passa o filme para a variável "movie" da MovieDetailsViewController
+        nextScene.movie = movie
+  
+        self.mainViewController.navigationController?.pushViewController(nextScene, animated: true)
+        
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -64,6 +95,7 @@ class HeaderHomeTableViewCell: UITableViewCell {
     func setupCell(movie: Movie) {
         
         contentView.addSubview(movieHeader)
+        contentView.addSubview(movieDetails)
         movieHeader.addSubview(movieName)
         movieHeader.addSubview(timeAndGenre)
         movieHeader.addSubview(movieOverview)
@@ -76,10 +108,11 @@ class HeaderHomeTableViewCell: UITableViewCell {
             
         }
         
+        movieDetails.addTarget(self, action: #selector(learnMore), for: .touchUpInside)
+        
         setupMovieName(movie: movie)
         setupTimeAndGenre(movie: movie)
         setupMovieOverview(movie: movie)
-    
         setupConstraints()
         NSLayoutConstraint.activate(sharedConstraints)
         layoutTrait(traitCollection: UIScreen.main.traitCollection)
@@ -102,7 +135,6 @@ class HeaderHomeTableViewCell: UITableViewCell {
     func setupTimeAndGenre(movie: Movie) {
         
         timeAndGenre.text = "\(movie.durationText) • \(movie.genreText)"
-        
         timeAndGenre.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
     }
     
@@ -114,14 +146,13 @@ class HeaderHomeTableViewCell: UITableViewCell {
         
         let headerHeight = height/2 + 150
         
-        
         sharedConstraints.append(contentsOf: [
         
             movieHeader.topAnchor.constraint(equalTo: contentView.topAnchor),
             movieHeader.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             movieName.bottomAnchor.constraint(equalTo: timeAndGenre.topAnchor, constant: -5),
             timeAndGenre.bottomAnchor.constraint(equalTo: movieOverview.topAnchor, constant: -10),
-            movieOverview.bottomAnchor.constraint(equalTo: movieHeader.bottomAnchor, constant: -30),
+            movieOverview.bottomAnchor.constraint(equalTo: movieDetails.topAnchor, constant: -20),
             movieHeader.heightAnchor.constraint(equalToConstant: headerHeight),
             
         ])
@@ -135,8 +166,6 @@ class HeaderHomeTableViewCell: UITableViewCell {
             timeAndGenre.leadingAnchor.constraint(equalTo: movieName.leadingAnchor),
             movieOverview.leadingAnchor.constraint(equalTo: movieName.leadingAnchor),
             movieOverview.trailingAnchor.constraint(equalTo:centerXAnchor),
-            
-            
         ])
         
         compactConstraints.append(contentsOf: [
@@ -150,6 +179,11 @@ class HeaderHomeTableViewCell: UITableViewCell {
             movieOverview.centerXAnchor.constraint(equalTo: movieName.centerXAnchor),
             movieOverview.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor, constant: 10),
             movieOverview.trailingAnchor.constraint(equalTo:contentView.layoutMarginsGuide.trailingAnchor, constant: -10),
+            //movieDetails.widthAnchor.constraint(equalTo: movieOverview.widthAnchor),
+            movieDetails.heightAnchor.constraint(equalToConstant: 50),
+            movieDetails.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor, constant: 10),
+            movieDetails.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor, constant: -10),
+            movieDetails.bottomAnchor.constraint(equalTo: movieHeader.bottomAnchor, constant: -10)
     
         ])
         
@@ -175,6 +209,7 @@ class HeaderHomeTableViewCell: UITableViewCell {
         movieHeader.bringSubviewToFront(movieName)
         movieHeader.bringSubviewToFront(timeAndGenre)
         movieHeader.bringSubviewToFront(movieOverview)
+        movieHeader.bringSubviewToFront(movieDetails)
     
     }
     
