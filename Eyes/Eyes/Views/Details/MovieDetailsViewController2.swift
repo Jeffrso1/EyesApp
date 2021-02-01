@@ -7,7 +7,8 @@
 
 import UIKit
 
-class MovieDetailsViewController2: UIViewController {
+class MovieDetailsViewController2: UIViewController, DAORequester {
+  
     
     var favoriteButton = UIBarButtonItem()
     
@@ -23,7 +24,6 @@ class MovieDetailsViewController2: UIViewController {
     private var sharedConstraints: [NSLayoutConstraint] = []
     
     var movie: Movie?
-    //var currentMovie = dao.movies[Array(dao.movies)[dao.currentMovie].key]
     
     let detailsTableView: UITableView = {
         let tableView = UITableView()
@@ -53,6 +53,8 @@ class MovieDetailsViewController2: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        dao.loadMovieCK(with: String(movie!.id), to: self)
+        
         favoriteButton = UIBarButtonItem(image: SFSymbols.heart, style: .plain, target: self, action: #selector(favoriteButtonWasPressed))
         let movieOptions = UIBarButtonItem(image: SFSymbols.ellipsisCircleFill, style: .plain, target: self, action: #selector(movieOptionsButtonWasPressed))
         
@@ -80,7 +82,7 @@ class MovieDetailsViewController2: UIViewController {
         detailsTableView.register(CastListTableViewCell2.self, forCellReuseIdentifier: castID)
         
         setupDetailsTableView()
-        
+
         NSLayoutConstraint.activate(sharedConstraints)
         layoutTrait(traitCollection: UIScreen.main.traitCollection)
         
@@ -119,6 +121,13 @@ class MovieDetailsViewController2: UIViewController {
         
     }
     
+    func updated() {
+        
+        DispatchQueue.main.async {
+            self.detailsTableView.reloadSections(IndexSet(integer: 2), with: .automatic)
+        }
+        
+    }
     
     override func viewDidDisappear(_ animated: Bool) {
         
@@ -177,6 +186,8 @@ extension MovieDetailsViewController2: UITableViewDelegate, UITableViewDataSourc
             return cell
         }
     }
+    
+    
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)

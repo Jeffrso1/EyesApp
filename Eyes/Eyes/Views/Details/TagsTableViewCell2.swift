@@ -24,6 +24,8 @@ class TagsTableViewCell2: UITableViewCell, DAORequester {
         
     }
     
+    var movie: Movie?
+    
     let tagsID = "tagsID"
     var tags : [Tag] = []
     
@@ -75,7 +77,11 @@ class TagsTableViewCell2: UITableViewCell, DAORequester {
     
     func setupCell(movie: Movie) {
         
+        self.movie = movie
+        
         backgroundColor = UIColor.backgroundColor()
+        
+        print("MOVIE ID: \(movie.id)")
         
         tags = (dao.myMovies[Int(movie.id)]?.tags) ?? []
         
@@ -132,8 +138,7 @@ class TagsTableViewCell2: UITableViewCell, DAORequester {
         ])
         
         sessionTitle.text = NSLocalizedString("Why Should You Watch It?", comment: "")
-        sessionTitle.font = UIFont.systemFont(ofSize: 22, weight: .semibold)
-        
+        sessionTitle.font = UIFont.systemFont(ofSize: 22, weight: .semibold)        
         
         NSLayoutConstraint.activate(sharedConstraints)
         layoutTrait(traitCollection: UIScreen.main.traitCollection)
@@ -145,7 +150,7 @@ class TagsTableViewCell2: UITableViewCell, DAORequester {
 extension TagsTableViewCell2: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
+
         if tags.count != 0 {
             return tags.count
         } else {
@@ -157,7 +162,7 @@ extension TagsTableViewCell2: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: tagsID, for: indexPath) as! InsideTagsCollectionViewCell2
- 
+        
         let langStr = Locale.current.languageCode
         
         if tags.count != 0 {

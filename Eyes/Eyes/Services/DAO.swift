@@ -225,15 +225,13 @@ class DAO: MovieDelegate {
         })
         
         CKMDefault.semaphore.wait()
-        print("Final Tags: \(tags)")
         return tags
         
     }
     
     func loadMovieCK(with movieID: String, to caller: DAORequester) {
+       
         guard let movieID = Int(movieID) else { return }
-        
-        //var movie : MyMovie?
         
         if let _ = myMovies[movieID] {
             caller.updated()
@@ -247,9 +245,7 @@ class DAO: MovieDelegate {
                 self.myMovies[movieID] = result as! MyMovie
                 caller.updated()
             case .failure(let error):
-//                caller.updated()
-                print(error)
-                
+                print("NAO FUNCIONA")
             }
             
         })

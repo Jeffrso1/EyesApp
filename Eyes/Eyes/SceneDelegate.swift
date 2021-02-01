@@ -19,8 +19,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, DAORequester {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
-        dao.loadTags()
-        
         let onBoarding = UIStoryboard(name: "OnBoarding", bundle: nil)
         if !UserDefaults.standard.bool(forKey: "firstLaunch") {
             if let windowScene = scene as? UIWindowScene {
@@ -50,6 +48,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, DAORequester {
         tabController.viewControllers = [mainNavController, favoritesNavController, searchNavController]
         tabController.tabBar.tintColor = .white
         tabController.selectedIndex = 0
+        
+        dao.loadTags()
+        dao.loadTagsSelected()
         
         window?.rootViewController = tabController
         
