@@ -131,7 +131,6 @@ class HomeViewController: UIViewController, DAORequester {
         
     }
     
-    
 
     /*
     // MARK: - Navigation
@@ -256,7 +255,6 @@ extension HomeViewController: UIScrollViewDelegate {
             UIView.animate(withDuration: 0.5, animations: {
             self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
             self.navigationController?.navigationBar.shadowImage = UIImage()
-           // self.navigationController?.navigationBar.alpha = 0.8
                 
             }, completion: nil)
         }

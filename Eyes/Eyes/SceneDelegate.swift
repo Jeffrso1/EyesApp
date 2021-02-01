@@ -19,6 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, DAORequester {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
+        dao.loadTags()
+        
         let onBoarding = UIStoryboard(name: "OnBoarding", bundle: nil)
         if !UserDefaults.standard.bool(forKey: "firstLaunch") {
             if let windowScene = scene as? UIWindowScene {
@@ -29,8 +31,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, DAORequester {
             }
 
         }
-    
-        //dao.loadTags()
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         

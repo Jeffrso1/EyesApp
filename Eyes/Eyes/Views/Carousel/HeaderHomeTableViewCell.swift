@@ -31,7 +31,6 @@ class HeaderHomeTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 2
-        label.textAlignment = .center
         label.sizeToFit()
         label.minimumScaleFactor = 0.5
         return label
@@ -58,9 +57,10 @@ class HeaderHomeTableViewCell: UITableViewCell {
         
         button.setTitle(NSLocalizedString("Learn More", comment: ""), for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        button.setTitleColor(.darkText, for: .normal)
         
         button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        button.backgroundColor = .accentColor()
+        button.backgroundColor = .white
         button.layer.cornerRadius = 10
         button.isUserInteractionEnabled = true
         
@@ -152,7 +152,6 @@ class HeaderHomeTableViewCell: UITableViewCell {
             movieHeader.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             movieName.bottomAnchor.constraint(equalTo: timeAndGenre.topAnchor, constant: -5),
             timeAndGenre.bottomAnchor.constraint(equalTo: movieOverview.topAnchor, constant: -10),
-            movieOverview.bottomAnchor.constraint(equalTo: movieDetails.topAnchor, constant: -20),
             movieHeader.heightAnchor.constraint(equalToConstant: headerHeight),
             
         ])
@@ -166,6 +165,12 @@ class HeaderHomeTableViewCell: UITableViewCell {
             timeAndGenre.leadingAnchor.constraint(equalTo: movieName.leadingAnchor),
             movieOverview.leadingAnchor.constraint(equalTo: movieName.leadingAnchor),
             movieOverview.trailingAnchor.constraint(equalTo:centerXAnchor),
+            movieOverview.bottomAnchor.constraint(equalTo: movieHeader.bottomAnchor, constant: -15),
+            movieDetails.heightAnchor.constraint(equalToConstant: 50),
+            movieDetails.leadingAnchor.constraint(equalTo: movieHeader.centerXAnchor, constant: 80),
+            movieDetails.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor, constant: -20),
+            movieDetails.bottomAnchor.constraint(equalTo: movieHeader.bottomAnchor, constant: -15)
+            
         ])
         
         compactConstraints.append(contentsOf: [
@@ -178,8 +183,8 @@ class HeaderHomeTableViewCell: UITableViewCell {
             timeAndGenre.centerXAnchor.constraint(equalTo: movieName.centerXAnchor),
             movieOverview.centerXAnchor.constraint(equalTo: movieName.centerXAnchor),
             movieOverview.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor, constant: 10),
+            movieOverview.bottomAnchor.constraint(equalTo: movieDetails.topAnchor, constant: -20),
             movieOverview.trailingAnchor.constraint(equalTo:contentView.layoutMarginsGuide.trailingAnchor, constant: -10),
-            //movieDetails.widthAnchor.constraint(equalTo: movieOverview.widthAnchor),
             movieDetails.heightAnchor.constraint(equalToConstant: 50),
             movieDetails.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor, constant: 10),
             movieDetails.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor, constant: -10),
@@ -227,6 +232,7 @@ class HeaderHomeTableViewCell: UITableViewCell {
             // activating compact constraints
             NSLayoutConstraint.activate(compactConstraints)
             movieOverview.numberOfLines = 2
+            movieName.textAlignment = .center
             
         } else {
             if compactConstraints.count > 0 && compactConstraints[0].isActive {
@@ -234,6 +240,7 @@ class HeaderHomeTableViewCell: UITableViewCell {
             }
             // activating regular constraints
             NSLayoutConstraint.activate(regularConstraints)
+            movieName.textAlignment = .left
         }
     }
     

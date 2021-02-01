@@ -89,7 +89,7 @@ class Alert: UIViewController, MFMailComposeViewControllerDelegate {
             let arrayCurrentMovie = dao.selectedMovie
             
             let safariVC = SFSafariViewController(url: URL(string: "https://www.themoviedb.org/movie/\(arrayCurrentMovie!.id)")!)
-            safariVC.delegate = vc as! SFSafariViewControllerDelegate
+            safariVC.delegate = vc as? SFSafariViewControllerDelegate
             safariVC.modalPresentationStyle = .pageSheet
             
             vc.present(safariVC, animated: true, completion: nil)

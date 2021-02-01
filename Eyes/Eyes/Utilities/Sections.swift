@@ -14,7 +14,7 @@ struct Sections {
     
 }
 
-let sections : [Sections] = [Sections(sectionName: "Popular", sectionType: .popular), Sections(sectionName: "Now Playing", sectionType: .nowPlaying), Sections(sectionName: "Coming Next", sectionType: .upcoming), Sections(sectionName: "Top Rated", sectionType: .topRated)]
+let sections : [Sections] = [Sections(sectionName: NSLocalizedString("Popular", comment: ""), sectionType: .popular), Sections(sectionName: NSLocalizedString("Now Playing", comment: ""), sectionType: .nowPlaying), Sections(sectionName: NSLocalizedString("Upcoming", comment: ""), sectionType: .upcoming), Sections(sectionName: NSLocalizedString("Top Rated", comment: ""), sectionType: .topRated)]
 
 var sectionArray = [Sections]()
 

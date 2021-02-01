@@ -10,6 +10,8 @@ import CloudKitMagicCRUD
 
 class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, DAORequester {
     
+    let movies = dao.loadMoviesCK()
+    
     let button = TagButton()
     
     let responses = TestResponse()
@@ -142,11 +144,10 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
         }
         
         
-        
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     
         
     }
     
@@ -166,10 +167,14 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
             
             tagsSelected.append(contentsOf: [firstTag!, secondTag!])
             
-           // let arrayCurrentMovie = [Array(dao.movies)[dao.currentMovie]]
+           //let arrayCurrentMovie = [Array(dao.movies)[dao.currentMovie]]
         
             let movie = MyMovie(movieID: self.movie!.id, tags: selectedTags, tagsSelected: tagsSelected)
-            
+
+//                for i in 0..<movies.count {
+//
+//                    if movies[i].movieID != self.movie!.id {
+//
             movie.ckSave { result in
                 switch result {
                 case .success(let result):
@@ -178,20 +183,20 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
                     print(result)
                 case .failure(let error):
                     print(error)
-                    print("error")
+                    print("The Movie was not saved on CloudKit")
                 }
-            }
-                
+              //      }
+             //   }
+ 
             print("saving movie")
             
             haptic.setupNotificationHaptic(type: .success)
-        
-            
+                    
         }
   
     }
-    
-    
+        
+    }
     
     @IBAction func selectResponse(_ sender: UIButton) {
         
@@ -222,9 +227,7 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
             break
             
         }
-        
         saveResponse()
-        
     }
     
     func saveResponse() {
@@ -236,8 +239,7 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
             
         } else {
             
-            //haptic.setupNotificationHaptic(type: .error)
-            
+            haptic.setupNotificationHaptic(type: .error)
             
         }
         

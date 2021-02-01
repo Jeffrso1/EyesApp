@@ -119,6 +119,13 @@ class MovieDetailsViewController2: UIViewController {
         
     }
     
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        
+        navigationBar.blurredNavBar(view: self)
+        
+    }
+    
 }
 
 extension MovieDetailsViewController2: UITableViewDelegate, UITableViewDataSource {
@@ -228,11 +235,7 @@ extension MovieDetailsViewController2: UIScrollViewDelegate {
         
             UIView.animate(withDuration: 0.5, animations: {
                
-                self.navigationController?.navigationBar.alpha = 1.0
-                self.navigationController?.navigationBar.setBackgroundImage(nil, for: UIBarMetrics.default)
-                self.navigationController?.navigationBar.shadowImage = nil
-                self.navigationController?.navigationBar.isTranslucent = true
-                self.navigationController?.view.backgroundColor = UIColor.black
+                navigationBar.blurredNavBar(view: self)
                 
             }, completion: nil)
             

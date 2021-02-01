@@ -27,6 +27,20 @@ class NavigationBar {
 
     }
     
+    func blurredNavBar(view: UIViewController) {
+    
+        view.navigationController?.navigationBar.alpha = 1.0
+        view.navigationController?.navigationBar.setBackgroundImage(nil, for: UIBarMetrics.default)
+        view.navigationController?.navigationBar.shadowImage = nil
+        view.navigationController?.navigationBar.isTranslucent = true
+        view.navigationController?.view.backgroundColor = UIColor.black
+        
+        
+    }
+    
+    
+    
+    
 }
 
 //Pop View Controller
