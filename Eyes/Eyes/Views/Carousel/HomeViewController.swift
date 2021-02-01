@@ -22,6 +22,14 @@ class HomeViewController: UIViewController, DAORequester {
    
     }
 
+    @objc func configButtonWasPressed(sender: UIButton!) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let nextScene = storyboard.instantiateViewController(withIdentifier: "about") as! AboutAppViewController
+        
+        self.navigationController?.pushViewController(nextScene, animated: true)
+    }
+    
     private var compactConstraints: [NSLayoutConstraint] = []
     private var regularConstraints: [NSLayoutConstraint] = []
     private var sharedConstraints: [NSLayoutConstraint] = []
@@ -38,6 +46,9 @@ class HomeViewController: UIViewController, DAORequester {
         // Do any additional setup after loading the view.
         
         navigationController?.isNavigationBarHidden = false
+        let appConfig = UIBarButtonItem(image: SFSymbols.gearshape, style: .plain, target: self, action: #selector(configButtonWasPressed))
+        navigationItem.leftBarButtonItem = appConfig
+        
         self.navigationController?.navigationBar.tintColor = .white
         navigationBar.configNavBar(view: self)
         

@@ -62,6 +62,7 @@ class CatalogueViewController2: UIViewController {
         super.viewDidLoad()
         
         self.navigationController?.isNavigationBarHidden = true
+        
         view.backgroundColor = UIColor.backgroundColor()
         
         view.addSubview(viewBox)

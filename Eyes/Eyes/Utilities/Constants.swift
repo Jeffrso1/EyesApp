@@ -15,6 +15,7 @@ enum SFSymbols {
     static let heart = UIImage(systemName: "heart")
     static let heartFill = UIImage(systemName: "heart.fill")
     static let ellipsisCircleFill = UIImage(systemName: "ellipsis.circle.fill")
+    static let gearshape = UIImage(systemName: "gearshape.fill")
 }
 
 enum MovieDetailError: Error {
@@ -24,6 +25,7 @@ enum MovieDetailError: Error {
     case tmdbPageNotAvailable
     case castingNotAvailable
     case sharingNotAvailable
+    case gearshape
     
 }
 
