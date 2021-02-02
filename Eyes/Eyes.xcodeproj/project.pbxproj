@@ -129,7 +129,7 @@
 		71FD85AD25C1F2FF00FC7D9E /* CastCVCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCVCell2.swift; sourceTree = "<group>"; };
 		CF033A3025642EF900740FC9 /* CloudKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitViewController.swift; sourceTree = "<group>"; };
 		CF09B0082562E3AA00645FAC /* ShareImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareImage.swift; sourceTree = "<group>"; };
-		CF12DB14257BEDE9009DFDD8 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = Eyes/Views/TabBarController.swift; sourceTree = SOURCE_ROOT; };
+		CF12DB14257BEDE9009DFDD8 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = Eyes/Controller/TabBarController.swift; sourceTree = SOURCE_ROOT; };
 		CF1337EC254B297E00B377C6 /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
 		CF1BDE5E2540A970002FA236 /* Eyes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Eyes.entitlements; sourceTree = "<group>"; };
 		CF1BDE6C2540A98A002FA236 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -329,13 +329,17 @@
 		CFAE47D22541FD0400244D74 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CF12DB14257BEDE9009DFDD8 /* TabBarController.swift */,
+				CFFE8970253E27F6002BD1BA /* ViewController.swift */,
+				CF8994C025545B8900693C26 /* Storyboards */,
+				CF8994C425545BA400693C26 /* XIBs */,
 				CF3D56DA2576C45E0014B8D5 /* Search */,
+				CFE79DD225C9CB5600EF557D /* Favorites */,
 				CF7BA4A7255B02630015898C /* OnBoarding */,
 				CFB73C482559B73D00F7B7C9 /* Carousel */,
 				CF7BA4A3255B02380015898C /* Details */,
 				CFD17EC8255ABC0F00AF61F6 /* Movie Review */,
 				CFD17EC4255ABC0500AF61F6 /* About */,
+				CFAE47B92541CB8C00244D74 /* Utilities */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -397,6 +401,28 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
+		CFE79DD125C9CB3200EF557D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CFFE896C253E27F6002BD1BA /* AppDelegate.swift */,
+				CFFE896E253E27F6002BD1BA /* SceneDelegate.swift */,
+				CF12DB14257BEDE9009DFDD8 /* TabBarController.swift */,
+				CFFE89C3253E282C002BD1BA /* Bindings */,
+				CFFE89C4253E2846002BD1BA /* Services */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CFE79DD225C9CB5600EF557D /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				7115538125780B450068C0E1 /* FavoritesViewController.swift */,
+				7115538F2578126A0068C0E1 /* FavoritesCell.swift */,
+			);
+			name = Favorites;
+			path = OnBoarding/Favorites;
+			sourceTree = "<group>";
+		};
 		CFFE8960253E27F6002BD1BA = {
 			isa = PBXGroup;
 			children = (
@@ -423,19 +449,9 @@
 			isa = PBXGroup;
 			children = (
 				CF1BDE5E2540A970002FA236 /* Eyes.entitlements */,
-				CFFE896C253E27F6002BD1BA /* AppDelegate.swift */,
-				CFFE896E253E27F6002BD1BA /* SceneDelegate.swift */,
+				CFE79DD125C9CB3200EF557D /* Controller */,
 				CFAE47D22541FD0400244D74 /* Views */,
-				CFAE47B92541CB8C00244D74 /* Utilities */,
-				CFFE89C3253E282C002BD1BA /* Bindings */,
-				CFFE89C9253E285F002BD1BA /* Data */,
-				CFFE89C5253E2850002BD1BA /* Models */,
-				CFFE89C4253E2846002BD1BA /* Services */,
-				CF8994C025545B8900693C26 /* Storyboards */,
-				CF8994C425545BA400693C26 /* XIBs */,
-				CFFE8970253E27F6002BD1BA /* ViewController.swift */,
-				7115538125780B450068C0E1 /* FavoritesViewController.swift */,
-				7115538F2578126A0068C0E1 /* FavoritesCell.swift */,
+				CFFE89C5253E2850002BD1BA /* Model */,
 				CF846DAD2543955E00BBC7D3 /* MoviesCollectionViewCell.swift */,
 				CFE476192551FAE30053B5BA /* Localizable.strings */,
 				CFFE8975253E27F9002BD1BA /* Assets.xcassets */,
@@ -485,13 +501,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		CFFE89C5253E2850002BD1BA /* Models */ = {
+		CFFE89C5253E2850002BD1BA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CFFE89C9253E285F002BD1BA /* Data */,
 				CFAF6DC42540B1C40032A07B /* TMDB API */,
 				CF846D7B25422E7600BBC7D3 /* In-App */,
 			);
-			path = Models;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		CFFE89C9253E285F002BD1BA /* Data */ = {
@@ -917,7 +934,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Eyes/Eyes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 83KH3JF2CE;
 				INFOPLIST_FILE = Eyes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -940,7 +957,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Eyes/Eyes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 83KH3JF2CE;
 				INFOPLIST_FILE = Eyes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

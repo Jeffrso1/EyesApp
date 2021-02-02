@@ -9,16 +9,14 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate, DAORequester {
     
-    
-
     var window: UIWindow?
-
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
+        /*
         let onBoarding = UIStoryboard(name: "OnBoarding", bundle: nil)
         if !UserDefaults.standard.bool(forKey: "firstLaunch") {
             if let windowScene = scene as? UIWindowScene {
@@ -30,6 +28,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, DAORequester {
 
         }
         
+        */
+ 
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)

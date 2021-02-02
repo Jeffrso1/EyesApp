@@ -74,8 +74,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         //dao.loadMovie(movie: dao.movieList[indexPath.row], to: self)
         
-        overview.text = dao.movie?.overview
-        movieTitle.text = dao.movie?.title
+        //overview.text = dao.movie?.overview
+        //movieTitle.text = dao.movie?.title
      
         //cell.movieTitle.text = dao.movieList[indexPath.row].title
      
