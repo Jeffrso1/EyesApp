@@ -14,8 +14,6 @@ class HomeViewController: UIViewController, DAORequester {
     let headerID = "header"
     let listsID = "list"
     
-    //var moviesArray = [Movie]()
-    
     func updated() {
 
         tableView.reloadData()
@@ -44,7 +42,6 @@ class HomeViewController: UIViewController, DAORequester {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
         navigationController?.isNavigationBarHidden = false
         let appConfig = UIBarButtonItem(image: SFSymbols.gearshape, style: .plain, target: self, action: #selector(configButtonWasPressed))
         navigationItem.leftBarButtonItem = appConfig
@@ -74,7 +71,6 @@ class HomeViewController: UIViewController, DAORequester {
             
         }
 
-        
         setupConstraints()
         NSLayoutConstraint.activate(sharedConstraints)
         layoutTrait(traitCollection: UIScreen.main.traitCollection)
@@ -186,10 +182,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.movie = dao.popular[5]
             cell.setupCell(movie: dao.popular[5])
                 
-            } else {
-                
-            //cell.setupCell(movie: Movie.stubbedMovie)
-                
             }
 
             return cell
@@ -198,6 +190,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: listsID) as! MovieListTableViewCell
             
             cell.backgroundColor = .backgroundColor()
+            
+            cell.viewController = self
             
             var movies = [Movie]()
             
@@ -214,8 +208,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 movies = dao.nowPlaying
             }
             
-            cell.viewController = self
-            
             cell.setupCell(movies: movies, listTitle: sections[indexPath.row].sectionName)
             
             cell.updated()
@@ -223,6 +215,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
     }
+    
+    
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)

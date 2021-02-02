@@ -8,10 +8,8 @@
 import UIKit
 
 class MovieDetailsViewController2: UIViewController, DAORequester {
-  
     
     var favoriteButton = UIBarButtonItem()
-    
     var lastOffsetY : CGFloat = 0
     
     let headerID = "header"
@@ -34,9 +32,7 @@ class MovieDetailsViewController2: UIViewController, DAORequester {
     @objc func favoriteButtonWasPressed(sender: UIButton!) {
         favorites.movieFavoriteBarAction(movieID: movie!.id, barItem: navigationItem.rightBarButtonItems![1])
         haptic.setupImpactHaptic(style: .light)
-        
         favorites.isNewMovieAdded = true
-        
     }
     
     @objc func movieOptionsButtonWasPressed(sender: UIButton!) {
@@ -138,6 +134,7 @@ class MovieDetailsViewController2: UIViewController, DAORequester {
 }
 
 extension MovieDetailsViewController2: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -148,16 +145,12 @@ extension MovieDetailsViewController2: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if dao.selectedMovie == nil {
-            //dao.selectedMovie = currentMovie
-        }
-        
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: headerID) as! HeaderTableViewCell2
             
-            cell.setupCell(movie: movie!)
             cell.mainViewController = self
+            cell.setupCell(movie: movie!)
             
             return cell
             
@@ -176,8 +169,10 @@ extension MovieDetailsViewController2: UITableViewDelegate, UITableViewDataSourc
             
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: castID) as! CastListTableViewCell2
-            cell.movie = movie!
+            
             cell.setupCell()
+            cell.movie = movie!
+            
             
             return cell
             

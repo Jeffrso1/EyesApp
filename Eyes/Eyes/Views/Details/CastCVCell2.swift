@@ -61,8 +61,10 @@ class CastCVCell2: UICollectionViewCell {
         
         castName.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         castName.text = "Cast Name"
+        castName.numberOfLines = 2
         characterName.font = UIFont.systemFont(ofSize: 14)
         characterName.text = "Character Name"
+        characterName.numberOfLines = 2
         
     }
     

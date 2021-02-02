@@ -25,7 +25,7 @@ class FavoritesCell: UICollectionViewCell, UIContextMenuInteractionDelegate, Fav
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 10
+        imageView.layer.cornerRadius = 5
         
         return imageView
     }()
@@ -81,7 +81,7 @@ class FavoritesCell: UICollectionViewCell, UIContextMenuInteractionDelegate, Fav
    }
     
     func contextMenuInteraction(_ interaction: UIContextMenuInteraction, willEndFor configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionAnimating?) {
-        self.movieBanner.layer.cornerRadius = 7
+        self.movieBanner.layer.cornerRadius = 5
     }
     
     func favoriteRequester() {

@@ -108,6 +108,8 @@ Research based on:
 
 "Overview" = "Overview";
 
+"Cast" = "Cast";
+
 "Why Should You Watch It?" = "Why Should You Watch It?";
 
 "Movies" = "Movies";
@@ -127,3 +129,18 @@ Research based on:
 "Find movies on Trending or on Search" = "Find movies on Trending or on Search";
 
 "See in on TMDb" = "See in on TMDb";
+
+"Learn More" = "Learn More";
+
+"Watch Trailer" = "Watch Trailer";
+
+"Review_Movie" = "Review_Movie";
+
+//Sections
+"Popular" = "Popular";
+"Now Playing" = "Now Playing";
+"Top Rated" = "Top Rated";
+"Up Coming" = "Up Coming";
+
+//Tab Bar
+"Home" = "Início";

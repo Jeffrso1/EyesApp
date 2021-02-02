@@ -11,17 +11,19 @@ class MovieListTableViewCell: UITableViewCell, DAORequester {
    
     func updated() {
         
-        collectionView.reloadData()
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
         
     }
-    
-    var viewController = UIViewController()
     
     let movieListID = "movieList"
     
     var movies: [Movie] = []
     
-    var mainViewController = UIViewController()
+    var viewController = UIViewController()
+    
+    var indexPath: IndexPath = []
     
     let collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())

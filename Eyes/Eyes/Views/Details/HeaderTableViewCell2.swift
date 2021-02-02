@@ -66,8 +66,6 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate, DAO
     
 //    var delegate: MovieReviewDelegate!
     
-//    var currentMovie = dao.movies[Array(dao.movies)[dao.currentMovie].key]
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -252,13 +250,12 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate, DAO
             
         ])
         
-        movieBanner.image = UIImage(named: "wait")
-        
+        //movieBanner.image = UIImage(named: "wait")
         imageLoader.loadAsyncPosterImage(from: movie) { image in
             self.movieBanner.image = image
         }
         
-        movieHeader.image = UIImage(named: "wait")
+        //movieHeader.image = UIImage(named: "wait")
         imageLoader.loadAsyncImage(from: movie) { image in
             self.movieHeader.image = image
         }
@@ -297,10 +294,10 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate, DAO
         
         self.watchTrailer.backgroundColor = UIColor.accentColor()
         
-        setupButtonFeatures(button: watchTrailer, withLabel: "Watch Trailer", withImage: "film")
+        setupButtonFeatures(button: watchTrailer, withLabel: NSLocalizedString("Watch Trailer", comment: ""), withImage: "film")
         
         self.reviewMovie.backgroundColor = UIColor.accentColor()
-        setupButtonFeatures(button: reviewMovie, withLabel: "Review Movie", withImage: "square.and.pencil")
+        setupButtonFeatures(button: reviewMovie, withLabel: NSLocalizedString("Review_Movie", comment: ""), withImage: "square.and.pencil")
         
         //Configurações referentes ao gradiente do MovieHeader
         
@@ -332,6 +329,7 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate, DAO
         button.imageEdgeInsets.left = -10
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
         button.titleLabel?.textAlignment = .center
+        button.titleLabel?.numberOfLines = 2
         button.cornerRadius = 7
     }
     

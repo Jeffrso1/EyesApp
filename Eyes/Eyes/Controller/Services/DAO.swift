@@ -91,7 +91,7 @@ class DAO: MovieDelegate {
                 }
      
                 caller?.updated()
-  
+                    
             })
             
             
@@ -101,9 +101,6 @@ class DAO: MovieDelegate {
         
         
     }
-    
-    
-    
     
     func loadMoviesFromTrending(to caller: DAORequester?) {
         

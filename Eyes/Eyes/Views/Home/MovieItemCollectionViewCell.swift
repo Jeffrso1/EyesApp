@@ -40,8 +40,6 @@ class MovieItemCollectionViewCell: UICollectionViewCell {
         
         movieBanner.widthAnchor.constraint(equalToConstant: 110).isActive = true
         movieBanner.heightAnchor.constraint(equalToConstant: 160).isActive = true
-        
-        //movieBanner.image = UIImage(named: "wait")
       
         imageLoader.loadAsyncPosterImage(from: movie) { image in
             self.movieBanner.image = image

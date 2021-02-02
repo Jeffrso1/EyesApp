@@ -112,6 +112,8 @@ Pesquisa baseada em:
 
 "Overview" = "Mais Informações";
 
+"Cast" = "Elenco";
+
 "Why Should You Watch It?" = "Por que você deveria assitir?";
 
 "Movies" = "Filmes";
@@ -131,3 +133,18 @@ Pesquisa baseada em:
 "Find movies on Trending or on Search" = "Encontre filmes no Em Alta ou no Buscar";
 
 "See in on TMDb" = "Veja no TMDb";
+
+"Learn More" = "Saiba Mais";
+
+"Watch Trailer" = "Assistir Trailer";
+
+"Review_Movie" = "Analisar Filme";
+
+//Sections
+"Popular" = "Populares";
+"Now Playing" = "Disponível Agora";
+"Top Rated" = "Bem Avaliados";
+"Up Coming" = "Em breve";
+
+//Tab Bar
+"Home" = "Início";
