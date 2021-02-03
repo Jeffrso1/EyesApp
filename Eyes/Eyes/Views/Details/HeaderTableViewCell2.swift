@@ -268,29 +268,10 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate, DAO
         
         timeAndGenre.text = movie.durationText + " • " + movie.genreText
             
-        } else {
-          
-        let movieDetailState = MovieDetailState()
-            
-            movieDetailState.loadMovie(id: movie.id) { result in
-                
-                switch result {
-                case .success(let movie):
-                    return self.timeAndGenre.text = movie.durationText + " • " + movie.genreText
-                case .failure(_):
-                    break
-                }
-                
-                
-                
-            }
-       
-            
         }
         
         timeAndGenre.textAlignment = .center
         timeAndGenre.font = UIFont.systemFont(ofSize: 16)
-        
         
         self.watchTrailer.backgroundColor = UIColor.accentColor()
         

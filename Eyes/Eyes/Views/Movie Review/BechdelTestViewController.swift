@@ -170,11 +170,7 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
            //let arrayCurrentMovie = [Array(dao.movies)[dao.currentMovie]]
         
             let movie = MyMovie(movieID: self.movie!.id, tags: selectedTags, tagsSelected: tagsSelected)
-
-//                for i in 0..<movies.count {
-//
-//                    if movies[i].movieID != self.movie!.id {
-//
+            
             movie.ckSave { result in
                 switch result {
                 case .success(let result):
@@ -185,8 +181,7 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
                     print(error)
                     print("The Movie was not saved on CloudKit")
                 }
-              //      }
-             //   }
+              
  
             print("saving movie")
             
@@ -314,14 +309,13 @@ class BechdelTestViewController: UIViewController, UICollectionViewDelegate, UIC
     func setupMovie() {
         
         posterImage.layer.cornerRadius = 7
-        let blurEffect = UIBlurEffect(style: .light)
+        let blurEffect = UIBlurEffect(style: .regular)
         let blurView = UIVisualEffectView(effect: blurEffect)
         
         blurView.frame.size.width = UIScreen.main.bounds.width
         
         blurView.frame.size.height = (posterBlurImage.image?.size.height)!
         
-        //blurView.frame = posterBlurImage.frame
         posterBlurImage.addSubview(blurView)
         
     }

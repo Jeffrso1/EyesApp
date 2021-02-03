@@ -46,10 +46,29 @@ class HomeViewController: UIViewController, DAORequester {
         let appConfig = UIBarButtonItem(image: SFSymbols.gearshape, style: .plain, target: self, action: #selector(configButtonWasPressed))
         navigationItem.leftBarButtonItem = appConfig
         
+        navigationController?.navigationBar.topItem?.title = NSLocalizedString("Home", comment: "")
+        self.navigationItem.titleView = UIView()
+        
         self.navigationController?.navigationBar.tintColor = .white
         navigationBar.configNavBar(view: self)
         
-        // Configurações referentes à UITableView
+        setupTableView()
+        
+        for i in 0..<sections.count {
+        
+            dao.loadMovies(to: self, from: sections[i].sectionType)
+            
+        }
+
+        setupConstraints()
+        NSLayoutConstraint.activate(sharedConstraints)
+        layoutTrait(traitCollection: UIScreen.main.traitCollection)
+        
+    }
+    
+    func setupTableView() {
+        
+        // TableView Configuration
         tableView.dataSource = self
         tableView.delegate = self
         tableView.allowsSelection = false
@@ -65,17 +84,8 @@ class HomeViewController: UIViewController, DAORequester {
         tableView.register(HeaderHomeTableViewCell.self, forCellReuseIdentifier: headerID)
         tableView.register(MovieListTableViewCell.self, forCellReuseIdentifier: listsID)
         
-        for i in 0..<sections.count {
-        
-            dao.loadMovies(to: self, from: sections[i].sectionType)
-            
-        }
-
-        setupConstraints()
-        NSLayoutConstraint.activate(sharedConstraints)
-        layoutTrait(traitCollection: UIScreen.main.traitCollection)
-        
     }
+    
     
     // MARK: - Constraints
     func setupConstraints() {
