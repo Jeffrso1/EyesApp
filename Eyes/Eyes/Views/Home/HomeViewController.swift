@@ -59,6 +59,8 @@ class HomeViewController: UIViewController, DAORequester {
             dao.loadMovies(to: self, from: sections[i].sectionType)
             
         }
+        
+        dao.loadMovie(movie: 464052, to: self)
 
         setupConstraints()
         NSLayoutConstraint.activate(sharedConstraints)
@@ -187,10 +189,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.mainViewController = self
             
             
-            if dao.popular.count != 0 {
+            
+            if dao.movie != nil {
                 
-            cell.movie = dao.popular[5]
-            cell.setupCell(movie: dao.popular[5])
+            cell.movie = dao.movie!
+            cell.setupCell(movie: dao.movie!)
                 
             }
 
@@ -225,9 +228,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
     }
-    
-    
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         self.navigationController?.navigationBar.tintColor = UIColor.white
@@ -241,8 +242,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 extension HomeViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-                
         let transition = CATransition()
         transition.duration = 0.6
         transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
