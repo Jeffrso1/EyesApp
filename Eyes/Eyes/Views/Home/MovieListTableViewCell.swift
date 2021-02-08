@@ -63,6 +63,8 @@ class MovieListTableViewCell: UITableViewCell, DAORequester {
             layout.scrollDirection = .horizontal
         }
         
+        collectionView.showsHorizontalScrollIndicator = false
+        
         titleLabel.text = withTitle
         
         self.movies = movies
@@ -75,7 +77,7 @@ class MovieListTableViewCell: UITableViewCell, DAORequester {
     func setupConstraints() {
         
         titleLabel.leadingAnchor.constraint(equalTo: self.layoutMarginsGuide.leadingAnchor).isActive = true
-        titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
         titleLabel.bottomAnchor.constraint(equalTo: collectionView.topAnchor, constant: -10).isActive = true
         titleLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         
@@ -85,7 +87,7 @@ class MovieListTableViewCell: UITableViewCell, DAORequester {
         collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
         //collectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
         collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-        collectionView.heightAnchor.constraint(equalToConstant: 180)
+        collectionView.heightAnchor.constraint(equalToConstant: 170)
             
         ])
         
@@ -127,7 +129,7 @@ extension MovieListTableViewCell: UICollectionViewDelegate, UICollectionViewData
 extension MovieListTableViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 110, height: 160)
+        return CGSize(width: 100, height: 150)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
