@@ -9,6 +9,8 @@ import UIKit
 
 class HomeViewController: UIViewController, DAORequester {
   
+    let movieItem = MovieItemCollectionViewCell()
+    
     var lastOffsetY : CGFloat = 0
     
     let headerID = "header"

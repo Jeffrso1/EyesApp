@@ -8,6 +8,8 @@
 import UIKit
 
 class MovieItemCollectionViewCell: UICollectionViewCell {
+
+    public var isImageLoaded: Bool = false
     
     let movieBanner: UIImageView = {
         let imageView = UIImageView()
@@ -17,6 +19,7 @@ class MovieItemCollectionViewCell: UICollectionViewCell {
         imageView.layer.cornerRadius = 3
         return imageView
     }()
+    
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -40,9 +43,15 @@ class MovieItemCollectionViewCell: UICollectionViewCell {
         
         movieBanner.widthAnchor.constraint(equalToConstant: 100).isActive = true
         movieBanner.heightAnchor.constraint(equalToConstant: 150).isActive = true
-      
+        
+        if !isImageLoaded {
+        
         imageLoader.loadAsyncPosterImage(from: movie) { image in
             self.movieBanner.image = image
+            self.isImageLoaded = true
         }
+            
+        }
+        
     }  
 }
