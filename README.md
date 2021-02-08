@@ -1,4 +1,4 @@
-<img src="icon.png" align="center" />
+<img src="icon.jpg" align="center" />
 
 # Eyes: Diversity in Movies
 
