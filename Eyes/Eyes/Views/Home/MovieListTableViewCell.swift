@@ -21,7 +21,7 @@ class MovieListTableViewCell: UITableViewCell, DAORequester {
     
     let movieListID = "movieList"
     
-    var movies: [Movie] = []
+    var movies: [Movie]?
     
     var viewController = UIViewController()
     
@@ -42,18 +42,17 @@ class MovieListTableViewCell: UITableViewCell, DAORequester {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     
-    func setupCell(movies: [Movie], listTitle withTitle: String) {
-        
-        self.movies = movies
-        
+    
+    func setupCell(endpoint: MovieListEndpoint, listTitle withTitle: String) {
+    
         contentView.addSubview(collectionView)
         contentView.addSubview(titleLabel)
         
@@ -68,10 +67,20 @@ class MovieListTableViewCell: UITableViewCell, DAORequester {
         collectionView.backgroundColor = UIColor.backgroundColor()
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 20.0, bottom: 20.0, right: 20.0)
         
-        titleLabel.text = withTitle
-        setupConstraints()
+        if self.movies == nil {
         
+            dao.loadMovies(from: endpoint) { movies in
+                self.movies = movies
+            }
+            
+        }
+        
+        titleLabel.text = withTitle
+
+        setupConstraints()
+ 
     }
+    
 
     func setupConstraints() {
         
@@ -84,7 +93,6 @@ class MovieListTableViewCell: UITableViewCell, DAORequester {
         
         collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
         collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-        //collectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
         collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
         collectionView.heightAnchor.constraint(equalToConstant: 170)
             
@@ -98,7 +106,7 @@ extension MovieListTableViewCell: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return movies.count
+        return movies?.count ?? 0
        
     }
     
@@ -106,7 +114,7 @@ extension MovieListTableViewCell: UICollectionViewDelegate, UICollectionViewData
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: movieListID, for: indexPath) as! MovieItemCollectionViewCell
         
-        cell.setupCell(movie: movies[indexPath.row])
+        cell.setupCell(movie: movies![indexPath.row])
         
         return cell
     }
@@ -116,7 +124,7 @@ extension MovieListTableViewCell: UICollectionViewDelegate, UICollectionViewData
         let nextScene = MovieDetailsViewController2()
         
         //Passa o filme para a variável "movie" da MovieDetailsViewController
-        nextScene.movie = movies[indexPath.row]
+        nextScene.movie = movies?[indexPath.row]
   
         self.viewController.navigationController?.pushViewController(nextScene, animated: true)
         

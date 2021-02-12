@@ -68,29 +68,36 @@ class DAO: MovieDelegate {
         loadTagsSelected()
     }
     
-    func loadMovies(to caller: DAORequester?, from endpoint: MovieListEndpoint) {
+    func loadMovies(from endpoint: MovieListEndpoint, completion: @escaping ([Movie]) -> ()) {
         
         movieListState.loadMovies(with: endpoint) { movies in
             
             self.loadMovieLocalized(movies: movies, completion: { movies in
                
-                for movie in movies {
+                completion(movies)
                 
-                    switch endpoint {
-                    case .nowPlaying:
-                        self.nowPlaying.append(movie)
-                    case .upcoming:
-                        self.upComing.append(movie)
-                    case .topRated:
-                        self.topRated.append(movie)
-                    case .popular:
-                        self.popular.append(movie)
-                    case .trendingWeek:
-                        self.trending.append(movie)
-                    }
-                }
+              //  for movie in movies {
+                
+//                    switch endpoint {
+//                    case .nowPlaying:
+//                        completion(movie)
+//                        //self.nowPlaying.append(movie)
+//                    case .upcoming:
+//                        completion(movie)
+//                        //self.upComing.append(movie)
+//                    case .topRated:
+//                        completion(movie)
+//                        //self.topRated.append(movie)
+//                    case .popular:
+//                        completion(movie)
+//                        //self.popular.append(movie)
+//                    case .trendingWeek:
+//                        completion(movie)
+//                        //self.trending.append(movie)
+//                    }
+             //   }
      
-                caller?.updated()
+                //caller?.updated()
                     
             })
         }
@@ -114,7 +121,7 @@ class DAO: MovieDelegate {
         }
     }
     
-    func loadMovie(movie: Int, to caller: DAORequester?)  {
+    func loadMovie(movie: Int, to caller: DAORequester?) {
         
         movieLoadingState.loadMovie(id: movie) { movie in
             

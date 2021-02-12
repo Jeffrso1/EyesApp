@@ -343,6 +343,7 @@
 				CF7BA4A7255B02630015898C /* OnBoarding */,
 				CFD17EC8255ABC0F00AF61F6 /* Movie Review */,
 				CFD17EC4255ABC0500AF61F6 /* About */,
+				CFDAA26D25D7121F00796904 /* Catalogue */,
 				CFAE47B92541CB8C00244D74 /* Utilities */,
 			);
 			path = Views;
@@ -364,12 +365,6 @@
 				CF5F1E1625C07E89001F76CD /* HeaderHomeTableViewCell.swift */,
 				CF5F1E1B25C090AC001F76CD /* MovieListTableViewCell.swift */,
 				CF5F1E2025C091B4001F76CD /* MovieItemCollectionViewCell.swift */,
-				713367712541F2A5005919E8 /* CatalogueViewController.swift */,
-				716A0E0525B61A9A00BDB23C /* CatalogueViewController2.swift */,
-				CFB73C522559C4B000F7B7C9 /* CarouselPageVC.swift */,
-				CFE01210255B27B500F29B6C /* CarouselItemVC.swift */,
-				7133677B2541F4A9005919E8 /* CarouselItemView.swift */,
-				7184A568255B4D180078CDBA /* CarouselTagCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -396,6 +391,19 @@
 				CFB76C0B254A0F9F00C3C6A1 /* EndReviewViewController.swift */,
 			);
 			path = "Movie Review";
+			sourceTree = "<group>";
+		};
+		CFDAA26D25D7121F00796904 /* Catalogue */ = {
+			isa = PBXGroup;
+			children = (
+				713367712541F2A5005919E8 /* CatalogueViewController.swift */,
+				716A0E0525B61A9A00BDB23C /* CatalogueViewController2.swift */,
+				CFB73C522559C4B000F7B7C9 /* CarouselPageVC.swift */,
+				CFE01210255B27B500F29B6C /* CarouselItemVC.swift */,
+				7133677B2541F4A9005919E8 /* CarouselItemView.swift */,
+				7184A568255B4D180078CDBA /* CarouselTagCell.swift */,
+			);
+			path = Catalogue;
 			sourceTree = "<group>";
 		};
 		CFE011D6255B266200F29B6C /* Recovered References */ = {

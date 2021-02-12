@@ -23,6 +23,8 @@ class HomeViewController: UIViewController, DAORequester {
         tableView.reloadData()
   
     }
+    
+    var movies = [Movie]()
 
     @objc func configButtonWasPressed(sender: UIButton!) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -68,9 +70,7 @@ class HomeViewController: UIViewController, DAORequester {
         
         for i in 0..<sections.count {
             
-            let collectionView = tableView.cellForRow(at: IndexPath.init(row: i, section: 1)) as? DAORequester
-        
-            dao.loadMovies(to: collectionView, from: sections[i].sectionType)
+            //let collectionView = tableView.cellForRow(at: IndexPath.init(row: i, section: 1)) as? DAORequester
             
         }
 
@@ -168,9 +168,6 @@ class HomeViewController: UIViewController, DAORequester {
     override func viewDidAppear(_ animated: Bool) {
         //super.init(true)
         
-        
-        
-        
     }
     
 
@@ -227,27 +224,26 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             
             cell.backgroundColor = .backgroundColor()
             
-            var movies = [Movie]()
+//            switch indexPath.row {
+//            case 0:
+//                movies = dao.popular
+//            case 1:
+//                movies = dao.nowPlaying
+//            case 2:
+//                movies = dao.upComing
+//            case 3:
+//                movies = dao.topRated
+//            default:
+//                movies = dao.nowPlaying
+//            }
             
-            switch indexPath.row {
-            case 0:
-                movies = dao.popular
-            case 1:
-                movies = dao.nowPlaying
-            case 2:
-                movies = dao.upComing
-            case 3:
-                movies = dao.topRated
-            default:
-                movies = dao.nowPlaying
-            }
-            
-            cell.setupCell(movies: movies, listTitle: sections[indexPath.row].sectionName)
-  
+            cell.setupCell(endpoint: sections[indexPath.row].sectionType, listTitle:sections[indexPath.row].sectionName)
+                            
             cell.updated()
 
             return cell
         }
+        
     }
 
     override func viewWillDisappear(_ animated: Bool) {
