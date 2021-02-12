@@ -9,6 +9,8 @@ import UIKit
 
 class MovieItemCollectionViewCell: UICollectionViewCell {
     
+    let imageLoader = ImageLoader()
+    
     let movieBanner: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -41,11 +43,12 @@ class MovieItemCollectionViewCell: UICollectionViewCell {
         
         movieBanner.widthAnchor.constraint(equalToConstant: 100).isActive = true
         movieBanner.heightAnchor.constraint(equalToConstant: 150).isActive = true
-   
-        imageLoader.loadAsyncPosterImage(from: movie) { image in
-            self.movieBanner.image = image
-            
-        }
         
+        imageLoader.loadImage(with: movie.posterURL!, completion: { image in
+            
+            self.movieBanner.image = image
+      
+        })
+
     }  
 }

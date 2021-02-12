@@ -93,13 +93,7 @@ class DAO: MovieDelegate {
                 caller?.updated()
                     
             })
-            
-            
- 
         }
-        
-        
-        
     }
     
     func loadMoviesFromTrending(to caller: DAORequester?) {
@@ -242,7 +236,7 @@ class DAO: MovieDelegate {
                 self.myMovies[movieID] = result as! MyMovie
                 caller.updated()
             case .failure(let error):
-                print("NAO FUNCIONA")
+                print(error)
             }
             
         })

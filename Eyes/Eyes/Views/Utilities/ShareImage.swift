@@ -9,6 +9,8 @@ import UIKit
 
 class ShareImage: UIViewController, DAORequester {
     
+    let imageLoader = ImageLoader()
+    
     let cellID = "tagCell"
     
     var movie : Movie
@@ -26,6 +28,8 @@ class ShareImage: UIViewController, DAORequester {
         tagsCV.contentInset.left = 15
         tagsCV.showsHorizontalScrollIndicator = false
         
+        
+        view.backgroundColor = .black
         
         view.addSubview(movieBanner)
         view.addSubview(moviePoster)
@@ -111,8 +115,8 @@ class ShareImage: UIViewController, DAORequester {
         let uiButton = UIButton()
         uiButton.translatesAutoresizingMaskIntoConstraints = false
         
-        uiButton.backgroundColor = UIColor(named: "AccentColor")
-        uiButton.setTitleColor(.white, for: .normal)
+        uiButton.backgroundColor = .white
+        uiButton.setTitleColor(.black, for: .normal)
         uiButton.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         uiButton.sizeToFit()
         
@@ -133,8 +137,7 @@ class ShareImage: UIViewController, DAORequester {
         
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
-        
-        
+    
         image.image = UIImage(named: "shareLogo")
         
         return image
@@ -146,13 +149,9 @@ class ShareImage: UIViewController, DAORequester {
         self.movie = movie
         super.init(nibName: nil, bundle: nil)
         movieName.text = movie.title
-        //movieDescription.text = movie.overview
         timeAndGenre.text = movie.durationText + " • " + movie.genreText
-        
-        moviePoster.image = UIImage(named: "wait")!
-        movieBanner.image = UIImage(named: "wait")!
-        
-        loadAsyncImage(from: movie) { image in
+       
+        imageLoader.loadImage(with: movie.posterURL!) { image in
             self.moviePoster.image = image
             self.movieBanner.image = image
         }
@@ -279,10 +278,11 @@ class ShareImage: UIViewController, DAORequester {
         
         movieBanner.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
         
-        let blurEffect = UIBlurEffect(style: .dark)
+        let blurEffect = UIBlurEffect(style: .systemThinMaterial)
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.translatesAutoresizingMaskIntoConstraints = false
         blurView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: movieBanner.bounds.height)
+        movieBanner.alpha = 0.5
         movieBanner.addSubview(blurView)
         
         NSLayoutConstraint.activate([
@@ -305,28 +305,6 @@ class ShareImage: UIViewController, DAORequester {
         NSLayoutConstraint(item: shareLogo, attribute: .top, relatedBy: .equal, toItem: tagButton, attribute: .bottom, multiplier: 1, constant: 30).isActive = true
         
     }
-    
-    
-    fileprivate func loadAsyncImage(from movie: Movie, then completion: @escaping (UIImage)->Void) {
-        if let data = movie.imageData {
-            if let currentImage = UIImage(data: data) {
-                completion(currentImage)
-            }
-        }
-        else if let url = movie.posterURL {
-            DispatchQueue.global().async {
-                if let data = try? Data(contentsOf: url) {
-                    movie.imageData = data
-                    DispatchQueue.main.async {
-                        if let currentImage = UIImage(data: data) {
-                            completion(currentImage)
-                        }
-                    }
-                }
-            }
-        }
-    }
-    
 
     /*
     // MARK: - Navigation

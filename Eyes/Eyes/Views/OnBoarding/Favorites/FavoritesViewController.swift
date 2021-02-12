@@ -130,8 +130,6 @@ class FavoritesViewController: UIViewController, DAORequester, FavoritesDelegate
         navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
         navigationController?.navigationBar.shadowImage = nil
         
-        //print(favorites.isNewMovieAdded)
-        
         if favorites.isNewMovieAdded == true {
         
             self.favoritesCollectionView.reloadData()
@@ -197,9 +195,9 @@ extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDat
         cell.delegate = self
         
         if dao.favoriteMovies.count < favoriteList.count {
-            cell.setupCell(movie: Movie.stubbedMovie, check: false)
+            //cell.setupCell(movie: Movie.stubbedMovie, check: false)
         } else {
-            cell.setupCell(movie: dao.favoriteMovies[Int(favoriteList[indexPath.row])!]!, check: true)
+        cell.setupCell(movie: dao.favoriteMovies[Int(favoriteList[indexPath.row])!]!, check: true)
         }
         
         return cell
@@ -214,7 +212,6 @@ extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDat
         nextScene.movie = dao.favoriteMovies[Int(favoriteList[indexPath.row])!]!
         
         navigationController?.pushViewController(nextScene, animated: true)
-        
     }
     
     private func setupFavoriteCV() {

@@ -20,6 +20,8 @@ class FavoritesCell: UICollectionViewCell, UIContextMenuInteractionDelegate, Fav
     
     var delegate:FavoritesDelegate!
     
+    let imageLoader = ImageLoader()
+    
     let movieBanner: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -38,23 +40,23 @@ class FavoritesCell: UICollectionViewCell, UIContextMenuInteractionDelegate, Fav
     func setupCell(movie: Movie, check isImageLoaded: Bool) {
         addSubview(movieBanner)
         
+        self.movie = movie
+        
         movieBanner.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         movieBanner.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         movieBanner.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
         movieBanner.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
         
-        if isImageLoaded == true {
-            imageLoader.loadAsyncPosterImage(from: movie) { image in
-                self.movieBanner.image = image
-            }
-        } else {
-            movieBanner.image = UIImage(named: "wait")
-        }
+        imageLoader.loadImage(with: movie.posterURL!, completion: { image in
+        
+            self.movieBanner.image = image
+        
+        })
+        
         
         let interaction = UIContextMenuInteraction(delegate: self)
         self.addInteraction(interaction)
-
-        self.movie = movie
+        
     }
     
     required init?(coder: NSCoder) {

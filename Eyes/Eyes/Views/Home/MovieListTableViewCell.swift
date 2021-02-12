@@ -9,8 +9,10 @@ import UIKit
 
 class MovieListTableViewCell: UITableViewCell, DAORequester {
    
+    let movieDetailsState = MovieDetailState()
+    
     func updated() {
-        
+
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
@@ -50,30 +52,27 @@ class MovieListTableViewCell: UITableViewCell, DAORequester {
     
     func setupCell(movies: [Movie], listTitle withTitle: String) {
         
+        self.movies = movies
+        
         contentView.addSubview(collectionView)
         contentView.addSubview(titleLabel)
-        
-        collectionView.register(MovieItemCollectionViewCell.self, forCellWithReuseIdentifier: movieListID)
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.backgroundColor = UIColor.backgroundColor()
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: 20.0, bottom: 20.0, right: 20.0)
         
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
         }
         
+        collectionView.register(MovieItemCollectionViewCell.self, forCellWithReuseIdentifier: movieListID)
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.backgroundColor = UIColor.backgroundColor()
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 20.0, bottom: 20.0, right: 20.0)
         
         titleLabel.text = withTitle
-        
-        self.movies = movies
-        
         setupConstraints()
         
     }
-    
-    
+
     func setupConstraints() {
         
         titleLabel.leadingAnchor.constraint(equalTo: self.layoutMarginsGuide.leadingAnchor).isActive = true
@@ -106,7 +105,7 @@ extension MovieListTableViewCell: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: movieListID, for: indexPath) as! MovieItemCollectionViewCell
-
+        
         cell.setupCell(movie: movies[indexPath.row])
         
         return cell

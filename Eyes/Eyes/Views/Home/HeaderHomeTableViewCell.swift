@@ -9,6 +9,8 @@ import UIKit
 
 class HeaderHomeTableViewCell: UITableViewCell {
 
+    let imageLoader = ImageLoader()
+    
     var movie: Movie?
     
     let gradient = CAGradientLayer()
@@ -98,14 +100,13 @@ class HeaderHomeTableViewCell: UITableViewCell {
         movieHeader.addSubview(movieName)
         movieHeader.addSubview(timeAndGenre)
         movieHeader.addSubview(movieOverview)
-        
-        //self.movieHeader.image = UIImage(named: "wait")
-        
-        imageLoader.loadAsyncImage(from: movie) { image in
+      
+        imageLoader.loadImage(with: movie.backdropURL!, completion: { image in
             
-           self.movieHeader.image = image
+            self.movieHeader.image = image
             
-        }
+        })
+        
         
         movieDetails.addTarget(self, action: #selector(learnMore), for: .touchUpInside)
         

@@ -11,11 +11,12 @@ import Foundation
 
 public class MovieDetailState {
     
-    var delegate: MovieDelegate?
-    
     private let movieService: MovieService
+    //@Published
     var movie: Movie?
+    //@Published
     public var isLoading = false
+   // @Published
     public var error: NSError?
     
     init(movieService: MovieService = MovieStore.shared) {
@@ -26,32 +27,19 @@ public class MovieDetailState {
      Load a single movie using its unique identifier
     */
  
-    func loadMovie(id: Int, completion: @escaping (Result<Movie, MovieError>) -> ()) {
-        //self.movie = nil
-        self.isLoading = true
+    func loadMovie(id: Int) {
+        self.movie = nil
+        self.isLoading = false
         self.movieService.fetchMovie(id: id) {[weak self] (result) in
             guard let self = self else { return }
-            self.isLoading = false
-            completion(result)
-        }
-    }
-    
-    func loadImage(to movie: Movie) {
-       
-            DispatchQueue.global().async {
             
-                guard let url = movie.posterURL else { return }
-                
-                 movie.imageData = try? Data(contentsOf: url)
-           
-                DispatchQueue.main.async {
-                    self.delegate?.imageUpdated()
-                }
-               
+            self.isLoading = false
+            switch result {
+            case .success(let movie):
+                self.movie = movie
+            case .failure(let error):
+                self.error = error as NSError
+            }
         }
-        
     }
-    
-    
-    
 }

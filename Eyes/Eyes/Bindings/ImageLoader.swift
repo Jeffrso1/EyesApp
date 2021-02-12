@@ -9,14 +9,13 @@
 import SwiftUI
 import UIKit
 
-//typealias ImageCacheLoaderCompletionHandler =
-
 private let _imageCache = NSCache<AnyObject, AnyObject>()
 
-public class ImageLoader {
-  
-    var image: UIImage?
-    var isLoading = false
+class ImageLoader: ObservableObject {
+    
+    @Published var image: UIImage?
+    @Published var isLoading = false
+    
     var imageCache = _imageCache
 
     /*
@@ -26,19 +25,13 @@ public class ImageLoader {
      
     */
     
-    func loadImage(with url: URL, completion: @escaping (UIImage) -> ()) {
-        
-        let placeholder = UIImage(named: "wait")!
-        completion(placeholder)
-        
+    func loadImage(with url: URL) {
         let urlString = url.absoluteString
         if let imageFromCache = imageCache.object(forKey: urlString as AnyObject) as? UIImage {
-            completion(imageFromCache)
             self.image = imageFromCache
-            print("Image from cache: \(String(describing: self.image))")
             return
         }
-       
+        
         DispatchQueue.global(qos: .background).async { [weak self] in
             guard let self = self else { return }
             do {
@@ -48,14 +41,11 @@ public class ImageLoader {
                 }
                 self.imageCache.setObject(image, forKey: urlString as AnyObject)
                 DispatchQueue.main.async { [weak self] in
-                    completion(image)
                     self?.image = image
                 }
             } catch {
                 print(error.localizedDescription)
             }
         }
-        
-        
     }
 }

@@ -9,15 +9,19 @@ import UIKit
 
 class HomeViewController: UIViewController, DAORequester {
   
+    let imageLoader = ImageLoader()
+    
+    let movieListTVC = MovieListTableViewCell()
+    
     var lastOffsetY : CGFloat = 0
     
     let headerID = "header"
     let listsID = "list"
     
     func updated() {
-
+        
         tableView.reloadData()
-   
+  
     }
 
     @objc func configButtonWasPressed(sender: UIButton!) {
@@ -46,27 +50,38 @@ class HomeViewController: UIViewController, DAORequester {
         let appConfig = UIBarButtonItem(image: SFSymbols.gearshape, style: .plain, target: self, action: #selector(configButtonWasPressed))
         navigationItem.leftBarButtonItem = appConfig
         
-        navigationController?.navigationBar.topItem?.title = NSLocalizedString("Home", comment: "")
-        self.navigationItem.titleView = UIView()
-        
         self.navigationController?.navigationBar.tintColor = .white
         navigationBar.configNavBar(view: self)
         
         setupTableView()
         
-        for i in 0..<sections.count {
-        
-            dao.loadMovies(to: self, from: sections[i].sectionType)
-            
-        }
-        
-        dao.loadMovie(movie: 464052, to: self)
+        loadingMovieList()
+        loadHeaderMovie()
 
         setupConstraints()
         NSLayoutConstraint.activate(sharedConstraints)
         layoutTrait(traitCollection: UIScreen.main.traitCollection)
         
     }
+
+    func loadingMovieList() {
+        
+        for i in 0..<sections.count {
+            
+            let collectionView = tableView.cellForRow(at: IndexPath.init(row: i, section: 1)) as? DAORequester
+        
+            dao.loadMovies(to: collectionView, from: sections[i].sectionType)
+            
+        }
+
+    }
+    
+    func loadHeaderMovie() {
+        
+        dao.loadMovie(movie: 464052, to: self)
+        
+    }
+    
     
     func setupTableView() {
         
@@ -150,6 +165,14 @@ class HomeViewController: UIViewController, DAORequester {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        //super.init(true)
+        
+        
+        
+        
+    }
+    
 
     /*
     // MARK: - Navigation
@@ -188,8 +211,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             
             cell.mainViewController = self
             
-            
-            
             if dao.movie != nil {
                 
             cell.movie = dao.movie!
@@ -202,9 +223,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: listsID) as! MovieListTableViewCell
             
-            cell.backgroundColor = .backgroundColor()
-            
             cell.viewController = self
+            
+            cell.backgroundColor = .backgroundColor()
             
             var movies = [Movie]()
             
@@ -222,9 +243,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             }
             
             cell.setupCell(movies: movies, listTitle: sections[indexPath.row].sectionName)
-            
+  
             cell.updated()
-    
+
             return cell
         }
     }

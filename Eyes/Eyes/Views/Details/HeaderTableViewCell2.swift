@@ -18,6 +18,10 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate, DAO
     
     var mainViewController = UIViewController()
     
+    let imageLoad = ImageLoader()
+    
+    let movieDetailState = MovieDetailState()
+    
     let movieHeader: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -63,8 +67,6 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate, DAO
     }()
     
     var movie: Movie?
-    
-//    var delegate: MovieReviewDelegate!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -130,10 +132,6 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate, DAO
     }
     
     @objc func reviewMovieWasPressed(sender: UIButton!) {
-        
-//        if(self.delegate != nil){ //Just to be safe.
-//            self.delegate.callSegueFromCell(dataObject: movie!)
-//        }
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
@@ -250,12 +248,12 @@ class HeaderTableViewCell2: UITableViewCell, SFSafariViewControllerDelegate, DAO
             
         ])
         
-        //movieBanner.image = UIImage(named: "wait")
-        imageLoader.loadAsyncPosterImage(from: movie) { image in
+        imageLoad.loadImage(with: movie.posterURL!, completion: { image in
+   
             self.movieBanner.image = image
-        }
+            
+        })
         
-        //movieHeader.image = UIImage(named: "wait")
         imageLoader.loadAsyncImage(from: movie) { image in
             self.movieHeader.image = image
         }
