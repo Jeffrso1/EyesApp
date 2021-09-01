@@ -1,6 +1,6 @@
-<img src="icon.jpg" align="center" />
-
 # Eyes: Diversity in Movies
+
+<img src="icon.jpg" align="center" />
 
 Looking for movie suggestions that value female representativeness in films?
 Perfect! Now you have Eyes.
